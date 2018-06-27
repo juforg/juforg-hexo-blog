@@ -1,41 +1,3374 @@
-extends base
-- var current_title = page.title || tag.name || category.name || site.title
+<!DOCTYPE html>
 
-block title
-  title= (config.title ? (config.subtitle ? config.title + " | " + config.subtitle : config.title) : "")
 
-block main
 
-  article
-    #index-main.container.entries
-      for post in page.posts.toArray()
-        .post-entry
-          .post-time= post.date.format(config.date_format)
-          .post-desc
-            .post-title
-              if post.link
-                  a(href=url_for(post.link),target="_blank", itemprop="url")= post.title
-              else
-                  a(href=url_for(post.path))= post.title
 
-            .post-content
-              if post.description
-                != post.description
-              else if post.excerpt
-                != post.excerpt
-              else if post.content
-                - var br = post.content.indexOf('</p>')
-                if br < 0
-                  != post.content
-                else
-                  != post.content.substring(0, br + 4)
 
-            .post-meta
-              if (post.tags && post.tags.length)
-                .post-tags
-                  != list_tags(post.tags, {show_count: false, class: 'post-tag', style:'none', separator:'/'})
-              if (post.categories && post.categories.length)
-                .post-categories
-                  != list_categories(post.categories, {show_count: false, class: 'post-category', style: 'none', separator: '>'})
 
-  include _partial/paginator.jade
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+<meta name="keywords" content="juforg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="夕拾阁">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="以大多数人的努力程度之低还轮不到拼天赋">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="夕拾阁">
+<meta name="twitter:description" content="以大多数人的努力程度之低还轮不到拼天赋">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>夕拾阁</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-81118574-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81118574-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Juforg 的个人主页 夕拾阁</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-weaponbook">
+    <a href="/weaponbook/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />兵器谱</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-list"></i> <br />项目</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/30/2016-12-30-jekins配合sonar配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/30/2016-12-30-jekins配合sonar配置/" itemprop="url">
+                  jekins配合sonar配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-30 17:34:25" itemprop="dateCreated datePublished" datetime="2016-12-30T17:34:25+08:00">2016-12-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-06 18:00:07" itemprop="dateModified" datetime="2017-01-06T18:00:07+08:00">2017-01-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/30/2016-12-30-jekins配合sonar配置/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/12/30/2016-12-30-jekins配合sonar配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="What"><a href="#What" class="headerlink" title="What ?"></a>What ?</h2><p>Sonar是一个用于代码质量管理的开源平台</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why ?"></a>Why ?</h2><h2 id="Where"><a href="#Where" class="headerlink" title="Where?"></a>Where?</h2><p><a href="https://www.sonarqube.org/" target="_blank" rel="noopener">https://www.sonarqube.org/</a></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h2 id="sonar安装"><a href="#sonar安装" class="headerlink" title="sonar安装"></a><kbd><strong>sonar安装</strong></kbd></h2><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><code>useradd sonar</code><br><code>passwd sonar</code><br><code>cd /opt/soft/</code><br><code>wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.6.4.zip</code><br><code>unzip sonarqube-5.6.4.zip</code><br><code>vi $HOME/.bash_profile</code></p>
+<h4 id="修改如下"><a href="#修改如下" class="headerlink" title="修改如下"></a>修改如下</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/bin</span><br><span class="line">SONAR_HOME=/opt/soft/sonarqube-5.6.4</span><br><span class="line"><span class="built_in">export</span> PATH SONAR_HOME</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install postgresql</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER 'sonar'@'%' IDENTIFIED BY 'sonar';</span><br><span class="line">mysql&gt; create database sonar;</span><br><span class="line">mysql&gt; grant all privileges on sonar.* to 'sonar'@'%' identified by 'sonar';</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<p>编辑${SONAR_HOME}/conf/sonar.properties配置数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=sonar</span><br><span class="line">sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance</span><br></pre></td></tr></table></figure></p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p><code>${SONAR_HOME}/bin/linux-x86-64/sonar.sh start</code></p>
+<h4 id="在浏览器中访问"><a href="#在浏览器中访问" class="headerlink" title="在浏览器中访问"></a>在浏览器中访问</h4><p> <a href="http://localhost:9000/" target="_blank" rel="noopener">http://localhost:9000/</a></p>
+<h4 id="修改默认端口为-9009-，否则和-hdfs冲突"><a href="#修改默认端口为-9009-，否则和-hdfs冲突" class="headerlink" title="修改默认端口为 9009 ，否则和 hdfs冲突"></a>修改默认端口为 9009 ，否则和 hdfs冲突</h4><p><code>vi ${SONAR_HOME}/conf/sonar.properties</code><br><code>sonar.web.port=9009</code><br><code>{SONAR_HOME}/bin/linux-x86-64/sonar.sh restart</code></p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>如果未联网<br>将下载后的插件上传到${SONAR_HOME}/extensions\plugins目录下，重新启动sonar</li>
+<li>如果联网<br><a href="http://docs.sonarqube.org/display/SONAR/Installing+a+Plugin" target="_blank" rel="noopener">http://docs.sonarqube.org/display/SONAR/Installing+a+Plugin</a><br>admin登录后，点击Administer –&gt;system &gt; update center<br><img src="http://oapwg4v13.bkt.clouddn.com/1483694028.png" alt=""></li>
+</ul>
+<p><kbd>sonarqube scanner</kbd><br><a href="https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.5.1.zip" target="_blank" rel="noopener">https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.5.1.zip</a></p>
+<h2 id="jekins安装"><a href="#jekins安装" class="headerlink" title="jekins安装"></a><kbd>jekins安装</kbd></h2><h4 id="下载-1"><a href="#下载-1" class="headerlink" title="下载"></a>下载</h4><p><code>useradd jekins</code><br><code>passwd jekins</code><br><code>cd /opt/soft/</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key`</span><br><span class="line">yum install jenkins</span><br><span class="line">service jenkins start</span><br></pre></td></tr></table></figure></p>
+<h4 id="登录及初始化"><a href="#登录及初始化" class="headerlink" title="登录及初始化"></a>登录及初始化</h4><p><a href="http://ip:8080/jenkins" target="_blank" rel="noopener">http://ip:8080/jenkins</a><br>第一次安装jenkins的时候，会提示你要求输入安装密码，<br><code>cat /var/lib/jenkins/secrets/initialAdminPassword</code><br>按照提示将密码粘贴到对应的输入狂即可</p>
+<h4 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h4><p><code>vi /etc/sysconfig/jenkins</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JENKINS_PORT=&quot;8084&quot;</span><br></pre></td></tr></table></figure>
+<p><code>service jenkins start</code></p>
+<p><img src="http://docs.sonarqube.org/download/attachments/6954830/image2016-5-24%2015%3A28%3A59.png?version=1&amp;modificationDate=1464096541000&amp;api=v2" alt=""><br>选择 sonar 插件，安装重启<br><img src="http://oapwg4v13.bkt.clouddn.com/1483428314.png" alt=""></p>
+<h2 id="maven安装"><a href="#maven安装" class="headerlink" title="maven安装"></a><kbd>maven安装</kbd></h2><ul>
+<li>跳转到软件目录<br><code>cd /opt/soft</code></li>
+<li>下载<br><code>wget http://mirrors.cnnic.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz</code><br><code>tar zxvf apache-maven-3.3.9-bin.tar.gz</code></li>
+<li>修改环境变量<br><code>vi ~/.bash_profile</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/opt/soft/apache-maven-3.3.9</span><br><span class="line">export PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使生效<br><code>source ~/.bash_profile</code></li>
+<li>验证是否成功<br><code>mvn -version</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1483424778.png" alt=""></li>
+</ul>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a><kbd>git安装</kbd></h2><ul>
+<li>安装依赖<br><code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code><br><code>yum install  gcc perl-ExtUtils-MakeMaker</code></li>
+<li>下载源码<br><code>wget https://github.com/git/git/archive/v2.5.0.tar.gz</code></li>
+<li><p>解压</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf v2.5.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> git-2.5.0/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make prefix=/usr/<span class="built_in">local</span>/git all</span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加系统变量<br><code>echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</code></p>
+</li>
+<li>使生效<br><code>source /etc/bashrc</code></li>
+<li>验证<br><img src="http://oapwg4v13.bkt.clouddn.com/1483429502.png" alt=""></li>
+<li>删除源码<br><code>rm -rf git-2.5.0 v2.5.0.tar.gz</code></li>
+</ul>
+<h2 id="svn安装"><a href="#svn安装" class="headerlink" title="svn安装"></a><kbd>svn安装</kbd></h2><p><code>yum install subversion</code></p>
+<ul>
+<li>验证<br><code>svnserve --version</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1483429238.png" alt=""></li>
+</ul>
+<p><kbd>jenkins构建配置</kbd><br><img src="http://oapwg4v13.bkt.clouddn.com/1483696487.png" alt=""><br><img src="http://oapwg4v13.bkt.clouddn.com/1483696506.png" alt=""><br><img src="http://oapwg4v13.bkt.clouddn.com/1483696775.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sonar.projectKey=mypay</span><br><span class="line">sonar.projectName=mypay</span><br><span class="line">sonar.projectVersion=1.0</span><br><span class="line">sonar.sources=src/main</span><br><span class="line">sonar.binaries=target/classes</span><br><span class="line">sonar.exclusions=src/main/webapp/assets/**,src/main/webapp/plugins/**,src/main/webapp/mobile/**,src/main/ressources/**</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/18/2016-12-18-maven使用tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/18/2016-12-18-maven使用tips/" itemprop="url">
+                  Maven使用tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-18 10:37:49" itemprop="dateCreated datePublished" datetime="2016-12-18T10:37:49+08:00">2016-12-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-16 10:25:58" itemprop="dateModified" datetime="2017-01-16T10:25:58+08:00">2017-01-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/18/2016-12-18-maven使用tips/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/12/18/2016-12-18-maven使用tips/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="命令行根据archetype创建项目"><a href="#命令行根据archetype创建项目" class="headerlink" title="命令行根据archetype创建项目"></a>命令行根据archetype创建项目</h2><p><code>mvn archetype:generate</code><br><code>mvn archetype:generate -X</code> debug模式<br><code>mvn archetype:generate -DarchetypeCatalog=internal</code> 本地模式</p>
+<p><a href="http://blog.csdn.net/u011303778/article/details/46534601" target="_blank" rel="noopener">http://blog.csdn.net/u011303778/article/details/46534601</a></p>
+<h2 id="mac-下添加-自定义-archetype"><a href="#mac-下添加-自定义-archetype" class="headerlink" title="mac 下添加 自定义 archetype"></a>mac 下添加 自定义 archetype</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/1482030292.png" alt=""><br><img src="http://oapwg4v13.bkt.clouddn.com/1482030440.png" alt=""></p>
+<p>编辑 <code>/Users/${your_username}/Library/Caches/${your_idea_version}/Maven/Indices/UserArchetypes.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">archetypes</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">archetype</span> <span class="attr">groupId</span>=<span class="string">"org.scala-tools.archetypes"</span> <span class="attr">artifactId</span>=<span class="string">"scala-archetype-simple"</span> <span class="attr">version</span>=<span class="string">"1.3"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">archetype</span> <span class="attr">groupId</span>=<span class="string">"org.sparkinaction"</span> <span class="attr">artifactId</span>=<span class="string">"scala-archetype-sparkinaction"</span> <span class="attr">version</span>=<span class="string">"0.13"</span> <span class="attr">repository</span>=<span class="string">"https://github.com/spark-in-action/scala-archetype-sparkinaction/raw/master"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">archetypes</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装jar至本地nexus"><a href="#安装jar至本地nexus" class="headerlink" title="安装jar至本地nexus"></a>安装jar至本地nexus</h2><ul>
+<li>在maven的conf/setting.xml 配置nexus私服的管理账号<ul>
+<li>在servers标签下添加server<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>sjrep<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>id可自己定义一个名称  以及私服的管理管的账号密码</p>
+</blockquote>
+<ul>
+<li>在mirrors和profiles下配置nexus私服</li>
+<li><p>在项目的pom.xml中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.10.8:18080/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Snapshot Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://192.168.10.8:18080/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>id与settings.xml中的server的id对应</p>
+</blockquote>
+</li>
+<li><p>当项目package后将jar上传到nexus私服<br><code>mvn deploy</code></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/05/2016-12-05-自定义maven项目骨架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/05/2016-12-05-自定义maven项目骨架/" itemprop="url">
+                  创建maven自定义项目骨架archetype
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-05 16:01:17" itemprop="dateCreated datePublished" datetime="2016-12-05T16:01:17+08:00">2016-12-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-26 23:46:21" itemprop="dateModified" datetime="2018-06-26T23:46:21+08:00">2018-06-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构师笔记/" itemprop="url" rel="index"><span itemprop="name">架构师笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/05/2016-12-05-自定义maven项目骨架/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/12/05/2016-12-05-自定义maven项目骨架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>在pom.xml中加入插件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-archetype-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p> 这里首先定义了一个archetype.properties文件在命令行被执行的目录，里面的内容是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tablePrefix=ss_</span><br><span class="line">packageName=wywk-archetype</span><br><span class="line">groupId=cn.wywk</span><br><span class="line">artifactId=defaultproject</span><br><span class="line">version=1.0-SNAPSHOT</span><br><span class="line">excludePatterns=</span><br><span class="line">archetype.filteredExtensions=</span><br><span class="line">projectChName=鱼付宝数据管理</span><br></pre></td></tr></table></figure>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean archetype:create-from-project -Darchetype.properties=../archetype.properties -X</span><br></pre></td></tr></table></figure>
+<h2 id="修改archetype"><a href="#修改archetype" class="headerlink" title="修改archetype"></a>修改archetype</h2><ul>
+<li>参数</li>
+</ul>
+<h2 id="安装archetype到本地"><a href="#安装archetype到本地" class="headerlink" title="安装archetype到本地"></a>安装archetype到本地</h2><p><code>mvn install</code></p>
+<h2 id="安装archetype到本地私服服务器"><a href="#安装archetype到本地私服服务器" class="headerlink" title="安装archetype到本地私服服务器"></a>安装archetype到本地私服服务器</h2><ul>
+<li><p>在~/.m2/settings.xml配置文件中servers标签下添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>wynexus-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>wynexus-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>sjrep<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在archetype项目的pom.xml中添加私服地址</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Micaicms Releases<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://127.0.0.1:8081/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Micaicms Releases<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://127.0.0.1:8081/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行命令<code>mvn deploy</code></p>
+</li>
+</ul>
+<h2 id="创建新项目"><a href="#创建新项目" class="headerlink" title="创建新项目"></a>创建新项目</h2><ul>
+<li><code>mvn archetype:update-local-catalog</code></li>
+<li>使用本地<br><code>mvn archetype:generate -DarchetypeCatalog=local</code></li>
+<li>用私服<br><code>mvn archetype:generate -DarchetypeCatalog=http://localhost:8081/nexus/content/groups/public -X</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/2016-11-22-jqgrid翻页无效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/11/22/2016-11-22-jqgrid翻页无效果/" itemprop="url">
+                  jqGrid翻页无效果debug经历
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-22 11:00:00" itemprop="dateCreated datePublished" datetime="2016-11-22T11:00:00+08:00">2016-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-11-24 22:35:41" itemprop="dateModified" datetime="2016-11-24T22:35:41+08:00">2016-11-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/buger/" itemprop="url" rel="index"><span itemprop="name">buger</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/22/2016-11-22-jqgrid翻页无效果/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/11/22/2016-11-22-jqgrid翻页无效果/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/16955501.jpg" alt=""><br>直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题<br><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/37527490.jpg" alt=""><br>如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页<br><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/916819.jpg" alt=""></p>
+<h2 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h2><ul>
+<li>打开chrome开发模式查看网络请求<ul>
+<li>正常情况（未点击查询按钮）<ul>
+<li>点击菜单<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/2731337.jpg" alt=""></p>
+</blockquote>
+</li>
+<li>点击下页按钮<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/5439002.jpg" alt=""></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>异常情况<ul>
+<li>点击查询按钮<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/25518419.jpg" alt="">\</p>
+</blockquote>
+</li>
+<li>点击翻页按钮<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/66988340.jpg" alt=""></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发现是查询逻辑丢掉了page信息</li>
+<li><p>查看代码</p>
+<ul>
+<li><p>list初始化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">  jQuery(grid_selector).jqGrid(&#123;</span><br><span class="line">	url:<span class="string">'list'</span>,</span><br><span class="line">	postData: &#123;<span class="string">'receiptBizType'</span>:$(<span class="string">'#search_receiptBizType'</span>).val()&#125;,</span><br><span class="line">    datatype: <span class="string">'json'</span>,     </span><br><span class="line">	mtype: <span class="string">"POST"</span>,</span><br><span class="line">	height: <span class="string">"100%"</span>,</span><br><span class="line">	rownumbers: <span class="literal">true</span>,</span><br><span class="line">	rownumWidth:<span class="number">50</span>,</span><br><span class="line">	colNames:[<span class="string">''</span>,<span class="string">'回单ID'</span>,<span class="string">'回单编号'</span>,<span class="string">'门店共用码'</span>,<span class="string">'业务类型'</span>, <span class="string">'金额'</span>,<span class="string">'备注'</span>,<span class="string">'业务日期'</span>,<span class="string">'状态'</span>,<span class="string">'订单ID'</span>,<span class="string">'创建时间'</span>,<span class="string">'更新时间'</span>],</span><br><span class="line">	colModel:[</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'action'</span>,<span class="attr">hidden</span>:<span class="literal">false</span>,<span class="attr">width</span>:<span class="number">30</span>,<span class="attr">fixed</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bankReceiptId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">key</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptNo'</span>,<span class="attr">index</span>:<span class="string">'receipt_no'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'commonCode'</span>,<span class="attr">index</span>:<span class="string">'common_code'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	   <span class="comment">// &#123;name:'accoutnName',index:'accoutnName',editable:false&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptBizType'</span>,<span class="attr">index</span>:<span class="string">'receipt_biz_type'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'TRANS_TYPE'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'amount'</span>,<span class="attr">index</span>:<span class="string">'amount'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:currencyFormatter, <span class="attr">formatoptions</span>:&#123;<span class="attr">decimalSeparator</span>:<span class="string">"."</span>, <span class="attr">thousandsSeparator</span>: <span class="string">","</span>, <span class="attr">decimalPlaces</span>: <span class="number">2</span>, <span class="attr">divide</span>:<span class="number">100</span>,<span class="attr">prefix</span>: <span class="string">"￥"</span>&#125;&#125;,</span><br><span class="line">	    <span class="comment">//&#123;name:'hamount',index:'hamount',editable:false,formatter:currencyFormatter, formatoptions:&#123;decimalSeparator:".", thousandsSeparator: ",", decimalPlaces: 2, prefix: "￥"&#125;&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizRemark'</span>,<span class="attr">index</span>:<span class="string">'biz_remark'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizDate'</span>,<span class="attr">index</span>:<span class="string">'biz_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'state'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'BANK_RECEIPT_STATE'</span>&#125;,<span class="attr">unformat</span>:getHideListValueReverse&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'ordId'</span>,<span class="attr">index</span>:<span class="string">'ordId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'createDate'</span>,<span class="attr">index</span>:<span class="string">'create_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'lastUpdateDate'</span>,<span class="attr">index</span>:<span class="string">'last_update_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	],</span><br><span class="line">	viewrecords : <span class="literal">true</span>,</span><br><span class="line">	rowNum:<span class="number">10</span>,</span><br><span class="line">	rowList:[<span class="number">10</span>,<span class="number">20</span>,<span class="number">50</span>],</span><br><span class="line">	pager : <span class="string">"#grid-pager"</span>,</span><br><span class="line">	multiselect: <span class="literal">false</span>,</span><br><span class="line">       multiboxonly: <span class="literal">false</span>,</span><br><span class="line">	altRows: <span class="literal">true</span>,</span><br><span class="line">	autowidth: <span class="literal">true</span>,</span><br><span class="line">	autoScroll: <span class="literal">false</span>,</span><br><span class="line">	caption: <span class="string">"银行回单列表"</span>,</span><br><span class="line">	emptyrecords: <span class="string">"未查询到数据"</span>,</span><br><span class="line">	jsonReader : &#123;   </span><br><span class="line">      root:<span class="string">"result"</span>,</span><br><span class="line">      total:<span class="string">'totalPages'</span>,</span><br><span class="line">      page:<span class="string">'page'</span>,</span><br><span class="line">      records:<span class="string">'records'</span>   </span><br><span class="line">	&#125;,</span><br><span class="line">	loadComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> table = <span class="keyword">this</span>;</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			updatePagerIcons(table);</span><br><span class="line">		&#125;, <span class="number">0</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	gridComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> ids = jQuery(grid_selector).jqGrid(<span class="string">'getDataIDs'</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i &lt; ids.length;i++)&#123;</span><br><span class="line">			<span class="keyword">var</span> cl = ids[i];</span><br><span class="line">			<span class="keyword">var</span> rowData = $(grid_selector).getRowData(cl);</span><br><span class="line">			checkbox = <span class="string">"&lt;label&gt;&lt;input name=\"grid-checkbox\" value=\""</span></span><br><span class="line">				+ rowData.bankReceiptId + <span class="string">"\"type=\"checkbox\" class=\"ace\"&gt;&lt;span class=\"lbl\"&gt;&lt;/span&gt;&lt;/label&gt;"</span>;</span><br><span class="line">			jQuery(grid_selector).jqGrid(<span class="string">'setRowData'</span>,ids[i],&#123;<span class="attr">action</span>:checkbox&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 窗口缩放时，经动态变化宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="built_in">window</span>).resize(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.page-content'</span>).width(); 	<span class="comment">//当前页面的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 点击菜单边框收缩菜单时，动态变化表格宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="string">'#sidebar-collapse'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.main-content .col-xs-12'</span>).width(); 	<span class="comment">//当前窗口中，一行的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询按钮逻辑</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serialize()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">		.trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>没发现异常，删除<code>.jqGrid(&#39;setGridParam&#39;, { postData:  $(&#39;#search_form&#39;).serialize()}).</code>后虽然没过滤，但可以翻页，网上查看发现别人在这块的查询参数都是一个一个拼接的json，应该是.serialize()不是json导致的（虽然后台也能接到这些参数），一个一个拼接太麻烦，而且增加查询字段的时候页面添加这里也得添加，容易忘掉，所以当时就是用form的serialize方法一劳永逸，既然此法不行就换个，把整个form转成json，网上有不少自己写的小工具，逻辑就是取出form的所有输入框，循环拼接json，太麻烦，而且每个页面都得加这个工具类，既然已经有这样的需求应该有更好的轮子，果然到github上找到了一个jquery插件叫 <a href="https://github.com/marioizquierdo/jquery.serializeJSON" target="_blank" rel="noopener">jquery.serializeJSON</a>,将这个插件引入到公共页面，小改下代码,将<code>$(&#39;#search_form&#39;).serialize()</code>改为<code>$(&#39;#search_form&#39;).serializeJSON()})</code></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serializeJSON()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    .trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="至此问题解决"><a href="#至此问题解决" class="headerlink" title="至此问题解决"></a>至此问题解决</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/24/2016-09-24-zookeeper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/24/2016-09-24-zookeeper/" itemprop="url">
+                  Zookeeper实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-24 09:28:17" itemprop="dateCreated datePublished" datetime="2016-09-24T09:28:17+08:00">2016-09-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-27 16:04:14" itemprop="dateModified" datetime="2018-06-27T16:04:14+08:00">2018-06-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/大数据/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/24/2016-09-24-zookeeper/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/09/24/2016-09-24-zookeeper/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>分布式数据一致性<br>  paxos 一致性协议<br>  拜占庭将军问题<br>  zab  zookeeper atom broadcast<br>奇数个可以防止脑裂<br>  dubbo</p>
+<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><a href="http://zookeeper.apache.org/" target="_blank" rel="noopener">http://zookeeper.apache.org/</a></p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><ol>
+<li><p>准备3台虚拟机</p>
+<ul>
+<li>在每台虚拟机上都添加hosts配置<code>vi /etc/hosts</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1474701677.png" alt=""></li>
+</ul>
+</li>
+<li><p>下载并配置<a href="http://www.apache.org/dyn/closer.cgi/zookeeper/" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.cgi/zookeeper/</a></p>
+<ul>
+<li><code>cd /opt/soft</code></li>
+<li><code>wget  https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz</code></li>
+<li><code>tar zxvf zookeeper-3.4.8.tar.gz</code></li>
+<li><code>cd zookeeper-3.4.8</code></li>
+<li><code>mkdir data</code></li>
+<li><code>mkdir dataLog</code></li>
+<li><code>vi data/myid</code> 输入1 并保存退出</li>
+<li><code>cp conf/zoo_sample.cfg conf/zoo.cfg</code></li>
+<li><p><code>vi conf/zoo.cfg</code></p>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/1474701437.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/opt/soft/zookeeper-3.4.8/data</span><br><span class="line">dataLogDir=/opt/soft/zookeeper-3.4.8/dataLog</span><br><span class="line">initLimit=5</span><br><span class="line">syncLimit=2</span><br><span class="line">server.1=sj-node1:2888:3888</span><br><span class="line">server.2=sj-node2:2888:3888</span><br><span class="line">server.3=sj-node3:2888:3888</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>单台配置完毕</p>
+</li>
+<li><p>将配置好的拷贝到其它两天虚拟机</p>
+<ol>
+<li><code>scp -r zookeeper-3.4.8 root@sj-nod2:/opt/soft</code></li>
+<li>登录第二台虚拟机，记得hosts文件已配置好<ol>
+<li><code>cd /opt/soft/zookeeper-3.4.8</code></li>
+<li><code>vi data/myid</code> 删除1 输入2 保存退出</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>启动zookeeper,在3台虚拟机上都输入<ul>
+<li><code>/opt/soft/zookeeper-3.4.8/bin/zkServer.sh start</code></li>
+</ul>
+</li>
+<li><p>查看集群状态</p>
+<ul>
+<li><code>/opt/soft/zookeeper-3.4.8/bin/zkServer.sh status</code></li>
+<li>主节点 <img src="http://oapwg4v13.bkt.clouddn.com/1474704012.png" alt=""></li>
+<li>从节点<br><img src="http://oapwg4v13.bkt.clouddn.com/1474704092.png" alt=""></li>
+</ul>
+</li>
+<li><p>设置观察节点</p>
+<ul>
+<li>观察节点<br><img src="http://oapwg4v13.bkt.clouddn.com/1474704206.png" alt=""></li>
+</ul>
+</li>
+<li><p>客户端访问</p>
+<ul>
+<li><code>/opt/soft/zookeeper-3.4.8/bin/zkCli.sh</code></li>
+<li>列出所有1级节点<ul>
+<li><code>ls /</code></li>
+</ul>
+</li>
+<li>创建节点<ul>
+<li><code>create /zktest testdata</code></li>
+</ul>
+</li>
+<li>查询节点数据<ul>
+<li><code>get /zktest</code><br>-</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/04/2016-09-04-VMWare虚拟机笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/04/2016-09-04-VMWare虚拟机笔记/" itemprop="url">
+                  VMWare安装CentOS6虚拟机笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-04 11:19:10" itemprop="dateCreated datePublished" datetime="2016-09-04T11:19:10+08:00">2016-09-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-05 09:52:50" itemprop="dateModified" datetime="2017-03-05T09:52:50+08:00">2017-03-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/04/2016-09-04-VMWare虚拟机笔记/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/09/04/2016-09-04-VMWare虚拟机笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>新建虚拟机后启动，</p>
+<ol>
+<li><code>ifconfig</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959373.png" alt=""><br>无ip</li>
+<li><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959323.png" alt=""></li>
+<li><code>service network restart</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959524.png" alt=""></li>
+<li>如果不能解析域名则<br><img src="http://oapwg4v13.bkt.clouddn.com/1472961663.png" alt=""><ul>
+<li>或者将其它能够正常访问的虚拟机的配置/etc/sysconfig/network-scripts/ifcfg-eth0拷贝过来后修改</li>
+</ul>
+</li>
+<li><p>删除生成的文件使重新生成<br><code>rm -rf /etc/udev/rules.d/70-persistent-net.rules</code></p>
+</li>
+<li><p>修改主机名（克隆过来的虚拟机需要改）</p>
+<ul>
+<li><p><code>vi /etc/sysconfig/network</code><br>把HOSTNAME的值修改成你想要的主机名<br><img src="http://oapwg4v13.bkt.clouddn.com/1472964285.png" alt=""></p>
+</li>
+<li><p><code>vi /etc/hosts</code></p>
+</li>
+<li>把<em>localhost.localdomain</em>替换成你的主机名<br><img src="http://oapwg4v13.bkt.clouddn.com/1472964256.png" alt=""><ul>
+<li><code>reboot</code></li>
+<li><code>hostname</code> 启动后输入查看主机名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="虚拟机的ip-修改的-ip要服务虚拟机的网段"><a href="#虚拟机的ip-修改的-ip要服务虚拟机的网段" class="headerlink" title="虚拟机的ip 修改的 ip要服务虚拟机的网段"></a>虚拟机的ip 修改的 ip要服务虚拟机的网段</h2><p>   <code>ifconfig eth1:vip 192.168.57.180 netmask 255.255.255.0</code><br>   <code>ip addr del</code></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service network restart</code></td>
+<td>网卡重启</td>
+</tr>
+<tr>
+<td>service iptables restart</td>
+<td>重启防火墙</td>
+</tr>
+<tr>
+<td>chkconfig iptables off</td>
+<td>关闭防火墙</td>
+</tr>
+<tr>
+<td>chkconfig iptables –list</td>
+<td>防火墙列表</td>
+</tr>
+<tr>
+<td>linux</td>
+<td>级别</td>
+</tr>
+<tr>
+<td>init 0</td>
+<td>关闭 关机 shutdown reboot</td>
+</tr>
+<tr>
+<td>init 1</td>
+</tr>
+<tr>
+<td>init 2</td>
+</tr>
+<tr>
+<td>init 3</td>
+<td>图形</td>
+</tr>
+<tr>
+<td>init 4</td>
+</tr>
+<tr>
+<td>init 5</td>
+</tr>
+<tr>
+<td>init 6</td>
+<td>重启 reboot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="系统服务文件夹"><a href="#系统服务文件夹" class="headerlink" title="系统服务文件夹"></a>系统服务文件夹</h3><p>   /etc/init.d</p>
+<h3 id="切换yum源，使自动寻找最近的可用yum源码"><a href="#切换yum源，使自动寻找最近的可用yum源码" class="headerlink" title="切换yum源，使自动寻找最近的可用yum源码"></a>切换yum源，使自动寻找最近的可用yum源码</h3>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+<h3 id="若yum出现repomd-xml-does-not-match-metalink-for-epel"><a href="#若yum出现repomd-xml-does-not-match-metalink-for-epel" class="headerlink" title="若yum出现repomd.xml does not match metalink for epel"></a>若yum出现<code>repomd.xml does not match metalink for epel</code></h3><blockquote>
+<p><code>vi /etc/yum.repos.d/epel.repo</code><br>注释掉 mirror list<br><code>yum clean all</code><br><code>wget http://yum.baseurl.org/download/3.4/yum-3.4.3.tar.gz</code></p>
+</blockquote>
+<h2 id="必备"><a href="#必备" class="headerlink" title="必备"></a>必备</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc wget openssl-devel pcre-devel  zlib-devel vim</span><br></pre></td></tr></table></figure>
+<h2 id="安装时钟同步"><a href="#安装时钟同步" class="headerlink" title="安装时钟同步"></a>安装时钟同步</h2><p>   <code>yum -y install ntp</code><br>   国内ntp时钟服务器 <code>server time.windows.com ibrust</code><br>   搜索 能够ping通<br>   执行命令同步</p>
+<ol>
+<li><code>crontab -e</code>回车<br>输入 <code>*/10 * * * * /usr/sbin/ntpdate ntp.sjtu.edu.cn</code></li>
+<li><code>chkconfig ntpd on</code></li>
+<li>查看同步情况<code>watch ntpd -p</code></li>
+</ol>
+<h2 id="创建用户及组"><a href="#创建用户及组" class="headerlink" title="创建用户及组"></a>创建用户及组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd  bigdata</span><br><span class="line">useradd -g bigdata bigdata</span><br><span class="line">echo &quot;123456&quot;|passwd --stdin bigdata</span><br></pre></td></tr></table></figure>
+<h2 id="更换组及拥有人"><a href="#更换组及拥有人" class="headerlink" title="更换组及拥有人"></a>更换组及拥有人</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R bigdata:bigdata elastic</span><br></pre></td></tr></table></figure>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/1473560140.png" alt=""></p>
+<h2 id="安装memcached"><a href="#安装memcached" class="headerlink" title="安装memcached"></a>安装memcached</h2><p>   yum -y install memcached</p>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><ul>
+<li><code>yum search java | grep -i --color JDK</code></li>
+<li><code>yum install java-1.6.0-openjdk.x86_64  java-1.8.0-openjdk-devel.x86_64</code></li>
+<li><p><code>vi  /etc/profile</code>在最后加上</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64</span><br><span class="line"> <span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>让配置生效<br><code>source  /etc/profile</code></li>
+</ul>
+<h3 id="复制远程好的"><a href="#复制远程好的" class="headerlink" title="复制远程好的"></a>复制远程好的</h3><h2 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h2><h2 id="解析不了主机"><a href="#解析不了主机" class="headerlink" title="解析不了主机"></a>解析不了主机</h2><p><code>route</code> 命令查看路由情况</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add default  gw 192.168.1.1</span><br></pre></td></tr></table></figure>
+<h2 id="配置hosts文件"><a href="#配置hosts文件" class="headerlink" title="配置hosts文件"></a>配置hosts文件</h2><ul>
+<li><p><code>vi /etc/hosts</code>在最后加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">192.168.199.101 sj-node1</span><br><span class="line">192.168.199.102 sj-node2</span><br><span class="line">192.168.199.103 sj-node3</span><br><span class="line">192.168.199.104 sj-node4</span><br></pre></td></tr></table></figure>
+<p>ip根据自己的虚拟机ip填写  后面的机器别名<code>sj-node*</code>根据自己的喜好随意修改</p>
+</li>
+</ul>
+<h2 id="无密码ssh登录"><a href="#无密码ssh登录" class="headerlink" title="无密码ssh登录"></a>无密码ssh登录</h2><ul>
+<li><code>ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa</code></li>
+<li><code>cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
+<li><code>scp ~/.ssh/id_dsa sj-node2:~/.ssh/</code></li>
+<li><code>scp ~/.ssh/id_dsa.pub sj-node2:~/.ssh/</code></li>
+<li><code>scp ~/.ssh/authorized_keys sj-node2:~/.ssh/</code></li>
+<li>最后scp 的三个步骤重复操作 将文件拷贝到 sj-node3,sj-node4</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/03/2016-09-02-nginx安装部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/03/2016-09-02-nginx安装部署/" itemprop="url">
+                  nginx/tengine编译安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-03 10:28:17" itemprop="dateCreated datePublished" datetime="2016-09-03T10:28:17+08:00">2016-09-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-23 16:24:35" itemprop="dateModified" datetime="2017-12-23T16:24:35+08:00">2017-12-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/03/2016-09-02-nginx安装部署/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/09/03/2016-09-02-nginx安装部署/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/1472951901.png" alt=""><br><a href="http://blog.csdn.net/chenyulancn/article/details/70843696" target="_blank" rel="noopener">http://blog.csdn.net/chenyulancn/article/details/70843696</a></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>切换yum源，使自动寻找最近的可用yum源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装必须依赖</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc wget openssl-devel pcre-devel  zlib-devel</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建用户和用户组，为了方便nginx运行而不影响linux安全</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd -r nginx</span><br><span class="line">useradd -r -g nginx -M nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">wget wget http://nginx.org/download/nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> mkdir soft</span><br><span class="line">tar zxvf nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译前配置nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.9.9</span><br><span class="line"> ./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最好用配置</li>
+</ul>
+</li>
+</ol>
+<ol start="7">
+<li><p>开始编译<br><code>make &amp;&amp; make install</code></p>
+</li>
+<li><p><code>mkdir -p /var/tmp/nginx/client</code></p>
+</li>
+<li><code>cd /etc/init.d</code></li>
+<li><p><code>vi nginxd</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># chkconfig: - 85 15</span></span><br><span class="line"><span class="comment"># description: nginx is a World Wide Web server. It is used to serve</span></span><br><span class="line"><span class="comment"># Source function library.</span></span><br><span class="line">. /etc/rc.d/init.d/<span class="built_in">functions</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source networking configuration.</span></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Check that networking is up.</span></span><br><span class="line">[ <span class="string">"<span class="variable">$NETWORKING</span>"</span> = <span class="string">"no"</span> ] &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line"></span><br><span class="line">nginx=<span class="string">"/opt/sxt/soft/tengine-2.1.0/sbin/nginx"</span></span><br><span class="line">prog=$(basename <span class="variable">$nginx</span>)</span><br><span class="line"></span><br><span class="line">NGINX_CONF_FILE=<span class="string">"/opt/sxt/soft/tengine-2.1.0/conf/nginx.conf"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[ -f /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginx</span></span><br><span class="line"></span><br><span class="line">lockfile=/var/lock/subsys/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment">#make_dirs() &#123;</span></span><br><span class="line"><span class="comment">#   # make required directories</span></span><br><span class="line"><span class="comment">#   user=`nginx -V 2&gt;&amp;1 | grep "configure arguments:" | sed 's/[^*]*--user=\([^ ]*\).*/\1/g' -`</span></span><br><span class="line"><span class="comment">#   options=`$nginx -V 2&gt;&amp;1 | grep 'configure arguments:'`</span></span><br><span class="line"><span class="comment">#   for opt in $options; do</span></span><br><span class="line"><span class="comment">#       if [ `echo $opt | grep '.*-temp-path'` ]; then</span></span><br><span class="line"><span class="comment">#           value=`echo $opt | cut -d "=" -f 2`</span></span><br><span class="line"><span class="comment">#           if [ ! -d "$value" ]; then</span></span><br><span class="line"><span class="comment">#               # echo "creating" $value</span></span><br><span class="line"><span class="comment">#               mkdir -p $value &amp;&amp; chown -R $user $value</span></span><br><span class="line"><span class="comment">#           fi</span></span><br><span class="line"><span class="comment">#       fi</span></span><br><span class="line"><span class="comment">#   done</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span><br><span class="line">    [ -x <span class="variable">$nginx</span> ] || <span class="built_in">exit</span> 5</span><br><span class="line">    [ -f <span class="variable">$NGINX_CONF_FILE</span> ] || <span class="built_in">exit</span> 6</span><br><span class="line"><span class="comment">#    make_dirs</span></span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Starting <span class="variable">$prog</span>: "</span></span><br><span class="line">    daemon <span class="variable">$nginx</span> -c <span class="variable">$NGINX_CONF_FILE</span></span><br><span class="line">    retval=$?</span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line">    [ <span class="variable">$retval</span> -eq 0 ] &amp;&amp; touch <span class="variable">$lockfile</span></span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$retval</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Stopping <span class="variable">$prog</span>: "</span></span><br><span class="line">    killproc <span class="variable">$prog</span> -QUIT</span><br><span class="line">    retval=$?</span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line">    [ <span class="variable">$retval</span> -eq 0 ] &amp;&amp; rm -f <span class="variable">$lockfile</span></span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$retval</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">restart</span></span>() &#123;</span><br><span class="line">    configtest || <span class="built_in">return</span> $?</span><br><span class="line">    stop</span><br><span class="line">    sleep 1</span><br><span class="line">    start</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">reload</span></span>() &#123;</span><br><span class="line">    configtest || <span class="built_in">return</span> $?</span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Reloading <span class="variable">$prog</span>: "</span></span><br><span class="line"><span class="comment">#  -HUP是nginx平滑重启参数</span></span><br><span class="line">    killproc <span class="variable">$nginx</span> -HUP</span><br><span class="line">    RETVAL=$?</span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">force_reload</span></span>() &#123;</span><br><span class="line">    restart</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">configtest</span></span>() &#123;</span><br><span class="line">  <span class="variable">$nginx</span> -t -c <span class="variable">$NGINX_CONF_FILE</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">rh_status</span></span>() &#123;</span><br><span class="line">    status <span class="variable">$prog</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">h_status_q</span></span>() &#123;</span><br><span class="line">    rh_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ase <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        rh_status_q &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 0</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    restart|configtest)</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    reload)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 7</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    force-reload)</span><br><span class="line">        force_reload</span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        rh_status</span><br><span class="line">        ;;</span><br><span class="line">    condrestart|try-restart)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 0</span><br><span class="line">            ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> $<span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest&#125;"</span></span><br><span class="line">        <span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>cd /opt</code></p>
+</li>
+<li><code>rm -rf tengine-2.1.2</code></li>
+<li><code>chmod +x nginxd</code></li>
+<li><code>chkconfig --add nginxd</code> 加入系统服务</li>
+<li><code>chkconfig --list nginxd</code> 查看是否加入成功</li>
+<li>启动,停止,重新装载<br><code>service nginxd start|stop|reload</code><br><code>/opt/soft/tengine-2.1.2/sbin/nginx -c /opt/soft/tengine-2.1.2/conf/nginx.conf</code></li>
+<li><code>curl localhost</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472965322.png" alt=""><br>出现 welcome 就说明 nginx 启动成功了</li>
+</ol>
+<p>18.</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a href="http://tengine.taobao.org/nginx_docs/cn/docs/http" target="_blank" rel="noopener">http://tengine.taobao.org/nginx_docs/cn/docs/http</a><br>nginx.org/en/docs/http</p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/02/2016-08-02-alfred配合截图上传七牛/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/08/02/2016-08-02-alfred配合截图上传七牛/" itemprop="url">
+                  alfred配合截图上传七牛图床
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-02 21:51:39" itemprop="dateCreated datePublished" datetime="2016-08-02T21:51:39+08:00">2016-08-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-08-09 00:53:08" itemprop="dateModified" datetime="2016-08-09T00:53:08+08:00">2016-08-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/02/2016-08-02-alfred配合截图上传七牛/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/02/2016-08-02-alfred配合截图上传七牛/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><img src="http://oapwg4v13.bkt.clouddn.com/1470674279.png" alt="背景步骤"></p>
+<h1 id="实际上，保存上传找图片地址等步骤可以省略的，方法如下"><a href="#实际上，保存上传找图片地址等步骤可以省略的，方法如下" class="headerlink" title="实际上，保存上传找图片地址等步骤可以省略的，方法如下"></a>实际上，保存上传找图片地址等步骤可以省略的，方法如下</h1><h2 id="一、-购买afred-workflow，没它你啥都干不了"><a href="#一、-购买afred-workflow，没它你啥都干不了" class="headerlink" title="一、 购买afred workflow，没它你啥都干不了"></a>一、 购买afred workflow，没它你啥都干不了</h2><h2 id="二、-注册七牛"><a href="#二、-注册七牛" class="headerlink" title="二、 注册七牛"></a>二、 注册七牛</h2><p>  <a href="https://portal.qiniu.com/signup?code=3lm22tsycqogi" target="_blank" rel="noopener">https://portal.qiniu.com/signup?code=3lm22tsycqogi</a></p>
+<h2 id="三、-下载workflow，七牛那个"><a href="#三、-下载workflow，七牛那个" class="headerlink" title="三、 下载workflow，七牛那个"></a>三、 下载workflow，七牛那个</h2><p>  <a href="https://github.com/bestswifter/my-workflow" target="_blank" rel="noopener">https://github.com/bestswifter/my-workflow</a></p>
+<h2 id="四、-安装完后按照说明配置，就是一点找到conf-txt"><a href="#四、-安装完后按照说明配置，就是一点找到conf-txt" class="headerlink" title="四、 安装完后按照说明配置，就是一点找到conf.txt"></a>四、 安装完后按照说明配置，就是一点找到conf.txt</h2><h2 id="五、-进入alredworkflwo配置"><a href="#五、-进入alredworkflwo配置" class="headerlink" title="五、 进入alredworkflwo配置"></a>五、 进入alredworkflwo配置</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/1470144809.png" alt=""></p>
+<h2 id="六、-右击七牛——-gt-open-in-Finder"><a href="#六、-右击七牛——-gt-open-in-Finder" class="headerlink" title="六、 右击七牛——&gt;open in Finder"></a>六、 右击七牛——&gt;open in Finder</h2><p>  <img src="http://oapwg4v13.bkt.clouddn.com/1470144962.png" alt=""></p>
+<h2 id="七、-单击就可以配置"><a href="#七、-单击就可以配置" class="headerlink" title="七、 单击就可以配置"></a>七、 单击就可以配置</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/1470145015.png" alt=""></p>
+<p><em>记住一点 必须有http前缀</em></p>
+<h1 id="最后的步骤就是："><a href="#最后的步骤就是：" class="headerlink" title="最后的步骤就是："></a>最后的步骤就是：</h1><ol>
+<li>ctrl+cmd+a</li>
+<li>alfred 输入 qn</li>
+<li>博文中 ctrl+v 就行</li>
+</ol>
+<h2 id="BTY-本文的截图就是用刚刚配置好的图床搞的，效率特高"><a href="#BTY-本文的截图就是用刚刚配置好的图床搞的，效率特高" class="headerlink" title="BTY:本文的截图就是用刚刚配置好的图床搞的，效率特高"></a>BTY:本文的截图就是用刚刚配置好的图床搞的，效率特高</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/22/2016-07-22-搭建githubpages/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/07/22/2016-07-22-搭建githubpages/" itemprop="url">
+                  搭建github Pages 博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-07-22 21:51:39" itemprop="dateCreated datePublished" datetime="2016-07-22T21:51:39+08:00">2016-07-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-08-04 22:09:13" itemprop="dateModified" datetime="2016-08-04T22:09:13+08:00">2016-08-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/22/2016-07-22-搭建githubpages/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/07/22/2016-07-22-搭建githubpages/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>注册github账号</li>
+<li>选择静态博客引擎 hexo 或者 jekyll</li>
+<li>选择博客模板</li>
+<li>安装静态博客引擎</li>
+<li>选择写博客工具markdown编辑器</li>
+<li>自动部署ftp服务器上glynn<ul>
+<li>下载<a href="https://github.com/dmathieu/glynn" target="_blank" rel="noopener">https://github.com/dmathieu/glynn</a></li>
+<li><code>sudo gem install -n /usr/local/bin glynn</code></li>
+<li>在jekyll目录执行命令<code>glynn</code>，注意远程服务器的读写权限配置，以及自己jekyll目录中_glynn.yml文件的每一个配置</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/21/2016-07-21-hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/07/21/2016-07-21-hello-world/" itemprop="url">
+                  Hello World!
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-07-21 23:39:39" itemprop="dateCreated datePublished" datetime="2016-07-21T23:39:39+08:00">2016-07-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-12-07 14:37:56" itemprop="dateModified" datetime="2016-12-07T14:37:56+08:00">2016-12-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">essay</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/07/21/2016-07-21-hello-world/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/07/21/2016-07-21-hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一直在记笔记，以前在笔记中记，有用的发布到博客园，现在感觉要多记一点有意义的，分享出去，早听说github的pages功能最适合码农了，现在在跟上别人的脚步。Any Way, Hello World!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">digraph G &#123;</span><br><span class="line">label = &quot;Binary search tree&quot;;</span><br><span class="line">node [shape = record];</span><br><span class="line"></span><br><span class="line">A [label = &quot;&lt;f0&gt;|&lt;f1&gt;A|&lt;f2&gt;&quot;];</span><br><span class="line">B [label = &quot;&lt;f0&gt;|&lt;f1&gt;B|&lt;f2&gt;&quot;];</span><br><span class="line">C [label = &quot;&lt;f0&gt;|&lt;f1&gt;C|&lt;f2&gt;&quot;];</span><br><span class="line">D [label = &quot;&lt;f0&gt;|&lt;f1&gt;D|&lt;f2&gt;&quot;];</span><br><span class="line">E [label = &quot;&lt;f0&gt;|&lt;f1&gt;E|&lt;f2&gt;&quot;];</span><br><span class="line">F [label = &quot;&lt;f0&gt;|&lt;f1&gt;F|&lt;f2&gt;&quot;];</span><br><span class="line">G [label = &quot;&lt;f0&gt;|&lt;f1&gt;G|&lt;f2&gt;&quot;];</span><br><span class="line"></span><br><span class="line">A:f0 -&gt; B:f1;</span><br><span class="line">A:f2 -&gt; C:f1;</span><br><span class="line">B:f0 -&gt; D:f1;</span><br><span class="line">B:f2 -&gt; E:f1;</span><br><span class="line">C:f0 -&gt; F:f1;</span><br><span class="line">C:f2 -&gt; G:f1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Song Jie" />
+            
+              <p class="site-author-name" itemprop="name">Song Jie</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/juforg" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:juforg@sina.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Song Jie</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65903400";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://appcity.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
