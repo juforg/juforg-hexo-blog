@@ -1835,7 +1835,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff8ed5;
+  background: #0d8ff5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2401,29 +2401,6 @@ img:hover {
 }
 .algolia-pagination .disabled-item {
   visibility: hidden;
-}
-#needsharebutton-postbottom {
-  position: relative;
-  cursor: pointer;
-  height: 26px;
-}
-#needsharebutton-postbottom .btn {
-  display: initial;
-  padding: 1px 4px;
-  border: 1px solid #555;
-  border-radius: 3px;
-}
-#needsharebutton-float {
-  position: fixed;
-  bottom: 38px;
-  left: -8px;
-  z-index: 9999;
-  cursor: pointer;
-}
-#needsharebutton-float .btn {
-  padding: 0 10px 0 14px;
-  border: 1px solid #555;
-  border-radius: 4px;
 }
 .popular-posts-header {
   margin-top: 60px;
