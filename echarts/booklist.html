@@ -742,12 +742,12 @@ for (var j = 0; j < data.length; ++j) {
 }
 </script>
 
-<div id="echarts2868" style="width: 100%;height: 600px;margin: 0 auto"></div>
+<div id="echarts4764" style="width: 100%;height: 600px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts2868'));
+        var myChart = echarts.init(document.getElementById('echarts4764'));
         // 指定图表的配置项和数据
         var option = {
     backgroundColor: bgColor,
@@ -840,6 +840,21 @@ for (var j = 0; j < data.length; ++j) {
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
       
       
 
@@ -1210,6 +1225,18 @@ for (var j = 0; j < data.length; ++j) {
   <script src="/lib/needsharebutton/needsharebutton.js"></script>
 
   <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
     
     
       flOptions = {};
