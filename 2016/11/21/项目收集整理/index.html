@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有用的项目收集整理   名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar   DJNativeSwing Java内置浏览器 Jar   Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGrid">
+<meta name="keywords" content="随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目收集整理">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/项目收集整理/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="有用的项目收集整理   名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar   DJNativeSwing Java内置浏览器 Jar   Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGrid">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-22T01:55:53.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目收集整理">
+<meta name="twitter:description" content="有用的项目收集整理   名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar   DJNativeSwing Java内置浏览器 Jar   Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGrid">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/项目收集整理/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>项目收集整理 | 夕拾阁</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-81118574-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81118574-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Juforg 的个人主页 夕拾阁</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">13</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-weaponbook">
+    <a href="/echarts/weaponsbook.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br />知识图谱</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-booklist">
+    <a href="/echarts/booklist.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-university"></i> <br />书单</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-list"></i> <br />项目</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/21/项目收集整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Song Jie">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">项目收集整理
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-21 16:09:11" itemprop="dateCreated datePublished" datetime="2016-11-21T16:09:11+08:00">2016-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-22 09:55:53" itemprop="dateModified" datetime="2018-08-22T09:55:53+08:00">2018-08-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/21/项目收集整理/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/11/21/项目收集整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/11/21/项目收集整理/" class="leancloud_visitors" data-flag-title="项目收集整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="有用的项目收集整理"><a href="#有用的项目收集整理" class="headerlink" title="有用的项目收集整理"></a>有用的项目收集整理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaHost</td>
+<td>使用虚拟DNS省掉开发环境配置hosts文件</td>
+<td>Jar</td>
+</tr>
+<tr>
+<td>DJNativeSwing</td>
+<td>Java内置浏览器</td>
+<td>Jar</td>
+</tr>
+<tr>
+<td>Highcharts</td>
+<td>图表</td>
+<td>Html/CSS</td>
+<td><a href="http://www.hcharts.cn" target="_blank" rel="noopener">http://www.hcharts.cn</a></td>
+</tr>
+<tr>
+<td>ECharts</td>
+<td>百度图表库</td>
+<td>Html/CSS</td>
+<td><a href="http://echarts.baidu.com" target="_blank" rel="noopener">http://echarts.baidu.com</a></td>
+</tr>
+<tr>
+<td>jqGrid</td>
+<td>表格控件</td>
+<td>jQuery插件</td>
+<td><a href="http://www.jqgrid.com/" target="_blank" rel="noopener">http://www.jqgrid.com/</a></td>
+</tr>
+<tr>
+<td>jQuery.bsgrid</td>
+<td>表格控件</td>
+<td>jQuery插件</td>
+<td><a href="http://thebestofyouth.com/bsgrid/" target="_blank" rel="noopener">http://thebestofyouth.com/bsgrid/</a></td>
+</tr>
+<tr>
+<td>easypoi</td>
+<td>EasyPoi Excel和 Word简易工具类</td>
+<td>jar</td>
+<td><a href="http://git.oschina.net/jueyue/easypoi" target="_blank" rel="noopener">http://git.oschina.net/jueyue/easypoi</a></td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>分布式应用程序协调服务</td>
+<td>war</td>
+<td><a href="http://zookeeper.apache.org/" target="_blank" rel="noopener">http://zookeeper.apache.org/</a></td>
+</tr>
+<tr>
+<td>Grid++Report</td>
+<td>WEB报表插件</td>
+<td>ActiveX</td>
+<td><a href="http://www.rubylong.cn/" target="_blank" rel="noopener">http://www.rubylong.cn/</a></td>
+</tr>
+<tr>
+<td>open-falcon</td>
+<td>人性化的互联网企业级监控系统</td>
+<td>Linux</td>
+<td><a href="http://http://open-falcon.com/" target="_blank" rel="noopener">http://http://open-falcon.com/</a></td>
+</tr>
+<tr>
+<td>Disconf</td>
+<td>为各种业务平台提供统一的配置管理服务</td>
+<td>war</td>
+<td><a href="https://github.com/knightliao/disconf" target="_blank" rel="noopener">https://github.com/knightliao/disconf</a></td>
+</tr>
+<tr>
+<td>Lepus（天兔）</td>
+<td>数据库企业监控系统</td>
+<td>java/.net</td>
+<td><a href="http://www.lepus.cc/" target="_blank" rel="noopener">http://www.lepus.cc/</a></td>
+</tr>
+<tr>
+<td>Apache NiFi</td>
+<td>数据处理和分发系统</td>
+<td>java</td>
+<td><a href="http://nifi.apache.org/" target="_blank" rel="noopener">http://nifi.apache.org/</a></td>
+</tr>
+<tr>
+<td>Locust</td>
+<td>开源负载测试工具</td>
+<td>Python</td>
+<td><a href="http://locust.io/" target="_blank" rel="noopener">http://locust.io/</a></td>
+<td><a href="https://github.com/locustio/locust/" target="_blank" rel="noopener">https://github.com/locustio/locust/</a></td>
+</tr>
+<tr>
+<td>Vuvuzela</td>
+<td>不会暴露他和谁进行通讯消息通讯系统</td>
+<td>go</td>
+<td><a href="https://github.com/davidlazar/vuvuzela" target="_blank" rel="noopener">https://github.com/davidlazar/vuvuzela</a></td>
+</tr>
+<tr>
+<td>ABTestingGateway</td>
+<td>基于动态策略的灰度发布系统</td>
+<td>nginx</td>
+<td><a href="https://github.com/SinaMSRE/ABTestingGateway" target="_blank" rel="noopener">https://github.com/SinaMSRE/ABTestingGateway</a></td>
+</tr>
+<tr>
+<td>IoTivity</td>
+<td>无缝的支持设备到设备的互联</td>
+<td>复合</td>
+<td><a href="https://www.iotivity.org/" target="_blank" rel="noopener">https://www.iotivity.org/</a></td>
+</tr>
+<tr>
+<td>Mycat</td>
+<td>用来替代昂贵的Oracle集群</td>
+<td>复合</td>
+<td><a href="https://github.com/MyCATApache" target="_blank" rel="noopener">https://github.com/MyCATApache</a></td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>RPC框架</td>
+<td>java</td>
+<td><a href="https://github.com/grpc/grpc-java" target="_blank" rel="noopener">https://github.com/grpc/grpc-java</a></td>
+</tr>
+<tr>
+<td>Plyr</td>
+<td>开发的基于浏览器上的多媒体播放器</td>
+<td>HTML5</td>
+<td><a href="https://plyr.io/" target="_blank" rel="noopener">https://plyr.io/</a></td>
+</tr>
+<tr>
+<td>Plog</td>
+<td>一套处理日志流的框架</td>
+<td>python</td>
+<td><a href="https://github.com/SinaMSRE/Plog" target="_blank" rel="noopener">https://github.com/SinaMSRE/Plog</a></td>
+</tr>
+<tr>
+<td>glot</td>
+<td>可以在线运行各种编程语言代码片段的平台</td>
+<td>复合</td>
+<td><a href="https://glot.io/" target="_blank" rel="noopener">https://glot.io/</a></td>
+</tr>
+<tr>
+<td>PeerVPN</td>
+<td>构建虚拟专网的开源软件系统</td>
+<td>sh</td>
+<td><a href="http://www.peervpn.net/" target="_blank" rel="noopener">http://www.peervpn.net/</a></td>
+</tr>
+<tr>
+<td>WifiDog</td>
+<td>无线认证的软件</td>
+<td>sh</td>
+<td><a href="http://dev.wifidog.org/" target="_blank" rel="noopener">http://dev.wifidog.org/</a></td>
+</tr>
+<tr>
+<td>Shireframe</td>
+<td>HTML 实现界面原型的绘制</td>
+<td>js</td>
+<td><a href="https://github.com/tsx/shireframe" target="_blank" rel="noopener">https://github.com/tsx/shireframe</a></td>
+</tr>
+<tr>
+<td>PayMap</td>
+<td>集成（支付宝、微信、银联、光大、邮政支付）支付的小Demo</td>
+<td>java</td>
+<td><a href="https://github.com/Martin404/PayMap" target="_blank" rel="noopener">https://github.com/Martin404/PayMap</a></td>
+</tr>
+<tr>
+<td>Python_sdk</td>
+<td>优图人脸识别(Face Recognition)</td>
+<td>Python</td>
+<td><a href="https://www.oschina.net/p/python_sdk" target="_blank" rel="noopener">https://www.oschina.net/p/python_sdk</a></td>
+</tr>
+<tr>
+<td>VOOME</td>
+<td>人脸标注引擎</td>
+<td>ios/android</td>
+<td><a href="http://www.voome.cn/home/index.shtml" target="_blank" rel="noopener">http://www.voome.cn/home/index.shtml</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="快速开发框架"><a href="#快速开发框架" class="headerlink" title="快速开发框架"></a>快速开发框架</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G4Studio</td>
+<td>二次快速开发平台</td>
+<td>JavaEE</td>
+<td><a href="http://git.oschina.net/osworks/G4Studio" target="_blank" rel="noopener">http://git.oschina.net/osworks/G4Studio</a></td>
+</tr>
+<tr>
+<td>JFinal</td>
+<td>极速 WEB + ORM 框架</td>
+<td>Maven</td>
+<td><a href="http://www.jfinal.com" target="_blank" rel="noopener">http://www.jfinal.com</a></td>
+</tr>
+<tr>
+<td>JCOP</td>
+<td>轻量级代码生成</td>
+<td>Gradle</td>
+<td><a href="http://git.oschina.net/zhouleib1412/jfinal-code-online" target="_blank" rel="noopener">http://git.oschina.net/zhouleib1412/jfinal-code-online</a></td>
+</tr>
+<tr>
+<td>jfinal-oauth2.0-login</td>
+<td>对第三方登陆的基础封装</td>
+<td>JavaEE</td>
+<td><a href="http://git.oschina.net/596392912/jfinal-oauth2.0-login" target="_blank" rel="noopener">http://git.oschina.net/596392912/jfinal-oauth2.0-login</a></td>
+</tr>
+<tr>
+<td>eova</td>
+<td>J2EE快速开发平台,基于JFinal</td>
+<td>Maven</td>
+<td><a href="http://git.oschina.net/eova/eova" target="_blank" rel="noopener">http://git.oschina.net/eova/eova</a></td>
+</tr>
+<tr>
+<td>tiny</td>
+<td>组件化的J2EE开发框架</td>
+<td>Maven</td>
+<td><a href="http://git.oschina.net/tinyframework/tiny" target="_blank" rel="noopener">http://git.oschina.net/tinyframework/tiny</a></td>
+</tr>
+<tr>
+<td>JEECG</td>
+<td>基于代码生成器的智能开发平台</td>
+<td>Maven</td>
+<td><a href="http://git.oschina.net/jeecg/jeecg" target="_blank" rel="noopener">http://git.oschina.net/jeecg/jeecg</a></td>
+</tr>
+<tr>
+<td>AOS</td>
+<td>标准功能可复用、通用模块可配置</td>
+<td>JavaEE</td>
+<td><a href="https://git.oschina.net/osworks/AOS" target="_blank" rel="noopener">https://git.oschina.net/osworks/AOS</a></td>
+</tr>
+<tr>
+<td>Lemon OA</td>
+<td>基于Java开发的开源OA</td>
+<td>Maven</td>
+<td><a href="http://www.mossle.com/index.do" target="_blank" rel="noopener">http://www.mossle.com/index.do</a></td>
+</tr>
+<tr>
+<td>EasyDarwin</td>
+<td>一款开源流媒体平台框架</td>
+<td>复合</td>
+<td><a href="http://www.easydarwin.org/" target="_blank" rel="noopener">http://www.easydarwin.org/</a></td>
+</tr>
+<tr>
+<td>Codetainer</td>
+<td>基于浏览器上的代码运行沙箱</td>
+<td>go</td>
+<td><a href="https://github.com/codetainerapp/codetainer" target="_blank" rel="noopener">https://github.com/codetainerapp/codetainer</a></td>
+</tr>
+<tr>
+<td>Gor Go</td>
+<td>HTTP 流量复制工具</td>
+<td>go</td>
+<td><a href="https://github.com/buger/gor" target="_blank" rel="noopener">https://github.com/buger/gor</a></td>
+</tr>
+<tr>
+<td>NutzWk</td>
+<td>基于Nutz的开源企业级开发框架</td>
+<td>JavaEE</td>
+<td><a href="https://github.com/Wizzercn/NutzWk" target="_blank" rel="noopener">https://github.com/Wizzercn/NutzWk</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="http://www.voome.cn/home/index.shtml" target="_blank" rel="noopener">http://www.voome.cn/home/index.shtml</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="API接口开发管理"><a href="#API接口开发管理" class="headerlink" title="API接口开发管理"></a>API接口开发管理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apiary</td>
+<td></td>
+<td></td>
+<td><a href="https://apiary.io/" target="_blank" rel="noopener">https://apiary.io/</a></td>
+</tr>
+<tr>
+<td>jQuery.ajaxMock</td>
+<td></td>
+<td>js</td>
+<td></td>
+</tr>
+<tr>
+<td>RAP</td>
+<td>管理接口文档,生成Mock数据</td>
+<td>java</td>
+<td><a href="http://thx.github.io/RAP" target="_blank" rel="noopener">http://thx.github.io/RAP</a></td>
+</tr>
+<tr>
+<td>AnyProxy</td>
+<td>一个开放式的HTTP/HTTPS代理，你可以灵活控制各种网络数据</td>
+<td>node.js</td>
+<td><a href="http://anyproxy.io/" target="_blank" rel="noopener">http://anyproxy.io/</a></td>
+</tr>
+<tr>
+<td>mock-api</td>
+<td>线上restful api的模拟平台</td>
+<td><a href="http://mock-api.com/" target="_blank" rel="noopener">http://mock-api.com/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>代码</th>
+<th>官网</th>
+<th>语言</th>
+<th>许可证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TensorFlow</td>
+<td><a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="noopener">https://github.com/tensorflow/tensorflow</a></td>
+<td><a href="http://tensorflow.org/" target="_blank" rel="noopener">http://tensorflow.org/</a></td>
+</tr>
+<tr>
+<td>三星的Veles</td>
+<td><a href="https://github.com/samsung/veles" target="_blank" rel="noopener">https://github.com/samsung/veles</a></td>
+<td><a href="https://velesnet.ml/" target="_blank" rel="noopener">https://velesnet.ml/</a></td>
+</tr>
+<tr>
+<td>DMTK</td>
+<td><a href="https://github.com/Microsoft/DMTK" target="_blank" rel="noopener">https://github.com/Microsoft/DMTK</a></td>
+<td><a href="http://www.dmtk.io/" target="_blank" rel="noopener">http://www.dmtk.io/</a></td>
+</tr>
+<tr>
+<td>Marvin</td>
+<td><a href="https://github.com/PrincetonVision/marvin" target="_blank" rel="noopener">https://github.com/PrincetonVision/marvin</a></td>
+<td><a href="http://marvin.is/" target="_blank" rel="noopener">http://marvin.is/</a></td>
+</tr>
+<tr>
+<td>SystemML</td>
+</tr>
+<tr>
+<td>Caffe</td>
+<td><a href="https://github.com/BVLC/caffe" target="_blank" rel="noopener">https://github.com/BVLC/caffe</a></td>
+</tr>
+<tr>
+<td>Theano</td>
+<td><a href="https://github.com/Theano/Theano" target="_blank" rel="noopener">https://github.com/Theano/Theano</a></td>
+</tr>
+<tr>
+<td>Torch</td>
+<td><a href="https://github.com/torch/torch7" target="_blank" rel="noopener">https://github.com/torch/torch7</a></td>
+</tr>
+<tr>
+<td>Brainstorm</td>
+<td><a href="https://github.com/IDSIA/brainstorm" target="_blank" rel="noopener">https://github.com/IDSIA/brainstorm</a></td>
+</tr>
+<tr>
+<td>Chainer</td>
+<td><a href="https://github.com/pfnet/chainer" target="_blank" rel="noopener">https://github.com/pfnet/chainer</a></td>
+</tr>
+<tr>
+<td>Deeplearning4j</td>
+<td><a href="https://github.com/deeplearning4j/deeplearning4j" target="_blank" rel="noopener">https://github.com/deeplearning4j/deeplearning4j</a></td>
+<td><a href="http://deeplearning4j.org/" target="_blank" rel="noopener">http://deeplearning4j.org/</a></td>
+</tr>
+<tr>
+<td>Marvin</td>
+<td><a href="https://github.com/PrincetonVision/marvin" target="_blank" rel="noopener">https://github.com/PrincetonVision/marvin</a></td>
+</tr>
+<tr>
+<td>ConvNetJS</td>
+<td><a href="https://github.com/karpathy/convnetjs" target="_blank" rel="noopener">https://github.com/karpathy/convnetjs</a></td>
+</tr>
+<tr>
+<td>MXNet</td>
+<td><a href="https://github.com/dmlc/mxnet" target="_blank" rel="noopener">https://github.com/dmlc/mxnet</a></td>
+</tr>
+<tr>
+<td>Neon</td>
+<td><a href="https://github.com/NervanaSystems/neon" target="_blank" rel="noopener">https://github.com/NervanaSystems/neon</a></td>
+</tr>
+<tr>
+<td>Scikit-Learn</td>
+<td><a href="https://github.com/scikit-learn/scikit-learn" target="_blank" rel="noopener">https://github.com/scikit-learn/scikit-learn</a></td>
+</tr>
+<tr>
+<td>PredictionIO</td>
+<td><a href="https://github.com/PredictionIO/PredictionIO" target="_blank" rel="noopener">https://github.com/PredictionIO/PredictionIO</a></td>
+</tr>
+<tr>
+<td>Brain</td>
+<td><a href="https://github.com/harthur/brain" target="_blank" rel="noopener">https://github.com/harthur/brain</a></td>
+</tr>
+<tr>
+<td>Keras</td>
+<td><a href="https://github.com/fchollet/keras" target="_blank" rel="noopener">https://github.com/fchollet/keras</a></td>
+</tr>
+<tr>
+<td>CNTK</td>
+<td><a href="https://github.com/Microsoft/CNTK" target="_blank" rel="noopener">https://github.com/Microsoft/CNTK</a></td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td><a href="https://github.com/clips/pattern" target="_blank" rel="noopener">https://github.com/clips/pattern</a></td>
+</tr>
+<tr>
+<td>NuPIC</td>
+<td><a href="https://github.com/numenta/nupic" target="_blank" rel="noopener">https://github.com/numenta/nupic</a></td>
+</tr>
+<tr>
+<td>Vowpal Wabbit</td>
+<td><a href="https://github.com/JohnLangford/vowpal_wabbit" target="_blank" rel="noopener">https://github.com/JohnLangford/vowpal_wabbit</a></td>
+</tr>
+<tr>
+<td>Ruby Warrior</td>
+<td><a href="https://github.com/ryanb/ruby-warrior" target="_blank" rel="noopener">https://github.com/ryanb/ruby-warrior</a></td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td><a href="https://github.com/dmlc/xgboost" target="_blank" rel="noopener">https://github.com/dmlc/xgboost</a></td>
+<td>C++</td>
+<td>Apache-2.0 license</td>
+</tr>
+<tr>
+<td>GoLearn</td>
+<td><a href="https://github.com/sjwhitworth/golearn" target="_blank" rel="noopener">https://github.com/sjwhitworth/golearn</a></td>
+<td>go</td>
+<td></td>
+</tr>
+<tr>
+<td>ML_for_Hackers</td>
+<td><a href="https://github.com/johnmyleswhite/ML_for_Hackers" target="_blank" rel="noopener">https://github.com/johnmyleswhite/ML_for_Hackers</a></td>
+<td>R</td>
+</tr>
+<tr>
+<td>H2O-2</td>
+<td><a href="https://github.com/h2oai/h2o-2" target="_blank" rel="noopener">https://github.com/h2oai/h2o-2</a></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>Oryx 2</td>
+<td><a href="https://github.com/cloudera/oryx" target="_blank" rel="noopener">https://github.com/cloudera/oryx</a></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>Shogun</td>
+<td><a href="https://github.com/shogun-toolbox/shogun" target="_blank" rel="noopener">https://github.com/shogun-toolbox/shogun</a></td>
+<td>C/C++、Python</td>
+<td>GPLv3</td>
+</tr>
+<tr>
+<td>HLearn</td>
+<td><a href="https://github.com/mikeizbicki/HLearn" target="_blank" rel="noopener">https://github.com/mikeizbicki/HLearn</a></td>
+<td>Haskell</td>
+</tr>
+<tr>
+<td>MLPNeuralNet</td>
+<td><a href="https://github.com/nikolaypavlov/MLPNeuralNet" target="_blank" rel="noopener">https://github.com/nikolaypavlov/MLPNeuralNet</a></td>
+<td>Objective-C</td>
+<td>BSD license</td>
+</tr>
+<tr>
+<td>Apache Mahout</td>
+<td><a href="https://github.com/apache/mahout" target="_blank" rel="noopener">https://github.com/apache/mahout</a></td>
+<td>Java</td>
+<td>Apache</td>
+</tr>
+<tr>
+<td>Seldon Server</td>
+<td><a href="https://github.com/SeldonIO/seldon-server" target="_blank" rel="noopener">https://github.com/SeldonIO/seldon-server</a></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>Datumbox - Framework</td>
+<td><a href="https://github.com/datumbox/datumbox-framework" target="_blank" rel="noopener">https://github.com/datumbox/datumbox-framework</a></td>
+<td>Java</td>
+<td>Apache License 2.0</td>
+</tr>
+<tr>
+<td>Jubatus</td>
+<td><a href="https://github.com/jubatus/jubatus" target="_blank" rel="noopener">https://github.com/jubatus/jubatus</a></td>
+<td>C/C++</td>
+<td>LGPL</td>
+</tr>
+<tr>
+<td>Decider</td>
+<td><a href="https://github.com/danielsdeleo/Decider" target="_blank" rel="noopener">https://github.com/danielsdeleo/Decider</a></td>
+<td>Ruby</td>
+</tr>
+</tbody>
+</table>
+<h2 id="移动开发"><a href="#移动开发" class="headerlink" title="移动开发"></a>移动开发</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+<th>授权协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bugly</td>
+<td>移动应用崩溃检测服务</td>
+<td><a href="http://bugly.qq.com/" target="_blank" rel="noopener">http://bugly.qq.com/</a></td>
+<td><a href="http://bugly.qq.com/whitebook" target="_blank" rel="noopener">http://bugly.qq.com/whitebook</a></td>
+</tr>
+<tr>
+<td>Bugtags</td>
+<td>移动测试</td>
+<td><a href="https://bugtags.com/" target="_blank" rel="noopener">https://bugtags.com/</a></td>
+<td><a href="http://help.bugtags.com/hc/" target="_blank" rel="noopener">http://help.bugtags.com/hc/</a></td>
+</tr>
+<tr>
+<td>Calabash</td>
+<td>自动化测试框架</td>
+<td></td>
+</tr>
+<tr>
+<td>Appium</td>
+<td>动化测试框架</td>
+</tr>
+<tr>
+<td>Robotium</td>
+<td>开源的测试框架</td>
+</tr>
+<tr>
+<td>Frank</td>
+<td>自动化测试框架</td>
+</tr>
+<tr>
+<td>UIAutomator</td>
+<td>测试框架</td>
+</tr>
+<tr>
+<td>notie.js</td>
+<td>javascript通知插件</td>
+</tr>
+<tr>
+<td>react-calculator</td>
+<td>基于react.js实现的计算器</td>
+<td><a href="http://blog.benoitvallon.com/react-native-nw-react-calculator/#/?_k=tu4ugv" target="_blank" rel="noopener">http://blog.benoitvallon.com/react-native-nw-react-calculator/#/?_k=tu4ugv</a></td>
+</tr>
+<tr>
+<td>weui</td>
+<td>基于微信的UI库</td>
+<td><a href="http://weui.github.io/weui/" target="_blank" rel="noopener">http://weui.github.io/weui/</a></td>
+</tr>
+<tr>
+<td>Loaders.css</td>
+<td>loader动画库</td>
+</tr>
+<tr>
+<td>WeX5</td>
+<td>开源、免费的应用快速开发框架</td>
+<td><a href="http://wex5.com/cn/wex5/" target="_blank" rel="noopener">http://wex5.com/cn/wex5/</a></td>
+</tr>
+<tr>
+<td>Agile Lite</td>
+<td>基于 HTML5+CSS3+JS 的移动应用开发框架</td>
+<td><a href="http://git.oschina.net/nandy007/agile-lite" target="_blank" rel="noopener">http://git.oschina.net/nandy007/agile-lite</a></td>
+</tr>
+<tr>
+<td>mui</td>
+<td>高性能App的框架</td>
+<td><a href="https://github.com/dcloudio/mui" target="_blank" rel="noopener">https://github.com/dcloudio/mui</a></td>
+<td><a href="https://github.com/dcloudio/mui" target="_blank" rel="noopener">https://github.com/dcloudio/mui</a></td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>Dexposed</td>
+<td>Xposed AOP 框架</td>
+<td><a href="https://github.com/alibaba/dexposed" target="_blank" rel="noopener">https://github.com/alibaba/dexposed</a></td>
+</tr>
+<tr>
+<td>Apache Artemis</td>
+<td>超高性能的 Java 对象消息服务器</td>
+<td><a href="http://activemq.apache.org/artemis/" target="_blank" rel="noopener">http://activemq.apache.org/artemis/</a></td>
+</tr>
+<tr>
+<td>GT（随身调）</td>
+<td>直接运行在手机上的“集成调测环境”</td>
+<td><a href="http://gt.qq.com/" target="_blank" rel="noopener">http://gt.qq.com/</a></td>
+<td><a href="https://github.com/TencentOpen/GT" target="_blank" rel="noopener">https://github.com/TencentOpen/GT</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="图表"><a href="#图表" class="headerlink" title="图表"></a>图表</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plotly</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>jqPlot</td>
+<td><a href="http://www.jqplot.com/" target="_blank" rel="noopener">http://www.jqplot.com/</a></td>
+</tr>
+<tr>
+<td>MPLD3</td>
+<td><a href="http://mpld3.github.io/" target="_blank" rel="noopener">http://mpld3.github.io/</a></td>
+</tr>
+<tr>
+<td>Bokeh</td>
+<td><a href="https://www.continuum.io/bokeh" target="_blank" rel="noopener">https://www.continuum.io/bokeh</a></td>
+</tr>
+<tr>
+<td>Highcharts</td>
+<td><a href="http://www.highcharts.com/" target="_blank" rel="noopener">http://www.highcharts.com/</a></td>
+</tr>
+<tr>
+<td>Flotcharts</td>
+<td><a href="https://github.com/flot/flot" target="_blank" rel="noopener">https://github.com/flot/flot</a></td>
+</tr>
+<tr>
+<td>MetricsGraphics</td>
+<td><a href="http://metricsgraphicsjs.org/" target="_blank" rel="noopener">http://metricsgraphicsjs.org/</a></td>
+</tr>
+<tr>
+<td>Vega</td>
+<td><a href="https://github.com/vega/vega" target="_blank" rel="noopener">https://github.com/vega/vega</a></td>
+</tr>
+<tr>
+<td>Chartjs</td>
+<td><a href="http://www.chartjs.org/" target="_blank" rel="noopener">http://www.chartjs.org/</a></td>
+</tr>
+<tr>
+<td>gRaphaël’s</td>
+<td><a href="http://g.raphaeljs.com/" target="_blank" rel="noopener">http://g.raphaeljs.com/</a></td>
+<td><a href="https://github.com/DmitryBaranovskiy/g.raphael/tree/master" target="_blank" rel="noopener">https://github.com/DmitryBaranovskiy/g.raphael/tree/master</a></td>
+</tr>
+<tr>
+<td>ECharts-X</td>
+<td><a href="http://echarts.baidu.com/" target="_blank" rel="noopener">http://echarts.baidu.com/</a></td>
+<td><a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">https://github.com/ecomfe/echarts</a></td>
+</tr>
+<tr>
+<td>Mapv</td>
+<td><a href="http://mapv.baidu.com/" target="_blank" rel="noopener">http://mapv.baidu.com/</a></td>
+<td><a href="https://github.com/huiyan-fe/mapv/" target="_blank" rel="noopener">https://github.com/huiyan-fe/mapv/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="js库"><a href="#js库" class="headerlink" title="js库"></a>js库</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>raphael.js</td>
+<td>通过SVG/VML+JS实现跨浏览器的矢量图形实现方案</td>
+<td><a href="http://raphaeljs.com/" target="_blank" rel="noopener">http://raphaeljs.com/</a></td>
+<td><a href="https://github.com/DmitryBaranovskiy/raphael/" target="_blank" rel="noopener">https://github.com/DmitryBaranovskiy/raphael/</a></td>
+</tr>
+<tr>
+<td>Editor.md</td>
+</tr>
+<tr>
+<td>Nuclear</td>
+<td>形似 React 的超轻量级框架</td>
+<td><a href="http://alloyteam.github.io/Nuclear/" target="_blank" rel="noopener">http://alloyteam.github.io/Nuclear/</a></td>
+</tr>
+<tr>
+<td>vConsole</td>
+<td>前端调试面板看log</td>
+<td><a href="https://github.com/WechatFE/vConsole" target="_blank" rel="noopener">https://github.com/WechatFE/vConsole</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Snaker</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FoxBPM</td>
+<td>吸纳了 jBPM3 、 Activiti5、BonitaBPM 等国际开源流程引擎的精髓</td>
+<td><a href="https://github.com/fixteam/fixflow" target="_blank" rel="noopener">https://github.com/fixteam/fixflow</a></td>
+</tr>
+<tr>
+<td>bpmn-js</td>
+<td>BPMN2.0渲染工具包和Web模型</td>
+<td><a href="http://bpmn.io/" target="_blank" rel="noopener">http://bpmn.io/</a></td>
+<td><a href="https://github.com/bpmn-io/bpmn-js" target="_blank" rel="noopener">https://github.com/bpmn-io/bpmn-js</a></td>
+</tr>
+<tr>
+<td>myflow</td>
+<td>基于raphael.js</td>
+<td>一个可嵌入的开源 Markdown 在线编辑器组件</td>
+<td><a href="https://pandao.github.io/editor.md/" target="_blank" rel="noopener">https://pandao.github.io/editor.md/</a></td>
+<td><a href="https://github.com/pandao/editor.md" target="_blank" rel="noopener">https://github.com/pandao/editor.md</a></td>
+</tr>
+<tr>
+<td>JFlow</td>
+<td>具有.net与java两个版本</td>
+<td><a href="http://jflow.cn/" target="_blank" rel="noopener">http://jflow.cn/</a></td>
+<td><a href="http://git.oschina.net/chichengsoft/JFlow" target="_blank" rel="noopener">http://git.oschina.net/chichengsoft/JFlow</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jsoup</td>
+<td>用于解析HTML的Java 类库</td>
+<td><a href="http://jsoup.org/" target="_blank" rel="noopener">http://jsoup.org/</a></td>
+<td><a href="https://github.com/jhy/jsoup/" target="_blank" rel="noopener">https://github.com/jhy/jsoup/</a></td>
+</tr>
+<tr>
+<td>Pholcus</td>
+<td>一款纯Go语言编写的高并发、分布式、重量级爬虫软件</td>
+<td><a href="https://pholcus.gitbooks.io/docs/" target="_blank" rel="noopener">https://pholcus.gitbooks.io/docs/</a></td>
+<td><a href="https://github.com/henrylee2cn/pholcus" target="_blank" rel="noopener">https://github.com/henrylee2cn/pholcus</a></td>
+</tr>
+<tr>
+<td>八爪鱼</td>
+<td></td>
+<td><a href="http://www.bazhuayu.com/" target="_blank" rel="noopener">http://www.bazhuayu.com/</a></td>
+</tr>
+<tr>
+<td>import.io</td>
+<td></td>
+<td><a href="http://import.io" target="_blank" rel="noopener">http://import.io</a></td>
+</tr>
+<tr>
+<td>集搜客</td>
+<td></td>
+<td><a href="http://www.gooseeker.com/" target="_blank" rel="noopener">http://www.gooseeker.com/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Bug跟踪工具"><a href="#Bug跟踪工具" class="headerlink" title="Bug跟踪工具"></a>Bug跟踪工具</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redmine</td>
+</tr>
+<tr>
+<td>Bugzilla</td>
+</tr>
+<tr>
+<td>Trac</td>
+</tr>
+<tr>
+<td>Mantis</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/24/zookeeper/" rel="next" title="Zookeeper实践">
+                <i class="fa fa-chevron-left"></i> Zookeeper实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/22/jqgrid翻页无效果/" rel="prev" title="jqGrid翻页无效果debug经历">
+                jqGrid翻页无效果debug经历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Song Jie" />
+            
+              <p class="site-author-name" itemprop="name">Song Jie</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/juforg" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:juforg@sina.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#有用的项目收集整理"><span class="nav-number">1.</span> <span class="nav-text">有用的项目收集整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开发框架"><span class="nav-number">2.</span> <span class="nav-text">快速开发框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API接口开发管理"><span class="nav-number">3.</span> <span class="nav-text">API接口开发管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">4.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动开发"><span class="nav-number">5.</span> <span class="nav-text">移动开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图表"><span class="nav-number">6.</span> <span class="nav-text">图表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js库"><span class="nav-number">7.</span> <span class="nav-text">js库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流"><span class="nav-number">8.</span> <span class="nav-text">工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫"><span class="nav-number">9.</span> <span class="nav-text">爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug跟踪工具"><span class="nav-number">10.</span> <span class="nav-text">Bug跟踪工具</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Song Jie</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+  <div class="footer-custom"><a href="http://www.miitbeian.gov.cn/">沪ICP备16050188号-1</a></div>
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65903400";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+        appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.bootcss.com/instantsearch.js/2.8.0-beta.1/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/instantsearch.js/2.8.0-beta.1/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz", "AB11iu8RjTGwnLmI6D7THqDC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
