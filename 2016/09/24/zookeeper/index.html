@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -58,7 +62,7 @@
 
   
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
@@ -114,7 +118,7 @@
 <meta name="keywords" content="大数据 hadoop Zookeeper ha 高可用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper实践">
-<meta property="og:url" content="http://yoursite.com/2016/09/24/zookeeper/index.html">
+<meta property="og:url" content="http://appcity.vip/2016/09/24/zookeeper/index.html">
 <meta property="og:site_name" content="夕拾阁">
 <meta property="og:description" content="What?分布式数据一致性  paxos 一致性协议  拜占庭将军问题  zab  zookeeper atom broadcast奇数个可以防止脑裂  dubbo">
 <meta property="og:locale" content="zh-CN">
@@ -134,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/24/zookeeper/"/>
+  <link rel="canonical" href="http://appcity.vip/2016/09/24/zookeeper/"/>
 
 
 
@@ -371,7 +375,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/24/zookeeper/">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/24/zookeeper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Song Jie">
@@ -1066,6 +1070,12 @@ var jiathis_config={
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1329,6 +1339,27 @@ var jiathis_config={
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -58,7 +62,7 @@
 
   
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
@@ -114,7 +118,7 @@
 <meta name="keywords" content="essay">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从jekyll转向hexo">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/从jekyll转向hexo/index.html">
+<meta property="og:url" content="http://appcity.vip/2018/06/27/从jekyll转向hexo/index.html">
 <meta property="og:site_name" content="夕拾阁">
 <meta property="og:description" content="当年选择jekyll是因为看中了HCZ Material theme这个主题，折腾了很久才把博客搭建好，">
 <meta property="og:locale" content="zh-CN">
@@ -128,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/27/从jekyll转向hexo/"/>
+  <link rel="canonical" href="http://appcity.vip/2018/06/27/从jekyll转向hexo/"/>
 
 
 
@@ -365,7 +369,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/从jekyll转向hexo/">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2018/06/27/从jekyll转向hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Song Jie">
@@ -967,6 +971,12 @@ var jiathis_config={
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1230,6 +1240,27 @@ var jiathis_config={
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

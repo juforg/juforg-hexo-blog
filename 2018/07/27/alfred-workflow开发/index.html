@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -58,7 +62,7 @@
 
   
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
@@ -114,7 +118,7 @@
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="alfred-workflow开发">
-<meta property="og:url" content="http://yoursite.com/2018/07/27/alfred-workflow开发/index.html">
+<meta property="og:url" content="http://appcity.vip/2018/07/27/alfred-workflow开发/index.html">
 <meta property="og:site_name" content="夕拾阁">
 <meta property="og:description" content="知识准备Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它流">
 <meta property="og:locale" content="zh-CN">
@@ -133,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/27/alfred-workflow开发/"/>
+  <link rel="canonical" href="http://appcity.vip/2018/07/27/alfred-workflow开发/"/>
 
 
 
@@ -370,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/27/alfred-workflow开发/">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2018/07/27/alfred-workflow开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Song Jie">
@@ -1044,6 +1048,12 @@ var jiathis_config={
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
   </div>
 
@@ -1307,6 +1317,27 @@ var jiathis_config={
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

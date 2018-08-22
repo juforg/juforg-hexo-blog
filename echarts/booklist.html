@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -58,7 +62,7 @@
 
   
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
@@ -114,7 +118,7 @@
 <meta name="keywords" content="juforg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="书单">
-<meta property="og:url" content="http://yoursite.com/echarts/booklist.html">
+<meta property="og:url" content="http://appcity.vip/echarts/booklist.html">
 <meta property="og:site_name" content="夕拾阁">
 <meta property="og:description" content="var colors = [&apos;#FFAE57&apos;, &apos;#FF7853&apos;, &apos;#EA5151&apos;, &apos;#CC3F57&apos;, &apos;#9A2555&apos;]; var bgColor = &apos;#2E2733&apos;;  var itemStyle = {     star5: {         color: colors[0]     },     star4: {         color: colors[1]">
 <meta property="og:locale" content="zh-CN">
@@ -128,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/echarts/booklist.html"/>
+  <link rel="canonical" href="http://appcity.vip/echarts/booklist.html"/>
 
 
 
@@ -387,7 +391,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/echarts/booklist.html">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/echarts/booklist.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Song Jie">
@@ -738,12 +742,12 @@ for (var j = 0; j < data.length; ++j) {
 }
 </script>
 
-<div id="echarts7663" style="width: 100%;height: 600px;margin: 0 auto"></div>
+<div id="echarts2868" style="width: 100%;height: 600px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7663'));
+        var myChart = echarts.init(document.getElementById('echarts2868'));
         // 指定图表的配置项和数据
         var option = {
     backgroundColor: bgColor,
@@ -935,6 +939,12 @@ for (var j = 0; j < data.length; ++j) {
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1195,6 +1205,27 @@ for (var j = 0; j < data.length; ++j) {
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   
