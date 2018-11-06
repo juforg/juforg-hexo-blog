@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>http://appcity.vip/2016/09/25/hadoop%E4%B9%8Bhdfs/</loc>
+    <lastmod>2018-11-06T08:55:48.841Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop实践之HDFS</title>
+        <pubTime>2016-09-25T01:08:17.000Z</pubTime>
+        
+        <tag>大数据</tag>
+         
+        <tag>hadoop</tag>
+         
+        <tag>ha</tag>
+         
+        <tag>高可用</tag>
+         
+        <tag>hdfs</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://appcity.vip/2018/11/05/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
+    <lastmod>2018-11-06T03:55:49.354Z</lastmod>
+    <data>
+        <display>
+        <title>负责均衡</title>
+        <pubTime>2018-11-05T01:27:01.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://appcity.vip/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://appcity.vip/2016/09/04/lvs/</loc>
     <lastmod>2018-11-06T00:56:14.998Z</lastmod>
     <data>
@@ -34,26 +82,6 @@
         <display>
         <title>workflow实现csv2json</title>
         <pubTime>2018-10-18T02:07:56.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://appcity.vip/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://appcity.vip/2018/11/05/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
-    <lastmod>2018-11-05T07:25:32.587Z</lastmod>
-    <data>
-        <display>
-        <title>负责均衡</title>
-        <pubTime>2018-11-05T01:27:01.000Z</pubTime>
         
         <tag>随笔</tag>
          

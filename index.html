@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">16</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">17</span></a>
   </li>
         
         
@@ -414,12 +414,24 @@
                 
               
 
-              <time title="创建时间：2018-11-05 09:27:01 / 修改时间：15:25:32" itemprop="dateCreated datePublished" datetime="2018-11-05T09:27:01+08:00">2018-11-05</time>
+              <time title="创建时间：2018-11-05 09:27:01" itemprop="dateCreated datePublished" datetime="2018-11-05T09:27:01+08:00">2018-11-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-06 11:55:49" itemprop="dateModified" datetime="2018-11-06T11:55:49+08:00">2018-11-06</time>
               
             
           </span>
@@ -493,10 +505,12 @@
       
         
           
-          What?Where?Why?How?参考What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求
+          What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求
 nginx 集群 lvs  keepalived f5
 nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容
-nignx负载均衡
+nignx负载均衡机制
+轮训（默认）
+按照配置的服务列表一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2157,7 +2171,7 @@ ECharts
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/24/zookeeper/">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/25/hadoop之hdfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -2176,8 +2190,8 @@ ECharts
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/24/zookeeper/" itemprop="url">
-                  Zookeeper实践
+                <a class="post-title-link" href="/2016/09/25/hadoop之hdfs/" itemprop="url">
+                  Hadoop实践之HDFS
                 </a>
               
             
@@ -2203,7 +2217,7 @@ ECharts
                 
               
 
-              <time title="创建时间：2016-09-24 09:28:17" itemprop="dateCreated datePublished" datetime="2016-09-24T09:28:17+08:00">2016-09-24</time>
+              <time title="创建时间：2016-09-25 09:08:17" itemprop="dateCreated datePublished" datetime="2016-09-25T09:08:17+08:00">2016-09-25</time>
             
 
             
@@ -2220,7 +2234,7 @@ ECharts
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-28 10:04:45" itemprop="dateModified" datetime="2018-06-28T10:04:45+08:00">2018-06-28</time>
+                <time title="修改时间：2018-11-06 16:55:48" itemprop="dateModified" datetime="2018-11-06T16:55:48+08:00">2018-11-06</time>
               
             
           </span>
@@ -2252,8 +2266,8 @@ ECharts
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/24/zookeeper/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/24/zookeeper/" itemprop="commentCount"></span>
+                <a href="/2016/09/25/hadoop之hdfs/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/25/hadoop之hdfs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2261,7 +2275,7 @@ ECharts
 
           
           
-             <span id="/2016/09/24/zookeeper/" class="leancloud_visitors" data-flag-title="Zookeeper实践">
+             <span id="/2016/09/25/hadoop之hdfs/" class="leancloud_visitors" data-flag-title="Hadoop实践之HDFS">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2293,10 +2307,19 @@ ECharts
 
       
         
-          <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>分布式数据一致性<br>  paxos 一致性协议<br>  拜占庭将军问题<br>  zab  zookeeper atom broadcast<br>奇数个可以防止脑裂<br>  dubbo<br>
+          
+          What?
+Hadoop 生态
+HDFS:Hadoop Distributed File System分布式存储系统
+http://hadoop.apache.org
+high-throughput 高吞吐
+
+Hadoop Common
+Hadoop Distributed File System 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/09/24/zookeeper/#more" rel="contents">
+            <a class="btn" href="/2016/09/25/hadoop之hdfs/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2388,7 +2411,7 @@ ECharts
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2626,7 +2649,9 @@ ECharts
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>

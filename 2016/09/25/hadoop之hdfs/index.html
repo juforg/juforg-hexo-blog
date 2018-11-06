@@ -114,34 +114,35 @@
 
 
 
-  <meta name="description" content="背景 架构图# LVS三种工作模式 NAT 地址转换  DR 直接路由  架构图3台IP一样，但LVS ARP开启 其他的都关闭   TUN 隧道  架构图  原理:首先要知道,互联网上的大多Internet服务的请求包很短小,而 应答包通常很大。那么隧道模式就是,把客户端发来的数据包,封装 一个新的IP头标记(仅目的IP)发给RS,RS收到后,先把数据包的头解开,还 原数据包,处理后,直接返回给">
-<meta name="keywords" content="负载均衡,大数据,lvs">
+  <meta name="description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
+<meta name="keywords" content="大数据,hadoop,ha,高可用,hdfs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LVS">
-<meta property="og:url" content="http://appcity.vip/2016/09/04/lvs/index.html">
+<meta property="og:title" content="Hadoop实践之HDFS">
+<meta property="og:url" content="http://appcity.vip/2016/09/25/hadoop之hdfs/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="背景 架构图# LVS三种工作模式 NAT 地址转换  DR 直接路由  架构图3台IP一样，但LVS ARP开启 其他的都关闭   TUN 隧道  架构图  原理:首先要知道,互联网上的大多Internet服务的请求包很短小,而 应答包通常很大。那么隧道模式就是,把客户端发来的数据包,封装 一个新的IP头标记(仅目的IP)发给RS,RS收到后,先把数据包的头解开,还 原数据包,处理后,直接返回给">
+<meta property="og:description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472953424.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472953043.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472975019.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472952670.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472953302.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472953511.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472954132.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472955658.png">
-<meta property="og:updated_time" content="2018-11-06T00:56:14.998Z">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541476214134.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541475553101.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541491521598.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541493211406.png">
+<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474794671.png">
+<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1480147113.png">
+<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474797386.png">
+<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474797522.png">
+<meta property="og:updated_time" content="2018-11-06T08:55:48.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LVS">
-<meta name="twitter:description" content="背景 架构图# LVS三种工作模式 NAT 地址转换  DR 直接路由  架构图3台IP一样，但LVS ARP开启 其他的都关闭   TUN 隧道  架构图  原理:首先要知道,互联网上的大多Internet服务的请求包很短小,而 应答包通常很大。那么隧道模式就是,把客户端发来的数据包,封装 一个新的IP头标记(仅目的IP)发给RS,RS收到后,先把数据包的头解开,还 原数据包,处理后,直接返回给">
-<meta name="twitter:image" content="http://oapwg4v13.bkt.clouddn.com/1472953424.png">
+<meta name="twitter:title" content="Hadoop实践之HDFS">
+<meta name="twitter:description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
+<meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2016/09/04/lvs/"/>
+  <link rel="canonical" href="http://appcity.vip/2016/09/25/hadoop之hdfs/"/>
 
 
 
@@ -151,7 +152,7 @@
   };
 </script>
 
-  <title>LVS | 夕拾阁</title>
+  <title>Hadoop实践之HDFS | 夕拾阁</title>
   
 
 
@@ -377,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/04/lvs/">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/25/hadoop之hdfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -394,7 +395,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LVS
+          <h2 class="post-title" itemprop="name headline">Hadoop实践之HDFS
               
             
           </h2>
@@ -419,7 +420,7 @@
                 
               
 
-              <time title="创建时间：2016-09-04 09:28:17" itemprop="dateCreated datePublished" datetime="2016-09-04T09:28:17+08:00">2016-09-04</time>
+              <time title="创建时间：2016-09-25 09:08:17" itemprop="dateCreated datePublished" datetime="2016-09-25T09:08:17+08:00">2016-09-25</time>
             
 
             
@@ -436,7 +437,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-06 08:56:14" itemprop="dateModified" datetime="2018-11-06T08:56:14+08:00">2018-11-06</time>
+                <time title="修改时间：2018-11-06 16:55:48" itemprop="dateModified" datetime="2018-11-06T16:55:48+08:00">2018-11-06</time>
               
             
           </span>
@@ -468,8 +469,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/04/lvs/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/04/lvs/" itemprop="commentCount"></span>
+                <a href="/2016/09/25/hadoop之hdfs/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/09/25/hadoop之hdfs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -477,7 +478,7 @@
 
           
           
-             <span id="/2016/09/04/lvs/" class="leancloud_visitors" data-flag-title="LVS">
+             <span id="/2016/09/25/hadoop之hdfs/" class="leancloud_visitors" data-flag-title="Hadoop实践之HDFS">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -508,64 +509,149 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/1472953424.png" alt=""></p>
-<p>架构图<br><img src="http://oapwg4v13.bkt.clouddn.com/1472953043.png" alt=""><br>#<br><img src="http://oapwg4v13.bkt.clouddn.com/1472975019.png" alt=""></p>
-<h1 id="LVS三种工作模式"><a href="#LVS三种工作模式" class="headerlink" title="LVS三种工作模式"></a>LVS三种工作模式</h1><ul>
-<li><p>NAT 地址转换<br><img src="http://oapwg4v13.bkt.clouddn.com/1472952670.png" alt=""><br><img src="http://oapwg4v13.bkt.clouddn.com/1472953302.png" alt=""></p>
-</li>
-<li><p>DR 直接路由</p>
+        <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><hr>
+<h3 id="Hadoop-生态"><a href="#Hadoop-生态" class="headerlink" title="Hadoop 生态"></a>Hadoop 生态</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png" alt=""></p>
+<h3 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS:"></a>HDFS:</h3><p>Hadoop Distributed File System<br>分布式存储系统</p>
+<p><a href="http://hadoop.apache.org" target="_blank" rel="noopener">http://hadoop.apache.org</a></p>
+<p>high-throughput 高吞吐</p>
 <ul>
-<li>架构图<br><img src="http://oapwg4v13.bkt.clouddn.com/1472953511.png" alt=""><br>3台IP一样，但LVS ARP开启 其他的都关闭<br><img src="http://oapwg4v13.bkt.clouddn.com/1472954132.png" alt=""></li>
+<li>Hadoop Common</li>
+<li>Hadoop Distributed File System (HDFS™)</li>
+<li>Hadoop YARN</li>
+<li>Hadoop MapReduce</li>
+</ul>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541476214134.png" alt=""></p>
+<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><ul>
+<li>name node 主节点<ul>
+<li>接收读写服务</li>
+<li>接收datanode 汇报的block信息</li>
+<li>保存metadate元信息（基于内存存储）</li>
 </ul>
 </li>
-<li><p>TUN 隧道</p>
+<li>data node 从节点<ul>
+<li>存储block</li>
+</ul>
+</li>
+<li>secondary name node<ul>
+<li>整理 fsimage和 edites 日志 得到最新fsimage<ul>
+<li>避免nn重启后重新汇集所有文件meta信息</li>
+</ul>
+</li>
+<li>SNN执行合并时间和机制<ul>
+<li>根据配置文件设置的时间间隔 fs.checkpoint.period默认3600秒</li>
+<li>根据配置文件设置 edits log 大小 fs.checkpoint.size 规定 edits 文件的最大值默认是 64MB</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="存储模型block"><a href="#存储模型block" class="headerlink" title="存储模型block"></a>存储模型block</h4><ul>
+<li>偏移量标记位置</li>
+<li>块大小默认64M（物理暂用空间按实际文件大小不会浪费）</li>
+</ul>
+<h4 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h4><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541475553101.png" alt=""></p>
 <ul>
-<li>架构图 <img src="http://oapwg4v13.bkt.clouddn.com/1472955658.png" alt=""></li>
-<li><strong><em>原理</em></strong>:首先要知道,互联网上的大多Internet服务的请求包很短小,而 应答包通常很大。那么隧道模式就是,把客户端发来的数据包,封装 一个新的IP头标记(仅目的IP)发给RS,RS收到后,先把数据包的头解开,还 原数据包,处理后,直接返回给客户端,不需要再经过负载均衡器。注意,由 于RS需要对负载均衡器发过来的数据包进行还原,所以说必须支持 IPTUNNEL协议。所以,在RS的内核中,必须编译支持IPTUNNEL这个选 项</li>
-<li><strong><em>优点</em></strong>:负载均衡器只负责将请求包分发给后端节点服务器,而RS将应 答包直接发给用户。所以,减少了负载均衡器的大量数据流动,负载 均衡器不再是系统的瓶颈,就能处理很巨大的请求量,这种方式,一 台负载均衡器能够为很多RS进行分发。而且跑在公网上就能进行不同 地域的分发。</li>
-<li><strong><em>缺点</em></strong>:隧道模式的RS节点需要合法IP,这种方式需要所有的服务器支 持”IP Tunneling”(IP Encapsulation)协议,服务器可能只局限在部 分Linux系统上。</li>
+<li>按大小被切分成若干个 block ，存储到不同节点上</li>
+<li>默认情况下每个 block 都有 2 个副本 共 3 个副本</li>
+<li>副本数不大于节点数</li>
+</ul>
+<h4 id="内含机制"><a href="#内含机制" class="headerlink" title="内含机制"></a>内含机制</h4><ul>
+<li>心跳</li>
+<li>负载均衡</li>
+<li>多副本</li>
+</ul>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><hr>
+<h3 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h3><ul>
+<li>容错</li>
+<li>突破单机性能</li>
+<li>效率高</li>
+<li>可扩展</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="分布式的特性"><a href="#分布式的特性" class="headerlink" title="分布式的特性:"></a>分布式的特性:</h4><ul>
+<li>适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据</li>
+<li>百万规模以上的文件数量:10K+ 节点。</li>
+<li>适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架</li>
+</ul>
+<h4 id="自身特性"><a href="#自身特性" class="headerlink" title="自身特性:"></a>自身特性:</h4><ul>
+<li>可构建在廉价机器上:</li>
+<li>高可靠性:通过多副本提提高</li>
+<li>高容错性:数据自动保存多个副本;副本丢失后，自动恢复,提供 了恢复机制</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>低延迟高数据吞吐访问问题 <ul>
+<li>比如不支持毫秒级</li>
+<li>吞吐量大但有限制于其延迟</li>
 </ul>
 </li>
+<li>小文件存取占用 NameNode 大量内存(寻道时间超过读取时间 (99%))</li>
+<li>不支持文件修改:一个文件只能有一个写者(深入)</li>
 </ul>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><ul>
-<li>yum -y install ipvsadm</li>
-<li>cat /proc/sys/net/ipv4/ip_forward</li>
-<li>ipvsadm -At</li>
-<li>sysctl -P 生效</li>
-<li>ipvsadm -Ln 查看</li>
-<li>ipvsadm -C 清空负载配置</li>
-<li>ipvsadm -L –timeout</li>
-<li>ipvsadm –set 1</li>
-</ul>
-<h3 id="NAT模式-m"><a href="#NAT模式-m" class="headerlink" title="NAT模式 -m"></a>NAT模式 -m</h3><h3 id="DR模式-g"><a href="#DR模式-g" class="headerlink" title="DR模式 -g"></a>DR模式 -g</h3><ul>
-<li><p>LVS 服务器</p>
+<h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><hr>
+<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541491521598.png" alt=""></p>
 <ul>
-<li>route 路由</li>
-<li>ifconfig eth0:vip 192.168.199.100 netmask 255.255.255.0</li>
+<li>通过拓扑网络寻找最近的节点</li>
+</ul>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541493211406.png" alt=""></p>
+<h6 id="是否按照block-list-顺序读取block-信息？"><a href="#是否按照block-list-顺序读取block-信息？" class="headerlink" title="是否按照block list 顺序读取block 信息？"></a>是否按照block list 顺序读取block 信息？</h6><p>多节点并行读，单节点串读？</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
+<h3 id="必备："><a href="#必备：" class="headerlink" title="必备："></a>必备：</h3><ul>
+<li>java</li>
+<li>ssh</li>
+</ul>
+<h3 id="检查："><a href="#检查：" class="headerlink" title="检查："></a>检查：</h3><ul>
+<li>echo <code>JAVA_HOME</code></li>
+<li>ssh免密钥设置参照我的<code>VMWare虚拟机笔记</code>中的配置</li>
+<li>防火墙是否关闭<code>service iptables status</code></li>
+<li>时间同步软件是否安装</li>
+</ul>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>  <a href="http://www.apache.org/dyn/closer.cgi/hadoop/common/" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.cgi/hadoop/common/</a></p>
+<p>  下载至目录 /opt/soft</p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>tar zxvf hadoop-2.5.1_x64.tar.gz</p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><ul>
+<li><code>cd /opt/soft/hadoop-2.5.1</code></li>
+<li><code>vi etc/hadoop/hadoop-env.sh</code><ul>
+<li><code>export JAVA_HOME=/opt/soft/jdk1.7.0_25</code>将jdk变量指向自己的jdk路径,保存退出</li>
 </ul>
 </li>
-<li><p>echo 1 &gt;/proc/sys/net/ipv4/ip_forward</p>
+<li><code>mkdir data</code></li>
+<li><p><code>vi etc/hadoop/core-site.xml</code>添加下列配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://sj-node1:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/soft/hadoop-2.5.1/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>ifconfig eth0:1 192.168.199.100  broadcast 192.168.199.100  netmask 255.255.255.255 up</li>
-<li>route add -host 192.168.199.100 dev eth0:1</li>
+<li><p><code>vi ./etc/hadoop/hdfs-site.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:50090<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.https-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:50091<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>ipvsadm -C<br>ipvsadm -At 192.168.199.100:80 -s rr<br>ipvsadm -at 192.168.199.100:80 -r 192.168.199.102:80 -g -w 1<br>ipvsadm -at 192.168.199.100:80 -r 192.168.199.103:80 -g -w 1</p>
 <ul>
-<li><p>两台真实的服务器</p>
+<li><p>修改slaves<code>vi ./etc/hadoop/slaves</code><br> <img src="http://oapwg4v13.bkt.clouddn.com/1474794671.png" alt=""></p>
 <ul>
-<li><p>关闭ARP响应</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;1&quot; &gt; /proc/sys/net/ipv4/conf/lo/arp_ignore</span><br><span class="line">echo &quot;2&quot; &gt; /proc/sys/net/ipv4/conf/lo/arp_announce</span><br><span class="line">echo &quot;1&quot; &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span><br><span class="line">echo &quot;2&quot; &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span><br></pre></td></tr></table></figure>
+<li>新建masters文件<code>vi ./etc/hadoop/masters</code>以sj-node2作为第二主机</li>
+</ul>
+<h3 id="将配置好的传到其它节点"><a href="#将配置好的传到其它节点" class="headerlink" title="将配置好的传到其它节点"></a>将配置好的传到其它节点</h3></li>
+<li><code>[root@sj-node1 soft]# scp -r hadoop-2.5.1 sj-node2:/opt/soft/</code></li>
+<li><code>[root@sj-node1 soft]# scp -r hadoop-2.5.1 sj-node3:/opt/soft/</code></li>
+<li><code>[root@sj-node1 soft]# scp -r hadoop-2.5.1 sj-node4:/opt/soft/</code></li>
+</ul>
+<h3 id="格式化NN"><a href="#格式化NN" class="headerlink" title="格式化NN"></a>格式化NN</h3><p>  <code>[root@sj-node1 hadoop-2.5.1]# bin/hdfs namenode -format</code><br>  只需在NN几点也就是sj-node1上执行，确认没有错误,data目录下有文件生成</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p> <code>[root@sj-node1 hadoop-2.5.1]# sbin/start-dfs.sh</code><br> 注意检查启动的时候控制台有没有报错</p>
+<h3 id="启动后检查访问web"><a href="#启动后检查访问web" class="headerlink" title="启动后检查访问web"></a>启动后检查访问web</h3><ul>
+<li><p>命令行检查</p>
+<ul>
+<li><p><code>hdfs haadmin -getServiceState nn1</code><br><code>hdfs haadmin -getServiceState nn2</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1480147113.png" alt=""></p>
 </li>
-<li><p>ifconfig lo:0 192.168.199.100  broadcast 192.168.199.100 netmask 255.255.255.255 up<br>route add -host 192.168.199.100 dev lo:0</p>
+<li><p>NN主节点 <a href="http://192.168.199.101:50070/" target="_blank" rel="noopener">http://192.168.199.101:50070/</a></p>
 </li>
-<li>删除默认网关<br>route del default</li>
+<li>SNN <a href="http://192.168.199.102:50090/status.html" target="_blank" rel="noopener">http://192.168.199.102:50090/status.html</a></li>
+<li>目录访问<a href="http://192.168.199.101:50070/explorer.html#/" target="_blank" rel="noopener">http://192.168.199.101:50070/explorer.html#/</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="TUN模式-i"><a href="#TUN模式-i" class="headerlink" title="TUN模式 -i"></a>TUN模式 -i</h3><ul>
-<li>LVS服务器<ul>
-<li>vi /etc/sysctl</li>
-<li>init 6</li>
+<h2 id="命令测试"><a href="#命令测试" class="headerlink" title="命令测试"></a>命令测试</h2><ul>
+<li>创建文件夹<ul>
+<li><code>bin/hadoop fs -mkdir /testdir</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1474797386.png" alt=""></li>
+</ul>
+</li>
+<li>上传文件<ul>
+<li><code>[root@sj-node1 hadoop-2.5.1]# bin/hadoop fs -put README.txt /testdir</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1474797522.png" alt=""></li>
 </ul>
 </li>
 </ul>
@@ -593,11 +679,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/负载均衡/" rel="tag"># 负载均衡</a>
-          
             <a href="/tags/大数据/" rel="tag"># 大数据</a>
           
-            <a href="/tags/lvs/" rel="tag"># lvs</a>
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          
+            <a href="/tags/ha/" rel="tag"># ha</a>
+          
+            <a href="/tags/高可用/" rel="tag"># 高可用</a>
+          
+            <a href="/tags/hdfs/" rel="tag"># hdfs</a>
           
         </div>
       
@@ -625,8 +715,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/03/nginx安装部署/" rel="next" title="nginx/tengine编译安装">
-                <i class="fa fa-chevron-left"></i> nginx/tengine编译安装
+              <a href="/2016/09/24/zookeeper/" rel="next" title="Zookeeper实践">
+                <i class="fa fa-chevron-left"></i> Zookeeper实践
               </a>
             
           </div>
@@ -635,8 +725,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/04/VMWare虚拟机笔记/" rel="prev" title="VMWare安装CentOS6虚拟机笔记">
-                VMWare安装CentOS6虚拟机笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/21/项目收集整理/" rel="prev" title="项目收集整理">
+                项目收集整理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1034,7 +1124,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LVS三种工作模式"><span class="nav-number"></span> <span class="nav-text">LVS三种工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">1.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT模式-m"><span class="nav-number">1.1.</span> <span class="nav-text">NAT模式 -m</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DR模式-g"><span class="nav-number">1.2.</span> <span class="nav-text">DR模式 -g</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TUN模式-i"><span class="nav-number">1.3.</span> <span class="nav-text">TUN模式 -i</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-生态"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop 生态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS"><span class="nav-number">1.2.</span> <span class="nav-text">HDFS:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储模型block"><span class="nav-number">1.2.2.</span> <span class="nav-text">存储模型block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储方式"><span class="nav-number">1.2.3.</span> <span class="nav-text">存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内含机制"><span class="nav-number">1.2.4.</span> <span class="nav-text">内含机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式"><span class="nav-number">2.1.</span> <span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式的特性"><span class="nav-number">2.2.1.</span> <span class="nav-text">分布式的特性:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自身特性"><span class="nav-number">2.2.2.</span> <span class="nav-text">自身特性:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">3.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-读写流程"><span class="nav-number">3.1.</span> <span class="nav-text">HDFS 读写流程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#是否按照block-list-顺序读取block-信息？"><span class="nav-number">3.1.0.0.1.</span> <span class="nav-text">是否按照block list 顺序读取block 信息？</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备："><span class="nav-number">4.1.</span> <span class="nav-text">必备：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查："><span class="nav-number">4.2.</span> <span class="nav-text">检查：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">4.3.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">4.4.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置"><span class="nav-number">4.5.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将配置好的传到其它节点"><span class="nav-number">4.6.</span> <span class="nav-text">将配置好的传到其它节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化NN"><span class="nav-number">4.7.</span> <span class="nav-text">格式化NN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">4.8.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动后检查访问web"><span class="nav-number">4.9.</span> <span class="nav-text">启动后检查访问web</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令测试"><span class="nav-number">5.</span> <span class="nav-text">命令测试</span></a></li></ol></div>
             
 
           </div>
