@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[负责均衡]]></title>
+    <title><![CDATA[负载均衡]]></title>
     <url>%2F2018%2F11%2F05%2F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%2F</url>
     <content type="text"><![CDATA[What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs keepalived f5 nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制 轮训（默认） 按照配置的服务列表一个个分配 缺点 同一个用户，不同请求会分配到不同服务器 加权负载均衡 对性能不一致的机器 给予不同的权重，是性能好的服务器能够处理更多 最少连接数 分配给连接数更少的服务器 ip-hash 保证会话持久 缺点 如果针对用户是企业用户，一般都是一条宽带外网ip都是一样的，这样的用户都会被分配到同一个server上，达不到负载均衡的效果 Where?应用服务器前可以加nignx负载，如果nginx需要负载则需要在nginx前加lvs服务参考 lvs Why?How?轮训nginx配置1234567891011http &#123; upstream sjcluster&#123; server sj-node2; server sj-node3; &#125; server &#123; listen 80; server_name node2; location / &#123; proxy_pass http://sjcluster &#125; 权重配置1234567891011http &#123; upstream sjcluster&#123; server sj-node2 weight=3; server sj-node3; &#125; server &#123; listen 80; server_name node2; location / &#123; proxy_pass http://sjcluster &#125; 最小连接数配置123456789101112http &#123; upstream sjcluster&#123; least_conn; server sj-node2; server sj-node3; &#125; server &#123; listen 80; server_name node2; location / &#123; proxy_pass http://sjcluster &#125; ip-hash配置123456789101112http &#123; upstream sjcluster&#123; ip_hash; server sj-node2 ; server sj-node3; &#125; server &#123; listen 80; server_name node2; location / &#123; proxy_pass http://sjcluster &#125; 参考]]></content>
       <categories>
-        <category>随笔</category>
+        <category>架构师笔记</category>
       </categories>
       <tags>
         <tag>随笔</tag>
@@ -144,8 +144,8 @@
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>负载均衡</tag>
         <tag>大数据</tag>
+        <tag>负载均衡</tag>
         <tag>lvs</tag>
       </tags>
   </entry>
