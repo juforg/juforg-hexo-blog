@@ -144,8 +144,8 @@
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>大数据</tag>
         <tag>负载均衡</tag>
+        <tag>大数据</tag>
         <tag>lvs</tag>
       </tags>
   </entry>
