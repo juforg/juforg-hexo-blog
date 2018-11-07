@@ -4,6 +4,62 @@
 
     
   <url>
+    <loc>http://appcity.vip/2016/09/24/zookeeper/</loc>
+    <lastmod>2018-11-07T09:01:59.155Z</lastmod>
+    <data>
+        <display>
+        <title>Zookeeper实践</title>
+        <pubTime>2016-09-24T01:28:17.000Z</pubTime>
+        
+        <tag>大数据</tag>
+         
+        <tag>hadoop2</tag>
+         
+        <tag>Zookeeper</tag>
+         
+        <tag>ha</tag>
+         
+        <tag>高可用</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://appcity.vip/2016/09/25/hadoop%E4%B9%8Bhdfs/</loc>
+    <lastmod>2018-11-07T02:27:36.530Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop实践之HDFS</title>
+        <pubTime>2016-09-25T01:08:17.000Z</pubTime>
+        
+        <tag>大数据</tag>
+         
+        <tag>ha</tag>
+         
+        <tag>高可用</tag>
+         
+        <tag>hadoop</tag>
+         
+        <tag>hdfs</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://appcity.vip/2018/11/05/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
     <lastmod>2018-11-06T14:02:05.843Z</lastmod>
     <data>
@@ -24,34 +80,6 @@
 
     
   <url>
-    <loc>http://appcity.vip/2016/09/25/hadoop%E4%B9%8Bhdfs/</loc>
-    <lastmod>2018-11-06T08:55:48.841Z</lastmod>
-    <data>
-        <display>
-        <title>Hadoop实践之HDFS</title>
-        <pubTime>2016-09-25T01:08:17.000Z</pubTime>
-        
-        <tag>大数据</tag>
-         
-        <tag>hadoop</tag>
-         
-        <tag>ha</tag>
-         
-        <tag>高可用</tag>
-         
-        <tag>hdfs</tag>
-         
-         
-           
-             
-              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://appcity.vip/2016/09/04/lvs/</loc>
     <lastmod>2018-11-06T00:56:14.998Z</lastmod>
     <data>
@@ -59,9 +87,9 @@
         <title>LVS</title>
         <pubTime>2016-09-04T01:28:17.000Z</pubTime>
         
-        <tag>负载均衡</tag>
-         
         <tag>大数据</tag>
+         
+        <tag>负载均衡</tag>
          
         <tag>lvs</tag>
          
@@ -252,26 +280,6 @@
            
              
               <breadCrumb title="buger" url="http://appcity.vip/categories/buger/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://appcity.vip/2016/09/24/zookeeper/</loc>
-    <lastmod>2018-06-28T02:04:45.918Z</lastmod>
-    <data>
-        <display>
-        <title>Zookeeper实践</title>
-        <pubTime>2016-09-24T01:28:17.000Z</pubTime>
-        
-        <tag>大数据 hadoop Zookeeper ha 高可用</tag>
-         
-         
-           
-             
-              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
           
         </display>
     </data>

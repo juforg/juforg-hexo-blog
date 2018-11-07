@@ -108,21 +108,25 @@
       </categories>
       <tags>
         <tag>大数据</tag>
-        <tag>hadoop</tag>
         <tag>ha</tag>
         <tag>高可用</tag>
+        <tag>hadoop</tag>
         <tag>hdfs</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Zookeeper实践]]></title>
     <url>%2F2016%2F09%2F24%2Fzookeeper%2F</url>
-    <content type="text"><![CDATA[What?分布式数据一致性 paxos 一致性协议 拜占庭将军问题 zab zookeeper atom broadcast奇数个可以防止脑裂 dubbo Wherehttp://zookeeper.apache.org/ Why?How? 准备3台虚拟机 在每台虚拟机上都添加hosts配置vi /etc/hosts 下载并配置http://www.apache.org/dyn/closer.cgi/zookeeper/ cd /opt/soft wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz tar zxvf zookeeper-3.4.8.tar.gz cd zookeeper-3.4.8 mkdir data mkdir dataLog vi data/myid 输入1 并保存退出 cp conf/zoo_sample.cfg conf/zoo.cfg vi conf/zoo.cfg 1234567dataDir=/opt/soft/zookeeper-3.4.8/datadataLogDir=/opt/soft/zookeeper-3.4.8/dataLoginitLimit=5syncLimit=2server.1=sj-node1:2888:3888server.2=sj-node2:2888:3888server.3=sj-node3:2888:3888 单台配置完毕 将配置好的拷贝到其它两天虚拟机 scp -r zookeeper-3.4.8 root@sj-nod2:/opt/soft 登录第二台虚拟机，记得hosts文件已配置好 cd /opt/soft/zookeeper-3.4.8 vi data/myid 删除1 输入2 保存退出 启动zookeeper,在3台虚拟机上都输入 /opt/soft/zookeeper-3.4.8/bin/zkServer.sh start 查看集群状态 /opt/soft/zookeeper-3.4.8/bin/zkServer.sh status 主节点 从节点 设置观察节点 观察节点 客户端访问 /opt/soft/zookeeper-3.4.8/bin/zkCli.sh 列出所有1级节点 ls / 创建节点 create /zktest testdata 查询节点数据 get /zktest-]]></content>
+    <content type="text"><![CDATA[What? 保证分布式数据一致性 配置维护 域名服务 分布式同步 组服务 分布式锁 paxos 一致性协议 拜占庭将军问题zab zookeeper atom broadcast 奇数个可以防止脑裂dubbo 角色 leader follower observer 提升吞吐量，不参与投票 znode节点 短暂的 持久的 短暂有序 持久有序 观察Wherehttp://zookeeper.apache.org/ Why? 特点 最终一致性 可靠性 实时性 独立性 原子性 顺序性 How? 准备3台虚拟机 在每台虚拟机上都添加hosts配置vi /etc/hosts 下载并配置http://www.apache.org/dyn/closer.cgi/zookeeper/ cd /opt/soft wget https://mirrors.tuna.tsinghua.edu.cn/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz tar zxvf zookeeper-3.4.8.tar.gz cd zookeeper-3.4.8 mkdir data mkdir dataLog vi data/myid 输入1 并保存退出 cp conf/zoo_sample.cfg conf/zoo.cfg vi conf/zoo.cfg 1234567dataDir=/opt/soft/zookeeper-3.4.8/datadataLogDir=/opt/soft/zookeeper-3.4.8/dataLoginitLimit=5syncLimit=2server.1=sj-node1:2888:3888server.2=sj-node2:2888:3888server.3=sj-node3:2888:3888 单台配置完毕 将配置好的拷贝到其它两天虚拟机 scp -r zookeeper-3.4.8 root@sj-nod2:/opt/soft 登录第二台虚拟机，记得hosts文件已配置好 cd /opt/soft/zookeeper-3.4.8 vi data/myid 删除1 输入2 保存退出 启动zookeeper,在3台虚拟机上都输入 /opt/soft/zookeeper-3.4.8/bin/zkServer.sh start 查看集群状态 /opt/soft/zookeeper-3.4.8/bin/zkServer.sh status 主节点 从节点 设置观察节点 观察节点 客户端访问 /opt/soft/zookeeper-3.4.8/bin/zkCli.sh 列出所有1级节点 ls / 创建节点 create /zktest testdata 查询节点数据 get /zktest 设置节点数据 set /zktest testset 删除节点数据 delete /zktest]]></content>
       <categories>
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>大数据 hadoop Zookeeper ha 高可用</tag>
+        <tag>大数据</tag>
+        <tag>hadoop2</tag>
+        <tag>Zookeeper</tag>
+        <tag>ha</tag>
+        <tag>高可用</tag>
       </tags>
   </entry>
   <entry>
@@ -144,8 +148,8 @@
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>负载均衡</tag>
         <tag>大数据</tag>
+        <tag>负载均衡</tag>
         <tag>lvs</tag>
       </tags>
   </entry>
