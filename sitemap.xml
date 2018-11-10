@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://appcity.vip/2016/10/15/Hadoop%E4%B9%8Bhdfs%E8%BF%9B%E9%98%B6/</loc>
+    
+    <lastmod>2018-11-09T08:28:59.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://appcity.vip/2016/10/15/Hadoop%E4%B9%8BMapReduce/</loc>
+    
+    <lastmod>2018-11-09T01:26:00.197Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://appcity.vip/2016/09/24/zookeeper/</loc>
     
     <lastmod>2018-11-07T09:01:59.155Z</lastmod>

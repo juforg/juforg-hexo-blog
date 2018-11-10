@@ -114,24 +114,29 @@
 
 
 
-  <meta name="description" content="以大多数人的努力程度之低还轮不到拼天赋">
-<meta name="keywords" content="juforg">
-<meta property="og:type" content="website">
-<meta property="og:title" content="夕拾阁">
-<meta property="og:url" content="http://appcity.vip/tags/架构师-java-maven-archetype/index.html">
+  <meta name="description" content="What 分布式离线计算框架 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager container 一个container一个进程       input split 对应一个 block 128M output 可能大于 一个block 128M map 到 reduce 方法之间 叫 sh">
+<meta name="keywords" content="大数据,ha,高可用,hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop实践之MapReduce">
+<meta property="og:url" content="http://appcity.vip/2016/10/15/Hadoop之MapReduce/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="以大多数人的努力程度之低还轮不到拼天赋">
+<meta property="og:description" content="What 分布式离线计算框架 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager container 一个container一个进程       input split 对应一个 block 128M output 可能大于 一个block 128M map 到 reduce 方法之间 叫 sh">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/9/1541723488967.png">
+<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1476588728.png">
+<meta property="og:updated_time" content="2018-11-09T01:26:00.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夕拾阁">
-<meta name="twitter:description" content="以大多数人的努力程度之低还轮不到拼天赋">
+<meta name="twitter:title" content="Hadoop实践之MapReduce">
+<meta name="twitter:description" content="What 分布式离线计算框架 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager container 一个container一个进程       input split 对应一个 block 128M output 可能大于 一个block 128M map 到 reduce 方法之间 叫 sh">
+<meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://appcity.vip/tags/架构师-java-maven-archetype/"/>
+  <link rel="canonical" href="http://appcity.vip/2016/10/15/Hadoop之MapReduce/"/>
 
 
 
@@ -141,7 +146,7 @@
   };
 </script>
 
-  <title>标签: 架构师 java maven archetype | 夕拾阁</title>
+  <title>Hadoop实践之MapReduce | 夕拾阁</title>
   
 
 
@@ -198,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -347,87 +352,354 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>架构师 java maven archetype<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/10/15/Hadoop之MapReduce/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juforg">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/12/05/自定义maven项目骨架/" itemprop="url">
-              
-                <span itemprop="name">创建maven自定义项目骨架archetype</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Hadoop实践之MapReduce
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-05T16:01:17+08:00"
-              content="2016-12-05" >
-          12-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-10-15 16:36:59" itemprop="dateCreated datePublished" datetime="2016-10-15T16:36:59+08:00">2016-10-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-09 09:26:00" itemprop="dateModified" datetime="2018-11-09T09:26:00+08:00">2018-11-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/大数据/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/10/15/Hadoop之MapReduce/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/10/15/Hadoop之MapReduce/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/10/15/Hadoop之MapReduce/" class="leancloud_visitors" data-flag-title="Hadoop实践之MapReduce">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><hr>
+<h4 id="分布式离线计算框架"><a href="#分布式离线计算框架" class="headerlink" title="分布式离线计算框架"></a>分布式离线计算框架</h4><ul>
+<li>移动计算而不是移动数据</li>
+<li>一主多从架构<ul>
+<li>JobTracker</li>
+<li>TaskTracker</li>
+</ul>
+</li>
+<li>NameNode</li>
+<li>DateNode</li>
+<li>ResourceManager<ul>
+<li>container<ul>
+<li>一个container一个进程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>input split 对应一个 block 128M</li>
+<li>output 可能大于 一个block 128M</li>
+<li>map 到 reduce 方法之间 叫 shuffle</li>
+<li>map 在相应的datanode上执行，reduce找空闲的datanode执行，不一定在block上</li>
+<li>split后的大小不一定是一个block大小</li>
+<li>map的输出物是经过快速排序的</li>
+</ol>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png" alt=""></p>
+<div id="flowchart-0" class="flow-chart"></div><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/9/1541723488967.png" alt=""><br><br><br><br>### partition<br>- hash(key) mod r<br>  - 有几个reduce 就有几个partition<br><br>### shuffle<br>map task<br><div id="flowchart-1" class="flow-chart"></div>
+
+
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><hr>
+<p>海量数据计算</p>
+<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><hr>
+<p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html</a><br><a href="http://www.cnblogs.com/luogankun/p/4019303.html" target="_blank" rel="noopener">http://www.cnblogs.com/luogankun/p/4019303.html</a></p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><hr>
+<ol>
+<li><p>配置文件yarn-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.cluster-id<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.rm-ids<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>rm1,rm2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.zk-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:2181,sj-node2:2181,sj-node3:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置mapred-site.xml使用yarn来调度<br><code>cp etc/hadoop/mapred-site.xml.template etc/hadoop/mapred-site.xml</code><br><code>vi etc/hadoop/mapred-site.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将配置文件拷贝到其它机器上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp etc/hadoop/yarn-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于配置了3，4节点为yarn的主节点，所以进入3或4执行命令<br><code>./sbin/start-yarn.sh</code></p>
+</li>
+<li>如果某个节点故障 kill掉之后 执行单独启动命令<code>./sbin/yarn-daemon.sh start resourcemanager</code></li>
+<li>检查<br><a href="http://sj-node3:8088/cluster" target="_blank" rel="noopener">http://sj-node3:8088/cluster</a><br>能够访问代表主节点启动成功<br><a href="http://sj-node4:8088/cluster" target="_blank" rel="noopener">http://sj-node4:8088/cluster</a><br>能够访问并自动跳转到node3代表热备机启动成功</li>
+</ol>
+<p>  <img src="http://oapwg4v13.bkt.clouddn.com/1476588728.png" alt=""></p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: input
+op1=>operation: spliting
+op2=>operation: mapping
+op3=>operation: shuffing
+op4=>operation: reducing
+ed=>inputoutput: final result
+
+st->op1(right)->op2(right)->op3(right)->op4(right)->ed</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: input split
+op1=>operation: map
+op2=>operation: buffer in memory 
+op3=>operation: partion sort 
+op4=>operation: spill to disk
+op5=>operation: merge on disk
+op6=>operation: fetch to reduce
+op7=>operation: sort and merge partition
+ed=>inputoutput: final result
+
+st->op1(right)->op2(right)->op3(right)->op4(right)->op5(right)->ed</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
 
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/ha/" rel="tag"># ha</a>
+          
+            <a href="/tags/高可用/" rel="tag"># 高可用</a>
+          
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/15/Hadoop之hdfs进阶/" rel="next" title="Hadoop2实践之HDFS进阶篇-高可用">
+                <i class="fa fa-chevron-left"></i> Hadoop2实践之HDFS进阶篇-高可用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/21/项目收集整理/" rel="prev" title="项目收集整理">
+                项目收集整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -448,8 +720,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -759,6 +1040,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式离线计算框架"><span class="nav-number">1.0.1.</span> <span class="nav-text">分布式离线计算框架</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">3.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">4.</span> <span class="nav-text">How</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -911,6 +1208,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 

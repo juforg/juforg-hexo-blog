@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>http://appcity.vip/2016/10/15/Hadoop%E4%B9%8Bhdfs%E8%BF%9B%E9%98%B6/</loc>
+    <lastmod>2018-11-09T08:28:59.393Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop2实践之HDFS进阶篇-高可用</title>
+        <pubTime>2016-10-15T01:18:17.000Z</pubTime>
+        
+        <tag>大数据</tag>
+         
+        <tag>hadoop2</tag>
+         
+        <tag>ha</tag>
+         
+        <tag>高可用</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://appcity.vip/2016/10/15/Hadoop%E4%B9%8BMapReduce/</loc>
+    <lastmod>2018-11-09T01:26:00.197Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop实践之MapReduce</title>
+        <pubTime>2016-10-15T08:36:59.000Z</pubTime>
+        
+        <tag>大数据</tag>
+         
+        <tag>ha</tag>
+         
+        <tag>高可用</tag>
+         
+        <tag>hadoop</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://appcity.vip/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://appcity.vip/2016/09/24/zookeeper/</loc>
     <lastmod>2018-11-07T09:01:59.155Z</lastmod>
     <data>
