@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://appcity.vip/2016/09/04/VMWare%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2018-11-12T16:49:06.163Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://appcity.vip/2017/12/26/centos%E5%AE%89%E8%A3%85mysql/</loc>
+    
+    <lastmod>2018-11-12T16:30:45.183Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://appcity.vip/2017/12/26/centos%E5%AE%89%E8%A3%85jdk/</loc>
+    
+    <lastmod>2018-11-12T16:30:26.665Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://appcity.vip/2016/12/05/%E8%87%AA%E5%AE%9A%E4%B9%89maven%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</loc>
+    
+    <lastmod>2018-11-12T03:27:18.748Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://appcity.vip/2016/10/15/Hadoop%E4%B9%8Bhdfs%E8%BF%9B%E9%98%B6/</loc>
     
     <lastmod>2018-11-09T08:28:59.393Z</lastmod>
@@ -114,23 +142,9 @@
   </url>
   
   <url>
-    <loc>http://appcity.vip/2016/12/05/%E8%87%AA%E5%AE%9A%E4%B9%89maven%E9%A1%B9%E7%9B%AE%E9%AA%A8%E6%9E%B6/</loc>
-    
-    <lastmod>2018-06-28T02:04:58.321Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://appcity.vip/2016/11/22/jqgrid%E7%BF%BB%E9%A1%B5%E6%97%A0%E6%95%88%E6%9E%9C/</loc>
     
     <lastmod>2018-06-28T02:04:54.272Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://appcity.vip/2016/09/04/VMWare%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2018-06-28T02:04:42.496Z</lastmod>
     
   </url>
   
