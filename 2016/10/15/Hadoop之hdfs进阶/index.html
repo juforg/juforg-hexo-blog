@@ -114,20 +114,22 @@
 
 
 
-  <meta name="description" content="What  Yarn资源管理系统 ，由jobTracker 演化而来  资源管理 ResourceManager 任务调度 ApplicationMaster资源管理调度流程    Wherehttp://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html Ho">
+  <meta name="description" content="What Hadoop 2.x由HDFS、MapReduce和YARN三个分支构 HDFS：分布式文件存储系统； YARN：资源管理系统 MapReduce：运行在YARN上的MR；   Hadoop 2.0产生背景 Hadoop 1.0中HDFS和MapReduce在高可用、扩展性等方面存在问题。 HDFS存在的问题 NameNode单点故障，难以应用于在线场景  NameNode压力过大，且内">
 <meta name="keywords" content="大数据,hadoop2,ha,高可用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop2实践之HDFS进阶篇-高可用">
 <meta property="og:url" content="http://appcity.vip/2016/10/15/Hadoop之hdfs进阶/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What  Yarn资源管理系统 ，由jobTracker 演化而来  资源管理 ResourceManager 任务调度 ApplicationMaster资源管理调度流程    Wherehttp://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html Ho">
+<meta property="og:description" content="What Hadoop 2.x由HDFS、MapReduce和YARN三个分支构 HDFS：分布式文件存储系统； YARN：资源管理系统 MapReduce：运行在YARN上的MR；   Hadoop 2.0产生背景 Hadoop 1.0中HDFS和MapReduce在高可用、扩展性等方面存在问题。 HDFS存在的问题 NameNode单点故障，难以应用于在线场景  NameNode压力过大，且内">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541556384597.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541557359546.png">
-<meta property="og:updated_time" content="2018-11-09T08:28:59.393Z">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/17/1542440130481.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/17/1542447754394.png">
+<meta property="og:updated_time" content="2018-11-22T13:27:23.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop2实践之HDFS进阶篇-高可用">
-<meta name="twitter:description" content="What  Yarn资源管理系统 ，由jobTracker 演化而来  资源管理 ResourceManager 任务调度 ApplicationMaster资源管理调度流程    Wherehttp://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html Ho">
+<meta name="twitter:description" content="What Hadoop 2.x由HDFS、MapReduce和YARN三个分支构 HDFS：分布式文件存储系统； YARN：资源管理系统 MapReduce：运行在YARN上的MR；   Hadoop 2.0产生背景 Hadoop 1.0中HDFS和MapReduce在高可用、扩展性等方面存在问题。 HDFS存在的问题 NameNode单点故障，难以应用于在线场景  NameNode压力过大，且内">
 <meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541556384597.png">
 
 
@@ -253,7 +255,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">21</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
   </li>
         
         
@@ -430,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-09 16:28:59" itemprop="dateModified" datetime="2018-11-09T16:28:59+08:00">2018-11-09</time>
+                <time title="修改时间：2018-11-22 21:27:23" itemprop="dateModified" datetime="2018-11-22T21:27:23+08:00">2018-11-22</time>
               
             
           </span>
@@ -503,24 +505,54 @@
 
       
         <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><hr>
+<h2 id="Hadoop-2-x由HDFS、MapReduce和YARN三个分支构"><a href="#Hadoop-2-x由HDFS、MapReduce和YARN三个分支构" class="headerlink" title="Hadoop 2.x由HDFS、MapReduce和YARN三个分支构"></a>Hadoop 2.x由HDFS、MapReduce和YARN三个分支构</h2><ul>
+<li>HDFS：分布式文件存储系统；</li>
+<li>YARN：资源管理系统</li>
+<li>MapReduce：运行在YARN上的MR；</li>
+</ul>
 <p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541556384597.png" alt=""><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541557359546.png" alt=""></p>
+<h4 id="Hadoop-2-0产生背景"><a href="#Hadoop-2-0产生背景" class="headerlink" title="Hadoop 2.0产生背景"></a>Hadoop 2.0产生背景</h4><ul>
+<li>Hadoop 1.0中HDFS和MapReduce在高可用、扩展性等方面存在问题。</li>
+<li>HDFS存在的问题<ul>
+<li>NameNode单点故障，难以应用于在线场景 </li>
+<li>NameNode压力过大，且内存受限，影响系统扩展性</li>
+</ul>
+</li>
+<li>MapReduce存在的问题<ul>
+<li>JobTracker访问压力大，影响系统扩展性</li>
+<li>难以支持除MapReduce之外的计算框架，比如Spark、Storm等.</li>
+</ul>
+</li>
+</ul>
 <h3 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h3><p>资源管理系统 ，由jobTracker 演化而来</p>
 <ul>
 <li>资源管理 ResourceManager</li>
-<li>任务调度 ApplicationMaster<h4 id="资源管理调度流程"><a href="#资源管理调度流程" class="headerlink" title="资源管理调度流程"></a>资源管理调度流程</h4></li>
+<li>任务调度 ApplicationMaster<h4 id="资源管理调度流程"><a href="#资源管理调度流程" class="headerlink" title="资源管理调度流程"></a>资源管理调度流程</h4><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/17/1542440130481.png" alt=""><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/17/1542447754394.png" alt=""></li>
 </ul>
-<div id="flowchart-0" class="flow-chart"></div>
-
+<h4 id="流程大致如下"><a href="#流程大致如下" class="headerlink" title="流程大致如下"></a>流程大致如下</h4><ul>
+<li>client客户端向yarn集群(resourcemanager)提交任务</li>
+<li>resourcemanager选择一个node创建appmaster</li>
+<li>appmaster根据任务向rm申请资源</li>
+<li>rm返回资源申请的结果</li>
+<li>appmaster去对应的node上创建任务需要的资源（container形式，包括内存和CPU）</li>
+<li>appmaster负责与nodemanager进行沟通，监控任务运行</li>
+<li>最后任务运行成功，汇总结果。</li>
+<li>其中Resourcemanager里面一个很重要的东西，就是调度器Scheduler，调度规则可以使用官方提供的，也可以自定义。</li>
+</ul>
 <h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html</a></p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><hr>
+<ul>
+<li>zookeeper 选举机制</li>
+</ul>
 <h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><ol>
 <li><p>hdfs-site.xml<br><code>cd /opt/soft/hadoop-2.5.1/</code><br><code>vi etc/hadoop/hdfs-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.nameservices<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.namenodes.appcity<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>nn1,nn2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.appcity.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.appcity.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.appcity.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.appcity.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.shared.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>qjournal://sj-node2:8485;sj-node2:8485;sj-node4:8485/appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.client.failover.proxy.provider.appcity<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.methods<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sshfence<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.ssh.private-key-files<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/.ssh/id_dsa<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.journalnode.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/soft/hadoop-2.5.1/data/jn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.automatic-failover.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.nameservices<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.namenodes.appcity<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">value</span>&gt;</span>nn1,nn2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.appcity.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.rpc-address.appcity.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:8020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.appcity.nn1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address.appcity.nn2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:50070<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.shared.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>qjournal://sj-node2:8485;sj-node2:8485;sj-node4:8485/appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.client.failover.proxy.provider.appcity<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.methods<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sshfence<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.fencing.ssh.private-key-files<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/.ssh/id_dsa<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.journalnode.edits.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>/opt/soft/hadoop-2.5.1/data/jn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.ha.automatic-failover.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>core-site.xml<br><code>vim etc/hadoop/core-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:2181,sj-node3:2181,sj-node4:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>ipc.client.connect.max.retries<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>100<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">description</span>&gt;</span>Indicates the number of retries a client will make to establish</span><br><span class="line">       a server connection.</span><br><span class="line">   <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>ipc.client.connect.retry.interval<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">description</span>&gt;</span>Indicates the number of milliseconds a client will wait for</span><br><span class="line">  before retrying to establish a server connection.</span><br><span class="line">   <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>ha.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node2:2181,sj-node3:2181,sj-node4:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>ipc.client.connect.max.retries<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>100<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>Indicates the number of retries a client will make to establish</span><br><span class="line">      a server connection.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>ipc.client.connect.retry.interval<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>1000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>Indicates the number of milliseconds a client will wait for</span><br><span class="line">  before retrying to establish a server connection.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>复制配置文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br></pre></td></tr></table></figure>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/hdfs-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/core-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除masters<br><code>cp ./etc/hadoop/masters ./etc/hadoop/masters.bak</code><br><code>rm ./etc/hadoop/masters</code></p>
 </li>
@@ -534,27 +566,30 @@
 <li>启动ZK集群<br>3台机器上执行<code>/opt/soft/zookeeper-3.4.8/bin/zkServer.sh start</code></li>
 <li>在其中某一台namenode节点上面来完成<br><code>./bin/hdfs zkfc -formatZK</code></li>
 <li>在其中某一台namenode节点上面来完成 启动集群 <code>./sbin/start-dfs.sh</code></li>
+<li>启动在3或4节点上启动yarn<br><code>yarn-daemon.sh start resourcemanager</code></li>
 </ol>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><hr>
+<h3 id="有可能会出错的地方"><a href="#有可能会出错的地方" class="headerlink" title="有可能会出错的地方"></a>有可能会出错的地方</h3><ul>
+<li>确认每台机器防火墙均关掉</li>
+<li>确认每台机器的时间是一致的</li>
+<li>确认配置文件无误，并且确认每台机器上面的配置文件一样</li>
+<li>如果还有问题想重新格式化，那么先把所有节点的进程关掉</li>
+<li>删除之前格式化的数据目录hadoop.tmp.dir属性对应的目录，所有节点同步都删掉，别单删掉之前的一个，删掉三台JN节点中dfs.journalnode.edits.dir属性所对应的目录</li>
+<li>接上面的第6步又可以重新格式化已经启动了</li>
+<li>最终Active Namenode停掉的时候，StandBy可以自动接管！</li>
+</ul>
+<h3 id="脑裂（brain-split）"><a href="#脑裂（brain-split）" class="headerlink" title="脑裂（brain-split）"></a>脑裂（brain-split）</h3><p>脑裂是指在主备切换时，由于切换不彻底或其他原因，导致客户端和Slave误以为出现两个active master，最终使得整个集群处于混乱状态。解决脑裂问题，通常采用隔离(Fencing)机制，包括三个方面：</p>
 <ul>
-<li>zookeeper 选举机制</li>
+<li>共享存储fencing：确保只有一个Master往共享存储中写数据。</li>
+<li>客户端fencing：确保只有一个Master可以响应客户端的请求。</li>
+<li>Slave fencing：确保只有一个Master可以向Slave下发命令。<blockquote>
+<p>Hadoop公共库中对外提供了两种fenching实现，分别是sshfence和shellfence（缺省实现），其中sshfence是指通过ssh登陆目标Master节点上，使用命令fuser将进程杀死（通过tcp端口号定位进程pid，该方法比jps命令更准确），shellfence是指执行一个用户事先定义的shell命令（脚本）完成隔离。</p>
+</blockquote>
+</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://blog.csdn.net/oaimm/article/details/38336089" target="_blank" rel="noopener">https://blog.csdn.net/oaimm/article/details/38336089</a> 问题<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start|past:>http://www.google.com[blank]
-e=>end: End:>http://www.google.com
-op1=>operation: My Operation|past
-op2=>operation: Stuff|current
-sub1=>subroutine: My Subroutine|invalid
-cond=>condition: Yes
-or No?|approved:>http://www.google.com
-c2=>condition: Good idea|rejected
-io=>inputoutput: catch something...|request
-
-st->op1(right)->cond
-cond(yes, right)->c2
-cond(no)->sub1(left)->op1
-c2(yes)->io->e
-c2(no)->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></li>
+<li><a href="https://blog.csdn.net/oaimm/article/details/38336089" target="_blank" rel="noopener">https://blog.csdn.net/oaimm/article/details/38336089</a> 问题</li>
+<li><a href="https://www.cnblogs.com/jishilei/archive/2012/12/27/2835188.html" target="_blank" rel="noopener">hdfs权限问题</a></li>
+<li><a href="http://f.dataguru.cn/thread-373634-1-1.html" target="_blank" rel="noopener">动namenode失败，Error replaying edit </a></li>
 </ul>
 
       
@@ -733,7 +768,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -745,8 +780,6 @@ var jiathis_config={
                 <div class="site-state-item site-state-categories">
                   
                     
-                    
-                      
                     
                       
                     
@@ -987,7 +1020,35 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1037,7 +1098,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Yarn"><span class="nav-number">1.1.</span> <span class="nav-text">Yarn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源管理调度流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">资源管理调度流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">2.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">3.</span> <span class="nav-text">How</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">4.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-2-x由HDFS、MapReduce和YARN三个分支构"><span class="nav-number">2.</span> <span class="nav-text">Hadoop 2.x由HDFS、MapReduce和YARN三个分支构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hadoop-2-0产生背景"><span class="nav-number">2.0.1.</span> <span class="nav-text">Hadoop 2.0产生背景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yarn"><span class="nav-number">2.1.</span> <span class="nav-text">Yarn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#资源管理调度流程"><span class="nav-number">2.1.1.</span> <span class="nav-text">资源管理调度流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流程大致如下"><span class="nav-number">2.1.2.</span> <span class="nav-text">流程大致如下</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">3.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">4.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">5.</span> <span class="nav-text">How</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有可能会出错的地方"><span class="nav-number">5.1.</span> <span class="nav-text">有可能会出错的地方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脑裂（brain-split）"><span class="nav-number">5.2.</span> <span class="nav-text">脑裂（brain-split）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

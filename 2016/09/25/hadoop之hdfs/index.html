@@ -114,28 +114,32 @@
 
 
 
-  <meta name="description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
+  <meta name="description" content="What? Hadoop 生态 来自于 Google 03 年发布 3 大论文， GFS、mapreduce、Bigtable ;Dougcutting 用 Java 实现) HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Di">
 <meta name="keywords" content="大数据,ha,高可用,hadoop,hdfs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop实践之HDFS">
 <meta property="og:url" content="http://appcity.vip/2016/09/25/hadoop之hdfs/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
+<meta property="og:description" content="What? Hadoop 生态 来自于 Google 03 年发布 3 大论文， GFS、mapreduce、Bigtable ;Dougcutting 用 Java 实现) HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Di">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541557592882.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541476214134.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542368350532.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542368926884.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541475553101.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542372442143.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541491521598.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541493211406.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542372865117.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474794671.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1480147113.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474797386.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1474797522.png">
-<meta property="og:updated_time" content="2018-11-07T02:27:36.530Z">
+<meta property="og:updated_time" content="2018-11-16T12:54:28.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop实践之HDFS">
-<meta name="twitter:description" content="What? Hadoop 生态 HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Distributed File System (HDFS™) Hadoop YARN Hadoop MapReduce   组件 name nod">
+<meta name="twitter:description" content="What? Hadoop 生态 来自于 Google 03 年发布 3 大论文， GFS、mapreduce、Bigtable ;Dougcutting 用 Java 实现) HDFS:Hadoop Distributed File System分布式存储系统 http://hadoop.apache.org high-throughput 高吞吐  Hadoop Common Hadoop Di">
 <meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png">
 
 
@@ -261,7 +265,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">21</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
   </li>
         
         
@@ -438,7 +442,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-07 10:27:36" itemprop="dateModified" datetime="2018-11-07T10:27:36+08:00">2018-11-07</time>
+                <time title="修改时间：2018-11-16 20:54:28" itemprop="dateModified" datetime="2018-11-16T20:54:28+08:00">2018-11-16</time>
               
             
           </span>
@@ -512,6 +516,7 @@
       
         <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><hr>
 <h3 id="Hadoop-生态"><a href="#Hadoop-生态" class="headerlink" title="Hadoop 生态"></a>Hadoop 生态</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541470096112.png" alt=""><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/7/1541557592882.png" alt=""></p>
+<p>来自于 Google 03 年发布 3 大论文， GFS、mapreduce、Bigtable ;Dougcutting 用 Java 实现)</p>
 <h3 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS:"></a>HDFS:</h3><p>Hadoop Distributed File System<br>分布式存储系统</p>
 <p><a href="http://hadoop.apache.org" target="_blank" rel="noopener">http://hadoop.apache.org</a></p>
 <p>high-throughput 高吞吐</p>
@@ -524,15 +529,21 @@
 <p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541476214134.png" alt=""></p>
 <h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><ul>
 <li>name node 主节点<ul>
-<li>接收读写服务</li>
-<li>接收datanode 汇报的block信息</li>
-<li>保存metadate元信息（基于内存存储）</li>
+<li>接收客户端读写服务</li>
+<li>接收datanode 汇报的block位置信息</li>
+<li>保存metadate元信息（基于内存存储，不会和磁盘发生交换）<ul>
+<li>文件 owership(归属)和 permissions(权限)</li>
+<li>文件大小 时间</li>
+<li>Block 列表[偏移量]：即一个完整文件有哪些 block</li>
+<li>metadata 存储到磁盘文件名为”fsimage”的镜像文件</li>
+<li>Block 的位置信息不会保存到 fsimage</li>
+<li>edits 记录对 metadata 的操作日志</li>
 </ul>
 </li>
-<li>data node 从节点<ul>
-<li>存储block</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>secondary name node<ul>
 <li>整理 fsimage和 edites 日志 得到最新fsimage<ul>
 <li>避免nn重启后重新汇集所有文件meta信息</li>
@@ -540,21 +551,36 @@
 </li>
 <li>SNN执行合并时间和机制<ul>
 <li>根据配置文件设置的时间间隔 fs.checkpoint.period默认3600秒</li>
-<li>根据配置文件设置 edits log 大小 fs.checkpoint.size 规定 edits 文件的最大值默认是 64MB</li>
+<li>根据配置文件设置 edits log 大小 fs.checkpoint.size 规定 edits 文件的最大值默认是 64MB<br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542368350532.png" alt=""><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542368926884.png" alt=""></li>
 </ul>
 </li>
+</ul>
+</li>
+<li>data node 从节点<ul>
+<li>存储block</li>
+<li>启动DN线程的时候会向NameNode汇报block位置信息</li>
+<li>通过向NN发送心跳保持与其联系(3秒一次)，如果NN10分钟没有收到 DN 的心跳，则认为其已经 lost，并 copy 其上的 block 到其它 DN</li>
 </ul>
 </li>
 </ul>
 <h4 id="存储模型block"><a href="#存储模型block" class="headerlink" title="存储模型block"></a>存储模型block</h4><ul>
 <li>偏移量标记位置</li>
-<li>块大小默认64M（物理暂用空间按实际文件大小不会浪费）</li>
-</ul>
+<li>块大小默认hadoop1.x 是64M，hadoop2.x是128M（物理暂用空间按实际文件大小不会浪费）</li>
+<li>默认情况下每个block 都有2个副本共3个副本</li>
+<li>副本数不大于节点数</li>
+<li><p>存放策略</p>
 <h4 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h4><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541475553101.png" alt=""></p>
 <ul>
-<li>按大小被切分成若干个 block ，存储到不同节点上</li>
-<li>默认情况下每个 block 都有 2 个副本 共 3 个副本</li>
-<li>副本数不大于节点数</li>
+<li><p>按大小被切分成若干个 block ，存储到不同节点上</p>
+</li>
+<li><p>放置策略</p>
+</li>
+<li>第一个副本:放置在上传文件的DN;如果是集群外提交，则随</li>
+<li>第二个副本:放置在于第一个副本不同的机架的节点上。</li>
+<li>第三个副本:与第二个副本相同机架的不同节点。</li>
+<li>更多副本:随机节点<br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542372442143.png" alt=""></li>
+</ul>
+</li>
 </ul>
 <h4 id="内含机制"><a href="#内含机制" class="headerlink" title="内含机制"></a>内含机制</h4><ul>
 <li>心跳</li>
@@ -568,15 +594,19 @@
 <li>效率高</li>
 <li>可扩展</li>
 </ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><h4 id="分布式的特性"><a href="#分布式的特性" class="headerlink" title="分布式的特性:"></a>分布式的特性:</h4><ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>分布式的特性:<ul>
 <li>适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据</li>
 <li>百万规模以上的文件数量:10K+ 节点。</li>
 <li>适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架</li>
 </ul>
-<h4 id="自身特性"><a href="#自身特性" class="headerlink" title="自身特性:"></a>自身特性:</h4><ul>
+</li>
+<li>自身特性:<ul>
 <li>可构建在廉价机器上:</li>
 <li>高可靠性:通过多副本提提高</li>
 <li>高容错性:数据自动保存多个副本;副本丢失后，自动恢复,提供 了恢复机制</li>
+</ul>
+</li>
 </ul>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
 <li>低延迟高数据吞吐访问问题 <ul>
@@ -588,13 +618,29 @@
 <li>不支持文件修改:一个文件只能有一个写者(深入)</li>
 </ul>
 <h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><hr>
-<h3 id="HDFS-读写流程"><a href="#HDFS-读写流程" class="headerlink" title="HDFS 读写流程"></a>HDFS 读写流程</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541491521598.png" alt=""></p>
+<h3 id="HDFS-读文件流程"><a href="#HDFS-读文件流程" class="headerlink" title="HDFS 读文件流程"></a>HDFS 读文件流程</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541491521598.png" alt=""></p>
 <ul>
 <li>通过拓扑网络寻找最近的节点</li>
 </ul>
-<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541493211406.png" alt=""></p>
+<ol>
+<li>首先调用 FileSystem 对象的 open 方法，其实是一个 DistributedFileSystem 的实例。</li>
+<li>DistributedFileSystem 通过 rpc 协议获得文件的第 一批 block 的 locations 地址，(同一个 block 按照重复数 会返回多个 locations，因为同一文件的 block 分布式存储 在不同节点上)，这些 locations 按照 hadoop 拓扑结构排 序，距离客户端近的排在前面(就近原则选择)。</li>
+<li>前两步会返回一个 FSDataInputStream 对象，该对象 会被封装 DFSInputStream 对象，DFSInputStream 可以方便 的管理 datanode 和 namenode 数据流。客户端调用 read 方 法，DFSInputStream 最会找出离客户端最近的 datanode 并连接。</li>
+<li>数据从 datanode 源源不断的流向客户端。 这些操作对客户端来说是透明的，客户端的角度看来只<br>是读一个持续不断的流。</li>
+<li>如果第一批 block 都读完了,DFSInputStream 就会去namenode 拿下一批 block的locations，然后继续读，如 果所有的块都读完，这时就会关闭掉所有的流。如果在读数据的时候， DFSInputStream 和 datanode 的通讯发生异常，就会尝试正在读的 block 的排序第二近的 datanode,并且会记录哪个 datanode 发生错误，剩余的 blocks 读的时候就会直接跳过该 datanode。 DFSInputStream 也会检查 block 数据校验和，如果发现一个 坏的 block,就会先报告到 namenode 节点，然后 DFSInputStream 在其他的 datanode 上读该 block 的镜像。 该设计就是客户端直接连接 datanode 来检索数据并且 namenode 来负责为每一个 block 提供最优的 datanode， namenode 仅仅处理 block location 的请求，这些信息都加 载在 namenode 的内存中，hdfs 通过 datanode 集群可以承受 大量客户端的并发访问。<h3 id="HDFS-写文件流程"><a href="#HDFS-写文件流程" class="headerlink" title="HDFS 写文件流程"></a>HDFS 写文件流程</h3><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/6/1541493211406.png" alt=""></li>
+<li>客户端通过调用 DistributedFileSystem 的 create 方 法创建新文件。</li>
+<li>DistributedFileSystem 通过 RPC 调用 namenode 去创 建一个没有 blocks 关联的新文件，创建前， namenode 会做 各种校验，比如文件是否存在，客户端有无权限去创建等。 如果校验通过， namenode 就会记录下新文件，否则就会抛 出IO异常。</li>
+<li>前两步结束后，会返回 FSDataOutputStream 的对象， 与读文件的时候相似，FSDataOutputStream 被封装成 DFSOutputStream。<br>DFSOutputStream 可以协调 namenode 和 datanode。客户端 开始写数据到 DFSOutputStream，DFSOutputStream 会把数<br>据切成一个个小的 packet，然后排成队列 data quene。<ol start="4">
+<li>DataStreamer 会去处理接受 data quene，它先询问 namenode 这个新的 block 最适合存储的在哪几个 datanode<br>里(比如重复数是3那么就找到3个最适合的 datanode)， 把他们排成一个管道pipeline 输出。DataStreamer 把packet按队列输出到管道的第一个 datanode 中，第一个datanode又把packet输出到第二个 datanode中，以此类推。</li>
+</ol>
+</li>
+<li>DFSOutputStream 还有一个对列叫 ack quene，也是 由 packet 组成等待 datanode 的收到响应，当 pipeline 中 的 datanode 都表示已经收到数据的时候，这时 ack quene 才会把对应的 packet 包移除掉。 如果在写的过程中某个 datanode 发生错误，会采取以下几步:<br>1) pipeline 被关闭掉;<br>2) 为了防止防止丢包。ack quene 里的 packet 会同步 到 data quene 里;创建新的 pipeline 管道怼到其他正常 DN 上<br>4) 剩下的部分被写到剩下的两个正常的 datanode 中;<br>5) namenode 找到另外的 datanode 去创建这个块的复 制。当然，这些操作对客户端来说是无感知的。</li>
+<li>客户端完成写数据后调用 close 方法关闭写入流。</li>
+</ol>
+<h3 id="深入-DFSOutputStream-内部原理"><a href="#深入-DFSOutputStream-内部原理" class="headerlink" title="深入 DFSOutputStream 内部原理"></a>深入 DFSOutputStream 内部原理</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542372865117.png" alt=""></p>
 <h6 id="是否按照block-list-顺序读取block-信息？"><a href="#是否按照block-list-顺序读取block-信息？" class="headerlink" title="是否按照block list 顺序读取block 信息？"></a>是否按照block list 顺序读取block 信息？</h6><p>多节点并行读，单节点串读？</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><hr>
+<p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
 <h3 id="必备："><a href="#必备：" class="headerlink" title="必备："></a>必备：</h3><ul>
 <li>java</li>
 <li>ssh</li>
@@ -716,7 +762,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/24/zookeeper/" rel="next" title="Zookeeper实践">
+              <a href="/2016/09/24/Zookeeper实践/" rel="next" title="Zookeeper实践">
                 <i class="fa fa-chevron-left"></i> Zookeeper实践
               </a>
             
@@ -835,7 +881,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -847,8 +893,6 @@ var jiathis_config={
                 <div class="site-state-item site-state-categories">
                   
                     
-                    
-                      
                     
                       
                     
@@ -1089,7 +1133,35 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1139,7 +1211,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-生态"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop 生态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS"><span class="nav-number">1.2.</span> <span class="nav-text">HDFS:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储模型block"><span class="nav-number">1.2.2.</span> <span class="nav-text">存储模型block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储方式"><span class="nav-number">1.2.3.</span> <span class="nav-text">存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内含机制"><span class="nav-number">1.2.4.</span> <span class="nav-text">内含机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式"><span class="nav-number">2.1.</span> <span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式的特性"><span class="nav-number">2.2.1.</span> <span class="nav-text">分布式的特性:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自身特性"><span class="nav-number">2.2.2.</span> <span class="nav-text">自身特性:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">3.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-读写流程"><span class="nav-number">3.1.</span> <span class="nav-text">HDFS 读写流程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#是否按照block-list-顺序读取block-信息？"><span class="nav-number">3.1.0.0.1.</span> <span class="nav-text">是否按照block list 顺序读取block 信息？</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备："><span class="nav-number">4.1.</span> <span class="nav-text">必备：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查："><span class="nav-number">4.2.</span> <span class="nav-text">检查：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">4.3.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">4.4.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置"><span class="nav-number">4.5.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将配置好的传到其它节点"><span class="nav-number">4.6.</span> <span class="nav-text">将配置好的传到其它节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化NN"><span class="nav-number">4.7.</span> <span class="nav-text">格式化NN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">4.8.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动后检查访问web"><span class="nav-number">4.9.</span> <span class="nav-text">启动后检查访问web</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令测试"><span class="nav-number">5.</span> <span class="nav-text">命令测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop-生态"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop 生态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS"><span class="nav-number">1.2.</span> <span class="nav-text">HDFS:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储模型block"><span class="nav-number">1.2.2.</span> <span class="nav-text">存储模型block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储方式"><span class="nav-number">1.2.3.</span> <span class="nav-text">存储方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内含机制"><span class="nav-number">1.2.4.</span> <span class="nav-text">内含机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式"><span class="nav-number">2.1.</span> <span class="nav-text">分布式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">3.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-读文件流程"><span class="nav-number">3.1.</span> <span class="nav-text">HDFS 读文件流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS-写文件流程"><span class="nav-number">3.2.</span> <span class="nav-text">HDFS 写文件流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入-DFSOutputStream-内部原理"><span class="nav-number">3.3.</span> <span class="nav-text">深入 DFSOutputStream 内部原理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#是否按照block-list-顺序读取block-信息？"><span class="nav-number">3.3.0.0.1.</span> <span class="nav-text">是否按照block list 顺序读取block 信息？</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">4.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备："><span class="nav-number">4.1.</span> <span class="nav-text">必备：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查："><span class="nav-number">4.2.</span> <span class="nav-text">检查：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">4.3.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">4.4.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置"><span class="nav-number">4.5.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将配置好的传到其它节点"><span class="nav-number">4.6.</span> <span class="nav-text">将配置好的传到其它节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化NN"><span class="nav-number">4.7.</span> <span class="nav-text">格式化NN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">4.8.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动后检查访问web"><span class="nav-number">4.9.</span> <span class="nav-text">启动后检查访问web</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令测试"><span class="nav-number">5.</span> <span class="nav-text">命令测试</span></a></li></ol></div>
             
 
           </div>

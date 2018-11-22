@@ -114,18 +114,18 @@
 
 
 
-  <meta name="description" content="WhatWhere?WhyHow 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm rpm -ivh mysql-community-releas">
-<meta name="keywords" content="linux,centos,mysql">
+  <meta name="description" content="Whatmysql是 传统关系型数据库 Whycentos 一般自带的都是比较老的版本 ，需要新版版 How 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noar">
+<meta name="keywords" content="mysql,linux,centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos6.5安装mysql5.6">
 <meta property="og:url" content="http://appcity.vip/2017/12/26/centos安装mysql/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="WhatWhere?WhyHow 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm rpm -ivh mysql-community-releas">
+<meta property="og:description" content="Whatmysql是 传统关系型数据库 Whycentos 一般自带的都是比较老的版本 ，需要新版版 How 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noar">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T16:30:45.183Z">
+<meta property="og:updated_time" content="2018-11-15T12:30:01.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos6.5安装mysql5.6">
-<meta name="twitter:description" content="WhatWhere?WhyHow 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm rpm -ivh mysql-community-releas">
+<meta name="twitter:description" content="Whatmysql是 传统关系型数据库 Whycentos 一般自带的都是比较老的版本 ，需要新版版 How 查看并删除老版本yum list installed | grep mysqlyum -y remove mysql-libs.x86_64 下载yum源文件并安装  wget http://repo.mysql.com/mysql-community-release-el6-5.noar">
 
 
 
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">21</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
   </li>
         
         
@@ -427,7 +427,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-13 00:30:45" itemprop="dateModified" datetime="2018-11-13T00:30:45+08:00">2018-11-13</time>
+                <time title="修改时间：2018-11-15 20:30:01" itemprop="dateModified" datetime="2018-11-15T20:30:01+08:00">2018-11-15</time>
               
             
           </span>
@@ -499,7 +499,9 @@
       
 
       
-        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><h2 id="Where"><a href="#Where" class="headerlink" title="Where?"></a>Where?</h2><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><ol>
+        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>mysql是 传统关系型数据库</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>centos 一般自带的都是比较老的版本 ，需要新版版</p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><ol>
 <li>查看并删除老版本<br><code>yum list installed | grep mysql</code><br><code>yum -y remove mysql-libs.x86_64</code></li>
 <li><p>下载yum源文件并安装</p>
 <ul>
@@ -510,11 +512,20 @@
 <li>查看一下是否已经有mysql可安装文件<br><code>yum repolist all | grep mysql</code></li>
 <li>安装mysql 服务器命令<br><code>yum install mysql-community-server</code></li>
 <li>启动服务<br><code>service mysqld start</code></li>
-<li>进入mysql<br><code>mysql -u root</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set password=123456 where User=&apos;root&apos;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;123456&apos; WITH GRANT OPTION;</span><br><span class="line"> flush privileges;</span><br></pre></td></tr></table></figure>
+<li>进入mysql<br><code>mysql -u root</code> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> <span class="keyword">password</span>=<span class="number">123456</span> <span class="keyword">where</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123456'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>10.</p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/hu_wen/article/details/53817432" target="_blank" rel="noopener">http://blog.csdn.net/hu_wen/article/details/53817432</a></p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p> 跳过权限 </p>
+<ul>
+<li><code>mysqld_safe --skip-grant-tables</code></li>
+<li><code>use mysql;</code></li>
+<li><code>UPDATE user SET Password=PASSWORD(&#39;123456&#39;) where USER=&#39;root&#39;;</code><br><code>FLUSH PRIVILEGES;</code></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://blog.csdn.net/hu_wen/article/details/53817432" target="_blank" rel="noopener">http://blog.csdn.net/hu_wen/article/details/53817432</a></li>
+<li><a href="https://www.cnblogs.com/qq78292959/p/3641972.html" target="_blank" rel="noopener">问题处理</a></li>
+</ul>
 
       
     </div>
@@ -539,11 +550,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
             <a href="/tags/linux/" rel="tag"># linux</a>
           
             <a href="/tags/centos/" rel="tag"># centos</a>
-          
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -690,7 +701,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -702,8 +713,6 @@ var jiathis_config={
                 <div class="site-state-item site-state-categories">
                   
                     
-                    
-                      
                     
                       
                     
@@ -944,7 +953,35 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -994,7 +1031,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">2.</span> <span class="nav-text">Where?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">3.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">4.</span> <span class="nav-text">How</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">5.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">3.</span> <span class="nav-text">How</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">4.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
