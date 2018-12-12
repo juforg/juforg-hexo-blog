@@ -114,13 +114,13 @@
 
 
 
-  <meta name="description" content="What 非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比 关系型数据库的优点 容易理解 使用方便 易于维护   关系型数据库的瓶颈 高并发读写需求 海量数据的读写性能低 扩展性和可用性差    数据库模型 row key 不能重复 字典顺序排序 只能存储64k的字节   列族 小于等于3个   列名  以列族作为前缀 可动态加入    celll单元格  有版本 字节">
+  <meta name="description" content="What  非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比  关系型数据库的优点  容易理解 使用方便 易于维护   关系型数据库的瓶颈  高并发读写需求 海量数据的读写性能低 扩展性和可用性差     数据库模型   row key  不能重复 字典顺序排序 只能存储64k的字节    列族  小于等于3个    列名  以列族作为前缀 可动态加入     cell">
 <meta name="keywords" content="hbase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hbases实践">
-<meta property="og:url" content="http://appcity.vip/2016/11/13/hbase实践/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2016/11/13/hbase实践/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What 非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比 关系型数据库的优点 容易理解 使用方便 易于维护   关系型数据库的瓶颈 高并发读写需求 海量数据的读写性能低 扩展性和可用性差    数据库模型 row key 不能重复 字典顺序排序 只能存储64k的字节   列族 小于等于3个   列名  以列族作为前缀 可动态加入    celll单元格  有版本 字节">
+<meta property="og:description" content="What  非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比  关系型数据库的优点  容易理解 使用方便 易于维护   关系型数据库的瓶颈  高并发读写需求 海量数据的读写性能低 扩展性和可用性差     数据库模型   row key  不能重复 字典顺序排序 只能存储64k的字节    列族  小于等于3个    列名  以列族作为前缀 可动态加入     cell">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542801189318.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542699873329.png">
@@ -131,10 +131,10 @@
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717738127.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717880249.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542803489656.png">
-<meta property="og:updated_time" content="2018-11-22T01:53:43.355Z">
+<meta property="og:updated_time" content="2018-12-12T03:35:41.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hbases实践">
-<meta name="twitter:description" content="What 非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比 关系型数据库的优点 容易理解 使用方便 易于维护   关系型数据库的瓶颈 高并发读写需求 海量数据的读写性能低 扩展性和可用性差    数据库模型 row key 不能重复 字典顺序排序 只能存储64k的字节   列族 小于等于3个   列名  以列族作为前缀 可动态加入    celll单元格  有版本 字节">
+<meta name="twitter:description" content="What  非关系型数据库  高可靠性 高性能 面向列 可伸缩 实时读写 分布式  对比  关系型数据库的优点  容易理解 使用方便 易于维护   关系型数据库的瓶颈  高并发读写需求 海量数据的读写性能低 扩展性和可用性差     数据库模型   row key  不能重复 字典顺序排序 只能存储64k的字节    列族  小于等于3个    列名  以列族作为前缀 可动态加入     cell">
 <meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542801189318.png">
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2016/11/13/hbase实践/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2016/11/13/hbase实践/"/>
 
 
 
@@ -260,7 +260,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -378,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/11/13/hbase实践/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2016/11/13/hbase实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -437,7 +437,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-22 09:53:43" itemprop="dateModified" datetime="2018-11-22T09:53:43+08:00">2018-11-22</time>
+                <time title="修改时间：2018-12-12 11:35:41" itemprop="dateModified" datetime="2018-12-12T11:35:41+08:00">2018-12-12</time>
               
             
           </span>
@@ -509,7 +509,8 @@
       
 
       
-        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><hr>
+        <h2>What</h2>
+<hr>
 <p>非关系型数据库</p>
 <ul>
 <li>高可靠性</li>
@@ -519,45 +520,58 @@
 <li>实时读写</li>
 <li>分布式</li>
 </ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><ul>
-<li>关系型数据库的优点<ul>
+<h3>对比</h3>
+<ul>
+<li>关系型数据库的优点
+<ul>
 <li>容易理解</li>
 <li>使用方便</li>
 <li>易于维护</li>
 </ul>
 </li>
-<li>关系型数据库的瓶颈<ul>
+<li>关系型数据库的瓶颈
+<ul>
 <li>高并发读写需求</li>
 <li>海量数据的读写性能低</li>
-<li>扩展性和可用性差<br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542801189318.png" alt=""></li>
+<li>扩展性和可用性差
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542801189318.png" alt=""></li>
 </ul>
 </li>
 </ul>
-<h3 id="数据库模型"><a href="#数据库模型" class="headerlink" title="数据库模型"></a>数据库模型</h3><ul>
-<li>row key<ul>
+<h3>数据库模型</h3>
+<ul>
+<li>
+<p>row key</p>
+<ul>
 <li>不能重复</li>
 <li>字典顺序排序</li>
 <li>只能存储64k的字节</li>
 </ul>
 </li>
-<li>列族<ul>
+<li>
+<p>列族</p>
+<ul>
 <li>小于等于3个</li>
 </ul>
 </li>
-<li>列名 <ul>
+<li>
+<p>列名</p>
+<ul>
 <li>以列族作为前缀</li>
 <li>可动态加入</li>
 <li></li>
 </ul>
 </li>
-<li><p>celll单元格</p>
+<li>
+<p>celll单元格</p>
 <ul>
 <li>有版本</li>
-<li>字节数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;row key， column( =&lt;family&gt; +&lt;qualifier&gt;)， version&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>字节数组
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;row key， column( =&lt;family&gt; +&lt;qualifier&gt;)， version&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>时间戳</p>
+<li>
+<p>时间戳</p>
 <ul>
 <li>默认是1</li>
 <li>时间倒序排序，最新最前</li>
@@ -565,171 +579,247 @@
 <li>默认精确到毫秒，可以主动设置</li>
 </ul>
 </li>
-<li>Hlog (wal log)<ul>
-<li>HLogkey  数据归属信息<ul>
+<li>
+<p>Hlog (wal log)</p>
+<ul>
+<li>HLogkey  数据归属信息
+<ul>
 <li>table</li>
 <li>region</li>
 <li>sequence number</li>
 <li>timestamp</li>
 </ul>
 </li>
-<li>value <ul>
+<li>value
+<ul>
 <li>就是hbase的 keyvale对象</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="体系架构"><a href="#体系架构" class="headerlink" title="体系架构"></a>体系架构</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542699873329.png" alt=""></p>
+<h3>体系架构</h3>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542699873329.png" alt=""></p>
 <ul>
 <li>client</li>
-<li>zookeeper<ul>
+<li>zookeeper
+<ul>
 <li>保证集群只有一个master</li>
 <li>存储 region的寻址入口</li>
 <li>监控region</li>
 <li></li>
 </ul>
 </li>
-<li>master<ul>
-<li>负责负责均衡</li>
+<li>master
+<ul>
+<li>负责负载均衡</li>
 <li>发现失效region server 重新分配region</li>
-<li>管理用户CRUD </li>
+<li>管理用户CRUD</li>
 </ul>
 </li>
-<li>Region server<ul>
+<li>Region server
+<ul>
 <li>维护region</li>
 </ul>
 </li>
-<li>resion<br>- </li>
-<li>store 一个store对应一个CF(列族)<ul>
+<li>region
+<ul>
+<li>d</li>
+</ul>
+</li>
+<li>store 一个store对应一个CF(列族)
+<ul>
 <li>memstore</li>
 <li>storefile</li>
 </ul>
 </li>
 </ul>
 <p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542718396157.png" alt=""></p>
-<h3 id="高表与宽表的选择"><a href="#高表与宽表的选择" class="headerlink" title="高表与宽表的选择"></a>高表与宽表的选择</h3><ul>
+<h3>高表与宽表的选择</h3>
+<ul>
 <li>查询性能 高表更好</li>
 <li>分片能力 高表更细</li>
 <li>元数据开发 高表更大 rowkey 多，region 多 meta 数据量大</li>
 <li>事务能力  宽表事务性更好</li>
-<li>数据压缩比 宽表更高 </li>
+<li>数据压缩比 宽表更高</li>
 </ul>
-<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><p><a href="http://hbase.apache.org" target="_blank" rel="noopener">http://hbase.apache.org</a></p>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><hr>
-<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><hr>
+<h2>Where</h2>
+<p>http://hbase.apache.org</p>
+<h2>Why</h2>
+<hr>
+<h2>How</h2>
+<hr>
 <p>squirrel sql client</p>
 <ol>
-<li><code>cd /opt/soft</code></li>
-<li><code>wget http://mirrors.cnnic.cn/apache/hbase/0.98.24/hbase-0.98.24-hadoop2-bin.tar.gz</code></li>
-<li><code>tar zxvf hbase-0.98.24-hadoop2-bin.tar.gz</code></li>
-<li><p><code>vi ~/.bash_profile</code><br>增加</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HBASE_HOME=/app/hbase-0.96.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HBASE_HOME</span>/bin</span><br></pre></td></tr></table></figure>
-<p> 发送打其它节点</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp ~/.bash_profile root@sj-node2:/root</span><br><span class="line">scp ~/.bash_profile root@sj-node3:/root</span><br></pre></td></tr></table></figure>
+<li>
+<p><code>cd /opt/soft</code></p>
 </li>
-<li><p><code>source ~/.bash_profile</code> 生效</p>
+<li>
+<p><code>wget http://mirrors.cnnic.cn/apache/hbase/0.98.24/hbase-0.98.24-hadoop2-bin.tar.gz</code></p>
 </li>
-<li><p><code>vi /opt/soft/hbase-0.98.24-hadoop2/conf/hbase-env.sh</code><br> 修改</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/soft/jdk1.7.0_25</span><br><span class="line"><span class="built_in">export</span> HBASE_CLASSPATH=/opt/soft/hadoop-2.5.1</span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<li>
+<p><code>tar zxvf hbase-0.98.24-hadoop2-bin.tar.gz</code></p>
 </li>
-<li><p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/hbase-site.xml</code></p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity:8020/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1,sj-node2,sj-node3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>
+<p><code>vi ~/.bash_profile</code>
+增加
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HBASE_HOME=/app/hbase-0.96.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HBASE_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>发送打其它节点
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp ~/.bash_profile root@sj-node2:/root</span><br><span class="line">scp ~/.bash_profile root@sj-node3:/root</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/regionservers</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sj-node1</span><br><span class="line">sj-node2</span><br></pre></td></tr></table></figure>
+<li>
+<p><code>source ~/.bash_profile</code> 生效</p>
 </li>
-<li><p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/backup-masters</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sj-node2</span><br></pre></td></tr></table></figure>
+<li>
+<p><code>vi /opt/soft/hbase-0.98.24-hadoop2/conf/hbase-env.sh</code>
+修改
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/opt/soft/jdk1.7.0_25</span><br><span class="line"><span class="built_in">export</span> HBASE_CLASSPATH=/opt/soft/hadoop-2.5.1</span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>拷贝hdfs的配置文件到hbase配置目录下<br><code>cp /opt/soft/hadoop-2.5.1/etc/hadoop/hdfs-site.xml /opt/soft/hbase-0.98.24-hadoop2/conf/</code></p>
+<li>
+<p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/hbase-site.xml</code>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://appcity:8020/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1,sj-node2,sj-node3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>将配置好的hbase发送到其它节点<br><code>scp -r /opt/soft/hbase-0.98.24-hadoop2 root@sj-node2:/opt/soft/</code><br><code>scp -r /opt/soft/hbase-0.98.24-hadoop2 root@sj-node3:/opt/soft/</code></p>
+<li>
+<p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/regionservers</code>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sj-node1</span><br><span class="line">sj-node2</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>在sj-node1节点上启动 <code>start-hbase.sh</code></p>
+<li>
+<p><code>vim /opt/soft/hbase-0.98.24-hadoop2/conf/backup-masters</code>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sj-node2</span><br></pre></td></tr></table></figure></p>
 </li>
-<li>在webL浏览器访问 <a href="http://sj-node1:60010" target="_blank" rel="noopener">http://sj-node1:60010</a><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717365611.png" alt=""><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717385378.png" alt=""></li>
-<li>试下ha高可用<br>kill 调用sj-node1上的master<br>自动切换完成<br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717772382.png" alt=""></li>
+<li>
+<p>拷贝hdfs的配置文件到hbase配置目录下
+<code>cp /opt/soft/hadoop-2.5.1/etc/hadoop/hdfs-site.xml /opt/soft/hbase-0.98.24-hadoop2/conf/</code></p>
+</li>
+<li>
+<p>将配置好的hbase发送到其它节点
+<code>scp -r /opt/soft/hbase-0.98.24-hadoop2 root@sj-node2:/opt/soft/</code>
+<code>scp -r /opt/soft/hbase-0.98.24-hadoop2 root@sj-node3:/opt/soft/</code></p>
+</li>
+<li>
+<p>在sj-node1节点上启动 <code>start-hbase.sh</code></p>
+</li>
+<li>
+<p>在webL浏览器访问 <a href="http://sj-node1:60010" target="_blank" rel="noopener">http://sj-node1:60010</a>
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717365611.png" alt="">
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717385378.png" alt=""></p>
+</li>
+<li>
+<p>试下ha高可用
+kill 调用sj-node1上的master
+自动切换完成
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717772382.png" alt=""></p>
+</li>
 </ol>
-<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717738127.png" alt=""><br>重新启动sj-node1节点 的hbase则变为backup<br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717880249.png" alt=""></p>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ol>
-<li>打开命令行<br><code>hbase shell</code></li>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717738127.png" alt="">
+重新启动sj-node1节点 的hbase则变为backup
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542717880249.png" alt=""></p>
+<h3>命令</h3>
+<ol>
+<li>打开命令行
+<code>hbase shell</code></li>
 <li><code>help</code></li>
 <li><code>list</code></li>
-<li><code>create &#39;testhbase&#39;,&#39;cf1&#39;</code></li>
-<li><code>put &#39;testhbase&#39;,&#39;rk00001&#39;,&#39;cf1:id&#39;,&#39;001&#39;</code></li>
-<li><code>scan &#39;testhbase&#39;</code></li>
-<li><code>get &#39;testhbase&#39;,&#39;rk00001&#39;</code></li>
-<li><code>disable &#39;testhbase</code></li>
-<li><code>delete &#39;testhbase&#39;,&#39;rk00001&#39;,&#39;cf1:id&#39;</code><h4 id="预分区"><a href="#预分区" class="headerlink" title="预分区"></a>预分区</h4><blockquote>
+<li><code>create 'testhbase','cf1'</code></li>
+<li><code>put 'testhbase','rk00001','cf1:id','001'</code></li>
+<li><code>scan 'testhbase'</code></li>
+<li><code>get 'testhbase','rk00001'</code></li>
+<li><code>disable 'testhbase</code></li>
+<li><code>delete 'testhbase','rk00001','cf1:id'</code></li>
+</ol>
+<h4>预分区</h4>
+<blockquote>
 <p>在创建HBase表的时候默认一张表只有一个region，所有的put操作都会往这一个region中填充数据，当这个一个region过大时就会进行split。如果在创建HBase的时候就进行预分区则会减少当数据量猛增时由于region split带来的资源消耗。</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><code>create &#39;testsplit&#39;,&#39;cf1&#39;,SPLITS =&gt; [&#39;000&#39;,&#39;100&#39;,&#39;200&#39;]</code></li>
-<li><code>put &#39;testsplit&#39;,&#39;002&#39;,&#39;cf1:id&#39;,&#39;002d&#39;</code><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542803489656.png" alt=""></li>
+<li><code>create 'testsplit','cf1',SPLITS =&gt; ['000','100','200']</code></li>
+<li><code>put 'testsplit','002','cf1:id','002d'</code>
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/21/1542803489656.png" alt=""></li>
 </ul>
-<h3 id="java-api"><a href="#java-api" class="headerlink" title="java api"></a>java api</h3><ol>
-<li>rowkey 设计</li>
-<li>创建删除表</li>
-<li>put 数据 单个或多个</li>
-<li>get 数据</li>
-<li><p>scan</p>
+<h3>java api</h3>
+<ol>
+<li>
+<p>rowkey 设计</p>
+</li>
+<li>
+<p>创建删除表</p>
+</li>
+<li>
+<p>put 数据 单个或多个</p>
+</li>
+<li>
+<p>get 数据</p>
+</li>
+<li>
+<p>scan</p>
 <ul>
 <li>起始row 终止row</li>
-<li>过滤器<ul>
+<li>过滤器
+<ul>
 <li>前缀</li>
 <li>列值（字符串比较）</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>中文乱码</p>
-<ul>
-<li>new String(rs.getRow(),”utf-8”)</li>
-<li>Bytes.toString(CellUtil.cloneValue(cell).replace(“\x”,”%”),”utf-8”)</li>
-</ul>
+<li>
+<p>中文乱码</p>
 </li>
 </ol>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><ol>
-<li>表的设计<ul>
+<ul>
+<li>new String(rs.getRow(),&quot;utf-8&quot;)</li>
+<li>Bytes.toString(CellUtil.cloneValue(cell).replace(&quot;\x&quot;,&quot;%&quot;),&quot;utf-8&quot;)</li>
+</ul>
+<h3>优化</h3>
+<ol>
+<li>表的设计</li>
+</ol>
+<ul>
 <li>预分区</li>
-<li>row key<ul>
-<li>定长 越小越好</li>
+<li>row key
+<ul>
+<li>长度原则 定长 越小越好  2的幂次方</li>
+<li>散列性 取反 hash 高位随机串</li>
+<li>唯一性 保证key的唯一</li>
 <li>根据实际业务来</li>
-<li>散列性</li>
 </ul>
 </li>
 <li>列族不能超过3个</li>
 <li>setinmemory 大部分能提高效率</li>
 <li>TTL 存储时长</li>
-<li>compaction 合并默认值<ul>
+<li>compaction 合并默认值
+<ul>
 <li>majorcompaction =24</li>
 <li>jetter = 0.2</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>写表操作<ul>
+<ol start="2">
+<li>写表操作</li>
+</ol>
+<ul>
 <li>多表同时写</li>
 <li>htable参数设置</li>
 <li>auto flush</li>
 <li>write buffer</li>
-<li>wal </li>
+<li>wal</li>
 <li>批量写</li>
 <li>多线程并发写 map reduce 写</li>
 </ul>
-</li>
-<li>读表操作<ul>
+<ol start="3">
+<li>读表操作</li>
+</ol>
+<ul>
 <li>多htable 并发读</li>
 <li>scan 指定列族</li>
 <li>关闭result</li>
 <li>批量读</li>
 <li>blockcache</li>
 </ul>
-</li>
-</ol>
+<h2>问题参考</h2>
+<ul>
+<li><a href="https://blog.csdn.net/liudi1993/article/details/77871303" target="_blank" rel="noopener">解决Hbase启动后，hmaster会在几秒钟后自动关闭</a></li>
+</ul>
 
       
     </div>
@@ -782,8 +872,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/15/Hadoop之MapReduce/" rel="next" title="Hadoop实践之MapReduce">
-                <i class="fa fa-chevron-left"></i> Hadoop实践之MapReduce
+              <a href="/2016/10/30/Scala实践/" rel="next" title="Scala入门">
+                <i class="fa fa-chevron-left"></i> Scala入门
               </a>
             
           </div>
@@ -901,7 +991,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -954,7 +1044,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1181,7 +1271,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1231,7 +1345,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">1.1.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库模型"><span class="nav-number">1.2.</span> <span class="nav-text">数据库模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体系架构"><span class="nav-number">1.3.</span> <span class="nav-text">体系架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高表与宽表的选择"><span class="nav-number">1.4.</span> <span class="nav-text">高表与宽表的选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">2.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">3.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">4.</span> <span class="nav-text">How</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令"><span class="nav-number">4.1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预分区"><span class="nav-number">4.1.1.</span> <span class="nav-text">预分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-api"><span class="nav-number">4.2.</span> <span class="nav-text">java api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化"><span class="nav-number">4.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">数据库模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">体系架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">高表与宽表的选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">How</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.1.</span> <span class="nav-text">预分区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">java api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">问题参考</span></a></li></ol></div>
             
 
           </div>

@@ -114,13 +114,13 @@
 
 
 
-  <meta name="description" content="知识准备Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它流">
+  <meta name="description" content="知识准备 Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="alfred-workflow开发">
-<meta property="og:url" content="http://appcity.vip/2018/07/27/alfred-workflow开发/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2018/07/27/alfred-workflow开发/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="知识准备Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它流">
+<meta property="og:description" content="知识准备 Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/52302008.jpg">
 <meta property="og:image" content="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/69030011.jpg">
@@ -129,7 +129,7 @@
 <meta property="og:updated_time" content="2018-08-13T01:45:55.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="alfred-workflow开发">
-<meta name="twitter:description" content="知识准备Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它流">
+<meta name="twitter:description" content="知识准备 Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能  输入包含 Triggers（触发器）和 Inputs（输入触发）； Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。 输出即 Outputs，包含了通知，放大展示、复制到剪切板，写入文本、播放声音、触发其它">
 <meta name="twitter:image" content="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/52302008.jpg">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2018/07/27/alfred-workflow开发/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2018/07/27/alfred-workflow开发/"/>
 
 
 
@@ -255,7 +255,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -373,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2018/07/27/alfred-workflow开发/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2018/07/27/alfred-workflow开发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -504,7 +504,8 @@
       
 
       
-        <h2 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h2><p>Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能</p>
+        <h2>知识准备</h2>
+<p>Workflow 支持 Triggers、Inputs、Actions、Utilities,Outputs 共 5 项主要功能</p>
 <ul>
 <li>输入包含 Triggers（触发器）和 Inputs（输入触发）；</li>
 <li>Triggers 中的流程可以触发 Inputs 的流程，反之则不行，同时它们都可以触发其它后续流程。</li>
@@ -513,7 +514,9 @@
 <li>Utilities 包含了一些公共组件，如变量设置、json 配置、过滤、转换、替换、延时、debug 等。</li>
 </ul>
 <hr>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>无论用哪个工具截图后，在剪贴板中都有这个图片的二进制信息，把这个二进制信息自动上传到各大图床平台上<br>包括但不限于：</p>
+<h2>需求</h2>
+<p>无论用哪个工具截图后，在剪贴板中都有这个图片的二进制信息，把这个二进制信息自动上传到各大图床平台上
+包括但不限于：</p>
 <ol>
 <li>阿里云oss</li>
 <li>七牛云</li>
@@ -521,41 +524,69 @@
 <li>坚果云</li>
 <li>百度云</li>
 </ol>
-<h4 id="进阶："><a href="#进阶：" class="headerlink" title="进阶："></a>进阶：</h4><ul>
+<h4>进阶：</h4>
+<ul>
 <li>在finder中选中文件，也可把该文件上传到云上</li>
 <li>剪贴板中url图片 自动上传到云上</li>
 </ul>
 <hr>
-<h2 id="快捷键及使用"><a href="#快捷键及使用" class="headerlink" title="快捷键及使用"></a>快捷键及使用</h2><p><code>tc</code> [oss/qn/ts]<br><code>wntc</code> [oss/qn/ts]<br><code>wn</code> [oss/qn/ts] </p>
+<h2>快捷键及使用</h2>
+<p><code>tc</code> [oss/qn/ts]
+<code>wntc</code> [oss/qn/ts]
+<code>wn</code> [oss/qn/ts]</p>
 <ul>
 <li>默认不写参数 上传到所有能够上传的云上并返回优先级最高的那个云的地址</li>
 <li>可以填写指定图床的 缩写，只上传到该图床并只返回该图床url</li>
 </ul>
 <hr>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>安装操纵macos 剪贴板所需包<br><code>sudo pip install PyObjC --user</code></p>
-<h3 id="腾讯云cos"><a href="#腾讯云cos" class="headerlink" title="腾讯云cos"></a>腾讯云cos</h3><ol>
-<li>安装官方sdk<br>下载cos-python-sdk-v5 到workflow目录下</li>
+<h2>开发</h2>
+<p>安装操纵macos 剪贴板所需包
+<code>sudo pip install PyObjC --user</code></p>
+<h3>腾讯云cos</h3>
+<ol>
+<li>
+<p>安装官方sdk
+下载cos-python-sdk-v5 到workflow目录下</p>
+</li>
 <li></li>
-<li><p>登录腾讯云创建存储桶<br><img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/52302008.jpg" alt=""></p>
+<li>
+<p>登录腾讯云创建存储桶
+<img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/52302008.jpg" alt=""></p>
 </li>
-<li><p>在腾讯云控制台创建子账号，使该账号具有存储桶的读写权限<br><img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/69030011.jpg" alt=""></p>
+<li>
+<p>在腾讯云控制台创建子账号，使该账号具有存储桶的读写权限
+<img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/69030011.jpg" alt=""></p>
 </li>
-<li>复制SecretI和SecretKey填写到workflow的变量中</li>
+<li>
+<p>复制SecretI和SecretKey填写到workflow的变量中</p>
+</li>
 </ol>
-<h3 id="阿里云oss"><a href="#阿里云oss" class="headerlink" title="阿里云oss"></a>阿里云oss</h3><p>直接安装官方sdk<br><code>pip install oss2</code></p>
+<h3>阿里云oss</h3>
+<p>直接安装官方sdk
+<code>pip install oss2</code></p>
 <hr>
-<h2 id="程序示意图"><a href="#程序示意图" class="headerlink" title="程序示意图"></a>程序示意图</h2><p><img src="http://wntc.oss-cn-shanghai.aliyuncs.com/2018/8/8/1533726872625.png" alt=""></p>
+<h2>程序示意图</h2>
+<p><img src="http://wntc.oss-cn-shanghai.aliyuncs.com/2018/8/8/1533726872625.png" alt=""></p>
 <hr>
-<p>看到了一个软件<a href="https://toolinbox.net/iPic/" target="_blank" rel="noopener">https://toolinbox.net/iPic/</a><br>可惜要收费</p>
+<p>看到了一个软件https://toolinbox.net/iPic/
+可惜要收费</p>
 <hr>
-<p>万能图床源码地址：<br><a href="https://github.com/juforg/wntc.alfredworkflow" target="_blank" rel="noopener">https://github.com/juforg/wntc.alfredworkflow</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://sspai.com/post/44624" target="_blank" rel="noopener">https://sspai.com/post/44624</a><br><a href="https://github.com/tiann/markdown-img-upload" target="_blank" rel="noopener">https://github.com/tiann/markdown-img-upload</a><br><a href="https://blog.csdn.net/u014600626/article/details/53635192" target="_blank" rel="noopener">https://blog.csdn.net/u014600626/article/details/53635192</a><br><a href="https://blog.csdn.net/linjf520/article/details/52225007" target="_blank" rel="noopener">https://blog.csdn.net/linjf520/article/details/52225007</a><br><a href="https://www.cnblogs.com/tina-python/p/5508402.html" target="_blank" rel="noopener">https://www.cnblogs.com/tina-python/p/5508402.html</a></p>
-<h2 id="可能遇到的错误"><a href="#可能遇到的错误" class="headerlink" title="可能遇到的错误"></a>可能遇到的错误</h2><ul>
-<li>1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[2018-07-31 11:42:33][ERROR: action.script] Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;string&gt;&quot;, line 3, in &lt;module&gt;</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/__init__.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    from .cos_client import CosS3Client</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/cos_client.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    from .cos_threadpool import SimpleThreadPool</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/cos_threadpool.py&quot;, line 5, in &lt;module&gt;</span><br><span class="line">    from six.moves.queue import Queue</span><br><span class="line">ImportError: No module named queue</span><br></pre></td></tr></table></figure>
-</li>
+<p>万能图床源码地址：
+https://github.com/juforg/wntc.alfredworkflow</p>
+<h2>参考</h2>
+<p>https://sspai.com/post/44624
+https://github.com/tiann/markdown-img-upload
+https://blog.csdn.net/u014600626/article/details/53635192
+https://blog.csdn.net/linjf520/article/details/52225007
+https://www.cnblogs.com/tina-python/p/5508402.html</p>
+<h2>可能遇到的错误</h2>
+<ul>
+<li>1
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[2018-07-31 11:42:33][ERROR: action.script] Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;string&gt;&quot;, line 3, in &lt;module&gt;</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/__init__.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    from .cos_client import CosS3Client</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/cos_client.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    from .cos_threadpool import SimpleThreadPool</span><br><span class="line">  File &quot;/Library/Python/2.7/site-packages/qcloud_cos/cos_threadpool.py&quot;, line 5, in &lt;module&gt;</span><br><span class="line">    from six.moves.queue import Queue</span><br><span class="line">ImportError: No module named queue</span><br></pre></td></tr></table></figure></li>
 </ul>
 <hr>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/26607603.jpg" alt=""></p>
+<h2>注意</h2>
+<p><img src="http://image-db.oss-cn-shanghai.aliyuncs.com/18-7-31/26607603.jpg" alt=""></p>
 
       
     </div>
@@ -727,7 +758,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -780,7 +811,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1007,7 +1038,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1057,7 +1112,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知识准备"><span class="nav-number">1.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进阶："><span class="nav-number">2.0.1.</span> <span class="nav-text">进阶：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键及使用"><span class="nav-number">3.</span> <span class="nav-text">快捷键及使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发"><span class="nav-number">4.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯云cos"><span class="nav-number">4.1.</span> <span class="nav-text">腾讯云cos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阿里云oss"><span class="nav-number">4.2.</span> <span class="nav-text">阿里云oss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序示意图"><span class="nav-number">5.</span> <span class="nav-text">程序示意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的错误"><span class="nav-number">7.</span> <span class="nav-text">可能遇到的错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">8.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">进阶：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">快捷键及使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">腾讯云cos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">阿里云oss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">程序示意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">可能遇到的错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
 
           </div>

@@ -114,25 +114,25 @@
 
 
 
-  <meta name="description" content="What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制 轮训（默认） 按照配置的服务列表一个个分配  缺点 同一个用户，不同请求会分配到不同服务器      加权负载均衡 对性能不一致的机器">
+  <meta name="description" content="What? 单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发 阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制  轮训（默认）  按照配置的服务列表一个个分配   缺点  同一个用户，不同请求会分配到不同服务器     加权负载均衡  对性能">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="负载均衡">
-<meta property="og:url" content="http://appcity.vip/2018/11/05/负载均衡/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2018/11/05/负载均衡/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制 轮训（默认） 按照配置的服务列表一个个分配  缺点 同一个用户，不同请求会分配到不同服务器      加权负载均衡 对性能不一致的机器">
+<meta property="og:description" content="What? 单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发 阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制  轮训（默认）  按照配置的服务列表一个个分配   缺点  同一个用户，不同请求会分配到不同服务器     加权负载均衡  对性能">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-06T14:02:05.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="负载均衡">
-<meta name="twitter:description" content="What?单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制 轮训（默认） 按照配置的服务列表一个个分配  缺点 同一个用户，不同请求会分配到不同服务器      加权负载均衡 对性能不一致的机器">
+<meta name="twitter:description" content="What? 单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求 nginx 集群 lvs  keepalived f5 nginx 官方测试并发支承5万并发 阿里开源的tengine 和nginx能够完美兼容 nignx负载均衡机制  轮训（默认）  按照配置的服务列表一个个分配   缺点  同一个用户，不同请求会分配到不同服务器     加权负载均衡  对性能">
 
 
 
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2018/11/05/负载均衡/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2018/11/05/负载均衡/"/>
 
 
 
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -368,7 +368,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2018/11/05/负载均衡/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2018/11/05/负载均衡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -499,45 +499,58 @@
       
 
       
-        <h2 id="What"><a href="#What" class="headerlink" title="What?"></a>What?</h2><p>单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求</p>
+        <h2>What?</h2>
+<p>单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求</p>
 <p>nginx 集群 lvs  keepalived f5</p>
-<p>nginx 官方测试并发支承5万并发<br>阿里开源的tengine 和nginx能够完美兼容</p>
-<h3 id="nignx负载均衡机制"><a href="#nignx负载均衡机制" class="headerlink" title="nignx负载均衡机制"></a>nignx负载均衡机制</h3><ul>
-<li>轮训（默认）<blockquote>
-<p>按照配置的服务列表一个个分配</p>
+<p>nginx 官方测试并发支承5万并发
+阿里开源的tengine 和nginx能够完美兼容</p>
+<h3>nignx负载均衡机制</h3>
 <ul>
-<li>缺点<ul>
+<li>轮训（默认）
+<blockquote>
+<p>按照配置的服务列表一个个分配</p>
+</blockquote>
+<ul>
+<li>缺点
+<ul>
 <li>同一个用户，不同请求会分配到不同服务器</li>
 </ul>
 </li>
 </ul>
-</blockquote>
 </li>
-<li>加权负载均衡<blockquote>
+<li>加权负载均衡
+<blockquote>
 <p>对性能不一致的机器 给予不同的权重，是性能好的服务器能够处理更多</p>
 </blockquote>
 </li>
-<li>最少连接数<blockquote>
+<li>最少连接数
+<blockquote>
 <p>分配给连接数更少的服务器</p>
 </blockquote>
 </li>
-<li>ip-hash<blockquote>
-<p>保证会话持久</p>
-<ul>
-<li>缺点<ul>
-<li>如果针对用户是企业用户，一般都是一条宽带外网ip都是一样的，这样的用户都会被分配到同一个server上，达不到负载均衡的效果</li>
-</ul>
-</li>
-</ul>
+<li>ip-hash
+<blockquote>
+<p>保证会话持久
+- 缺点
+- 如果针对用户是企业用户，一般都是一条宽带外网ip都是一样的，这样的用户都会被分配到同一个server上，达不到负载均衡的效果</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="Where"><a href="#Where" class="headerlink" title="Where?"></a>Where?</h2><p>应用服务器前可以加nignx负载，如果nginx需要负载则需要在nginx前加lvs服务<br>参考 <a href="2016-09-04-lvs">lvs</a></p>
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><h2 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h2><h3 id="轮训nginx配置"><a href="#轮训nginx配置" class="headerlink" title="轮训nginx配置"></a>轮训nginx配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="权重配置"><a href="#权重配置" class="headerlink" title="权重配置"></a>权重配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2 weight=3;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="最小连接数配置"><a href="#最小连接数配置" class="headerlink" title="最小连接数配置"></a>最小连接数配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      least_conn;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="ip-hash配置"><a href="#ip-hash配置" class="headerlink" title="ip-hash配置"></a>ip-hash配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      ip_hash;</span><br><span class="line">      server sj-node2 ;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
+<h2>Where?</h2>
+<p>应用服务器前可以加nignx负载，如果nginx需要负载则需要在nginx前加lvs服务
+参考 <a href="2016-09-04-lvs">lvs</a></p>
+<h2>Why?</h2>
+<h2>How?</h2>
+<h3>轮训nginx配置</h3>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3>权重配置</h3>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2 weight=3;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3>最小连接数配置</h3>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      least_conn;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3>ip-hash配置</h3>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      ip_hash;</span><br><span class="line">      server sj-node2 ;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h2>参考</h2>
+
       
     </div>
 
@@ -708,7 +721,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -761,7 +774,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -988,7 +1001,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1038,7 +1075,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nignx负载均衡机制"><span class="nav-number">1.1.</span> <span class="nav-text">nignx负载均衡机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">2.</span> <span class="nav-text">Where?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">3.</span> <span class="nav-text">Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">4.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮训nginx配置"><span class="nav-number">4.1.</span> <span class="nav-text">轮训nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重配置"><span class="nav-number">4.2.</span> <span class="nav-text">权重配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最小连接数配置"><span class="nav-number">4.3.</span> <span class="nav-text">最小连接数配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-hash配置"><span class="nav-number">4.4.</span> <span class="nav-text">ip-hash配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">nignx负载均衡机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Where?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Why?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">轮训nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">权重配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">最小连接数配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.4.</span> <span class="nav-text">ip-hash配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

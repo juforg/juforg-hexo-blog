@@ -114,25 +114,25 @@
 
 
 
-  <meta name="description" content="新建虚拟机后启动，">
+  <meta name="description" content="新建虚拟机后启动， &amp;lt;!-- more --&amp;gt;   ifconfig  无ip   vi /etc/sysconfig/network-scripts/ifcfg-eth0    service network restart    如果不能解析域名则  route add default gw 192.168.199.2 或者将其它能够正常访问的虚拟机的配置/etc/sysconfi">
 <meta name="keywords" content="虚拟机 vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VMWare安装CentOS6虚拟机笔记">
-<meta property="og:url" content="http://appcity.vip/2016/09/04/VMWare虚拟机笔记/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2016/09/04/VMWare虚拟机笔记/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="新建虚拟机后启动，">
+<meta property="og:description" content="新建虚拟机后启动， &amp;lt;!-- more --&amp;gt;   ifconfig  无ip   vi /etc/sysconfig/network-scripts/ifcfg-eth0    service network restart    如果不能解析域名则  route add default gw 192.168.199.2 或者将其它能够正常访问的虚拟机的配置/etc/sysconfi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472959373.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472959323.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472959524.png">
-<meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472961663.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472964285.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1472964256.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/12/1/1543679337256.png">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/1473560140.png">
-<meta property="og:updated_time" content="2018-11-12T16:49:06.163Z">
+<meta property="og:updated_time" content="2018-12-01T15:50:59.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMWare安装CentOS6虚拟机笔记">
-<meta name="twitter:description" content="新建虚拟机后启动，">
+<meta name="twitter:description" content="新建虚拟机后启动， &amp;lt;!-- more --&amp;gt;   ifconfig  无ip   vi /etc/sysconfig/network-scripts/ifcfg-eth0    service network restart    如果不能解析域名则  route add default gw 192.168.199.2 或者将其它能够正常访问的虚拟机的配置/etc/sysconfi">
 <meta name="twitter:image" content="http://oapwg4v13.bkt.clouddn.com/1472959373.png">
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2016/09/04/VMWare虚拟机笔记/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2016/09/04/VMWare虚拟机笔记/"/>
 
 
 
@@ -258,7 +258,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -376,7 +376,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/09/04/VMWare虚拟机笔记/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2016/09/04/VMWare虚拟机笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -435,7 +435,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-13 00:49:06" itemprop="dateModified" datetime="2018-11-13T00:49:06+08:00">2018-11-13</time>
+                <time title="修改时间：2018-12-01 23:50:59" itemprop="dateModified" datetime="2018-12-01T23:50:59+08:00">2018-12-01</time>
               
             
           </span>
@@ -507,32 +507,60 @@
       
 
       
-        <p>新建虚拟机后启动，<br><a id="more"></a></p>
+        <p>新建虚拟机后启动，
+&lt;!-- more --&gt;</p>
 <ol>
-<li><code>ifconfig</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959373.png" alt=""><br>无ip</li>
-<li><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959323.png" alt=""></li>
-<li><code>service network restart</code><br><img src="http://oapwg4v13.bkt.clouddn.com/1472959524.png" alt=""></li>
-<li>如果不能解析域名则<br><img src="http://oapwg4v13.bkt.clouddn.com/1472961663.png" alt=""><ul>
+<li>
+<p><code>ifconfig</code>
+<img src="http://oapwg4v13.bkt.clouddn.com/1472959373.png" alt="">
+无ip</p>
+</li>
+<li>
+<p><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code>
+<img src="http://oapwg4v13.bkt.clouddn.com/1472959323.png" alt=""></p>
+</li>
+<li>
+<p><code>service network restart</code>
+<img src="http://oapwg4v13.bkt.clouddn.com/1472959524.png" alt=""></p>
+</li>
+<li>
+<p>如果不能解析域名则</p>
+<ul>
+<li>route add default gw 192.168.199.2</li>
 <li>或者将其它能够正常访问的虚拟机的配置/etc/sysconfig/network-scripts/ifcfg-eth0拷贝过来后修改</li>
 </ul>
 </li>
-<li><p>删除生成的文件使重新生成<br><code>rm -rf /etc/udev/rules.d/70-persistent-net.rules</code></p>
+<li>
+<p>删除生成的文件使重新生成
+<code>rm -rf /etc/udev/rules.d/70-persistent-net.rules</code></p>
 </li>
-<li><p>修改主机名（克隆过来的虚拟机需要改）</p>
+<li>
+<p>修改主机名（克隆过来的虚拟机需要改）</p>
 <ul>
-<li><p><code>vi /etc/sysconfig/network</code><br>把HOSTNAME的值修改成你想要的主机名<br><img src="http://oapwg4v13.bkt.clouddn.com/1472964285.png" alt=""></p>
+<li>
+<p><code>vi /etc/sysconfig/network</code>
+把HOSTNAME的值修改成你想要的主机名
+<img src="http://oapwg4v13.bkt.clouddn.com/1472964285.png" alt=""></p>
 </li>
-<li><p><code>vi /etc/hosts</code></p>
+<li>
+<p><code>vi /etc/hosts</code></p>
 </li>
-<li>把<em>localhost.localdomain</em>替换成你的主机名<br><img src="http://oapwg4v13.bkt.clouddn.com/1472964256.png" alt=""><ul>
-<li><code>reboot</code></li>
-<li><code>hostname</code> 启动后输入查看主机名</li>
-</ul>
+<li>
+<p>把<em>localhost.localdomain</em>替换成你的主机名
+<img src="http://oapwg4v13.bkt.clouddn.com/1472964256.png" alt=""></p>
+</li>
+<li>
+<p><code>reboot</code></p>
+</li>
+<li>
+<p><code>hostname</code> 启动后输入查看主机名</p>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="虚拟机的ip-修改的-ip要服务虚拟机的网段"><a href="#虚拟机的ip-修改的-ip要服务虚拟机的网段" class="headerlink" title="虚拟机的ip 修改的 ip要服务虚拟机的网段"></a>虚拟机的ip 修改的 ip要服务虚拟机的网段</h2><p>   <code>ifconfig eth1:vip 192.168.57.180 netmask 255.255.255.0</code><br>   <code>ip addr del</code></p>
+<h2>虚拟机的ip 修改的 ip要服务虚拟机的网段</h2>
+<p><code>ifconfig eth1:vip 192.168.57.180 netmask 255.255.255.0</code>
+<code>ip addr del</code></p>
 <table>
 <thead>
 <tr>
@@ -554,7 +582,7 @@
 <td>关闭防火墙</td>
 </tr>
 <tr>
-<td>chkconfig iptables –list</td>
+<td>chkconfig iptables --list</td>
 <td>防火墙列表</td>
 </tr>
 <tr>
@@ -567,9 +595,11 @@
 </tr>
 <tr>
 <td>init 1</td>
+<td></td>
 </tr>
 <tr>
 <td>init 2</td>
+<td></td>
 </tr>
 <tr>
 <td>init 3</td>
@@ -577,9 +607,11 @@
 </tr>
 <tr>
 <td>init 4</td>
+<td></td>
 </tr>
 <tr>
 <td>init 5</td>
+<td></td>
 </tr>
 <tr>
 <td>init 6</td>
@@ -587,48 +619,84 @@
 </tr>
 </tbody>
 </table>
-<h3 id="系统服务文件夹"><a href="#系统服务文件夹" class="headerlink" title="系统服务文件夹"></a>系统服务文件夹</h3><p>   /etc/init.d</p>
-<h3 id="切换yum源，使自动寻找最近的可用yum源码"><a href="#切换yum源，使自动寻找最近的可用yum源码" class="headerlink" title="切换yum源，使自动寻找最近的可用yum源码"></a>切换yum源，使自动寻找最近的可用yum源码</h3>  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
-<h3 id="若yum出现repomd-xml-does-not-match-metalink-for-epel"><a href="#若yum出现repomd-xml-does-not-match-metalink-for-epel" class="headerlink" title="若yum出现repomd.xml does not match metalink for epel"></a>若yum出现<code>repomd.xml does not match metalink for epel</code></h3><blockquote>
-<p><code>vi /etc/yum.repos.d/epel.repo</code><br>注释掉 mirror list<br><code>yum clean all</code><br><code>wget http://yum.baseurl.org/download/3.4/yum-3.4.3.tar.gz</code></p>
+<h3>系统服务文件夹</h3>
+<p>/etc/init.d</p>
+<h3>切换yum源，使自动寻找最近的可用yum源码</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y epel-release</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure></p>
+<h3>若yum出现<code>repomd.xml does not match metalink for epel</code></h3>
+<blockquote>
+<p><code>vi /etc/yum.repos.d/epel.repo</code>
+注释掉 mirror list
+<code>yum clean all</code>
+<code>wget http://yum.baseurl.org/download/3.4/yum-3.4.3.tar.gz</code></p>
 </blockquote>
-<h2 id="必备"><a href="#必备" class="headerlink" title="必备"></a>必备</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc wget openssl-devel pcre-devel  zlib-devel vim</span><br></pre></td></tr></table></figure>
-<h2 id="安装时钟同步"><a href="#安装时钟同步" class="headerlink" title="安装时钟同步"></a>安装时钟同步</h2><p>   <code>yum -y install ntp</code><br>   国内ntp时钟服务器 <code>server time.windows.com ibrust</code><br>   搜索 能够ping通<br>   执行命令同步</p>
+<h2>必备</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc wget openssl-devel pcre-devel  zlib-devel vim</span><br></pre></td></tr></table></figure></p>
+<h2>安装时钟同步</h2>
+<p><code>yum -y install ntp</code>
+<code>vim /etc/ntp.conf</code>
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/12/1/1543679337256.png" alt=""></p>
+<p>国内ntp时钟服务器 <code>server ntp.aliyun.com ibrust</code>
+搜索 能够ping通
+执行命令同步</p>
 <ol>
-<li><code>crontab -e</code>回车<br>输入 <code>*/10 * * * * /usr/sbin/ntpdate ntp.sjtu.edu.cn</code></li>
+<li><code>service ntpd restart</code></li>
 <li><code>chkconfig ntpd on</code></li>
 <li>查看同步情况<code>watch ntpd -p</code></li>
+<li>或则通过系统的定时任务<code>crontab -e</code>回车
+输入 <code>*/10 * * * * /usr/sbin/ntpdate ntp.aliyun.com</code></li>
 </ol>
-<h2 id="创建用户及组"><a href="#创建用户及组" class="headerlink" title="创建用户及组"></a>创建用户及组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd  bigdata</span><br><span class="line">useradd -g bigdata bigdata</span><br><span class="line">echo &quot;123456&quot;|passwd --stdin bigdata</span><br></pre></td></tr></table></figure>
-<h2 id="更换组及拥有人"><a href="#更换组及拥有人" class="headerlink" title="更换组及拥有人"></a>更换组及拥有人</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R bigdata:bigdata elastic</span><br></pre></td></tr></table></figure>
+<h2>创建用户及组</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd  bigdata</span><br><span class="line">useradd -g bigdata bigdata</span><br><span class="line">echo &quot;123456&quot;|passwd --stdin bigdata</span><br></pre></td></tr></table></figure></p>
+<h2>更换组及拥有人</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R bigdata:bigdata elastic</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://oapwg4v13.bkt.clouddn.com/1473560140.png" alt=""></p>
-<h2 id="安装memcached"><a href="#安装memcached" class="headerlink" title="安装memcached"></a>安装memcached</h2><p>   yum -y install memcached</p>
-<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><ul>
-<li><code>yum search java | grep -i --color JDK</code></li>
-<li><code>yum install java-1.6.0-openjdk.x86_64  java-1.8.0-openjdk-devel.x86_64</code></li>
-<li><p><code>vi  /etc/profile</code>在最后加上</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64</span><br><span class="line"> <span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<h2>安装memcached</h2>
+<p>yum -y install memcached</p>
+<h2>安装jdk</h2>
+<ul>
+<li>
+<p><code>yum search java | grep -i --color JDK</code></p>
+</li>
+<li>
+<p><code>yum install java-1.6.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64</code></p>
+</li>
+<li>
+<p><code>vi /etc/profile</code>在最后加上</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64</span><br><span class="line"> <span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"> <span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>让配置生效
+<code>source /etc/profile</code></p>
 </li>
 </ul>
+<h3>复制远程好的</h3>
+<h2>安装tomcat</h2>
 <ul>
-<li>让配置生效<br><code>source  /etc/profile</code></li>
+<li>下载
+<a href="https://tomcat.apache.org/download-70.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-70.cgi</a>
+<code>wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.91/bin/apache-tomcat-7.0.91.tar.gz</code></li>
+<li>解压
+<code>tar -zxvf apache-tomcat-7.0.91.tar.gz</code></li>
+<li>启动
+<code>apache-tomcat-7.0.91/bin/startup.sh</code></li>
+<li>查看进程
+<code>ps -ef|grep java</code></li>
 </ul>
-<h3 id="复制远程好的"><a href="#复制远程好的" class="headerlink" title="复制远程好的"></a>复制远程好的</h3><h2 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h2><ul>
-<li>下载<br><a href="https://tomcat.apache.org/download-70.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-70.cgi</a><br><code>wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.91/bin/apache-tomcat-7.0.91.tar.gz</code></li>
-<li>解压<br><code>tar -zxvf apache-tomcat-7.0.91.tar.gz</code> </li>
-<li>启动<br><code>apache-tomcat-7.0.91/bin/startup.sh</code></li>
-<li>查看进程<br><code>ps -ef|grep java</code> </li>
-</ul>
-<h2 id="解析不了主机"><a href="#解析不了主机" class="headerlink" title="解析不了主机"></a>解析不了主机</h2><p><code>route</code> 命令查看路由情况</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add default  gw 192.168.1.1</span><br></pre></td></tr></table></figure>
-<h2 id="配置hosts文件"><a href="#配置hosts文件" class="headerlink" title="配置hosts文件"></a>配置hosts文件</h2><ul>
-<li><p><code>vi /etc/hosts</code>在最后加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">192.168.199.101 sj-node1</span><br><span class="line">192.168.199.102 sj-node2</span><br><span class="line">192.168.199.103 sj-node3</span><br><span class="line">192.168.199.104 sj-node4</span><br></pre></td></tr></table></figure>
+<h2>解析不了主机</h2>
+<p><code>route</code> 命令查看路由情况</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add default  gw 192.168.1.1</span><br></pre></td></tr></table></figure></p>
+<h2>配置hosts文件</h2>
+<ul>
+<li>
+<p><code>vi /etc/hosts</code>在最后加上</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">192.168.199.101 sj-node1</span><br><span class="line">192.168.199.102 sj-node2</span><br><span class="line">192.168.199.103 sj-node3</span><br><span class="line">192.168.199.104 sj-node4</span><br></pre></td></tr></table></figure></p>
 <p>ip根据自己的虚拟机ip填写  后面的机器别名<code>sj-node*</code>根据自己的喜好随意修改</p>
 </li>
 </ul>
-<h2 id="无密码ssh登录"><a href="#无密码ssh登录" class="headerlink" title="无密码ssh登录"></a>无密码ssh登录</h2><ul>
-<li><code>ssh-keygen -t dsa -P &#39;&#39; -f ~/.ssh/id_dsa</code></li>
+<h2>无密码ssh登录</h2>
+<ul>
+<li><code>ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa</code></li>
 <li><code>cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
 <li><code>scp ~/.ssh/id_dsa sj-node2:~/.ssh/</code></li>
 <li><code>scp ~/.ssh/id_dsa.pub sj-node2:~/.ssh/</code></li>
@@ -806,7 +874,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -859,7 +927,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1086,7 +1154,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1136,7 +1228,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机的ip-修改的-ip要服务虚拟机的网段"><span class="nav-number">1.</span> <span class="nav-text">虚拟机的ip 修改的 ip要服务虚拟机的网段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统服务文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">系统服务文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换yum源，使自动寻找最近的可用yum源码"><span class="nav-number">1.2.</span> <span class="nav-text">切换yum源，使自动寻找最近的可用yum源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#若yum出现repomd-xml-does-not-match-metalink-for-epel"><span class="nav-number">1.3.</span> <span class="nav-text">若yum出现repomd.xml does not match metalink for epel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#必备"><span class="nav-number">2.</span> <span class="nav-text">必备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装时钟同步"><span class="nav-number">3.</span> <span class="nav-text">安装时钟同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户及组"><span class="nav-number">4.</span> <span class="nav-text">创建用户及组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换组及拥有人"><span class="nav-number">5.</span> <span class="nav-text">更换组及拥有人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装memcached"><span class="nav-number">6.</span> <span class="nav-text">安装memcached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装jdk"><span class="nav-number">7.</span> <span class="nav-text">安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#复制远程好的"><span class="nav-number">7.1.</span> <span class="nav-text">复制远程好的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装tomcat"><span class="nav-number">8.</span> <span class="nav-text">安装tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析不了主机"><span class="nav-number">9.</span> <span class="nav-text">解析不了主机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置hosts文件"><span class="nav-number">10.</span> <span class="nav-text">配置hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无密码ssh登录"><span class="nav-number">11.</span> <span class="nav-text">无密码ssh登录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">虚拟机的ip 修改的 ip要服务虚拟机的网段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">系统服务文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">切换yum源，使自动寻找最近的可用yum源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">若yum出现repomd.xml does not match metalink for epel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">必备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">安装时钟同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">创建用户及组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">更换组及拥有人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">安装memcached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.1.</span> <span class="nav-text">复制远程好的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">安装tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">解析不了主机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">配置hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">无密码ssh登录</span></a></li></ol></div>
             
 
           </div>

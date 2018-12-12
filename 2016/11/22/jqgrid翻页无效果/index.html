@@ -114,13 +114,13 @@
 
 
 
-  <meta name="description" content="现象直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题">
+  <meta name="description" content="现象  直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题 &amp;lt;!-- more --&amp;gt;  如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页  开始调试   打开chrome开发模式查看网络请求  正常情况（未点击查询按钮）  点击菜单    - 点击下页按钮        异常情况  点击查询按钮    - 点击翻页按钮 &amp;gt;      发现是查询逻辑丢掉了page信息">
 <meta name="keywords" content="jqGrid js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jqGrid翻页无效果debug经历">
-<meta property="og:url" content="http://appcity.vip/2016/11/22/jqgrid翻页无效果/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2016/11/22/jqgrid翻页无效果/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="现象直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题">
+<meta property="og:description" content="现象  直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题 &amp;lt;!-- more --&amp;gt;  如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页  开始调试   打开chrome开发模式查看网络请求  正常情况（未点击查询按钮）  点击菜单    - 点击下页按钮        异常情况  点击查询按钮    - 点击翻页按钮 &amp;gt;      发现是查询逻辑丢掉了page信息">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/16955501.jpg">
 <meta property="og:image" content="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/37527490.jpg">
@@ -132,7 +132,7 @@
 <meta property="og:updated_time" content="2018-06-28T02:04:54.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jqGrid翻页无效果debug经历">
-<meta name="twitter:description" content="现象直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题">
+<meta name="twitter:description" content="现象  直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题 &amp;lt;!-- more --&amp;gt;  如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页  开始调试   打开chrome开发模式查看网络请求  正常情况（未点击查询按钮）  点击菜单    - 点击下页按钮        异常情况  点击查询按钮    - 点击翻页按钮 &amp;gt;      发现是查询逻辑丢掉了page信息">
 <meta name="twitter:image" content="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/16955501.jpg">
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2016/11/22/jqgrid翻页无效果/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2016/11/22/jqgrid翻页无效果/"/>
 
 
 
@@ -258,7 +258,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -376,7 +376,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/11/22/jqgrid翻页无效果/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2016/11/22/jqgrid翻页无效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -507,50 +507,67 @@
       
 
       
-        <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/16955501.jpg" alt=""><br>直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题<br><a id="more"></a><br><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/37527490.jpg" alt=""><br>如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页<br><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/916819.jpg" alt=""></p>
-<h2 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h2><ul>
-<li>打开chrome开发模式查看网络请求<ul>
-<li>正常情况（未点击查询按钮）<ul>
-<li>点击菜单<blockquote>
-<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/2731337.jpg" alt=""></p>
+        <h2>现象</h2>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/16955501.jpg" alt="">
+直接点击餐单，后不点击查询按钮，在点击翻页按钮，没有问题
+&lt;!-- more --&gt;
+<img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/37527490.jpg" alt="">
+如果点击查询按钮后，再点击 翻页按钮，页面刷新不翻页
+<img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/916819.jpg" alt=""></p>
+<h2>开始调试</h2>
+<ul>
+<li>
+<p>打开chrome开发模式查看网络请求</p>
+<ul>
+<li>正常情况（未点击查询按钮）
+<ul>
+<li>点击菜单</li>
+</ul>
+<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/2731337.jpg" alt="">
+- 点击下页按钮</p>
 </blockquote>
 </li>
-<li>点击下页按钮<blockquote>
+</ul>
+<blockquote>
 <p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/5439002.jpg" alt=""></p>
 </blockquote>
-</li>
-</ul>
-</li>
-<li>异常情况<ul>
-<li>点击查询按钮<blockquote>
-<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/25518419.jpg" alt="">\</p>
-</blockquote>
-</li>
-<li>点击翻页按钮<blockquote>
-<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/66988340.jpg" alt=""></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>发现是查询逻辑丢掉了page信息</li>
-<li><p>查看代码</p>
 <ul>
-<li><p>list初始化</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">  jQuery(grid_selector).jqGrid(&#123;</span><br><span class="line">	url:<span class="string">'list'</span>,</span><br><span class="line">	postData: &#123;<span class="string">'receiptBizType'</span>:$(<span class="string">'#search_receiptBizType'</span>).val()&#125;,</span><br><span class="line">    datatype: <span class="string">'json'</span>,     </span><br><span class="line">	mtype: <span class="string">"POST"</span>,</span><br><span class="line">	height: <span class="string">"100%"</span>,</span><br><span class="line">	rownumbers: <span class="literal">true</span>,</span><br><span class="line">	rownumWidth:<span class="number">50</span>,</span><br><span class="line">	colNames:[<span class="string">''</span>,<span class="string">'回单ID'</span>,<span class="string">'回单编号'</span>,<span class="string">'门店共用码'</span>,<span class="string">'业务类型'</span>, <span class="string">'金额'</span>,<span class="string">'备注'</span>,<span class="string">'业务日期'</span>,<span class="string">'状态'</span>,<span class="string">'订单ID'</span>,<span class="string">'创建时间'</span>,<span class="string">'更新时间'</span>],</span><br><span class="line">	colModel:[</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'action'</span>,<span class="attr">hidden</span>:<span class="literal">false</span>,<span class="attr">width</span>:<span class="number">30</span>,<span class="attr">fixed</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bankReceiptId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">key</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptNo'</span>,<span class="attr">index</span>:<span class="string">'receipt_no'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'commonCode'</span>,<span class="attr">index</span>:<span class="string">'common_code'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	   <span class="comment">// &#123;name:'accoutnName',index:'accoutnName',editable:false&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptBizType'</span>,<span class="attr">index</span>:<span class="string">'receipt_biz_type'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'TRANS_TYPE'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'amount'</span>,<span class="attr">index</span>:<span class="string">'amount'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:currencyFormatter, <span class="attr">formatoptions</span>:&#123;<span class="attr">decimalSeparator</span>:<span class="string">"."</span>, <span class="attr">thousandsSeparator</span>: <span class="string">","</span>, <span class="attr">decimalPlaces</span>: <span class="number">2</span>, <span class="attr">divide</span>:<span class="number">100</span>,<span class="attr">prefix</span>: <span class="string">"￥"</span>&#125;&#125;,</span><br><span class="line">	    <span class="comment">//&#123;name:'hamount',index:'hamount',editable:false,formatter:currencyFormatter, formatoptions:&#123;decimalSeparator:".", thousandsSeparator: ",", decimalPlaces: 2, prefix: "￥"&#125;&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizRemark'</span>,<span class="attr">index</span>:<span class="string">'biz_remark'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizDate'</span>,<span class="attr">index</span>:<span class="string">'biz_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'state'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'BANK_RECEIPT_STATE'</span>&#125;,<span class="attr">unformat</span>:getHideListValueReverse&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'ordId'</span>,<span class="attr">index</span>:<span class="string">'ordId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'createDate'</span>,<span class="attr">index</span>:<span class="string">'create_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'lastUpdateDate'</span>,<span class="attr">index</span>:<span class="string">'last_update_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	],</span><br><span class="line">	viewrecords : <span class="literal">true</span>,</span><br><span class="line">	rowNum:<span class="number">10</span>,</span><br><span class="line">	rowList:[<span class="number">10</span>,<span class="number">20</span>,<span class="number">50</span>],</span><br><span class="line">	pager : <span class="string">"#grid-pager"</span>,</span><br><span class="line">	multiselect: <span class="literal">false</span>,</span><br><span class="line">       multiboxonly: <span class="literal">false</span>,</span><br><span class="line">	altRows: <span class="literal">true</span>,</span><br><span class="line">	autowidth: <span class="literal">true</span>,</span><br><span class="line">	autoScroll: <span class="literal">false</span>,</span><br><span class="line">	caption: <span class="string">"银行回单列表"</span>,</span><br><span class="line">	emptyrecords: <span class="string">"未查询到数据"</span>,</span><br><span class="line">	jsonReader : &#123;   </span><br><span class="line">      root:<span class="string">"result"</span>,</span><br><span class="line">      total:<span class="string">'totalPages'</span>,</span><br><span class="line">      page:<span class="string">'page'</span>,</span><br><span class="line">      records:<span class="string">'records'</span>   </span><br><span class="line">	&#125;,</span><br><span class="line">	loadComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> table = <span class="keyword">this</span>;</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			updatePagerIcons(table);</span><br><span class="line">		&#125;, <span class="number">0</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	gridComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> ids = jQuery(grid_selector).jqGrid(<span class="string">'getDataIDs'</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i &lt; ids.length;i++)&#123;</span><br><span class="line">			<span class="keyword">var</span> cl = ids[i];</span><br><span class="line">			<span class="keyword">var</span> rowData = $(grid_selector).getRowData(cl);</span><br><span class="line">			checkbox = <span class="string">"&lt;label&gt;&lt;input name=\"grid-checkbox\" value=\""</span></span><br><span class="line">				+ rowData.bankReceiptId + <span class="string">"\"type=\"checkbox\" class=\"ace\"&gt;&lt;span class=\"lbl\"&gt;&lt;/span&gt;&lt;/label&gt;"</span>;</span><br><span class="line">			jQuery(grid_selector).jqGrid(<span class="string">'setRowData'</span>,ids[i],&#123;<span class="attr">action</span>:checkbox&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 窗口缩放时，经动态变化宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="built_in">window</span>).resize(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.page-content'</span>).width(); 	<span class="comment">//当前页面的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 点击菜单边框收缩菜单时，动态变化表格宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="string">'#sidebar-collapse'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.main-content .col-xs-12'</span>).width(); 	<span class="comment">//当前窗口中，一行的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li>异常情况
+<ul>
+<li>点击查询按钮</li>
+</ul>
+<blockquote>
+<p><img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/25518419.jpg" alt=""><br>
+- 点击翻页按钮
+&gt;<img src="http://oapwg4v13.bkt.clouddn.com/public/16-11-23/66988340.jpg" alt=""></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>发现是查询逻辑丢掉了page信息</p>
+</li>
+<li>
+<p>查看代码</p>
+<ul>
+<li>
+<p>list初始化</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">  jQuery(grid_selector).jqGrid(&#123;</span><br><span class="line">	url:<span class="string">'list'</span>,</span><br><span class="line">	postData: &#123;<span class="string">'receiptBizType'</span>:$(<span class="string">'#search_receiptBizType'</span>).val()&#125;,</span><br><span class="line">    datatype: <span class="string">'json'</span>,     </span><br><span class="line">	mtype: <span class="string">"POST"</span>,</span><br><span class="line">	height: <span class="string">"100%"</span>,</span><br><span class="line">	rownumbers: <span class="literal">true</span>,</span><br><span class="line">	rownumWidth:<span class="number">50</span>,</span><br><span class="line">	colNames:[<span class="string">''</span>,<span class="string">'回单ID'</span>,<span class="string">'回单编号'</span>,<span class="string">'门店共用码'</span>,<span class="string">'业务类型'</span>, <span class="string">'金额'</span>,<span class="string">'备注'</span>,<span class="string">'业务日期'</span>,<span class="string">'状态'</span>,<span class="string">'订单ID'</span>,<span class="string">'创建时间'</span>,<span class="string">'更新时间'</span>],</span><br><span class="line">	colModel:[</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'action'</span>,<span class="attr">hidden</span>:<span class="literal">false</span>,<span class="attr">width</span>:<span class="number">30</span>,<span class="attr">fixed</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bankReceiptId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">key</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptNo'</span>,<span class="attr">index</span>:<span class="string">'receipt_no'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'commonCode'</span>,<span class="attr">index</span>:<span class="string">'common_code'</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	   <span class="comment">// &#123;name:'accoutnName',index:'accoutnName',editable:false&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'receiptBizType'</span>,<span class="attr">index</span>:<span class="string">'receipt_biz_type'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'TRANS_TYPE'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'amount'</span>,<span class="attr">index</span>:<span class="string">'amount'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:currencyFormatter, <span class="attr">formatoptions</span>:&#123;<span class="attr">decimalSeparator</span>:<span class="string">"."</span>, <span class="attr">thousandsSeparator</span>: <span class="string">","</span>, <span class="attr">decimalPlaces</span>: <span class="number">2</span>, <span class="attr">divide</span>:<span class="number">100</span>,<span class="attr">prefix</span>: <span class="string">"￥"</span>&#125;&#125;,</span><br><span class="line">	    <span class="comment">//&#123;name:'hamount',index:'hamount',editable:false,formatter:currencyFormatter, formatoptions:&#123;decimalSeparator:".", thousandsSeparator: ",", decimalPlaces: 2, prefix: "￥"&#125;&#125;,</span></span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizRemark'</span>,<span class="attr">index</span>:<span class="string">'biz_remark'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'bizDate'</span>,<span class="attr">index</span>:<span class="string">'biz_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'state'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:getHideListValue,<span class="attr">formatoptions</span>: &#123;<span class="attr">code</span>:<span class="string">'BANK_RECEIPT_STATE'</span>&#125;,<span class="attr">unformat</span>:getHideListValueReverse&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'ordId'</span>,<span class="attr">index</span>:<span class="string">'ordId'</span>,<span class="attr">sortable</span>:<span class="literal">false</span>,<span class="attr">editable</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'createDate'</span>,<span class="attr">index</span>:<span class="string">'create_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	    &#123;<span class="attr">name</span>:<span class="string">'lastUpdateDate'</span>,<span class="attr">index</span>:<span class="string">'last_update_date'</span>,<span class="attr">editable</span>:<span class="literal">false</span>,<span class="attr">formatter</span>:dateFormatter,<span class="attr">formatoptions</span>:&#123;<span class="attr">dateFormat</span>:<span class="string">'yyyy-MM-dd hh:mm:ss'</span>&#125;&#125;,</span><br><span class="line">	],</span><br><span class="line">	viewrecords : <span class="literal">true</span>,</span><br><span class="line">	rowNum:<span class="number">10</span>,</span><br><span class="line">	rowList:[<span class="number">10</span>,<span class="number">20</span>,<span class="number">50</span>],</span><br><span class="line">	pager : <span class="string">"#grid-pager"</span>,</span><br><span class="line">	multiselect: <span class="literal">false</span>,</span><br><span class="line">       multiboxonly: <span class="literal">false</span>,</span><br><span class="line">	altRows: <span class="literal">true</span>,</span><br><span class="line">	autowidth: <span class="literal">true</span>,</span><br><span class="line">	autoScroll: <span class="literal">false</span>,</span><br><span class="line">	caption: <span class="string">"银行回单列表"</span>,</span><br><span class="line">	emptyrecords: <span class="string">"未查询到数据"</span>,</span><br><span class="line">	jsonReader : &#123;   </span><br><span class="line">      root:<span class="string">"result"</span>,</span><br><span class="line">      total:<span class="string">'totalPages'</span>,</span><br><span class="line">      page:<span class="string">'page'</span>,</span><br><span class="line">      records:<span class="string">'records'</span>   </span><br><span class="line">	&#125;,</span><br><span class="line">	loadComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> table = <span class="keyword">this</span>;</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			updatePagerIcons(table);</span><br><span class="line">		&#125;, <span class="number">0</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	gridComplete : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> ids = jQuery(grid_selector).jqGrid(<span class="string">'getDataIDs'</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i &lt; ids.length;i++)&#123;</span><br><span class="line">			<span class="keyword">var</span> cl = ids[i];</span><br><span class="line">			<span class="keyword">var</span> rowData = $(grid_selector).getRowData(cl);</span><br><span class="line">			checkbox = <span class="string">"&lt;label&gt;&lt;input name=\"grid-checkbox\" value=\""</span></span><br><span class="line">				+ rowData.bankReceiptId + <span class="string">"\"type=\"checkbox\" class=\"ace\"&gt;&lt;span class=\"lbl\"&gt;&lt;/span&gt;&lt;/label&gt;"</span>;</span><br><span class="line">			jQuery(grid_selector).jqGrid(<span class="string">'setRowData'</span>,ids[i],&#123;<span class="attr">action</span>:checkbox&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 窗口缩放时，经动态变化宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="built_in">window</span>).resize(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.page-content'</span>).width(); 	<span class="comment">//当前页面的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 点击菜单边框收缩菜单时，动态变化表格宽度</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		$(<span class="string">'#sidebar-collapse'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> winwidth=$(<span class="string">'.main-content .col-xs-12'</span>).width(); 	<span class="comment">//当前窗口中，一行的宽度</span></span><br><span class="line">			$(grid_selector).setGridWidth(winwidth);</span><br><span class="line">			$(<span class="string">'.ui-jqgrid-bdiv'</span>).css(<span class="string">'width'</span>,winwidth+<span class="number">1</span>);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>查询按钮逻辑</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serialize()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">		.trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serialize()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">		.trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
 </li>
-<li><p>没发现异常，删除<code>.jqGrid(&#39;setGridParam&#39;, { postData:  $(&#39;#search_form&#39;).serialize()}).</code>后虽然没过滤，但可以翻页，网上查看发现别人在这块的查询参数都是一个一个拼接的json，应该是.serialize()不是json导致的（虽然后台也能接到这些参数），一个一个拼接太麻烦，而且增加查询字段的时候页面添加这里也得添加，容易忘掉，所以当时就是用form的serialize方法一劳永逸，既然此法不行就换个，把整个form转成json，网上有不少自己写的小工具，逻辑就是取出form的所有输入框，循环拼接json，太麻烦，而且每个页面都得加这个工具类，既然已经有这样的需求应该有更好的轮子，果然到github上找到了一个jquery插件叫 <a href="https://github.com/marioizquierdo/jquery.serializeJSON" target="_blank" rel="noopener">jquery.serializeJSON</a>,将这个插件引入到公共页面，小改下代码,将<code>$(&#39;#search_form&#39;).serialize()</code>改为<code>$(&#39;#search_form&#39;).serializeJSON()})</code></p>
+<li>
+<p>没发现异常，删除<code>.jqGrid('setGridParam', { postData: $('#search_form').serialize()}).</code>后虽然没过滤，但可以翻页，网上查看发现别人在这块的查询参数都是一个一个拼接的json，应该是.serialize()不是json导致的（虽然后台也能接到这些参数），一个一个拼接太麻烦，而且增加查询字段的时候页面添加这里也得添加，容易忘掉，所以当时就是用form的serialize方法一劳永逸，既然此法不行就换个，把整个form转成json，网上有不少自己写的小工具，逻辑就是取出form的所有输入框，循环拼接json，太麻烦，而且每个页面都得加这个工具类，既然已经有这样的需求应该有更好的轮子，果然到github上找到了一个jquery插件叫 <a href="https://github.com/marioizquierdo/jquery.serializeJSON" target="_blank" rel="noopener">jquery.serializeJSON</a>,将这个插件引入到公共页面，小改下代码,将<code>$('#search_form').serialize()</code>改为<code>$('#search_form').serializeJSON()})</code></p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serializeJSON()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    .trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="至此问题解决"><a href="#至此问题解决" class="headerlink" title="至此问题解决"></a>至此问题解决</h2>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查询按钮*/</span></span><br><span class="line">$(<span class="string">'#search'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        jQuery(grid_selector).jqGrid(<span class="string">'clearGridData'</span>).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="attr">postData</span>:  $(<span class="string">'#search_form'</span>).serializeJSON()&#125;).jqGrid(<span class="string">'setGridParam'</span>, &#123; <span class="string">'page'</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    .trigger(<span class="string">"reloadGrid"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2>至此问题解决</h2>
+
       
     </div>
 
@@ -721,7 +738,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -774,7 +791,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1001,7 +1018,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1051,7 +1092,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象"><span class="nav-number">1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始调试"><span class="nav-number">2.</span> <span class="nav-text">开始调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#至此问题解决"><span class="nav-number">3.</span> <span class="nav-text">至此问题解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">开始调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">至此问题解决</span></a></li></ol></div>
             
 
           </div>

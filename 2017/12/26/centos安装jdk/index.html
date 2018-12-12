@@ -114,25 +114,25 @@
 
 
 
-  <meta name="description" content="WhatHow  下载jdkhttp://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.htmlwget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-l">
-<meta name="keywords" content="linux,centos,jdk">
+  <meta name="description" content="What How    下载jdk http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u">
+<meta name="keywords" content="jdk,linux,centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos安装jdk">
-<meta property="og:url" content="http://appcity.vip/2017/12/26/centos安装jdk/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2017/12/26/centos安装jdk/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="WhatHow  下载jdkhttp://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.htmlwget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-l">
+<meta property="og:description" content="What How    下载jdk http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-12T16:30:26.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos安装jdk">
-<meta name="twitter:description" content="WhatHow  下载jdkhttp://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.htmlwget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-l">
+<meta name="twitter:description" content="What How    下载jdk http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u">
 
 
 
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2017/12/26/centos安装jdk/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2017/12/26/centos安装jdk/"/>
 
 
 
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -368,7 +368,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2017/12/26/centos安装jdk/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2017/12/26/centos安装jdk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -499,20 +499,41 @@
       
 
       
-        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><hr>
+        <h2>What</h2>
+<h2>How</h2>
+<hr>
 <ol>
-<li>下载jdk<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br><code>wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz?AuthParam=1513491653_780a1246d58a066130a62b431b8be265</code></li>
-<li>创建目录<br><code>mkdir -p /usr/local/java</code></li>
-<li>将安装解压到该目录<br><code>tar -zxvf  jdk-8u152-linux-x64.tar.gz -C /usr/local/java</code></li>
-<li><p>配置环境变量<br><code>vi /etc/profile</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_152</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export CLASSPATH=./:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br></pre></td></tr></table></figure>
+<li>
+<p>下载jdk
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+<code>wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz?AuthParam=1513491653_780a1246d58a066130a62b431b8be265</code></p>
 </li>
-<li><p>使配置立即生效<br><code>source /etc/profile</code></p>
+<li>
+<p>创建目录
+<code>mkdir -p /usr/local/java</code></p>
 </li>
-<li>验证是否配置正确<br><code>java -version</code></li>
+<li>
+<p>将安装解压到该目录
+<code>tar -zxvf jdk-8u152-linux-x64.tar.gz -C /usr/local/java</code></p>
+</li>
+<li>
+<p>配置环境变量
+<code>vi /etc/profile</code>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_152</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export CLASSPATH=./:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>使配置立即生效
+<code>source /etc/profile</code></p>
+</li>
+<li>
+<p>验证是否配置正确
+<code>java -version</code></p>
+</li>
 </ol>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>替换版本，</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/hu_wen/article/details/53817432" target="_blank" rel="noopener">http://blog.csdn.net/hu_wen/article/details/53817432</a></p>
+<h2>注意点</h2>
+<p>替换版本，</p>
+<h2>参考</h2>
+<p>http://blog.csdn.net/hu_wen/article/details/53817432</p>
 
       
     </div>
@@ -537,11 +558,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
             <a href="/tags/linux/" rel="tag"># linux</a>
           
             <a href="/tags/centos/" rel="tag"># centos</a>
-          
-            <a href="/tags/jdk/" rel="tag"># jdk</a>
           
         </div>
       
@@ -569,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/30/jekins配合sonar配置/" rel="next" title="jekins配合sonar配置">
-                <i class="fa fa-chevron-left"></i> jekins配合sonar配置
+              <a href="/2017/07/17/NTP时间服务器/" rel="next" title="NTP时间服务器">
+                <i class="fa fa-chevron-left"></i> NTP时间服务器
               </a>
             
           </div>
@@ -688,7 +709,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -741,7 +762,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -968,7 +989,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1018,7 +1063,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">2.</span> <span class="nav-text">How</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">How</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

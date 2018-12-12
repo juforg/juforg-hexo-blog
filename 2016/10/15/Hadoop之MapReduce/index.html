@@ -114,13 +114,13 @@
 
 
 
-  <meta name="description" content="What 分布式离线计算框架 MapReduce On YARN：MRv2 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度 container 一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任务调度、任">
+  <meta name="description" content="What  分布式离线计算框架 MapReduce On YARN：MRv2  移动计算而不是移动数据 一主多从架构  JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度  container  一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任">
 <meta name="keywords" content="大数据,ha,高可用,hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop实践之MapReduce">
-<meta property="og:url" content="http://appcity.vip/2016/10/15/Hadoop之MapReduce/index.html">
+<meta property="og:url" content="http://blog.appcity.vip/2016/10/15/Hadoop之MapReduce/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What 分布式离线计算框架 MapReduce On YARN：MRv2 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度 container 一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任务调度、任">
+<meta property="og:description" content="What  分布式离线计算框架 MapReduce On YARN：MRv2  移动计算而不是移动数据 一主多从架构  JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度  container  一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png">
 <meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/9/1541723488967.png">
@@ -128,7 +128,7 @@
 <meta property="og:updated_time" content="2018-11-17T09:09:42.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop实践之MapReduce">
-<meta name="twitter:description" content="What 分布式离线计算框架 MapReduce On YARN：MRv2 移动计算而不是移动数据 一主多从架构 JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度 container 一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任务调度、任">
+<meta name="twitter:description" content="What  分布式离线计算框架 MapReduce On YARN：MRv2  移动计算而不是移动数据 一主多从架构  JobTracker TaskTracker   NameNode DateNode ResourceManager 负责整个集群的资源管理和`调度  container  一个container一个进程     ApplicationMaster：负责应用程序相关的事务，比如任">
 <meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://appcity.vip/2016/10/15/Hadoop之MapReduce/"/>
+  <link rel="canonical" href="http://blog.appcity.vip/2016/10/15/Hadoop之MapReduce/"/>
 
 
 
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">27</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">34</span></a>
   </li>
         
         
@@ -372,7 +372,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://appcity.vip/2016/10/15/Hadoop之MapReduce/">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/2016/10/15/Hadoop之MapReduce/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juforg">
@@ -503,18 +503,23 @@
       
 
       
-        <h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><hr>
-<h4 id="分布式离线计算框架-MapReduce-On-YARN：MRv2"><a href="#分布式离线计算框架-MapReduce-On-YARN：MRv2" class="headerlink" title="分布式离线计算框架 MapReduce On YARN：MRv2"></a>分布式离线计算框架 MapReduce On YARN：MRv2</h4><ul>
+        <h2>What</h2>
+<hr>
+<h4>分布式离线计算框架 MapReduce On YARN：MRv2</h4>
+<ul>
 <li>移动计算而不是移动数据</li>
-<li>一主多从架构<ul>
+<li>一主多从架构
+<ul>
 <li>JobTracker</li>
 <li>TaskTracker</li>
 </ul>
 </li>
 <li>NameNode</li>
 <li>DateNode</li>
-<li>ResourceManager 负责整个集群的资源管理和`调度<ul>
-<li>container<ul>
+<li>ResourceManager 负责整个集群的资源管理和`调度
+<ul>
+<li>container
+<ul>
 <li>一个container一个进程</li>
 </ul>
 </li>
@@ -522,28 +527,37 @@
 </li>
 <li>ApplicationMaster：负责应用程序相关的事务，比如任务调度、任务监控和容错等。</li>
 </ul>
-<h5 id="将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中"><a href="#将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中" class="headerlink" title="将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中"></a>将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中</h5><ul>
-<li><p>基本功能模块</p>
+<h5>将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中</h5>
+<ul>
+<li>
+<p>基本功能模块</p>
 <ul>
 <li>YARN：负责资源管理和调度</li>
 <li>MRAppMaster：负责任务切分、任务调度、任务监控和容错等</li>
 <li>MapTask/ReduceTask：任务驱动引擎，与MRv1一致</li>
 </ul>
 </li>
-<li><p>每个MapRduce作业对应一个MRAppMaster任务调度</p>
+<li>
+<p>每个MapRduce作业对应一个MRAppMaster任务调度</p>
 <ul>
 <li>YARN将资源分配给MRAppMaster</li>
 <li>MRAppMaster进一步将资源分配给内部的任务</li>
 </ul>
 </li>
-<li>MRAppMaster容错<ul>
+<li>
+<p>MRAppMaster容错</p>
+<ul>
 <li>失败后，由YARN重新启动</li>
 <li>任务失败后，MRAppMaster重新申请资源</li>
 </ul>
 </li>
-<li>Zookeeper Failover Controller：<br>监控NameNode健康状态，并向Zookeeper注册NameNode，NameNode挂掉后，ZKFC为NameNode竞争锁，获得ZKFC 锁的NameNode变为active</li>
+<li>
+<p>Zookeeper Failover Controller：
+监控NameNode健康状态，并向Zookeeper注册NameNode，NameNode挂掉后，ZKFC为NameNode竞争锁，获得ZKFC 锁的NameNode变为active</p>
+</li>
 </ul>
-<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><ol>
+<h5>细节</h5>
+<ol>
 <li>input split 对应一个 block 128M</li>
 <li>output 可能大于 一个block 128M</li>
 <li>map 到 reduce 方法之间 叫 shuffle</li>
@@ -552,31 +566,64 @@
 <li>map的输出物是经过快速排序的</li>
 </ol>
 <p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/8/1541644784554.png" alt=""></p>
-<div id="flowchart-0" class="flow-chart"></div><br><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/9/1541723488967.png" alt=""><br><br><br><br>### partition<br>- hash(key) mod r<br>  - 有几个reduce 就有几个partition<br><br>### shuffle<br>map task<br><div id="flowchart-1" class="flow-chart"></div>
-
-
-<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><hr>
+<p>&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/9/1541723488967.png" alt=""></p>
+<h3>partition</h3>
+<ul>
+<li>hash(key) mod r
+<ul>
+<li>有几个reduce 就有几个partition</li>
+</ul>
+</li>
+</ul>
+<h3>shuffle</h3>
+<p>map task
+&lt;div id=&quot;flowchart-1&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</p>
+<h2>Why</h2>
+<hr>
 <p>海量数据计算</p>
-<h2 id="Where"><a href="#Where" class="headerlink" title="Where"></a>Where</h2><hr>
-<p><a href="http://hadoop.apache.org/docs/r2.5.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r2.5.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html</a><br><a href="http://www.cnblogs.com/luogankun/p/4019303.html" target="_blank" rel="noopener">http://www.cnblogs.com/luogankun/p/4019303.html</a><br><a href="https://note.youdao.com/share/?id=95d458d779f8e9f391d6ea06b6c6d122&amp;type=note#/" target="_blank" rel="noopener">https://note.youdao.com/share/?id=95d458d779f8e9f391d6ea06b6c6d122&amp;type=note#/</a><br><a href="https://note.youdao.com/share/?id=86ca5c96d13413f789164ff92f9ab4f9&amp;type=note#/" target="_blank" rel="noopener">https://note.youdao.com/share/?id=86ca5c96d13413f789164ff92f9ab4f9&amp;type=note#/</a><br><a href="https://note.youdao.com/share/?id=212e4a69d7bf8fc30979f1e4fc39ff0f&amp;type=note#/" target="_blank" rel="noopener">https://note.youdao.com/share/?id=212e4a69d7bf8fc30979f1e4fc39ff0f&amp;type=note#/</a><br><a href="https://note.youdao.com/share/?id=a518dfed10d824b0995380669ddd28c9&amp;type=note#/" target="_blank" rel="noopener">https://note.youdao.com/share/?id=a518dfed10d824b0995380669ddd28c9&amp;type=note#/</a></p>
-<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><hr>
+<h2>Where</h2>
+<hr>
+<p>http://hadoop.apache.org/docs/r2.5.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html
+http://www.cnblogs.com/luogankun/p/4019303.html
+https://note.youdao.com/share/?id=95d458d779f8e9f391d6ea06b6c6d122&amp;type=note#/
+https://note.youdao.com/share/?id=86ca5c96d13413f789164ff92f9ab4f9&amp;type=note#/
+https://note.youdao.com/share/?id=212e4a69d7bf8fc30979f1e4fc39ff0f&amp;type=note#/
+https://note.youdao.com/share/?id=a518dfed10d824b0995380669ddd28c9&amp;type=note#/</p>
+<h2>How</h2>
+<hr>
 <ol>
-<li><p>配置文件yarn-site.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.cluster-id<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.rm-ids<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>rm1,rm2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.zk-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:2181,sj-node2:2181,sj-node3:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>
+<p>配置文件yarn-site.xml
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.enabled<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.cluster-id<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>appcity<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.ha.rm-ids<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>rm1,rm2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname.rm2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node4<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.zk-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>sj-node1:2181,sj-node2:2181,sj-node3:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>配置mapred-site.xml使用yarn来调度<br><code>cp etc/hadoop/mapred-site.xml.template etc/hadoop/mapred-site.xml</code><br><code>vi etc/hadoop/mapred-site.xml</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>
+<p>配置mapred-site.xml使用yarn来调度
+<code>cp etc/hadoop/mapred-site.xml.template etc/hadoop/mapred-site.xml</code>
+<code>vi etc/hadoop/mapred-site.xml</code>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>将配置文件拷贝到其它机器上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp etc/hadoop/yarn-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br></pre></td></tr></table></figure>
+<li>
+<p>将配置文件拷贝到其它机器上
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scp etc/hadoop/yarn-site.xml  sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/yarn-site.xml  sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node2:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node3:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br><span class="line">scp etc/hadoop/mapred-site.xml sj-node4:/opt/soft/hadoop-2.5.1/etc/hadoop/</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>由于配置了3，4节点为yarn的主节点，所以进入3或4执行命令<br><code>./sbin/start-yarn.sh</code></p>
+<li>
+<p>由于配置了3，4节点为yarn的主节点，所以进入3或4执行命令
+<code>./sbin/start-yarn.sh</code></p>
 </li>
-<li>如果某个节点故障 kill掉之后 执行单独启动命令<code>./sbin/yarn-daemon.sh start resourcemanager</code></li>
-<li>检查<br><a href="http://sj-node3:8088/cluster" target="_blank" rel="noopener">http://sj-node3:8088/cluster</a><br>能够访问代表主节点启动成功<br><a href="http://sj-node4:8088/cluster" target="_blank" rel="noopener">http://sj-node4:8088/cluster</a><br>能够访问并自动跳转到node3代表热备机启动成功</li>
+<li>
+<p>如果某个节点故障 kill掉之后 执行单独启动命令<code>./sbin/yarn-daemon.sh start resourcemanager</code></p>
+</li>
+<li>
+<p>检查
+http://sj-node3:8088/cluster
+能够访问代表主节点启动成功
+http://sj-node4:8088/cluster
+能够访问并自动跳转到node3代表热备机启动成功</p>
+</li>
 </ol>
-<p>  <img src="http://oapwg4v13.bkt.clouddn.com/1476588728.png" alt=""></p>
-<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: input
+<p><img src="http://oapwg4v13.bkt.clouddn.com/1476588728.png" alt="">
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js&quot;&gt;&lt;/script&gt;<textarea id="flowchart-0-code" style="display: none">st=>start: input
 op1=>operation: spliting
 op2=>operation: mapping
 op3=>operation: shuffing
@@ -662,8 +709,8 @@ st->op1(right)->op2(right)->op3(right)->op4(right)->op5(right)->ed</textarea><te
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/13/hbase实践/" rel="prev" title="Hbases实践">
-                Hbases实践 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/30/Scala实践/" rel="prev" title="Scala入门">
+                Scala入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -771,7 +818,7 @@ var jiathis_config={
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -824,7 +871,7 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -1051,7 +1098,31 @@ var jiathis_config={
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -1101,7 +1172,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式离线计算框架-MapReduce-On-YARN：MRv2"><span class="nav-number">1.0.1.</span> <span class="nav-text">分布式离线计算框架 MapReduce On YARN：MRv2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#细节"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">细节</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where"><span class="nav-number">3.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How"><span class="nav-number">4.</span> <span class="nav-text">How</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">分布式离线计算框架 MapReduce On YARN：MRv2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">将MapReduce作业直接运行在YARN上，而不是由JobTracker和TaskTracker构建的MRv1系统中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">partition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">shuffle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">How</span></a></li></ol></div>
             
 
           </div>
