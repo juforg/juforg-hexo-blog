@@ -399,11 +399,11 @@ DRPC Server 负责接收 RP
       <category term="others" scheme="http://blog.appcity.vip/categories/others/"/>
     
     
-      <category term="mysql" scheme="http://blog.appcity.vip/tags/mysql/"/>
-    
       <category term="linux" scheme="http://blog.appcity.vip/tags/linux/"/>
     
       <category term="centos" scheme="http://blog.appcity.vip/tags/centos/"/>
+    
+      <category term="mysql" scheme="http://blog.appcity.vip/tags/mysql/"/>
     
   </entry>
   
@@ -435,11 +435,11 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
       <category term="others" scheme="http://blog.appcity.vip/categories/others/"/>
     
     
+      <category term="jdk" scheme="http://blog.appcity.vip/tags/jdk/"/>
+    
       <category term="linux" scheme="http://blog.appcity.vip/tags/linux/"/>
     
       <category term="centos" scheme="http://blog.appcity.vip/tags/centos/"/>
-    
-      <category term="jdk" scheme="http://blog.appcity.vip/tags/jdk/"/>
     
   </entry>
   
