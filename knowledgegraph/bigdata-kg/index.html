@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="大数据 	HDFS 		退役 		谈资 			优点 				 - 分布式的特性: 				        - 适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据 				        - 百万规模以上的文件数量:10K+ 节点。 				        - 适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架 				        - 自身特性: 					        -">
+<meta name="keywords" content="juforg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="大数据知识图谱">
+<meta property="og:url" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="大数据 	HDFS 		退役 		谈资 			优点 				 - 分布式的特性: 				        - 适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据 				        - 百万规模以上的文件数量:10K+ 节点。 				        - 适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架 				        - 自身特性: 					        -">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/36utnvdujf36rjuo4j0dmihhcl.png">
+<meta property="og:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/5idsele3c9fd9hg2jgifnn41dl.png">
+<meta property="og:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/1sgfn7h8nnoc0mmmoe5qcdhlo2.png">
+<meta property="og:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/63j5cvsracj0cg3bfipcrila08.png">
+<meta property="og:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/14mrd5ci165k0r2s5bri6r8a7q.png">
+<meta property="og:updated_time" content="2019-01-15T12:06:01.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据知识图谱">
+<meta name="twitter:description" content="大数据 	HDFS 		退役 		谈资 			优点 				 - 分布式的特性: 				        - 适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据 				        - 百万规模以上的文件数量:10K+ 节点。 				        - 适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架 				        - 自身特性: 					        -">
+<meta name="twitter:image" content="http://blog.appcity.vip/knowledgegraph/bigdata-kg/images/36utnvdujf36rjuo4j0dmihhcl.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/knowledgegraph/bigdata-kg/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>大数据知识图谱 | 夕拾阁</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left ">
+    <div class="headband"></div>
+<a href="https://github.com/juforg" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Juforg 的个人主页 夕拾阁</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">22</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-weaponbook">
+    <a href="/echarts/weaponbook/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-book"></i> <br>知识图谱</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-booklist">
+    <a href="/echarts/booklist/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-university"></i> <br>书单</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-list"></i> <br>项目</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/baidusitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/knowledgegraph/bigdata-kg/index.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juforg">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">大数据知识图谱
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-14 16:23:38" itemprop="dateCreated datePublished" datetime="2019-01-14T16:23:38+08:00">2019-01-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-15 20:06:01" itemprop="dateModified" datetime="2019-01-15T20:06:01+08:00">2019-01-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/knowledgegraph/bigdata-kg/index.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/knowledgegraph/bigdata-kg/index.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/knowledgegraph/bigdata-kg/index.html" class="leancloud_visitors" data-flag-title="大数据知识图谱">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="raw-class mindmap mindmap-lg">大数据
+	HDFS
+		退役
+		谈资
+			优点
+				 - 分布式的特性:
+				        - 适合大数据处理:GB 、TB 、甚至 PB 级及以上的数据
+				        - 百万规模以上的文件数量:10K+ 节点。
+				        - 适合批处理:移动计算而非数据(MR),数据位置暴露给计算框架
+				        - 自身特性:
+					        - 高可靠性:通过多副本提提高
+					        - 高容错性:数据自动保存多个副本;副本丢失后，自动恢复,提供 了恢复机制
+					        - 可构建在廉价机器上:
+			缺点
+				- 低延迟高数据吞吐访问问题 
+					        - 比如不支持毫秒级
+					        - 吞吐量大但有限制于其延迟
+				        - 小文件存取占用 NameNode 大量内存(寻道时间超过读取时间 (99%))
+				        - 不支持文件修改:一个文件只能有一个写者(深入)
+			文件切分
+				文件被线性切分 
+				通过偏移量 offset(单位:byte)标记 
+			block放置策略
+				- 第一个副本:放置在上传文件的DN;如果是集群外提交，则随
+				   - 第二个副本:放置在于第一个副本不同的机架的节点上。
+				   - 第三个副本:与第二个副本相同机架的不同节点。
+				   - 更多副本:随机节点
+			写流程
+				<html><img src="images/36utnvdujf36rjuo4j0dmihhcl.png">
+			读流程
+				<html><img src="images/5idsele3c9fd9hg2jgifnn41dl.png">
+		架构
+			<html><img src="images/1sgfn7h8nnoc0mmmoe5qcdhlo2.png">
+		组件
+			namenode
+				- 接收客户端读写服务
+				    - 接收datanode 汇报的block位置信息
+				    - 保存metadate元信息（基于内存存储，不会和磁盘发生交换）
+				    - 文件 owership(归属)和 permissions(权限)
+				    - 文件大小 时间
+				    - Block 列表[偏移量]：即一个完整文件有哪些 block
+				    - metadata 存储到磁盘文件名为”fsimage”的镜像文件
+				    - Block 的位置信息不会保存到 fsimage
+				    - edits 记录对 metadata 的操作日志
+			DateNode
+				- 存储block
+				    - 启动DN线程的时候会向NameNode汇报block位置信息
+				    - 通过向NN发送心跳保持与其联系(3秒一次)，如果NN10分钟没有收到 DN 的心跳，则认为其已经 lost，并 copy 其上的 block 到其它 DN
+				    - 存储模型block
+			secondnamenode
+			Yarn
+				- 资源管理 ResourceManager
+				- 任务调度 ApplicationMaster
+	发行版
+		Apache Hadoop
+		CDH
+			优势
+			作用
+				管理
+				监控
+				诊断
+				集成
+			架构
+				Server
+					Cloudera Repository
+					Management
+					DataBase
+				Agent
+				Clients/api
+			安装
+				方式
+				部署
+					环境
+						mysql
+						ntpd
+						jdk
+						免密钥
+					cdh
+						cm数据库
+						perlropo
+					运行
+			名词
+				- 主机 - host
+				- 机架 - rack
+				- 集群 - cluster
+				- 服务 -service
+				- 服务实例 - service instance
+				- 角色 -role nn dn rs jn
+				- 角色实例 -role instance
+				- 角色组 -role group
+				- 主机模板 -host template
+				- parcel -安装包
+				- 静态服务池 -static service pool
+				- 动态资源池 -dynamic resource pool
+				- ansible 运维自动化
+			使用
+				集群管理
+				主机管理
+				服务管理
+				角色管理
+				资源管理
+				用户管理
+				权限管理
+	Impala
+		优势
+			1. 基于内存进行计算，能够对PB级数据进行交互式实时查询、分析
+			2. 无需转换为MR，直接读取HDFS数据
+			3. C++编写，LLVM统一编译运行
+			4. 兼容HiveSQL
+			5. 具有数据仓库的特性，
+			可对hive数据直接做数据分析
+			6. 支持Data Local
+			7. 支持列式存储
+			8. 支持JDBC/ODBC远程访问
+		成本
+			2T内存
+		安装
+			安装方式
+			部署步骤
+		架构
+			statestore daemon
+		使用
+			impala与hbase整合
+			jdbc
+		优化
+			1. SQL优化，使用之前调用执行计划
+			2. 选择合适的文件格式进行存储
+			3. 避免产生很多小文件（如果有其他程序产生的小文件，可以使用中间表）
+			4. 使用合适的分区技术，根据分区粒度测算
+			5. 使用compute stats进行表信息搜集
+				
+			6. 网络io的优化：
+				– a.避免把整个数据发送到客户端
+				  – b.尽可能的做条件过滤
+				  – c.使用limit字句
+				  – d.输出文件时，避免使用美化输出
+			7. 使用profile输出底层信息计划，在做相应环境优化
+	oozie
+		架构
+			<html><img src="images/63j5cvsracj0cg3bfipcrila08.png">
+		作用
+			- 统一调度hadoop系统中常见的mr任务启动、hdfs操作、shell调度、hive操作
+			- 使得复杂的依赖关系、时间触发、事件触发使用xml语言进行表达，开发效率提高
+			- 一组任务使用一个DAG来表示，使用图形表达流程逻辑更加清晰
+			- 支持很多种任务调度，能完成大部分hadoop任务处理
+			- 程序定义支持EL常量和函数，表达更加丰富
+		安装
+			方式
+				手动安装
+				cloudera manager 添加服务
+		oozie管理
+		使用步骤
+			构思dag
+			定义job.properties
+			workflow.xml
+	lucene
+		理论
+			正排序索引
+			倒排序索引
+			搜索引擎解决什么问题
+				文本搜索
+				高纬度搜索
+			Document
+			Field
+			基于关键词索引和查询
+			分词处理
+				去停用词
+				统一大小写
+				词干还原
+				去除标点
+	Elasticsearch
+		理论[谈资]
+			基于lucene的弹性分布式搜索引擎
+			去中心化
+			cluster
+				集群
+			shardes
+			replicas
+			recovery
+			gateway
+			discovery.zen
+		API调用
+			索引库的创建删除
+			document的操作
+				put
+				post
+				delete
+					逻辑删除
+				局部更新
+				全局更新
+				get
+					美化
+					显示指定字段
+					查询所有
+					根据条件查询
+					领域特定语言DSL
+						子主题 1
+			ES 内置的 REST 接口
+				<html><img src="images/14mrd5ci165k0r2s5bri6r8a7q.png">
+			Elasticsearch Java API 客户端连接
+				TransportClient：
+					作为一个外部访问者，请求ES的集群，对于集群而言，它是一个外部因素。
+				NodeClient
+					作为ES集群的一个节点，它是ES中的一环，其他的节点对它是感知的。
+				XPackTransportClient
+					服务安装了 x-pack 插件
+		安装
+		Kibana
+			安装
+				install license
+				install marvel-agent
+			监控eos
+		head插件
+			安装
+			使用
+				删除索引库 
+				查看集群健康信息
+		站内搜索引擎
+			数据爬去
+			解析html文件
+			落地到es索引库
+			提供服务
+		二级索引设计
+			1. 写流程
+				写hbase的同时写到es
+					协处理器
+					aop
+					钩子
+					装饰器模式
+			2. 读流程
+				先从es搜索拿到多个rowkey
+				根据rowkey从hbase批量获取  listget
+	zookeeper
+		谈资
+			paxos
+			用途
+				 - 数据发布与订阅（配置中心）
+				 - 负载均衡
+				 - 命名服务(Naming Service)
+				 -  分布式通知/协调
+				 - 集群管理与Master选举
+				 - 分布式锁 
+				 - 分布式队列
+			特点
+				最终一致性
+				可靠性
+				实时性
+				独立性
+				原子性
+				顺序性
+			角色
+				leader
+				follower
+				observer
+			组件
+				znode
+					类型
+						持久的
+						短暂的
+						短暂有序的
+						持久有序
+	yarn
+		谈资
+			client任务流程
+				1. 在客户端提交application
+				2. 发送请求到RM,请求创建applicationMater
+				4. AM启动后会向RM请求一批container(资源)用于启动Executor
+				5. RM返回给AM一批NM节点
+				6. AM在返回的NM上启动Executor
+				7. clientdirve发送task到executor上执行，并监控task的执行情况和回收结果
+		组件
+			ResourceManager
+			NodeManger
+			ApplicationMaster
+			Container
+		ha
+			start-yarn.sh
+			yarn-daemon.sh start resourcemanager
+		优化
+			设置并行计算
+	hive
+		谈资
+			特点
+				不删除
+				无事务
+				离线处理
+			作用
+				统计分析
+			数据存储格式
+				textfile
+				sequencefile 二进制
+				orc
+				parquet
+				jsonfile
+				avro
+			分区
+				目的
+				静态分区
+					创建表的时候定义分区个数
+					load单个文件该文件只能被标识进一个分区
+				动态分区
+					需要通过临时表加载数据后分发到不同分区
+			分桶
+				join时提高速度
+				抽样
+			lateral view
+			视图hive view
+				不支持物化视图
+			索引index
+				以空间换时间
+			权限管理
+				基于存储的授权
+				基于SQL标准的hive授权
+				hive默认授权
+					仅仅防止用户误操作
+		架构
+			远程连接
+				hiveserver2,beeline
+					支持jdbc连接
+					默认端口10000
+				metaserver
+					默认端口9083
+					由hive客户端连接
+			运行模式
+				内嵌模式
+				本地模式
+					mysql和hive在一台服务器上
+				远程模式
+					远程一体
+					远程分开
+			参数配置方式
+				hive-site.xml
+				启动时hive --hiveconf key=val
+				在hive cli 控制台用set 命令设置
+				home目录下~/.hiverc文件中加set key=val
+		工具
+		组件
+			udf
+				直接导出到mysql
+		HQL语法
+			DDL
+				Create/Drop/Alter/Use Database
+				Create/Drop/Truncate Table
+				Alter Table/Partition/Column
+				Create/Drop/Alter View
+				Create/Drop/Alter Index
+				Create/Drop Macro
+			DML
+				Load
+				 Insert
+				Update
+				 Delete
+			函数
+				内置函数
+					数学函数
+					日期函数
+					字符函数
+					聚合函数
+						count(*)
+							统计总行数，包括含有NULL值的行
+						sum(col)
+							sum(col),表示求指定列的和，sum(DISTINCT col)表示求去重后的列的和
+						avg(col)
+							avg(col),表示求指定列的平均值，avg(DISTINCT col)表示求去重后的列的平均值
+						min(col)
+							求指定列的最小值
+						max(col)
+							求指定列的最大值
+						variance(col)
+							求指定列数值的方差
+					表生成函数
+						explode(ARRAY)
+							每行对应数组中的一个元素
+					条件函数
+					集合函数
+					类型转换函数
+				自定义函数
+					类型
+						UDF
+							  - 单输入单输出 User-Defined-Function
+						UDAF
+							  - 一进多输出User- Defined Aggregation Funcation
+						UDTF
+							  - 多输入单输出)User-Defined Table-Generating Functions)
+					使用方式
+						 
+					定义方式
+						临时函数
+						永久函数
+			数据备份与还原
+			执行方式
+				脚本
+					hive -e "select * from tbl"
+				GUI
+		技巧
+			行列转换
+		优化
+			核心思想
+				把Hive SQL 当做Mapreduce程序去优化
+			以下SQL不会转为Mapreduce来执行
+				--select仅查询本表字段
+				--where仅对本表字段做条件过滤
+			执行计划Explain
+			Hive运行方式开启本地模式
+				set hive.exec.mode.local.auto=true;
+				hive.exec.mode.local.auto.inputbytes.max默认值为128M【134217728】
+					表示加载文件的最大值，若大于该配置仍会以集群方式来运行！
+			严格模式
+				防止误操作
+				set hive.mapred.mode=strict;
+					默认为：nonstrict非严格模式
+				查询限制
+					1、对分区表查询时，必须添加where对于分区字段的条件过滤；
+					2、order by语句必须包含limit输出限制；
+					3、限制执行笛卡尔积的查询
+			Hive Join   
+				Join计算时，将小表（驱动表）放在join的左边
+				Map Join：在Map端完成Join
+					1、SQL方式，在SQL语句中添加MapJoin标记（mapjoin hint）
+					2、开启自动的MapJoin
+			hql排序
+				Order By - 对于查询结果做全排序，只允许有一个reduce处理
+					（当数据量较大时，应慎用。严格模式下，必须结合limit来使用）
+				Sort By - 对于单个reduce的数据进行排序
+				Distribute By - 分区排序，经常和Sort By结合使用
+				Cluster By - 相当于 Sort By + Distribute By
+					（Cluster By不能通过asc、desc的方式指定排序规则；
+			Map-Side聚合
+				如count()等聚合函数
+				通过设置以下参数开启在Map端的聚合：set hive.map.aggr=true;
+				相关配置参数：
+					hive.groupby.mapaggr.checkinterval： 
+						map端group by执行聚合时处理的多少行数据（默认：100000）
+					hive.map.aggr.hash.min.reduction： 
+						进行聚合的最小比例（预先对100000条数据做聚合，若聚合的数据量 /100000的值小于该配置0.5，则不会聚合）
+					hive.map.aggr.hash.percentmemory：
+						map端聚合使用的内存的最大值
+					hive.map.aggr.hash.force.flush.memory.threshold： 
+						map端做聚合操作是hash表的最大可用内容，大于该值则会触发flush
+					hive.groupby.skewindata
+						是否对GroupBy产生的数据倾斜做优化，默认为false
+			控制Hive中Map以及Reduce的数量
+				Map数量相关的参数
+					mapred.max.split.size
+						一个split的最大值，即每个map处理文件的最大值
+					mapred.min.split.size.per.node
+						一个节点上split的最小值
+					mapred.min.split.size.per.rack
+						一个机架上split的最小值
+				Reduce数量相关的参数
+					mapred.reduce.tasks
+						强制指定reduce任务的数量
+					hive.exec.reducers.bytes.per.reducer
+						每个reduce任务处理的数据量
+					hive.exec.reducers.max
+						每个任务最大的reduce数 [Map数量 >= Reduce数量 ]
+			Hive - JVM重用
+				适用场景：
+					1、小文件个数过多
+					2、task个数过多
+				通过 set mapred.job.reuse.jvm.num.tasks=n; 来设置
+					（n为task插槽个数）
+				缺点
+					设置开启之后，task插槽会一直占用资源，不论是否有task运行，
+					直到所有的task即整个job全部执行完成时，才会释放所有的task插槽资源！
+	kafka
+		常见问题
+			重复消费
+				consumer端
+			数据丢失
+				procedure端
+				consumer端
+		ISR
+	hbase
+		谈资
+			特点
+				- 高可靠性
+				  - 高性能
+				  - 面向列
+				  - 可伸缩
+				  - 实时读写
+				  - 分布式
+			底层用字节数组存储
+			与关系型数据库对比
+				关系型数据库的优点
+					  - 容易理解
+					  - 使用方便
+					  - 易于维护
+				关系型数据库的瓶颈
+					  - 高并发读写需求
+					  - 海量数据的读写性能低
+					  - 扩展性和可用性差
+			rowkey设计
+				案例
+					通话记录的存储与查询
+						rowkey:手机号+(Long.Maxvalue-时间戳)
+					微博案例
+					角色权限
+					部门子部门
+				原则
+					长度原则 定长 越小越好 2的幂次方
+					散列性 
+						取反 
+						hash 
+						高位随机串
+					唯一性 保证key的唯一
+					根据实际业务来
+			protobuf
+				提供了自动生成java类的功能
+				java类，提供了对象的序列化和反序列化
+		存储模型
+			row key
+				  - 不能重复
+				  - 字典顺序排序
+				  - 只能存储64k的字节
+			列族
+				不大于3个
+			列名 
+				以列族作为前缀
+				可动态加入
+			celll单元格
+				可动态加入
+				字节数组
+			时间戳
+				  - 默认是1
+				  - 时间倒序排序，最新最前
+				  - 64位整型
+				  - 默认精确到毫秒，可以主动设置
+			Hlog (wal log)
+				HLogkey  数据归属信息
+					- table
+						- region
+						- sequence number
+						- timestamp
+				value 
+					- 就是hbase的 keyvale对象
+		API操作
+			查询
+				new Get(key)
+				new Scan
+					[startrow,endrow)
+				table.get(List(Get))
+				filter
+					PrefixFilter
+						前缀过滤器
+					KeyOnlyFilter
+						只返回行，不返回column值
+					InclusiveStopFilter
+						扫描到这一行停止
+					FirstKeyOnlyfilter
+						扫描到每一行的第一列返回
+					ColumnPrefixFilter
+						筛选出前缀匹配的列
+					ValueFilter
+					SkipFilter
+					ColumnCountFilter
+						每行最大返回多少列
+					SingleColumnFilter
+			插入
+				new Put(rowkey)
+				table.put(List(Put))批量插入
+			删除
+				new Delete
+		架构
+			namespace
+			client
+			master
+				 - 负责负载均衡
+				  - 发现失效region server 重新分配region
+				为region server 分配region
+				  管理客户端对表单增加，删除，修改（DDL)
+			Region server
+				维护region
+			region
+				对应一张表
+			store
+				对应一个列族
+			memstore
+				溢写会生成stoefile
+				多个列簇任何一个溢写会触发本server上的所有memstore溢写，浪费IO
+			zookeeper
+				  - 保证集群只有一个master
+				  - 存储 region的寻址入口
+				  - 监控regionserver的上线下线信息，并通知master
+				存储了hbase的源数据信息
+			Hlog
+		优化
+			热点问题
+				rowkey设计有问题
+				对rowkey打撒
+			预分区
+			Column Family
+				某个column family在flush的时候，它邻近的column family也会因关联效应被触发flush，最终导致系统产生更多的I/O
+			In Memory
+				创建表的时候，可以通过HColumnDescriptor.setInMemory(true)将表放到RegionServer的缓存中，保证在读取的时候被cache命中
+			MaxVersion
+			time to Live
+				设置数据生命周期，过期自动删除
+			compact & split
+				minor compact
+				major compact
+			二级索引
+				es+hbase
+					也可以做分页
+			写表操作
+				多HTable并发写
+				参数设置Auto Flush
+					 
+	flume
+		谈资
+			特点
+				分布式
+				可扩展
+				可靠
+				高可用
+		组件
+			source 采集
+				netcat tcp/udp
+				avro
+				exec
+				thrift
+				jms
+				kafka
+				http
+			channel存储池
+				memory
+				jdbc
+				kafka
+				file
+			sink输出
+				hdfs
+				hive
+				logger
+				avro
+				thrift
+				fileroll
+				null
+				hbase
+				elasticsearch
+				kafka
+				htttp
+		安装
+			下载
+			配置flow
+			启动
+	MR
+		MR的架构组成
+			Mapper
+				（k,v）
+				map数量=split=block
+				跑在所需要计算的数据的节点DN
+				map输出在本地磁盘
+			shuffle
+				map之后到reduce之前；包含于reduce（源码里有体现
+				主动到map所计算的节点上去拉取map计算后的数据结构
+				如果有N分区就有N reduce，会分别取拉取不同的分区的数据交个指定的不同的reduce进行处理
+				拉取到reduce端时 相同的key合并 sort
+			Reducer
+				reduce数量 默认1  代码 配置指定
+				跑在所需要计算的数据的节点某一个DN     DN
+				Reduce输出在hdfs
+			MRv1
+				JobTracker
+				TaskTracker
+				存在问题
+			MRv2
+				yarn
+			分布式缓存DistributeCache
+		案例
+			二度人脉推荐系统
+		二次排序
+			1. 重写key
+			2. 重写sort
+			3. set comparator
+		代码
+			waitforcomplete
+			继承Tool
+	sqoop
+	spark
+		谈资
+			伯克利开源的
+			scala编写的
+		API
+			Scala
+			Python
+			Java
+		运行模式
+			本地模式local
+				本地测试用
+			Standalone
+				任务提交方式
+					client提交方式
+						用于调试
+						1. client模式提交任务后，会在客户端启动Driver进程。
+						2. Driver会向Master申请启动Application启动的资源。
+						3. 资源申请成功，Driver端将task发送到worker端执行。
+						4. worker将task执行结果返回到Driver端。
+					cluster提交方式
+						   1. cluster模式提交应用程序后，会向Master请求启动Driver.
+						2. Master接受请求，随机在集群一台节点启动Driver进程。
+						3. Driver启动后为当前的应用程序申请资源。
+						4. Driver端发送task到worker节点上执行。
+						5. worker将执行情况和执行结果返回给Driver端
+			yarn
+				任务提交方式
+					client
+						1. 客户端提交一个Application，在客户端启动一个Driver进程。
+						2. 应用程序启动后会向RS(ResourceManager)发送请求，启动 AM(ApplicationMaster)的资源。
+						3. RS收到请求，随机选择一台NM(NodeManager)启动AM。这 里的 NM 相当于 Standalone 中的 Worker 节点。
+						4. AM启动后，会向RS请求一批container资源，用于启动Executor.
+						5. RS会找到一批NM返回给AM,用于启动Executor。
+						6. AM会向NM发送命令启动Executor。
+						7. Executor启动后，会反向注册给Driver，Driver发送task到 Executor,执行情况和结果返回给 Driver 端。
+					cluster
+			Mesos
+		spark core
+			DAG
+				有向无环图 
+			RDD
+				弹性分布式数据集
+				5个特点
+					1. RDD是由一系列的partition组成的。
+					2. 函数是作用在每一个partition(split)上的。 
+					3. RDD之间有一系列的依赖关系。
+					4. 分区器是作用在K,V格式的RDD上。
+					5. RDD提供一系列最佳的计算位置。
+				血统Lineage
+			代码流程
+				创建SparkConf对象
+					 可以设置 Application name。
+					 可以设置运行模式及资源需求。
+				   创建SparkContext对象
+				   基于Spark的上下文创建一个RDD，对RDD进行处理。
+					 transformation转换 RDD > RDD
+					 缓存RDD，避免多次读取
+				   应用程序中要有Action类算子来触发Transformation类算子执行。
+					 action执行 RDD > 结果
+				   关闭Spark上下文对象SparkContext。
+			算子
+				输入算子
+				输出算子
+				转换算子Transformations
+					map
+					filter
+					flapmap
+					sample
+						判断是否数据倾斜
+					reduce
+					reducebykey
+					sortByKey/sortBy
+					groupbykey
+					join
+					leftOuterjoin
+					rightOuterJoin
+					fullOuterJoin
+					union
+					intersection
+						取两个集合的交集
+					subtract
+						差集
+					mapPartition
+						执行次数与分区数相同
+						mapPartittionWithIndex
+					distinct
+						map+reducebykey+map
+					cogroup
+					repartition
+						增加或较少partition
+					coalesce
+						减少分区
+					groupByKey
+					zip
+						纵向合并两个rdd，没个数据一一对应
+					zipWithIndex
+						单个rdd
+				动作算子Action
+					count
+					collect
+					first
+					foreach
+					take
+					foreachPartition
+					countByKey
+					countByValue
+					reduce
+				控制算子
+					cache
+						提高性能
+					persist
+					checkpoint
+						解决容错
+						执行原理
+							当RDD的job执行完毕后，会从finalRDD从后往前回溯 
+							当回溯到某一个RDD调用了checkpoint方法，会对当前的 RDD 做一个标记
+							Spark框架会自动启动一个新的job，重新计算这个RDD的数 据，将数据持久化到 HDFS 上
+			wide宽依赖
+				会有shuffle
+			narrow窄依赖
+			stage
+				stage 是由一组并行的 task 组成 
+			pipeline
+				越多并行读越高
+				管道计算模式
+			广播变量
+				简介
+				优点
+				不用广播变量
+			累加器
+				全局计算
+			Shuffle
+				HashShuffle
+					普通机制
+						每一个maptask将不同结果写到不同的buffer中，每个buffer 的大小为 32K。buffer 起到数据缓存的作用。
+						每个buffer文件最后对应一个磁盘小文件。
+						reduce task 来拉取对应的磁盘小文件。
+						产生的磁盘小文件的个数：M * R
+					合并机制
+						磁盘文件数： C* R
+				SortShuffle
+					普通机制
+						磁盘文件数：2M
+					bypass机制
+						磁盘文件数：2M
+				文件寻址
+				调优
+			BlockManager
+			内存管理
+				静态内存管理
+				统一内存管理
+		资源管理任务调度
+			spark粗粒度
+			MR细粒度
+				优点 ：集群资源能够充分利用
+				缺点：task自己申请资源导致启动变慢
+		术语
+			master
+				standalone管理资源的主节点
+			cluster manager
+				在集群上获取外部资源的服务
+			worker node
+				standalone  运行于从节点，管理从节点资源
+			application
+				基于spark的程序，包含了driver和executor
+			worker
+				executor
+					默认分配内存1G
+			dirver
+				Driver 负责应用程序资源的申请
+				任务的分发。
+				连接worker
+			executor
+				worker节点为application启动的一个进程
+				负责执行任务，
+				每个application都有独立的executor
+			task
+				被送到executor上的工作单元
+			job
+				task 的并行计算，相当于action
+			stage
+				job被拆分后的单元
+			pipline
+		优化
+			取top(N)  用手写排序，可以提高效率
+		webUi
+		Master HA
+	列式存储格式
+		Parquet
+		ocr
+	flink
+</html></html></html></html></html></blockquote></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://wntc-1251220317.cossh.myqcloud.com/2019/3/8/1552054329801.png" alt="Juforg wechat" style="width: 200px; max-width: 100%;">
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Juforg</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.appcity.vip/knowledgegraph/bigdata-kg/index.html" title="大数据知识图谱">http://blog.appcity.vip/knowledgegraph/bigdata-kg/index.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+  
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+  <div class="footer-custom"><a href="http://www.miitbeian.gov.cn/">沪ICP备16050188号-1</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65903400";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/kity.min.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/kityminder.core.min.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/mindmap.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+        appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.8.0-beta.1/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/instantsearch.js/2.8.0-beta.1/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz", "AB11iu8RjTGwnLmI6D7THqDC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.loadBookmark();
+  
+  </script>
+
+
+  
+
+</body>
+</html>
