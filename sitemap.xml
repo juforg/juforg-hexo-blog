@@ -128,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/bigdata/sqoop/</loc>
-    
-    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.appcity.vip/bigdata/hdfs-yi-chang/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
@@ -149,7 +142,21 @@
   </url>
   
   <url>
+    <loc>http://blog.appcity.vip/bigdata/sqoop/</loc>
+    
+    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.appcity.vip/bigdata/spark-jin-jie-zhi-shuffle-diao-you/</loc>
+    
+    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.appcity.vip/essay/maven-shi-yong-tips/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
     
@@ -163,7 +170,7 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/essay/maven-shi-yong-tips/</loc>
+    <loc>http://blog.appcity.vip/others/ntp-shi-jian-fu-wu-qi/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
     
@@ -178,13 +185,6 @@
   
   <url>
     <loc>http://blog.appcity.vip/bigdata/cdh-shi-zhan/</loc>
-    
-    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.appcity.vip/others/ntp-shi-jian-fu-wu-qi/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
     
@@ -212,14 +212,14 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/jia-gou-shi-bi-ji/fu-zai-jun-heng/</loc>
+    <loc>http://blog.appcity.vip/essay/mac-xia-idea-da-jian-hadoop-kai-fa-huan-jing/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/essay/mac-xia-idea-da-jian-hadoop-kai-fa-huan-jing/</loc>
+    <loc>http://blog.appcity.vip/jia-gou-shi-bi-ji/fu-zai-jun-heng/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
     
@@ -240,13 +240,6 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/essay/cong-jekyll-zhuan-xiang-hexo/</loc>
-    
-    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.appcity.vip/essay/it-quan-li-nan-du-de-dan-ci-fa-yin/</loc>
     
     <lastmod>2019-03-18T13:49:01.940Z</lastmod>
@@ -254,14 +247,21 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/essay/hello-world/</loc>
+    <loc>http://blog.appcity.vip/essay/cong-jekyll-zhuan-xiang-hexo/</loc>
+    
+    <lastmod>2019-03-18T13:49:01.940Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.appcity.vip/essay/da-jian-githubpages/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/essay/da-jian-githubpages/</loc>
+    <loc>http://blog.appcity.vip/essay/hello-world/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
     
@@ -282,13 +282,6 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/linux/vmware-xu-ni-ji-bi-ji/</loc>
-    
-    <lastmod>2019-03-18T13:49:01.939Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.appcity.vip/bigdata/lvs/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
@@ -303,6 +296,13 @@
   </url>
   
   <url>
+    <loc>http://blog.appcity.vip/linux/vmware-xu-ni-ji-bi-ji/</loc>
+    
+    <lastmod>2019-03-18T13:49:01.939Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.appcity.vip/bigdata/hadoop-zhi-hdfs-jin-jie/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
@@ -310,14 +310,14 @@
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/bigdata/hbase-shi-jian/</loc>
+    <loc>http://blog.appcity.vip/buger/jqgrid-fan-ye-wu-xiao-guo/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.appcity.vip/buger/jqgrid-fan-ye-wu-xiao-guo/</loc>
+    <loc>http://blog.appcity.vip/bigdata/hbase-shi-jian/</loc>
     
     <lastmod>2019-03-18T13:49:01.939Z</lastmod>
     

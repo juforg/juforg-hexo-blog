@@ -55,31 +55,31 @@
     <loc>http://blog.appcity.vip/bigdata/flume/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/bigdata/sqoop/</loc>
-    <lastmod>2019-03-18</lastmod>
-  </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/hdfs-yi-chang/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/jia-gou-shi-bi-ji/zi-ding-yi-maven-xiang-mu-gu-jia/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
+    <loc>http://blog.appcity.vip/bigdata/sqoop/</loc>
+    <lastmod>2019-03-18</lastmod>
+  </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/spark-jin-jie-zhi-shuffle-diao-you/</loc>
+    <lastmod>2019-03-18</lastmod>
+  </url>  <url>
+    <loc>http://blog.appcity.vip/essay/maven-shi-yong-tips/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/kafka-shi-zhan/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/essay/maven-shi-yong-tips/</loc>
+    <loc>http://blog.appcity.vip/others/ntp-shi-jian-fu-wu-qi/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/essay/jekins-pei-he-sonar-pei-zhi/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/cdh-shi-zhan/</loc>
-    <lastmod>2019-03-18</lastmod>
-  </url>  <url>
-    <loc>http://blog.appcity.vip/others/ntp-shi-jian-fu-wu-qi/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/others/centos-an-zhuang-jdk/</loc>
@@ -91,10 +91,10 @@
     <loc>http://blog.appcity.vip/essay/alfred-workflow-kai-fa/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/jia-gou-shi-bi-ji/fu-zai-jun-heng/</loc>
+    <loc>http://blog.appcity.vip/essay/mac-xia-idea-da-jian-hadoop-kai-fa-huan-jing/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/essay/mac-xia-idea-da-jian-hadoop-kai-fa-huan-jing/</loc>
+    <loc>http://blog.appcity.vip/jia-gou-shi-bi-ji/fu-zai-jun-heng/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/essay/workflow-shi-xian-csv2json/</loc>
@@ -103,16 +103,16 @@
     <loc>http://blog.appcity.vip/essay/hadoop-ti-xi-suo-you-zu-jian-mo-ren-duan-kou-lie-biao/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/essay/cong-jekyll-zhuan-xiang-hexo/</loc>
-    <lastmod>2019-03-18</lastmod>
-  </url>  <url>
     <loc>http://blog.appcity.vip/essay/it-quan-li-nan-du-de-dan-ci-fa-yin/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/essay/hello-world/</loc>
+    <loc>http://blog.appcity.vip/essay/cong-jekyll-zhuan-xiang-hexo/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/essay/da-jian-githubpages/</loc>
+    <lastmod>2019-03-18</lastmod>
+  </url>  <url>
+    <loc>http://blog.appcity.vip/essay/hello-world/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/mac/alfred-pei-he-jie-tu-shang-chuan-qi-niu/</loc>
@@ -121,22 +121,22 @@
     <loc>http://blog.appcity.vip/linux/nginx-an-zhuang-bu-shu/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/linux/vmware-xu-ni-ji-bi-ji/</loc>
-    <lastmod>2019-03-18</lastmod>
-  </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/lvs/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/zookeeper-shi-jian/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
+    <loc>http://blog.appcity.vip/linux/vmware-xu-ni-ji-bi-ji/</loc>
+    <lastmod>2019-03-18</lastmod>
+  </url>  <url>
     <loc>http://blog.appcity.vip/bigdata/hadoop-zhi-hdfs-jin-jie/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/bigdata/hbase-shi-jian/</loc>
+    <loc>http://blog.appcity.vip/buger/jqgrid-fan-ye-wu-xiao-guo/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>
-    <loc>http://blog.appcity.vip/buger/jqgrid-fan-ye-wu-xiao-guo/</loc>
+    <loc>http://blog.appcity.vip/bigdata/hbase-shi-jian/</loc>
     <lastmod>2019-03-18</lastmod>
   </url>
 </urlset>

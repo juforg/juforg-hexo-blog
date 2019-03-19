@@ -433,9 +433,9 @@
       </categories>
       <tags>
         <tag>大数据</tag>
+        <tag>hadoop</tag>
         <tag>ha</tag>
         <tag>高可用</tag>
-        <tag>hadoop</tag>
       </tags>
   </entry>
   <entry>
@@ -461,9 +461,9 @@
       </categories>
       <tags>
         <tag>大数据</tag>
+        <tag>hadoop</tag>
         <tag>ha</tag>
         <tag>高可用</tag>
-        <tag>hadoop</tag>
         <tag>hdfs</tag>
       </tags>
   </entry>
@@ -501,8 +501,8 @@
         <category>大数据</category>
       </categories>
       <tags>
-        <tag>负载均衡</tag>
         <tag>大数据</tag>
+        <tag>负载均衡</tag>
         <tag>lvs</tag>
       </tags>
   </entry>
