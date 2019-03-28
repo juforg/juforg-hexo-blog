@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://blog.appcity.vip/mindmap//knowledgegraph/hbase-kg//</loc>
+    <lastmod>2019-03-28</lastmod>
+  </url>  <url>
+    <loc>http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//</loc>
+    <lastmod>2019-03-28</lastmod>
+  </url>  <url>
+    <loc>http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//</loc>
+    <lastmod>2019-03-28</lastmod>
+  </url>  <url>
+    <loc>http://blog.appcity.vip/mindmap//knowledgegraph/tuijian-kg//</loc>
+    <lastmod>2019-03-28</lastmod>
+  </url>  <url>
     <loc>http://blog.appcity.vip/mindmap//knowledgegraph/mechine-learning-kg//</loc>
     <lastmod>2019-03-18</lastmod>
   </url>  <url>

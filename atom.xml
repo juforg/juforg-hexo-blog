@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.appcity.vip/"/>
-  <updated>2019-03-18T14:40:11.695Z</updated>
+  <updated>2019-03-28T10:58:48.512Z</updated>
   <id>http://blog.appcity.vip/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>应用架构-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//</id>
+    <published>2019-03-28T10:54:40.000Z</published>
+    <updated>2019-03-28T10:58:48.512Z</updated>
+    
+    <content type="html"><![CDATA[<p>应用架构高并发架构消息队列搜索引擎缓存分库分表读写分离架构图分支主题吞吐量QPS每秒内处理请求次数TPS每秒内处理事务次数RT响应时间分布式系统系统拆分分布式服务框架分布式锁redis设计分布式锁zk设计分布式锁分布式事务TCCXA分布式会话高可用架构限流熔断降级微服务架构Spring Cloud 微服务架构分布式链路跟踪系统业界实现方案Uber-jaeger新浪Watchman阿里-鹰眼TracingApache-HTracePinPointTwitter-Zipkin谷歌Dapper好处跨团队的技术解耦RPC框架把复杂性屏蔽，就是RPC框架的职责client端序列化、反序列化、连接池管理、负载均衡、故障转移、队列管理，超时管理、异步管理等等server端服务端组件、服务端收发包队列、io线程、工作线程、序列化反序列化等服务雪崩服务熔断服务降级Dubbo负载均衡限流降级异步调用下线服务CAP 理论C 一致性两阶段提交协议（2PC）三阶段提交协议（3PC）Paxos协议ZAB 协议在 paxos 的基础上Raft协议A 可用性P 分区容错性架构图什么是架构架构是结构和愿景。什么是架构图架构图的作用解决沟通障碍达成共识减少歧义架构图分类场景视图逻辑视图物理视图处理流程视图开发视图</p>]]></content>
+    
+    <summary type="html">
+    
+      系统架构知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>推荐系统-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/tuijian-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/tuijian-kg//</id>
+    <published>2019-03-28T10:52:38.000Z</published>
+    <updated>2019-03-28T10:58:40.969Z</updated>
+    
+    <content type="html"><![CDATA[<p>推荐系统源数据用途豆瓣音乐推荐购物推荐好友推荐app推荐CF协同过滤- 基于用户的推荐- 基于物品的推荐架构图传统亚马逊推荐架构淘宝推荐架构工具上采样对少的数据进行复制多份。缺点： 训练出来的模型可能导致过拟合下采样对多的数据进行随机抽取，抽取后的数据量和负例保持一致。训练出来的模型可能导致欠拟合最大似然估计模型使用1. 获取 通过训练得出的各个app之间的关联特征权重2. 有各个用户的历史下载记录3. 有各个应用的属性信息以及个属性的权重值4. 可以取同个待选app与最近5个下载app 关联特征权重之和 得出来的矩阵 ，加上各个商品信息的权重矩阵，即为推荐列表矩阵问题冷启动一般步骤1. 需求分析架构推荐方案2. 数据清洗得到训练数据</p>]]></content>
+    
+    <summary type="html">
+    
+      推荐系统相关的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hbase-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/hbase-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/hbase-kg//</id>
+    <published>2019-03-28T10:51:17.000Z</published>
+    <updated>2019-03-28T10:59:11.914Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hbase谈资特点- 高可靠性  - 高性能  - 面向列  - 可伸缩  - 实时读写  - 分布式底层用字节数组存储与关系型数据库对比关系型数据库的优点  - 容易理解  - 使用方便  - 易于维护关系型数据库的瓶颈  - 高并发读写需求  - 海量数据的读写性能低  - 扩展性和可用性差rowkey设计案例通话记录的存储与查询rowkey:手机号+(Long.Maxvalue-时间戳)微博案例角色权限部门子部门原则长度原则 定长 越小越好 2的幂次方散列性 取反 hash 高位随机串唯一性 保证key的唯一根据实际业务来protobuf提供了自动生成java类的功能java类，提供了对象的序列化和反序列化存储模型row key  - 不能重复  - 字典顺序排序  - 只能存储64k的字节列族不大于3个列名以列族作为前缀可动态加入celll单元格可动态加入字节数组时间戳  - 默认是1  - 时间倒序排序，最新最前  - 64位整型  - 默认精确到毫秒，可以主动设置Hlog (wal log)HLogkey  数据归属信息- table- region- sequence number- timestampvalue- 就是hbase的 keyvale对象API操作查询new Get(key)new Scan[startrow,endrow)table.get(List(Get))filterPrefixFilter前缀过滤器KeyOnlyFilter只返回行，不返回column值InclusiveStopFilter扫描到这一行停止FirstKeyOnlyfilter扫描到每一行的第一列返回ColumnPrefixFilter筛选出前缀匹配的列ValueFilterSkipFilterColumnCountFilter每行最大返回多少列SingleColumnFilter插入new Put(rowkey)table.put(List(Put))批量插入删除new Delete架构namespaceclientmaster - 负责负载均衡  - 发现失效region server 重新分配region为region server 分配region  管理客户端对表单增加，删除，修改（DDL)Region server维护regionregion对应一张表store对应一个列族memstore溢写会生成stoefile多个列簇任何一个溢写会触发本server上的所有memstore溢写，浪费IOzookeeper  - 保证集群只有一个master  - 存储 region的寻址入口  - 监控regionserver的上线下线信息，并通知master存储了hbase的源数据信息Hlog优化热点问题rowkey设计有问题对rowkey打撒预分区Column Family某个column family在flush的时候，它邻近的column family也会因关联效应被触发flush，最终导致系统产生更多的I/OIn Memory创建表的时候，可以通过HColumnDescriptor.setInMemory(true)将表放到RegionServer的缓存中，保证在读取的时候被cache命中MaxVersiontime to Live设置数据生命周期，过期自动删除compact &amp; splitminor compactmajor compact二级索引es+hbase也可以做分页写表操作多HTable并发写参数设置Auto Flush</p>]]></content>
+    
+    <summary type="html">
+    
+      hbase的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//</id>
+    <published>2019-03-28T10:49:42.000Z</published>
+    <updated>2019-03-28T10:58:57.747Z</updated>
+    
+    <content type="html"><![CDATA[<p>JavaJVMJVM 内存结构堆Heap堆的优势是可以动态地分配内存大小存取速度较慢栈Stack存取速度比堆要快存放基本类型数据可以共享HotSpot 虚拟机对象探秘垃圾收集策略与算法判定对象是否存活引用计数法很难解决对象之间的循环引用问题可达性分析法强引用（Strong Reference）软引用（Soft Reference）弱引用（Weak Reference）虚引用（Phantom Reference）GC Roots虚拟机栈（栈帧中的本地变量表）中引用的对象；方法区中静态属性引用的对象；方法区中常量引用的对象；本地方法栈方法引用的对象；回收方法区内存判定废弃常量判定无用的类该类的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例；加载该类的 ClassLoader 已经被回收；该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。标记-清除算法复制算法标记-整理算法分代收集算法HotSpot 垃圾收集器CMSConcurrent Mark Sweep初始标记并发标记重新标记并发清除优点：并发收集、低停顿缺点对 CPU 资源敏感（会和服务器抢资源）。无法处理浮动垃圾。浮动垃圾是指 Java 业务代码与垃圾收集器并发执行过程中又产生的垃圾，这种垃圾只有等到下一次 GC 的时候再进行清理。它使用的回收算法 “标记-清除” 算法会导致大量的内存空间碎片产生。G1面向服务器应用端的垃圾收集器针对多核 CPU 以及大容量内存的机器运作步骤初始标记(Init Marking，STW)并发标记(Concurrent Marking)最终标记(Remark，STW筛选回收(Clearnup，STW)Serial 收集器1.3 单线程Stop The World新生代采用复制算法老年代采用标记-整理算法Serial Old 收集器ParNew 收集器Serial 收集器的多线程版Parallel Scavenge 收集器 跟 ParNew 收集器一样关注吞吐量Parallel Old 收集器内存分配与回收策略JVM 性能调优类文件结构类加载的时机加载验证准备解析初始化使用卸载类加载的过程类加载器启动类加载器（Bootstrap ClassLoader）&lt;JAVA_HOME&gt;\lib 目录扩展类加载器（Extension ClassLoader&lt;JAVA_HOME&gt;\lib\ext应用程序类加载器（Application ClassLoader）classpath自定义 ClassLoader双亲委派模型集合类线程安全(Thread-safe)VectorHashTable无论是key还是value都不允许有null值的存在StringBufferConcurrentHashMapConcurrentLinkedDequeCopyOnWriteArrayListBlockingQueue非线程安全的集合ArrayListLinkedListHashMap对于hash冲突采用链表的方式去解决hash碰撞基于key hash查找Entry对象存放到数组的位置在扩大容量时须要重新计算hashjdk1.8之前并发操作hashmap时为什么会有死循环的问题HashSet基于HashMap实现，无容量限制不保证数据的有序；TreeMap典型的基于红黑树的Map实现TreeSet基于TreeMap实现的StringBuliderLinkedHashMap线程线程的几个状态分支主题runablenewrunningblockdestory创建线程继承Thread实现Runable线程安全锁Locksynchronized线程池Executors. newFixedThreadPool(5)Executors. newCachedThreadPool()Executors. newSingleThreadExecutor();JDK各版本新特性jdk1.5自动装箱与拆箱枚举静态导入可变参数内省泛型For-Each循环注解协变返回类型jdk1.6AWT新增加了两个类:Desktop和SystemTray使用JAXB2来实现对象与XML之间的映射StAX，一种利用拉模式解析(pull-parsing)XML文档的API使用Compiler API，动态编译Java源文件轻量级Http Server API插入式注解处理API提供了Console类用以开发控制台程序对脚本语言的支持如: ruby,groovy, javascriptCommon Annotations嵌入式数据库 DerbyJDK1.7对Java集合（Collections）的增强支持，可直接采用[]、{}的形式存入对象在Switch中可用String数值可加下划线用作分隔符支持二进制数字简化了可变参数方法的调用调用泛型类的构造方法时Boolean类型反转char类型的equals方法安全的加减乘除Map集合支持并发请求JDK1.8接口的默认方法 Lambda 表达式函数式接口使用 :: 关键字来传递方法或者构造函数引用多重注解Optional 类jdk1.9Java 平台级模块系统LinkingJShell : 交互式 Java REPL 改进的 Javadoc集合工厂方法改进的 Stream API 私有接口方法HTTP/2多版本兼容 JARG1是Java 9中的默认GC轻量级的 JSON API响应式流（Reactive Streams) APIjdk1.10局部变量类型推断GC改进和内存管理线程本地握手（JEP 312）备用内存设备上的堆分配（JEP 316）在 OpenJDK 中提供一组默认的根证书颁发机构证书jdk1.11HTTP 客户端（标准）ChaCha20 和 Poly1305 密码算法低开销堆分析传输层安全性（TLS）1.3ZGC：可扩展的低延迟垃圾收集器对象引用强引用（Strong Reference）软引用（Soft Reference）弱引用（Weak Reference）虚引用（Phantom Reference）IOnionettyminaInputStreamOutputStreamBIO同步阻塞同步非阻塞rpchttp协议任何语言rmitcpjava专属java的原生序列化Hessian基于HTTP协议采用二进制编解码protobuf-rpc-proProtocol Buffers 协议的基于 Netty 底层的 NIO 技术Avro支持HTTP，TCP两种协议ThriftDubbo数据类型intshortlongbytecharbooleanfloatdouble序列化谷歌ProtobufKryoFastJson并发synchronizedCASAQSThreadLocalThreadPoolExecutor动态代理java动态代理cglib动态代理</p>]]></content>
+    
+    <summary type="html">
+    
+      java相关的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>机器学习-知识图谱</title>
@@ -485,135 +565,6 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
       <category term="linux" scheme="http://blog.appcity.vip/tags/linux/"/>
     
       <category term="centos" scheme="http://blog.appcity.vip/tags/centos/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NTP时间服务器</title>
-    <link href="http://blog.appcity.vip/others/NTP%E6%97%B6%E9%97%B4%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://blog.appcity.vip/others/NTP时间服务器/</id>
-    <published>2017-07-17T02:54:23.000Z</published>
-    <updated>2019-03-18T13:49:01.940Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>ntp.shu.edu.cn (202.120.127.191)</li><li>47.92.108.218</li><li>ntp.aliyun.com</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;ntp.shu.edu.cn (202.120.127.191)&lt;/li&gt;
-&lt;li&gt;47.92.108.218&lt;/li&gt;
-&lt;li&gt;ntp.aliyun.com&lt;/li&gt;
-&lt;/ul&gt;
-
-      
-    
-    </summary>
-    
-      <category term="others" scheme="http://blog.appcity.vip/categories/others/"/>
-    
-    
-      <category term="Linux" scheme="http://blog.appcity.vip/tags/Linux/"/>
-    
-      <category term="ntp" scheme="http://blog.appcity.vip/tags/ntp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cdh实战</title>
-    <link href="http://blog.appcity.vip/bigdata/cdh%E5%AE%9E%E6%88%98/"/>
-    <id>http://blog.appcity.vip/bigdata/cdh实战/</id>
-    <published>2017-04-15T01:50:30.000Z</published>
-    <updated>2019-03-18T13:49:01.940Z</updated>
-    
-    <content type="html"><![CDATA[<h2>What</h2><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543282653247.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543284101780.png" alt=""></p><h3>Hadoop发行版</h3><ul><li>Apache Hadoop</li><li>Cloudera’s Distribution Including Apache Hadoop（CDH）</li><li>Hortonworks Data Platform (HDP)</li><li>MapR</li><li>EMR</li></ul><ul><li>sqoop datax</li><li>flume</li></ul><h3>安装方式</h3><ul><li>Cloudera Manager</li><li>yum</li><li>rpm</li><li>tarball</li></ul><h3>名词</h3><ul><li>主机 - host</li><li>机架 - rack</li><li>集群 - cluster</li><li>服务 -service</li><li>服务实例 - service instance</li><li>角色 -role nn dn rs jn</li><li>角色实例 -role instance</li><li>角色组 -role group</li><li>主机模板 -host template</li><li>parcel -安装包</li><li>静态服务池 -static service pool</li><li>动态资源池 -dynamic resource pool</li><li>ansible 运维自动化</li></ul><h3>Server</h3><ul><li>管理控制台服务器和应用程序逻辑</li><li>负责软件安装、配置</li><li>启动和停止服务</li><li>管理服务运行的群集</li></ul><h3>Agent</h3><ul><li>安装在每台主机上</li><li>负责启动和停止进程，配置，监控主机<ul><li>Management Servicce<ul><li>由一组角色组成的服务，执行各种监视、报警、和报告</li></ul></li></ul></li></ul><h2>Where?</h2><p>公共jar包/opt/cloudera/parcels/CDH-5.4.0-1.cdh5.4.0.p0.27/lib</p><ul><li>CDH5.4http://archive.cloudera.com/cdh5/</li><li>Cloudera Manager5.4.3：http://www.cloudera.com/downloads/manager/5-4-3.html</li></ul><h2>Why</h2><ul><li>版本划分清晰</li><li>版本更新速度快</li><li>支持Kerberos安全认证</li><li>文档清晰</li><li>支持多种安装方式（Cloudera Manager方式</li></ul><h3>Apache Hadoop 不足之处</h3><ul><li>版本管理混乱</li><li>部署过程繁琐、升级过程复杂</li><li>兼容性差</li><li>安全性低</li></ul><h2>How</h2><ol><li>网络按配置<ul><li><p>修改主机名<code>vi /etc/sysconfig/network</code></p></li><li><p>根据自己的虚拟机地址修改ip和dns网关<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure></p></li><li><p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code> 只保留最后一个，并将name改为‘eth0’重启，登录了 <code>ping www.baidu.com</code>说明网络没问题了</p></li><li><p>修改hosts  <code>vi /etc/hosts</code><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543325888442.png" alt=""></p></li></ul></li></ol><ol start="2"><li><p>ssh免密钥登录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost</span><br><span class="line">quit</span><br><span class="line">ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa</span><br><span class="line">ssh-copy-id localhost</span><br><span class="line">ssh localhost</span><br><span class="line">quit</span><br></pre></td></tr></table></figure></p></li><li><p>防火墙关闭<code>service iptables stop</code><code>chkconfig iptables off</code></p></li><li><p>selinux关闭<code>vi /etc/selinux/config</code><code>SELINUX=disabled</code></p></li><li><p>安装jdk配置环境变量上传 rpm 和 tar<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">mkdir java</span><br><span class="line">mkdir tar</span><br><span class="line">rpm -ivh jdk-7u67-linux-x64.rpm </span><br><span class="line">yum install vim -y</span><br><span class="line">vim ~/.bash_profile</span><br></pre></td></tr></table></figure></p><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543301764375.png" alt=""><code>source ~/.bash_profile</code></p></li><li><p>安装ntp<code>yum install ntp</code><code>ntpdate ntp.aliyun.com</code></p></li><li><p>安装mysql<code>yum install -y mysql-server</code><code>service mysqld restart</code><code>mysql</code><code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;</code><code>flush privileges;</code></p></li><li><p>在这第三方依赖包<code>yum install -y chkconfig python bind-utils psmisc libxslt zlib sqlite cyrus-sasl-plain cyrus-sasl-gssapi fuse fuse-libs redhat-lsb</code></p></li><li><p>安装Cloudera Manager Server Agent<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/cloudera-manager</span><br><span class="line">cd /opt/tar</span><br><span class="line">tar xvzf cloudera-manager*.tar.gz -C /opt/cloudera-manager</span><br></pre></td></tr></table></figure></p></li><li><p>创建用户cloudera-scm<code>useradd --system --no-create-home --shell=/bin/false --comment &quot;Cloudera SCM User&quot; cloudera-scm</code></p></li><li><p>配置CM Agent<code>vim /opt/cloudera-manager/cm-5.4.3/etc/cloudera-scm-agent/config.ini</code></p></li><li><p>配置CM Server数据库<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/share/java</span><br><span class="line">mv /opt/tar/mysql-connector-java-5.1.26-bin.jar .</span><br><span class="line">mv mysql-connector-java-5.1.26-bin.jar mysql-connector-java.jar</span><br><span class="line">mysql </span><br><span class="line">grant all on *.* to 'temp'@'%' identified by 'temp' with grant option;</span><br><span class="line">grant all on *.* to 'temp'@'cdh-node1' identified by 'temp' with grant option;</span><br></pre></td></tr></table></figure></p></li><li><p>创建Parcel目录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/cloudera-manager/cm-5.4.3/share/cmf/schema/</span><br><span class="line">./scm_prepare_database.sh mysql temp -h cdh-node1 -utemp -ptemp --scm-host cdh-node1 scm scm scm</span><br><span class="line">mkdir -p /opt/cloudera/parcel-repo</span><br><span class="line"></span><br><span class="line">chown cloudera-scm:cloudera-scm /opt/cloudera/parcel-repo</span><br><span class="line">mkdir -p /opt/cloudera/parcels</span><br><span class="line">chown cloudera-scm:cloudera-scm /opt/cloudera/parcels</span><br></pre></td></tr></table></figure></p></li><li><p>制作CDH本地源下载好文件CDH-5.4.0-1.cdh5.4.0.p0.27-el6.parcel以及manifest.json，将这两个文件放到server节点的/opt/cloudera/parcel-repo下。打开manifest.json文件，里面是json格式的配置，找到与下载版本相对应的hash码，新建文件，文件名与你的parel包名一致，并加上.sha后缀，将hash码复制到文件中保存。</p></li></ol><ol start="15"><li><p>启动CM Server、Agent<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/cloudera-manager/cm-5.4.3/etc/init.d/</span><br><span class="line">./cloudera-scm-server start</span><br><span class="line"></span><br><span class="line">./cloudera-scm-agent start</span><br></pre></td></tr></table></figure></p><ul><li>登录 http://cdh-node1:7180/cmf/login</li><li>用户密码 admin/admin</li></ul></li><li><p>克隆镜像并修改配置</p></li></ol><ul><li><p><code>vi /etc/syscofig/network</code> 修改主机名</p></li><li><p><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code> 修改ip</p></li><li><p><code>vi /etc/udev/rules.d/70-persistent-net.rules</code> 只保留最后一个，并将name改为‘eth0’</p></li><li><p>在node1 上 ssh  所有其它机器  使不弹出  确认提示</p></li><li><p>删除无用的包 ，删除已经安装过的 cloud-manager,不能删除主节点的<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/cloudera-manager/</span><br><span class="line">rm -rf *</span><br><span class="line">cd /opt/tar</span><br><span class="line">tar xvzf cloudera-manager*.tar.gz -C /opt/cloudera-manager</span><br></pre></td></tr></table></figure></p></li><li><p><code>vim /opt/cloudera-manager/cm-5.4.3/etc/cloudera-scm-agent/config.ini</code>都改成<code>server_host=cdh-node1</code></p></li></ul><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543313049448.png" alt=""></p><ol start="17"><li>启动mysql，启动server，启动agent，登录管理端<a href="http://cdh-node1:7180/cmf/login" target="_blank" rel="noopener">http://cdh-node1:7180/cmf/login</a></li><li>选择机器创建集群，然后一步步按照提示解决问题</li></ol><h4>日志</h4><p>/opt/cloudra-manager/run//opt/cloudera-manager/cm-5.4.3/run/cloudera-scm-agent/process/ccdeploy_hive-conf_etchiveconf.cloudera.hive_-7544799387945245207/logs/stderr.log</p><h3>问题</h3><ul><li>https://ask.csdn.net/questions/212420</li></ul><blockquote><p>看日志,应该是jdk目录不对  使得 找不到JAVA_HOME   重装 或者 建立软连接   ln -s  '你的jdk目录' /usr/java/jdk1.7</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2&gt;What&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://wntc-1251220317.cossh.myqcloud.com/2018/11/27/1543282653247.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;http://wntc-1251220317.
-      
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://blog.appcity.vip/categories/bigdata/"/>
-    
-    
-      <category term="hadoop" scheme="http://blog.appcity.vip/tags/hadoop/"/>
-    
-      <category term="云计算" scheme="http://blog.appcity.vip/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
-    
-      <category term="hadoop发行" scheme="http://blog.appcity.vip/tags/hadoop%E5%8F%91%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>storm实战</title>
-    <link href="http://blog.appcity.vip/bigdata/storm%E5%AE%9E%E6%88%98/"/>
-    <id>http://blog.appcity.vip/bigdata/storm实战/</id>
-    <published>2017-02-25T01:42:45.000Z</published>
-    <updated>2019-03-18T13:49:01.943Z</updated>
-    
-    <content type="html"><![CDATA[<h2>What</h2><p>storm是个实时的，分布式，高容错的计算系统</p><ul><li>storm进程常驻内存</li><li>strom数据不经过磁盘，在内存中处理&lt;!-- more --&gt;</li></ul><h3>架构</h3><ul><li>Nimbus<ul><li>资源调度</li><li>任务分配</li><li>接收jar包</li></ul></li><li>Supervisor<ul><li>接收nimbus分配的任务</li><li>启动、停止自己管理的worker进程(当前supervisor上worker数量由配置文件设定)</li></ul></li><li>Worker<ul><li>运行具体处理运算组件的进程(每个Worker对应执行一个Topology的子集)</li><li>worker任务类型，即spout任务、bolt任务两种</li><li>启动executor(executor即worker JVM进程中的一个java线程，一般默认每个executor负责执行一个task任务)<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/3/1546495973563.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546563760287.png" alt=""></li></ul></li></ul><h3>编程模型</h3><ul><li>DAG</li><li>Spout数据源</li><li>Bolt数据流处理组件</li></ul><h3>数据分发策略 storm grouping</h3><ul><li>Shuffle grouping<ul><li>随机分组，随机派发stream里面的tuple，保证每个bolt task接收到的tuple数目大致相同。</li><li>轮询，平均分配</li></ul></li><li>Fields Grouping<ul><li>按字段分组，比如，按&quot;user-id&quot;这个字段来分组，那么具有同样&quot;user-id&quot;的 tuple 会被分到相同的Bolt里的一 个task， 而不同的&quot;user-id&quot;则可能会被分配到不同的task。</li></ul></li><li>None Grouping不分组，这个分组的意思是说stream不关心到底怎样分组。目前这种分组和Shuffle grouping是一样的效果</li><li>All Grouping广播发送，对于每一个tuple，所有的bolts都会收到</li><li>Global Grouping全局分组，把tuple分配给task id最低的task 。</li><li>Direct Grouping指向型分组， 这是一种比较特别的分组方法，用这种分组意味着消息(tuple)的发送者指定由消息接收者的 哪个task处理这个消息。只有被声明为 Direct Stream 的消息流可以声明这种分组方法。而且这种消息tuple必 须使用 emitDirect 方法来发射。消息处理者可以通过 TopologyContext 来获取处理它的消息的task的id (OutputCollector.emit方法也会返回task的id)</li><li>Local or shuffle grouping本地或随机分组。如果目标bolt有一个或者多个task与源bolt的task在同一个工作进程中，tuple将会被随机发 送给这些同进程中的tasks。否则，和普通的Shuffle Grouping行为一致</li><li>customGouping自定义，相当于mapreduce那里自己去实现一个partition一样。</li></ul><h3>计算模型</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546563301043.png" alt=""></p><ul><li>Topology– DAG有向无环图的实现<ul><li>对于Storm实时计算逻辑的封装</li><li>即，由一系列通过数据流相互关联的Spout、Bolt所组成的拓扑结构</li><li>生命周期:此拓扑只要启动就会一直在集群中运行，直到手动将其kill，否则不会终止(区别于MapReduce当中的Job，MR当中的Job在计算执行完成就会终止)</li></ul></li><li>Tuple – 元组Stream中最小数据组成单元</li><li>Stream – 数据流<ul><li>从Spout中源源不断传递数据给Bolt、以及上一个Bolt传递数据给下一个Bolt，所形成的这些数据通道即叫做 Stream</li><li>Stream声明时需给其指定一个Id(默认为Default)<ul><li>实际开发场景中，多使用单一数据流，此时不需要单独指定StreamId</li></ul></li></ul></li><li>Spout – 数据源<ul><li>拓扑中数据流的来源。一般会从指定外部的数据源读取元组(Tuple)发送到拓扑(Topology)中</li><li>一个Spout可以发送多个数据流(Stream)<ul><li>可先通过OutputFieldsDeclarer中的declare方法声明定义的不同数据流，发送数据时通过SpoutOutputCollector中的 emit方法指定数据流Id(streamId)参数将数据发送出去</li></ul></li><li>Spout中最核心的方法是nextTuple，该方法会被Storm线程不断调用、主动从数据源拉取数据，再通过emit 方法将数据生成元组(Tuple)发送给之后的Bolt计算</li></ul></li><li>Bolt – 数据流处理组件<ul><li>拓扑中数据处理均有Bolt完成。对于简单的任务或者数据流转换，单个Bolt可以简单实现;更加复杂场景往往 需要多个Bolt分多个步骤完成</li><li>一个Bolt可以发送多个数据流(Stream)<ul><li>可先通过OutputFieldsDeclarer中的declare方法声明定义的不同数据流，发送数据时通过SpoutOutputCollector中的 emit方法指定数据流Id(streamId)参数将数据发送出去</li></ul></li><li>Bolt中最核心的方法是execute方法，该方法负责接收到一个元组(Tuple)数据、真正实现核心的业务逻辑</li></ul></li></ul><h3>任务提交流程</h3><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546563794878.png" alt=""></p><h3>storm 并发机制</h3><ul><li>worker 进程<ul><li>一个Topology拓扑会包含一个或多个Worker(每个Worker进程只能从属于一个特定的Topology)</li><li>这些Worker进程会并行跑在集群中不同的服务器上，即一个Topology拓扑其实是由并行运行在Storm集群中 多台服务器上的进程所组成</li><li>设置Worker进程数<ul><li>Config.setNumWorkers(int workers)</li></ul></li></ul></li><li>executor 线程<ul><li>Executor是由Worker进程中生成的一个线程</li><li>每个Worker进程中会运行拓扑当中的一个或多个Executor线程</li><li>一个Executor线程中可以执行一个或多个Task任务(默认每个Executor只执行一个Task任务)，但是这些 Task任务都是对应着同一个组件(Spout、Bolt)</li><li>设置Executor线程数<ul><li>TopologyBuilder.setSpout(String id, IRichSpout spout, Number parallelism_hint)</li><li>TopologyBuilder.setBolt(String id, IRichBolt bolt, Number parallelism_hint)</li><li>其中， parallelism_hint即为executor线程数</li></ul></li></ul></li><li>task<ul><li>实际执行数据处理的最小单元</li><li>每个task即为一个Spout或者一个Bolt</li><li>设置Task数量<ul><li>ComponentConfigurationDeclarer.setNumTasks(Number val)</li></ul></li></ul></li><li>Rebalance – 再平衡<ul><li>即，动态调整Topology拓扑的Worker进程数量、以及Executor线程数量</li><li>通过Storm UI</li><li>通过Storm CLI<ul><li>storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546609540410.png" alt=""></li></ul></li></ul></li></ul><h3></h3><p>Task数量在整个Topology生命周期中保持不变，Executor数量可以变化或手动调整Task数量和Executor是相同的，即每个Executor线程中默认运行一个Task任务</p><h3>Storm 通信机制</h3><ul><li>Worker进程间的数据通信<ul><li>Netty</li></ul></li><li>Worker内部的数据通信<ul><li>Disruptor</li></ul></li></ul><h3>storm 容错机制</h3><ul><li>集群节点宕机<ul><li>Nimbus服务器</li><li>非Nimbus服务器</li></ul></li><li>进程挂掉<ul><li>Worker<ul><li>挂掉时，Supervisor会重新启动这个进程。如果启动过程中仍然一直失败，并且无法向Nimbus发送心跳，Nimbus会将该 Worker重新分配到其他服务器上</li></ul></li><li>Supervisor<ul><li>无状态(所有的状态信息都存放在Zookeeper中来管理)</li><li>快速失败(每当遇到任何异常情况，都会自动毁灭)</li></ul></li><li>Nimbus<ul><li>无状态(所有的状态信息都存放在Zookeeper中来管理)</li><li>快速失败(每当遇到任何异常情况，都会自动毁灭)</li></ul></li></ul></li><li>Acker -- 消息完整性的实现机制<ul><li>Storm的拓扑当中特殊的一些任务</li><li>负责跟踪每个Spout发出的Tuple的DAG(有向无环图)</li></ul></li></ul><h2>Why</h2><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/3/1546480094175.png" alt=""></p><h4>Storm:纯流式处理</h4><ul><li>专门为流式处理设计</li><li>数据传输模式更为简单，很多地方也更为高效</li><li>并不是不能做批处理，它也可以来做微批处理，来提高吞吐</li></ul><p><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546563257839.png" alt=""></p><h2>Where</h2><p>http://storm.apache.org</p><h2>How</h2><h3>完全分布式部署</h3><p><code>tar zxvf apache-storm-0.10.0.tar.gz</code></p><ul><li>创建日志目录<code>mkdir logs</code></li><li>在node1 上执行bin/storm nimbus &gt; logs/nimbus.out 2&gt;&amp;1 &amp;bin/storm ui &gt; ./logs/ui.out 2&gt;&amp;1 &amp;</li><li>在node2上执行bin/storm supervisor &gt; logs/supervisor.out 2&gt;&amp;1 &amp;</li><li>在node3 上执行bin/storm supervisor &gt; logs/supervisor.out 2&gt;&amp;1 &amp;</li></ul><h3>命令：</h3><p><code>bin/strom supervisor &gt; logs/supervisor.out 2 &gt;&amp;1 &amp;</code><code>bin/strom --help</code><code>bin/strom rebalance wc -w 5 -n 3 -e splitbolt=6</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2&gt;What&lt;/h2&gt;
-&lt;p&gt;storm是个实时的，分布式，高容错的计算系统&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;storm进程常驻内存&lt;/li&gt;
-&lt;li&gt;strom数据不经过磁盘，在内存中处理
-&amp;lt;!-- more --&amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;架构&lt;/h3&gt;
-&lt;u
-      
-    
-    </summary>
-    
-      <category term="大数据" scheme="http://blog.appcity.vip/categories/bigdata/"/>
-    
-    
-      <category term="大数据" scheme="http://blog.appcity.vip/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="storm" scheme="http://blog.appcity.vip/tags/storm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jekins配合sonar配置</title>
-    <link href="http://blog.appcity.vip/essay/jekins%E9%85%8D%E5%90%88sonar%E9%85%8D%E7%BD%AE/"/>
-    <id>http://blog.appcity.vip/essay/jekins配合sonar配置/</id>
-    <published>2016-12-30T09:34:25.000Z</published>
-    <updated>2019-03-18T13:49:01.940Z</updated>
-    
-    <content type="html"><![CDATA[<h2>What ?</h2><p>Sonar是一个用于代码质量管理的开源平台&lt;!-- more --&gt;</p><h2>Why ?</h2><h2>Where?</h2><p>https://www.sonarqube.org/</p><h2>How?</h2><h2>&lt;kbd&gt;<strong>sonar安装</strong>&lt;/kbd&gt;</h2><h4>下载</h4><p><code>useradd sonar</code><code>passwd sonar</code><code>cd /opt/soft/</code><code>wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.6.4.zip</code><code>unzip sonarqube-5.6.4.zip</code><code>vi $HOME/.bash_profile</code></p><h4>修改如下</h4><p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$HOME</span>/bin</span><br><span class="line">SONAR_HOME=/opt/soft/sonarqube-5.6.4</span><br><span class="line"><span class="built_in">export</span> PATH SONAR_HOME</span><br></pre></td></tr></table></figure></p><p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install postgresql</span><br></pre></td></tr></table></figure></p><p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE USER 'sonar'@'%' IDENTIFIED BY 'sonar';</span><br><span class="line">mysql&gt; create database sonar;</span><br><span class="line">mysql&gt; grant all privileges on sonar.* to 'sonar'@'%' identified by 'sonar';</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure></p><p>编辑${SONAR_HOME}/conf/sonar.properties配置数据库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sonar.jdbc.username=sonar</span><br><span class="line">sonar.jdbc.password=sonar</span><br><span class="line">sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance</span><br></pre></td></tr></table></figure></p><h4>启动</h4><p><code>${SONAR_HOME}/bin/linux-x86-64/sonar.sh start</code></p><h4>在浏览器中访问</h4><p>http://localhost:9000/</p><h4>修改默认端口为 9009 ，否则和 hdfs冲突</h4><p><code>vi ${SONAR_HOME}/conf/sonar.properties</code><code>sonar.web.port=9009</code><code>{SONAR_HOME}/bin/linux-x86-64/sonar.sh restart</code></p><h3>插件</h3><ul><li>如果未联网将下载后的插件上传到${SONAR_HOME}/extensions\plugins目录下，重新启动sonar</li><li>如果联网http://docs.sonarqube.org/display/SONAR/Installing+a+Pluginadmin登录后，点击Administer --&gt;system &gt; update center<img src="http://oapwg4v13.bkt.clouddn.com/1483694028.png" alt=""></li></ul><p>&lt;kbd&gt;sonarqube scanner&lt;/kbd&gt;https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-2.5.1.zip</p><h2>&lt;kbd&gt;jekins安装&lt;/kbd&gt;</h2><h4>下载</h4><p><code>useradd jekins</code><code>passwd jekins</code><code>cd /opt/soft/</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo</span><br><span class="line">sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key`</span><br><span class="line">yum install jenkins</span><br><span class="line">service jenkins start</span><br></pre></td></tr></table></figure></p><h4>登录及初始化</h4><p>http://ip:8080/jenkins第一次安装jenkins的时候，会提示你要求输入安装密码，<code>cat /var/lib/jenkins/secrets/initialAdminPassword</code>按照提示将密码粘贴到对应的输入狂即可</p><h4>修改默认端口</h4><p><code>vi /etc/sysconfig/jenkins</code></p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JENKINS_PORT=&quot;8084&quot;</span><br></pre></td></tr></table></figure></p><p><code>service jenkins start</code></p><p><img src="http://docs.sonarqube.org/download/attachments/6954830/image2016-5-24%2015%3A28%3A59.png?version=1&amp;modificationDate=1464096541000&amp;api=v2" alt="">选择 sonar 插件，安装重启<img src="http://oapwg4v13.bkt.clouddn.com/1483428314.png" alt=""></p><h2>&lt;kbd&gt;maven安装&lt;/kbd&gt;</h2><ul><li>跳转到软件目录<code>cd /opt/soft</code></li><li>下载<code>wget http://mirrors.cnnic.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz</code><code>tar zxvf apache-maven-3.3.9-bin.tar.gz</code></li><li>修改环境变量<code>vi ~/.bash_profile</code></li></ul><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/opt/soft/apache-maven-3.3.9</span><br><span class="line">export PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></table></figure></p><ul><li>使生效<code>source ~/.bash_profile</code></li><li>验证是否成功<code>mvn -version</code><img src="http://oapwg4v13.bkt.clouddn.com/1483424778.png" alt=""></li></ul><h2>&lt;kbd&gt;git安装&lt;/kbd&gt;</h2><ul><li><p>安装依赖<code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code><code>yum install gcc perl-ExtUtils-MakeMaker</code></p></li><li><p>下载源码<code>wget https://github.com/git/git/archive/v2.5.0.tar.gz</code></p></li><li><p>解压<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf v2.5.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> git-2.5.0/</span><br></pre></td></tr></table></figure></p></li><li><p>编译安装<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make prefix=/usr/<span class="built_in">local</span>/git all</span><br><span class="line">make prefix=/usr/<span class="built_in">local</span>/git install</span><br></pre></td></tr></table></figure></p></li><li><p>添加系统变量<code>echo &quot;export PATH=$PATH:/usr/local/git/bin&quot; &gt;&gt; /etc/bashrc</code></p></li><li><p>使生效<code>source /etc/bashrc</code></p></li><li><p>验证<img src="http://oapwg4v13.bkt.clouddn.com/1483429502.png" alt=""></p></li><li><p>删除源码<code>rm -rf git-2.5.0 v2.5.0.tar.gz</code></p></li></ul><h2>&lt;kbd&gt;svn安装&lt;/kbd&gt;</h2><p><code>yum install subversion</code></p><ul><li>验证<code>svnserve --version</code><img src="http://oapwg4v13.bkt.clouddn.com/1483429238.png" alt=""></li></ul><p>&lt;kbd&gt;jenkins构建配置&lt;/kbd&gt;<img src="http://oapwg4v13.bkt.clouddn.com/1483696487.png" alt=""><img src="http://oapwg4v13.bkt.clouddn.com/1483696506.png" alt=""><img src="http://oapwg4v13.bkt.clouddn.com/1483696775.png" alt=""></p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sonar.projectKey=mypay</span><br><span class="line">sonar.projectName=mypay</span><br><span class="line">sonar.projectVersion=1.0</span><br><span class="line">sonar.sources=src/main</span><br><span class="line">sonar.binaries=target/classes</span><br><span class="line">sonar.exclusions=src/main/webapp/assets/**,src/main/webapp/plugins/**,src/main/webapp/mobile/**,src/main/ressources/**</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2&gt;What ?&lt;/h2&gt;
-&lt;p&gt;Sonar是一个用于代码质量管理的开源平台
-&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
-&lt;h2&gt;Why ?&lt;/h2&gt;
-&lt;h2&gt;Where?&lt;/h2&gt;
-&lt;p&gt;https://www.sonarqube.org/&lt;/p&gt;
-&lt;h2&gt;How?&lt;/
-      
-    
-    </summary>
-    
-      <category term="essay" scheme="http://blog.appcity.vip/categories/essay/"/>
-    
-    
-      <category term="jekins sonar svn git centos" scheme="http://blog.appcity.vip/tags/jekins-sonar-svn-git-centos/"/>
     
   </entry>
   
