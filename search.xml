@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[万能图床增加imgur支持]]></title>
+    <url>%2Fessay%2F%E4%B8%87%E8%83%BD%E5%9B%BE%E5%BA%8A%E5%A2%9E%E5%8A%A0imgur%E6%94%AF%E6%8C%81%2F</url>
+    <content type="text"><![CDATA[What? imgur 是个什么鬼 两点信息 : &lt;u&gt;专门的图床网站，跟阿里云腾讯云的对象存储比 职能更单一&lt;/u&gt; &lt;u&gt;国外的，而且 被墙了&lt;/u&gt; Where? https://imgur.com/ https://apidocs.imgur.com/ How? 如果你没有翻墙软件或代理服务器，可以不用往后看了 使用说明 注册账号 新建application以获取接口调用参数 client_id 和client_secret 安装postman imgur 接口 获取token推荐方式 brew cask install postman 启动postman 打开postman后随便点击个api 填上所需参数 https://www.getpostman.com/oauth2/callback https://api.imgur.com/oauth2/authorize https://api.imgur.com/oauth2/token APPLICATION_STATE 点击 request token 这里需要注意，postman 配置了proxy 也不会弹出这个页面，需要配置全局代理才起作用 点击 allow 得到上述参数后开始配置alfred workflow wntc imgur_use 为true 才能使用 不配或 false 不会上传到imgur 使用 快捷键使用 默认快捷键 为 cmd+shift+p ，该方法会将图片上传到所有配置正确的图床， 如果配置了，favor_yun 为 imgur ，则剪贴板默认就是 imgur 的markdown url，如果没配favor_yun，虽然上传了，但是返回的地址第一个上传的云 参考 官方python库]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>alfred</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[应用架构-知识图谱]]></title>
     <url>%2Fmindmap%2F%2Fknowledgegraph%2Fapp-arch-kg%2F%2F</url>
     <content type="text"><![CDATA[应用架构 高并发架构 消息队列 搜索引擎 缓存 分库分表 读写分离 架构图 分支主题 吞吐量 QPS 每秒内处理请求次数 TPS 每秒内处理事务次数 RT 响应时间 分布式系统 系统拆分 分布式服务框架 分布式锁 redis设计分布式锁 zk设计分布式锁 分布式事务 TCC XA 分布式会话 高可用架构 限流 熔断 降级 微服务架构 Spring Cloud 微服务架构 分布式链路跟踪系统 业界实现方案 Uber-jaeger 新浪Watchman 阿里-鹰眼Tracing Apache-HTrace PinPoint Twitter-Zipkin 谷歌Dapper 好处 跨团队的技术解耦 RPC框架 把复杂性屏蔽，就是RPC框架的职责 client端 序列化、反序列化、连接池管理、负载均衡、故障转移、队列管理，超时管理、异步管理等等 server端 服务端组件、服务端收发包队列、io线程、工作线程、序列化反序列化等 服务雪崩 服务熔断 服务降级 Dubbo 负载均衡 限流降级 异步调用 下线服务 CAP 理论 C 一致性 两阶段提交协议（2PC） 三阶段提交协议（3PC） Paxos协议 ZAB 协议 在 paxos 的基础上 Raft协议 A 可用性 P 分区容错性 架构图 什么是架构 架构是结构和愿景。 什么是架构图 架构图的作用 解决沟通障碍 达成共识 减少歧义 架构图分类 场景视图 逻辑视图 物理视图 处理流程视图 开发视图]]></content>
@@ -552,7 +563,7 @@
   <entry>
     <title><![CDATA[alfred配合截图上传七牛图床]]></title>
     <url>%2Fmac%2Falfred%E9%85%8D%E5%90%88%E6%88%AA%E5%9B%BE%E4%B8%8A%E4%BC%A0%E4%B8%83%E7%89%9B%2F</url>
-    <content type="text"><![CDATA[背景 &lt;!-- more --&gt; 实际上，保存上传找图片地址等步骤可以省略的，方法如下 一、 购买afred workflow，没它你啥都干不了 二、 注册七牛 https://portal.qiniu.com/signup?code=3lm22tsycqogi 三、 下载workflow，七牛那个 https://github.com/bestswifter/my-workflow 四、 安装完后按照说明配置，就是一点找到conf.txt 五、 进入alredworkflwo配置 六、 右击七牛——&gt;open in Finder 七、 单击就可以配置 记住一点 必须有http前缀 最后的步骤就是： ctrl+cmd+a alfred 输入 qn 博文中 ctrl+v 就行 BTY:本文的截图就是用刚刚配置好的图床搞的，效率特高]]></content>
+    <content type="text"><![CDATA[七牛域名限制，不在使用此种方式2018-12 背景 &lt;!-- more --&gt; 实际上，保存上传找图片地址等步骤可以省略的，方法如下 一、 购买afred workflow，没它你啥都干不了 二、 注册七牛 https://portal.qiniu.com/signup?code=3lm22tsycqogi 三、 下载workflow，七牛那个 https://github.com/bestswifter/my-workflow 四、 安装完后按照说明配置，就是一点找到conf.txt 五、 进入alredworkflwo配置 六、 右击七牛——&gt;open in Finder 七、 单击就可以配置 记住一点 必须有http前缀 最后的步骤就是： ctrl+cmd+a alfred 输入 qn 博文中 ctrl+v 就行 BTY:本文的截图就是用刚刚配置好的图床搞的，效率特高]]></content>
       <categories>
         <category>mac</category>
       </categories>
