@@ -101,7 +101,7 @@
 
 
   <meta name="description" content="背景  架构图    LVS三种工作模式   NAT 地址转换     DR 直接路由  架构图  3台IP一样，但LVS ARP开启 其他的都关闭     TUN 隧道  架构图  原理:首先要知道,互联网上的大多Internet服务的请求包很短小,而 应答包通常很大。那么隧道模式就是,把客户端发来的数据包,封装 一个新的IP头标记(仅目的IP)发给RS,RS收到后,先把数据包的头解开,还 原数">
-<meta name="keywords" content="大数据,负载均衡,lvs">
+<meta name="keywords" content="负载均衡,大数据,lvs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LVS">
 <meta property="og:url" content="http://blog.appcity.vip/bigdata/lvs/index.html">
@@ -225,7 +225,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">Juforg 的个人主页 夕拾阁</h1>
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
       
     
     
@@ -300,7 +300,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">51</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
 
   </li>
         
@@ -698,9 +698,9 @@ route del default</p>
       
         <div class="post-tags">
           
-            <a href="/tags/大数据/" rel="tag"># 大数据</a>
-          
             <a href="/tags/负载均衡/" rel="tag"># 负载均衡</a>
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
           
             <a href="/tags/lvs/" rel="tag"># lvs</a>
           
@@ -856,7 +856,7 @@ route del default</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1294,7 +1294,7 @@ route del default</p>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-copyright"></i>
   </span>
@@ -1317,6 +1317,14 @@ route del default</p>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
 
 
         

@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm  数据基本类型  字符串(String) 数字型(Numbers)包括四种  (整形(int) 长整形(L) 浮点型(float) 复数(j)   布尔 元组(Tuple) 定长、内容不可变、元">
+  <meta name="description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm 123brew install pyenvbrew install pyenv-virtualenvbrew cask install rabbitmq  python版本  显示可安装pyth">
 <meta name="keywords" content="python,脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python学习笔记">
 <meta property="og:url" content="http://blog.appcity.vip/python/python学习笔记/index.html">
 <meta property="og:site_name" content="夕拾阁">
-<meta property="og:description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm  数据基本类型  字符串(String) 数字型(Numbers)包括四种  (整形(int) 长整形(L) 浮点型(float) 复数(j)   布尔 元组(Tuple) 定长、内容不可变、元">
+<meta property="og:description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm 123brew install pyenvbrew install pyenv-virtualenvbrew cask install rabbitmq  python版本  显示可安装pyth">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-18T13:49:01.943Z">
+<meta property="og:updated_time" content="2019-10-06T09:40:46.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python学习笔记">
-<meta name="twitter:description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm  数据基本类型  字符串(String) 数字型(Numbers)包括四种  (整形(int) 长整形(L) 浮点型(float) 复数(j)   布尔 元组(Tuple) 定长、内容不可变、元">
+<meta name="twitter:description" content="What Python是一种面向对象的解释型计算机程序设计语言。1989年发明， 特点：  解释型 面向对象 简单易读 跨平台  开发准备  安装 python 配置环境变量 安装开发工具 pycharm 123brew install pyenvbrew install pyenv-virtualenvbrew cask install rabbitmq  python版本  显示可安装pyth">
 
 
 
@@ -216,7 +216,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">Juforg 的个人主页 夕拾阁</h1>
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
       
     
     
@@ -291,7 +291,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">51</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
 
   </li>
         
@@ -478,7 +478,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-18 21:49:01" itemprop="dateModified" datetime="2019-03-18T21:49:01+08:00">2019-03-18</time>
+                <time title="修改时间：2019-10-06 17:40:46" itemprop="dateModified" datetime="2019-10-06T17:40:46+08:00">2019-10-06</time>
               
             
           </span>
@@ -563,7 +563,37 @@
 <ul>
 <li>安装 python</li>
 <li>配置环境变量</li>
-<li>安装开发工具 pycharm</li>
+<li>安装开发工具 pycharm
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install pyenv</span><br><span class="line">brew install pyenv-virtualenv</span><br><span class="line">brew cask install rabbitmq</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4>python版本</h4>
+<ul>
+<li>显示可安装python版本
+<code>pyenv install -l</code></li>
+<li>安装指定Python版本
+<code>pyenv install 3.7.2</code></li>
+<li>卸载指定python版本
+<code>pyenv uninstall 3.7.2</code></li>
+<li>显示已安装python版本 包括虚拟环境
+<code>pyenv versions</code></li>
+<li>设置当前目录python版本
+<code>pyenv local 3.7.2</code></li>
+<li>设置当前会话python版本
+<code>pyenv shell 3.7.2</code></li>
+<li>重置版本设置
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyenv shell --<span class="built_in">unset</span></span><br><span class="line">pyenv <span class="built_in">local</span> --<span class="built_in">unset</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4>虚拟环境</h4>
+<ul>
+<li>创建某个Python版本的虚拟环境
+<code>pyenv virtualenv 3.7.2 wb-venv</code></li>
+<li>激活和停用虚拟环境：
+<code>pyenv activate wb-venv</code>
+<code>pyenv deactivate</code></li>
+<li>列出当前所有的虚拟环境：
+<code>pyenv virtualenvs</code></li>
+<li>删除虚拟环境：
+<code>pyenv virtualenv-delete wb-venv</code></li>
 </ul>
 <h3>数据基本类型</h3>
 <ul>
@@ -928,6 +958,7 @@ https://blog.csdn.net/xun527/article/details/76180493</p>
 <li>https://blog.csdn.net/guojingjuan/article/details/50396254</li>
 </ul>
 </li>
+<li>https://mp.weixin.qq.com/s/WsUAtZhhaYo5R-oXOubvjg</li>
 </ul>
 
       
@@ -1120,7 +1151,7 @@ https://blog.csdn.net/xun527/article/details/76180493</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1537,7 +1568,7 @@ https://blog.csdn.net/xun527/article/details/76180493</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">开发准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">数据基本类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.1.</span> <span class="nav-text">python 字符串拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.2.</span> <span class="nav-text">取子字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.3.</span> <span class="nav-text">dict字典转json数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.4.</span> <span class="nav-text">获取变量类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.5.</span> <span class="nav-text">迭代元祖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.6.</span> <span class="nav-text">Python Number 类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.7.</span> <span class="nav-text">Python 数学函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.8.</span> <span class="nav-text">Python 随机数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.9.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.10.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.11.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.12.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.13.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.14.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">特点：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">开发准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.1.</span> <span class="nav-text">python版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.0.2.</span> <span class="nav-text">虚拟环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">数据基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.1.</span> <span class="nav-text">python 字符串拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.2.</span> <span class="nav-text">取子字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.3.</span> <span class="nav-text">dict字典转json数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.4.</span> <span class="nav-text">获取变量类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.5.</span> <span class="nav-text">迭代元祖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.6.</span> <span class="nav-text">Python Number 类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.7.</span> <span class="nav-text">Python 数学函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.8.</span> <span class="nav-text">Python 随机数函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.9.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.10.</span> <span class="nav-text">变量作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.11.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.12.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.13.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.0.14.</span> <span class="nav-text">面向对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></div>
             
 
           </div>
@@ -1558,7 +1589,7 @@ https://blog.csdn.net/xun527/article/details/76180493</p>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-copyright"></i>
   </span>
@@ -1581,6 +1612,14 @@ https://blog.csdn.net/xun527/article/details/76180493</p>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
+
+
+  <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
 
 
         
