@@ -239,9 +239,9 @@
         <category>others</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>linux</tag>
         <tag>centos</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -252,9 +252,9 @@
         <category>others</category>
       </categories>
       <tags>
+        <tag>jdk</tag>
         <tag>linux</tag>
         <tag>centos</tag>
-        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -558,9 +558,9 @@
       <tags>
         <tag>大数据</tag>
         <tag>hadoop2</tag>
-        <tag>Zookeeper</tag>
         <tag>ha</tag>
         <tag>高可用</tag>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
   <entry>
