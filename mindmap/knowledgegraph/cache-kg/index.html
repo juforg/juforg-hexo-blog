@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="缓存的知识图谱">
+<meta name="keywords" content="juforg 夕拾阁 songjie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存-知识图谱">
+<meta property="og:url" content="http://blog.appcity.vip/mindmap//knowledgegraph/cache-kg//index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="缓存的知识图谱">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="缓存-知识图谱">
+<meta name="twitter:description" content="缓存的知识图谱">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/mindmap//knowledgegraph/cache-kg//">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>缓存-知识图谱 | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 1);">
+    展开至 1级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 2);">
+    展开至 2级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 3);">
+    展开至 3级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 4);">
+    展开至 4级 节点
+  </a>
+  <blockquote class="raw-class mindmap mindmap-lg ">
+    <p>缓存
+	谈资
+		本地缓存
+		分布式缓存
+		分级缓存
+		问题
+			缓存击穿
+				什么是击穿
+					大量的请求同时查询一个 key 时，此时这个key正好失效了，就会导致大量的请求都打到数据库上面去
+				会带来什么问题
+					会造成某一时刻数据库请求量过大，压力剧增
+				如何解决
+					在第一个查询数据的请求上使用一个 互斥锁来锁住它
+				缓存并发
+			缓存雪崩
+				什么是缓存雪崩
+					当某一时刻发生大规模的缓存失效的情况，比如你的缓存服务宕机了，会有大量的请求进来直接打到DB上面
+				解决办法
+					事前
+						使用集群缓存，保证缓存服务的高可用
+					事中
+						ehcache本地缓存 + Hystrix限流&amp;降级,避免MySQL被打死
+						加锁队列
+							只允许抢锁成功的请求去库里面读取数据然后将其存入缓存中，再释放锁，让后续的读请求从缓存中取数据
+							分布式锁
+							弊端
+								过多的读请求线程堵塞，将机器内存占满，依然没有能够从根本上解决问题。
+					事后
+						开启Redis持久化机制，尽快恢复缓存集群
+				缓存失效
+			缓存穿透
+				什么是缓存穿透
+					查询不存在数据的现象
+				穿透带来的问题
+					致你的数据库由于压力过大而宕掉
+				解决办法
+					缓存空值
+						它的过期时间会很短，最长不超过五分钟
+					 BloomFilter
+						布隆过滤器
+							将所有可能存在的数据哈希到一个足够大的 bitmap 中
+						特点
+							只要返回数据不存在，则肯定不存在
+							返回数据存在，但只能是大概率存在
+							同时不能清除其中的数据
+							Bloom Filter 有一定的误报率，这个误报率和 Hash 算法的次数 H，以及数组长度 L 都是有关的
+			热点数据集中失效
+				解决办法
+					设置不同的失效时间
+					互斥锁
+			缓存一致性问题
+				先更新数据库，再更新缓存
+				先删除缓存，再更新数据库
+				先更新数据库，再删除缓存
+		更新缓存的四种Design Pattern
+			Cache aside
+				失效
+					应用程序先从 cache 取数据，没有得到，则从数据库中取数据，成功后，放到缓存中
+				命中
+					应用程序从 cache 中取数据，取到后返回
+				更新
+					先把数据存到数据库中，成功后，再让缓存失效
+			Read through
+				当缓存失效的时用缓存服务自己来加载，从而对应用方是透明的
+				查询操作中更新缓存
+			Write through
+				当有数据更新的时候
+					如果没有命中缓存，直接更新数据库，然后返回
+					如果命中了缓存
+						则更新缓存
+						由 Cache 自己更新数据库（这是一个同步操作）
+			Write behind caching
+				在更新数据的时候，只更新缓存，不更新数据库
+	redis
+		工作模型
+			集群模式
+				Twemproxy
+				Codis
+			单机（Standalone）
+			哨兵机制
+				功能
+					监控（Monitoring）
+						哨兵会不断地检查主节点和从节点是否运作正常
+					自动故障转移（Automatic failover）
+						当主节点不能正常工作时，哨兵会开始自动故障转移操作，它会将失效主节点的其中一个从节点升级为新的主节点，并让其他从节点改为复制新的主节点。
+					配置提供者（Configurationprovider
+						客户端在初始化时，通过连接哨兵来获得当前 Redis 服务的主节点地址
+					通知（Notification）
+						哨兵可以将故障转移的结果发送给客户端
+				架构
+					哨兵节点
+						哨兵系统由一个或多个哨兵节点组成，哨兵节点是特殊的 Redis 节点，不存储数据
+					数据节点
+						主节点和从节点都是数据节点
+				部署
+					主从节点
+					哨兵节点
+			单线程的多路 IO 复用模型
+			过期淘汰机制/数据淘汰策略
+				volatile-lru
+					从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰
+				volatile-ttl
+					从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰
+				volatile-random
+					从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰
+				allkeys-lru
+					当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key
+				allkeys-random
+					从数据集（server.db[i].dict）中任意选择数据淘汰。
+				no-enviction
+					禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错
+			持久化
+				RDB快照
+				AOF
+					append-only file
+			Redis 事务
+				Redis 通过 MULTI、EXEC、WATCH 等命令来实现事务(transaction)功能。
+		分布式集群的常见形式
+		分布式锁
+			setnx+lua
+			set key value px milliseconds nx
+			要点
+				set命令要用set key value px milliseconds nx；
+				value要具有唯一性；
+				释放锁时要验证value值，不能误解锁；
+			Redlock
+		数据结构
+			链表list
+				命令
+					lpush、rpush、lpop、rpop、lrange
+				双向链表
+				可以直接获得头、尾节点。
+			set
+				命令
+					sadd、spop、smembers、sunion
+			zset/Sorted Set
+				命令
+					zadd、zrange、zrem、zcard
+			字典(Hash)
+				命令
+					 hget、hset、hgetall
+				渐进式rehash
+			String
+				命令
+					set、get、decr、incr、mget
+			跳跃表skipList
+				skiplist和各种平衡树（如AVL、红黑树等）的元素是有序排列的
+				skiplist和平衡树的时间复杂度都为O(log n)，大体相当
+			整数集合(intset)
+			压缩列表(ziplist)
+				顺序型数据结构
+				一般用于小数据存储
+			快速列表(quicklist)
+				一个由ziplist组成的双向链表
+				redis3.2
+				压缩算法，采用的LZF——一种无损压缩算法
+			HyperLogLog
+				2.8.9
+				基数统计的算法
+		如何保证redis和DB中的数据一致性
+		开发规范
+			key名设计
+				可读性和可管理性
+					以业务名(或数据库名)为前缀(防止key冲突)，用冒号分隔，比如业务名:表名:id
+				简洁性
+					保证语义的前提下，控制key的长度，当key较多时，内存占用也不容忽视
+				不要包含特殊字符
+			value设计
+				拒绝bigkey(防止网卡流量、慢查询)
+					string类型控制在10KB以内，hash、list、set、zset元素个数不要超过5000。
+				选择适合的数据类型。
+					实体类型(要合理控制和使用数据结构内存编码优化配置,例如ziplist，但也要注意节省内存和性能之间的平衡)
+			控制key的生命周期，redis不是垃圾桶。
+				建议使用expire设置过期时间(条件允许可以打散过期时间，防止集中过期)，不过期的数据重点关注idletime。
+			命令使用
+				禁用命令
+					禁止线上使用keys、flushall、flushdb等
+			客户端使用
+				避免多个应用使用一个Redis实例
+					不相干的业务拆分，公共数据做服务化。
+				使用带有连接池的数据库
+				高并发下建议客户端添加熔断功能(例如netflix hystrix)
+				设置合理的密码
+				根据自身业务类型，选好maxmemory-policy(最大内存淘汰策略)，设置好过期时间
+					默认策略是volatile-lru，即超过最大内存后，在过期键中使用lru算法进行key的剔除，保证不过期数据不被删除，但是可能会出现OOM问题
+			使用Pipeline加速查询速度
+		相关工具
+			数据同步
+				redis间数据同步可以使用：redis-port
+			big key搜索
+		Pipeline
+			将一组 Redis 命令进行组装
+			通过一次 RTT 传输给 Redis
+			这组 Redis 命令按照顺序执行并将结果返回给客户端
+		通信协议
+			Redis Serialization Protocol
+				RESP
+				实现简单
+				快速解析
+				可读性强
+				支持二进制安全
+				支持的数据类型
+					Simple Strings
+						+
+						非二进制安全字符串
+					Errors
+						-
+					Integers
+						:
+					Bulk Strings
+						$
+						多行字符串
+						二进制安全
+						最大长度是512MB
+						以$+数字开头，以\r\n结束
+					Arrays
+						*
+					通过首个字节区分
+				每一部分结束时，Redis统一使用“\r\n”表示结束
+			客户端和服务器端通信
+			如果Redis客户端订阅了Pub/Sub频道
+				协议就会变成一种推送协议
+		发布订阅
+			SUBSCRIBE channel [channel ...]
+			PUBLISH channel message
+	Memcached
+		数据结构
+			String
+		多线程，非阻塞 IO 复用的网络模型
+		对比
+	leveldb
+		https://github.com/google/leveldb
+		KV数据库引擎</p>
+
+  </blockquote>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

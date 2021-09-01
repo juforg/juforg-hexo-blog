@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="有用的项目收集整理    名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar    DJNativeSwing Java内置浏览器 Jar    Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGr">
+<meta name="keywords" content="随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目收集整理">
+<meta property="og:url" content="http://blog.appcity.vip/essay/项目收集整理/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="有用的项目收集整理    名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar    DJNativeSwing Java内置浏览器 Jar    Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目收集整理">
+<meta name="twitter:description" content="有用的项目收集整理    名称 描述 类型 地址     JavaHost 使用虚拟DNS省掉开发环境配置hosts文件 Jar    DJNativeSwing Java内置浏览器 Jar    Highcharts 图表 Html/CSS http://www.hcharts.cn   ECharts 百度图表库 Html/CSS http://echarts.baidu.com   jqGr">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/essay/项目收集整理/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>项目收集整理 | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/essay/项目收集整理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juforg">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">项目收集整理
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-21 16:09:11" itemprop="dateCreated datePublished" datetime="2016-11-21T16:09:11+08:00">2016-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-05 22:47:18" itemprop="dateModified" datetime="2020-02-05T22:47:18+08:00">2020-02-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/essay/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/essay/项目收集整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/essay/项目收集整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>有用的项目收集整理</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaHost</td>
+<td>使用虚拟DNS省掉开发环境配置hosts文件</td>
+<td>Jar</td>
+<td></td>
+</tr>
+<tr>
+<td>DJNativeSwing</td>
+<td>Java内置浏览器</td>
+<td>Jar</td>
+<td></td>
+</tr>
+<tr>
+<td>Highcharts</td>
+<td>图表</td>
+<td>Html/CSS</td>
+<td>http://www.hcharts.cn</td>
+</tr>
+<tr>
+<td>ECharts</td>
+<td>百度图表库</td>
+<td>Html/CSS</td>
+<td>http://echarts.baidu.com</td>
+</tr>
+<tr>
+<td>jqGrid</td>
+<td>表格控件</td>
+<td>jQuery插件</td>
+<td>http://www.jqgrid.com/</td>
+</tr>
+<tr>
+<td>jQuery.bsgrid</td>
+<td>表格控件</td>
+<td>jQuery插件</td>
+<td>http://thebestofyouth.com/bsgrid/</td>
+</tr>
+<tr>
+<td>easypoi</td>
+<td>EasyPoi Excel和 Word简易工具类</td>
+<td>jar</td>
+<td>http://git.oschina.net/jueyue/easypoi</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>分布式应用程序协调服务</td>
+<td>war</td>
+<td>http://zookeeper.apache.org/</td>
+</tr>
+<tr>
+<td>Grid++Report</td>
+<td>WEB报表插件</td>
+<td>ActiveX</td>
+<td>http://www.rubylong.cn/</td>
+</tr>
+<tr>
+<td>open-falcon</td>
+<td>人性化的互联网企业级监控系统</td>
+<td>Linux</td>
+<td>http://http://open-falcon.com/</td>
+</tr>
+<tr>
+<td>Disconf</td>
+<td>为各种业务平台提供统一的配置管理服务</td>
+<td>war</td>
+<td>https://github.com/knightliao/disconf</td>
+</tr>
+<tr>
+<td>Lepus（天兔）</td>
+<td>数据库企业监控系统</td>
+<td>java/.net</td>
+<td>http://www.lepus.cc/</td>
+</tr>
+<tr>
+<td>Apache NiFi</td>
+<td>数据处理和分发系统</td>
+<td>java</td>
+<td>http://nifi.apache.org/</td>
+</tr>
+<tr>
+<td>Locust</td>
+<td>开源负载测试工具</td>
+<td>Python</td>
+<td>http://locust.io/</td>
+</tr>
+<tr>
+<td>Vuvuzela</td>
+<td>不会暴露他和谁进行通讯消息通讯系统</td>
+<td>go</td>
+<td>https://github.com/davidlazar/vuvuzela</td>
+</tr>
+<tr>
+<td>ABTestingGateway</td>
+<td>基于动态策略的灰度发布系统</td>
+<td>nginx</td>
+<td>https://github.com/SinaMSRE/ABTestingGateway</td>
+</tr>
+<tr>
+<td>IoTivity</td>
+<td>无缝的支持设备到设备的互联</td>
+<td>复合</td>
+<td>https://www.iotivity.org/</td>
+</tr>
+<tr>
+<td>Mycat</td>
+<td>用来替代昂贵的Oracle集群</td>
+<td>复合</td>
+<td>https://github.com/MyCATApache</td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>RPC框架</td>
+<td>java</td>
+<td>https://github.com/grpc/grpc-java</td>
+</tr>
+<tr>
+<td>Plyr</td>
+<td>开发的基于浏览器上的多媒体播放器</td>
+<td>HTML5</td>
+<td>https://plyr.io/</td>
+</tr>
+<tr>
+<td>Plog</td>
+<td>一套处理日志流的框架</td>
+<td>python</td>
+<td>https://github.com/SinaMSRE/Plog</td>
+</tr>
+<tr>
+<td>glot</td>
+<td>可以在线运行各种编程语言代码片段的平台</td>
+<td>复合</td>
+<td>https://glot.io/</td>
+</tr>
+<tr>
+<td>PeerVPN</td>
+<td>构建虚拟专网的开源软件系统</td>
+<td>sh</td>
+<td>http://www.peervpn.net/</td>
+</tr>
+<tr>
+<td>WifiDog</td>
+<td>无线认证的软件</td>
+<td>sh</td>
+<td>http://dev.wifidog.org/</td>
+</tr>
+<tr>
+<td>Shireframe</td>
+<td>HTML 实现界面原型的绘制</td>
+<td>js</td>
+<td>https://github.com/tsx/shireframe</td>
+</tr>
+<tr>
+<td>PayMap</td>
+<td>集成（支付宝、微信、银联、光大、邮政支付）支付的小Demo</td>
+<td>java</td>
+<td>https://github.com/Martin404/PayMap</td>
+</tr>
+<tr>
+<td>Python_sdk</td>
+<td>优图人脸识别(Face Recognition)</td>
+<td>Python</td>
+<td>https://www.oschina.net/p/python_sdk</td>
+</tr>
+<tr>
+<td>VOOME</td>
+<td>人脸标注引擎</td>
+<td>ios/android</td>
+<td>http://www.voome.cn/home/index.shtml</td>
+</tr>
+</tbody>
+</table>
+<h2>快速开发框架</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G4Studio</td>
+<td>二次快速开发平台</td>
+<td>JavaEE</td>
+<td>http://git.oschina.net/osworks/G4Studio</td>
+</tr>
+<tr>
+<td>JFinal</td>
+<td>极速 WEB + ORM 框架</td>
+<td>Maven</td>
+<td>http://www.jfinal.com</td>
+</tr>
+<tr>
+<td>JCOP</td>
+<td>轻量级代码生成</td>
+<td>Gradle</td>
+<td>http://git.oschina.net/zhouleib1412/jfinal-code-online</td>
+</tr>
+<tr>
+<td>jfinal-oauth2.0-login</td>
+<td>对第三方登陆的基础封装</td>
+<td>JavaEE</td>
+<td>http://git.oschina.net/596392912/jfinal-oauth2.0-login</td>
+</tr>
+<tr>
+<td>eova</td>
+<td>J2EE快速开发平台,基于JFinal</td>
+<td>Maven</td>
+<td>http://git.oschina.net/eova/eova</td>
+</tr>
+<tr>
+<td>tiny</td>
+<td>组件化的J2EE开发框架</td>
+<td>Maven</td>
+<td>http://git.oschina.net/tinyframework/tiny</td>
+</tr>
+<tr>
+<td>JEECG</td>
+<td>基于代码生成器的智能开发平台</td>
+<td>Maven</td>
+<td>http://git.oschina.net/jeecg/jeecg</td>
+</tr>
+<tr>
+<td>AOS</td>
+<td>标准功能可复用、通用模块可配置</td>
+<td>JavaEE</td>
+<td>https://git.oschina.net/osworks/AOS</td>
+</tr>
+<tr>
+<td>Lemon OA</td>
+<td>基于Java开发的开源OA</td>
+<td>Maven</td>
+<td>http://www.mossle.com/index.do</td>
+</tr>
+<tr>
+<td>EasyDarwin</td>
+<td>一款开源流媒体平台框架</td>
+<td>复合</td>
+<td>http://www.easydarwin.org/</td>
+</tr>
+<tr>
+<td>Codetainer</td>
+<td>基于浏览器上的代码运行沙箱</td>
+<td>go</td>
+<td>https://github.com/codetainerapp/codetainer</td>
+</tr>
+<tr>
+<td>Gor Go</td>
+<td>HTTP 流量复制工具</td>
+<td>go</td>
+<td>https://github.com/buger/gor</td>
+</tr>
+<tr>
+<td>NutzWk</td>
+<td>基于Nutz的开源企业级开发框架</td>
+<td>JavaEE</td>
+<td>https://github.com/Wizzercn/NutzWk</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>http://www.voome.cn/home/index.shtml</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>API接口开发管理</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apiary</td>
+<td></td>
+<td></td>
+<td>https://apiary.io/</td>
+</tr>
+<tr>
+<td>jQuery.ajaxMock</td>
+<td></td>
+<td>js</td>
+<td></td>
+</tr>
+<tr>
+<td>RAP</td>
+<td>管理接口文档,生成Mock数据</td>
+<td>java</td>
+<td>http://thx.github.io/RAP</td>
+</tr>
+<tr>
+<td>AnyProxy</td>
+<td>一个开放式的HTTP/HTTPS代理，你可以灵活控制各种网络数据</td>
+<td>node.js</td>
+<td>http://anyproxy.io/</td>
+</tr>
+<tr>
+<td>mock-api</td>
+<td>线上restful api的模拟平台</td>
+<td>http://mock-api.com/</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>机器学习</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>代码</th>
+<th>官网</th>
+<th>语言</th>
+<th>许可证</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TensorFlow</td>
+<td>https://github.com/tensorflow/tensorflow</td>
+<td>http://tensorflow.org/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>三星的Veles</td>
+<td>https://github.com/samsung/veles</td>
+<td>https://velesnet.ml/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DMTK</td>
+<td>https://github.com/Microsoft/DMTK</td>
+<td>http://www.dmtk.io/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Marvin</td>
+<td>https://github.com/PrincetonVision/marvin</td>
+<td>http://marvin.is/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SystemML</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Caffe</td>
+<td>https://github.com/BVLC/caffe</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Theano</td>
+<td>https://github.com/Theano/Theano</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Torch</td>
+<td>https://github.com/torch/torch7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Brainstorm</td>
+<td>https://github.com/IDSIA/brainstorm</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Chainer</td>
+<td>https://github.com/pfnet/chainer</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Deeplearning4j</td>
+<td>https://github.com/deeplearning4j/deeplearning4j</td>
+<td>http://deeplearning4j.org/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Marvin</td>
+<td>https://github.com/PrincetonVision/marvin</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ConvNetJS</td>
+<td>https://github.com/karpathy/convnetjs</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXNet</td>
+<td>https://github.com/dmlc/mxnet</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Neon</td>
+<td>https://github.com/NervanaSystems/neon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scikit-Learn</td>
+<td>https://github.com/scikit-learn/scikit-learn</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PredictionIO</td>
+<td>https://github.com/PredictionIO/PredictionIO</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Brain</td>
+<td>https://github.com/harthur/brain</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Keras</td>
+<td>https://github.com/fchollet/keras</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CNTK</td>
+<td>https://github.com/Microsoft/CNTK</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>https://github.com/clips/pattern</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NuPIC</td>
+<td>https://github.com/numenta/nupic</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vowpal Wabbit</td>
+<td>https://github.com/JohnLangford/vowpal_wabbit</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ruby Warrior</td>
+<td>https://github.com/ryanb/ruby-warrior</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>https://github.com/dmlc/xgboost</td>
+<td>C++</td>
+<td>Apache-2.0 license</td>
+<td></td>
+</tr>
+<tr>
+<td>GoLearn</td>
+<td>https://github.com/sjwhitworth/golearn</td>
+<td>go</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ML_for_Hackers</td>
+<td>https://github.com/johnmyleswhite/ML_for_Hackers</td>
+<td>R</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H2O-2</td>
+<td>https://github.com/h2oai/h2o-2</td>
+<td>Java</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Oryx 2</td>
+<td>https://github.com/cloudera/oryx</td>
+<td>Java</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Shogun</td>
+<td>https://github.com/shogun-toolbox/shogun</td>
+<td>C/C++、Python</td>
+<td>GPLv3</td>
+<td></td>
+</tr>
+<tr>
+<td>HLearn</td>
+<td>https://github.com/mikeizbicki/HLearn</td>
+<td>Haskell</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MLPNeuralNet</td>
+<td>https://github.com/nikolaypavlov/MLPNeuralNet</td>
+<td>Objective-C</td>
+<td>BSD license</td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Mahout</td>
+<td>https://github.com/apache/mahout</td>
+<td>Java</td>
+<td>Apache</td>
+<td></td>
+</tr>
+<tr>
+<td>Seldon Server</td>
+<td>https://github.com/SeldonIO/seldon-server</td>
+<td>Java</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Datumbox - Framework</td>
+<td>https://github.com/datumbox/datumbox-framework</td>
+<td>Java</td>
+<td>Apache License 2.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Jubatus</td>
+<td>https://github.com/jubatus/jubatus</td>
+<td>C/C++</td>
+<td>LGPL</td>
+<td></td>
+</tr>
+<tr>
+<td>Decider</td>
+<td>https://github.com/danielsdeleo/Decider</td>
+<td>Ruby</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>移动开发</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+<th>授权协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bugly</td>
+<td>移动应用崩溃检测服务</td>
+<td>http://bugly.qq.com/</td>
+<td>http://bugly.qq.com/whitebook</td>
+<td></td>
+</tr>
+<tr>
+<td>Bugtags</td>
+<td>移动测试</td>
+<td>https://bugtags.com/</td>
+<td>http://help.bugtags.com/hc/</td>
+<td></td>
+</tr>
+<tr>
+<td>Calabash</td>
+<td>自动化测试框架</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Appium</td>
+<td>动化测试框架</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Robotium</td>
+<td>开源的测试框架</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Frank</td>
+<td>自动化测试框架</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UIAutomator</td>
+<td>测试框架</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>notie.js</td>
+<td>javascript通知插件</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>react-calculator</td>
+<td>基于react.js实现的计算器</td>
+<td>http://blog.benoitvallon.com/react-native-nw-react-calculator/#/?_k=tu4ugv</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>weui</td>
+<td>基于微信的UI库</td>
+<td>http://weui.github.io/weui/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Loaders.css</td>
+<td>loader动画库</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>WeX5</td>
+<td>开源、免费的应用快速开发框架</td>
+<td>http://wex5.com/cn/wex5/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Agile Lite</td>
+<td>基于 HTML5+CSS3+JS 的移动应用开发框架</td>
+<td>http://git.oschina.net/nandy007/agile-lite</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mui</td>
+<td>高性能App的框架</td>
+<td>https://github.com/dcloudio/mui</td>
+<td>https://github.com/dcloudio/mui</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>Dexposed</td>
+<td>Xposed AOP 框架</td>
+<td>https://github.com/alibaba/dexposed</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Artemis</td>
+<td>超高性能的 Java 对象消息服务器</td>
+<td>http://activemq.apache.org/artemis/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GT（随身调）</td>
+<td>直接运行在手机上的“集成调测环境”</td>
+<td>http://gt.qq.com/</td>
+<td>https://github.com/TencentOpen/GT</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>图表</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plotly</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>jqPlot</td>
+<td>http://www.jqplot.com/</td>
+<td></td>
+</tr>
+<tr>
+<td>MPLD3</td>
+<td>http://mpld3.github.io/</td>
+<td></td>
+</tr>
+<tr>
+<td>Bokeh</td>
+<td>https://www.continuum.io/bokeh</td>
+<td></td>
+</tr>
+<tr>
+<td>Highcharts</td>
+<td>http://www.highcharts.com/</td>
+<td></td>
+</tr>
+<tr>
+<td>Flotcharts</td>
+<td>https://github.com/flot/flot</td>
+<td></td>
+</tr>
+<tr>
+<td>MetricsGraphics</td>
+<td>http://metricsgraphicsjs.org/</td>
+<td></td>
+</tr>
+<tr>
+<td>Vega</td>
+<td>https://github.com/vega/vega</td>
+<td></td>
+</tr>
+<tr>
+<td>Chartjs</td>
+<td>http://www.chartjs.org/</td>
+<td></td>
+</tr>
+<tr>
+<td>gRaphaël’s</td>
+<td>http://g.raphaeljs.com/</td>
+<td>https://github.com/DmitryBaranovskiy/g.raphael/tree/master</td>
+</tr>
+<tr>
+<td>ECharts-X</td>
+<td>http://echarts.baidu.com/</td>
+<td>https://github.com/ecomfe/echarts</td>
+</tr>
+<tr>
+<td>Mapv</td>
+<td>http://mapv.baidu.com/</td>
+<td>https://github.com/huiyan-fe/mapv/</td>
+</tr>
+</tbody>
+</table>
+<h2>js库</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>raphael.js</td>
+<td>通过SVG/VML+JS实现跨浏览器的矢量图形实现方案</td>
+<td>http://raphaeljs.com/</td>
+<td>https://github.com/DmitryBaranovskiy/raphael/</td>
+</tr>
+<tr>
+<td>Editor.md</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nuclear</td>
+<td>形似 React 的超轻量级框架</td>
+<td>http://alloyteam.github.io/Nuclear/</td>
+<td></td>
+</tr>
+<tr>
+<td>vConsole</td>
+<td>前端调试面板看log</td>
+<td>https://github.com/WechatFE/vConsole</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>工作流</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Snaker</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FoxBPM</td>
+<td>吸纳了 jBPM3 、 Activiti5、BonitaBPM 等国际开源流程引擎的精髓</td>
+<td>https://github.com/fixteam/fixflow</td>
+<td></td>
+</tr>
+<tr>
+<td>bpmn-js</td>
+<td>BPMN2.0渲染工具包和Web模型</td>
+<td>http://bpmn.io/</td>
+<td>https://github.com/bpmn-io/bpmn-js</td>
+</tr>
+<tr>
+<td>myflow</td>
+<td>基于raphael.js</td>
+<td>一个可嵌入的开源 Markdown 在线编辑器组件</td>
+<td>https://pandao.github.io/editor.md/</td>
+</tr>
+<tr>
+<td>JFlow</td>
+<td>具有.net与java两个版本</td>
+<td>http://jflow.cn/</td>
+<td>http://git.oschina.net/chichengsoft/JFlow</td>
+</tr>
+</tbody>
+</table>
+<h2>爬虫</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jsoup</td>
+<td>用于解析HTML的Java 类库</td>
+<td>http://jsoup.org/</td>
+<td>https://github.com/jhy/jsoup/</td>
+</tr>
+<tr>
+<td>Pholcus</td>
+<td>一款纯Go语言编写的高并发、分布式、重量级爬虫软件</td>
+<td>https://pholcus.gitbooks.io/docs/</td>
+<td>https://github.com/henrylee2cn/pholcus</td>
+</tr>
+<tr>
+<td>八爪鱼</td>
+<td></td>
+<td>http://www.bazhuayu.com/</td>
+<td></td>
+</tr>
+<tr>
+<td>import.io</td>
+<td></td>
+<td>http://import.io</td>
+<td></td>
+</tr>
+<tr>
+<td>集搜客</td>
+<td></td>
+<td>http://www.gooseeker.com/</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Bug跟踪工具</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>官网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redmine</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bugzilla</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Trac</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Mantis</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="http://wntc-1251220317.cossh.myqcloud.com/2019/3/8/1552054329801.png" alt="Juforg wechat" style="width: 200px; max-width: 100%;">
+  <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bigdata/hbase实践/" rel="next" title="Hbases实践">
+                <i class="fa fa-chevron-left"></i> Hbases实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/buger/jqgrid翻页无效果/" rel="prev" title="jqGrid翻页无效果debug经历">
+                jqGrid翻页无效果debug经历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">有用的项目收集整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">快速开发框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">API接口开发管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">移动开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">图表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">js库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">8.</span> <span class="nav-text">工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">9.</span> <span class="nav-text">爬虫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">10.</span> <span class="nav-text">Bug跟踪工具</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

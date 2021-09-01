@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>夕拾阁</title>
+  
+  <subtitle>努力程度决定了你能达到的下限</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.appcity.vip/"/>
+  <updated>2021-01-22T10:07:43.249Z</updated>
+  <id>http://blog.appcity.vip/</id>
+  
+  <author>
+    <name>Juforg</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微软云devops之workitem使用</title>
+    <link href="http://blog.appcity.vip/essay/%E5%BE%AE%E8%BD%AF%E4%BA%91devops%E4%B9%8Bworkitem%E4%BD%BF%E7%94%A8/"/>
+    <id>http://blog.appcity.vip/essay/微软云devops之workitem使用/</id>
+    <published>2020-12-31T12:44:33.000Z</published>
+    <updated>2021-01-22T10:07:43.249Z</updated>
+    
+    <content type="html"><![CDATA[<p><pre class="mermaid">graph TDA(新建WorkItem)--> CT{类型选择}subgraph 评估环节CT -->|测出来确认是个缺陷| BUG[类型设为 Bug]CT -->|测试后不确认是否是问题| ISSUE[类型设为 Issue]CT -->|识别出是个可以直接执行的任务| TASK[类型设为 Task]CT -->|是个新需求| REQUIREMENT[类型设为 Requirement]CT -->|判断出是个比较大的模块功能| FEATURE[类型设为 feature]CT -->|识别出是个风险点| RISK[类型设为 risk]CT -->|识别出是个用户级比较大的需求变更| CHANGEREQUEST[类型设为 ChangeRequest]BUG -->CP{是否能够判断具体到开发责任人}FEATURE --> |创建需求子任务| REQUIREMENTISSUE --> BA>需求分析人员]endCP --> |不能判定开发责任人|DEV_LEADERCP --> |能判定开发责任人|DEVELOPsubgraph 分析环节TASK -->|指派给| DEV_LEADER>开发经理]BA -->|分析为需要修复的bug| CPREQUIREMENT --> DEV_LEADERCHANGEREQUEST --> DEV_LEADERDEV_LEADER -->  CAN_DEV{判断是否可以开发}CAN_DEV -->|可以开发实现|DL_ACTIVE((状态改为Active))DL_ACTIVE --> NEED_DIVIDE{判断是否需要拆分任务}NEED_DIVIDE -->|需要拆分任务|CREATE_CHILD[创建子任务]CREATE_CHILD -->|父任务|CLOSE_SPLIT((状态改为Closed,Split))endsubgraph 开发环节CREATE_CHILD -->|子任务|DEVELOPNEED_DIVIDE -->|不需要拆分任务,指派给|DEVELOP>开发人员]DEVELOP -->|开始开发|DEV_ACTIVE((状态改为Active))DEVELOP -->|非自己能够处理的任务|CPDEV_ACTIVE -->|开发完成|DEV_COMPLETE((状态改为Resolved))DEV_COMPLETE -->|指派给|TESTER>测试人员]TESTER -->|测试通过|CLOSED_PASS((状态改为Closed,Passed))TESTER -->|测试不通过,状态改为Active|DEVELOPendsubgraph 拒绝BA -->|分析不是一个问题| CLOSED_REJECTCAN_DEV -->|无法开发实现|CLOSED_REJECT((状态改为Closed,Reject))CLOSED_REJECT -->|指派给|CREATER>创建人]DEVELOP -->|无法开发|CLOSED_REJECTend</pre></p>]]></content>
+    
+    <summary type="html">
+    
+      针对微软云devops 里的workitem 工作流设置
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宋式编程命名风格</title>
+    <link href="http://blog.appcity.vip/essay/%E5%AE%8B%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC/"/>
+    <id>http://blog.appcity.vip/essay/宋式编程命名风格/</id>
+    <published>2020-04-08T21:31:49.000Z</published>
+    <updated>2021-03-09T05:44:45.157Z</updated>
+    
+    <content type="html"><![CDATA[<h1>What?</h1><h2>Why?</h2><h3>命名一致性很重要</h3><p>在同个项目或同个公司中，同个对象的命名最好一致，方便理解,避免同个名称在不同地方含义不同，或同个含义在不同地方有不同名称</p><h3>让代码易于新读者理解更重要</h3><ol><li>使用的缩写一定要满足上一个一致性条件，不要用只有一个人能理解的缩写, 也不要通过砍掉几个字母来缩写单词,随意缩写严重降低了代码的可阅读性</li><li>采用有意义的命名（meaningful names）。变量的名字必须准确反映它的含义和内容</li><li>遵循当前语言的变量命名规则</li><li>不要对不同使用目的的变量使用同一个变量名</li><li>不要使用拼音</li></ol><h2>How?</h2><h3>一些特定的广为人知的缩写</h3><ul><li>例如用 i 表示迭代变量</li><li>T 表示模板参数</li><li></li></ul><h3>已有的命名规范</h3><ol><li>下划线命名法<ul><li>全小写</li><li>每个逻辑分割点用下划线来标记</li><li>例如：test_underline</li></ul></li><li>骆驼命名法 lowerCamelCase<ol><li>每一个逻辑分割点都有一个大写字母来标记</li><li>首字母小写</li><li>例如: testCamel</li></ol></li><li>帕斯卡命名法<ol><li>与骆驼命名法类似,只不过帕斯卡命名法是首字母大写</li><li>例如： TestPascal</li></ol></li><li>匈牙利命名法<ol><li>以一个或者多个小写字母开头作为前缀,该字母要指明用途</li><li>dotNet编程环境使用较多</li></ol></li></ol><h2>文件命</h2><ul><li>文件名要全部小写</li><li>可以包含下划线 (_) 或连字符 (-)</li><li>“_” 更好</li></ul><h2>类命名</h2><ul><li>名词+名词</li><li>采用 <code>帕斯卡命名法</code></li><li>抽象类命名使用 Abstract 或 Base 开头</li><li>异常类命名使用 Exception 结尾</li><li>测试类命名以它要测试的类的名称开始,以 Test 结尾，但不能以Test开头，否则有动词开头的嫌疑</li><li>将设计模式体现在名字中,有利于阅读者快速理解架构设计思想。正例: class OrderFactory; class LoginProxy;</li></ul><h2>常量命名</h2><ul><li>形容词/名词+名词 名词短语</li><li>所有单词的字母都是大写</li><li>使用下划线链接</li><li>类型常量<ul><li>单个XX_TYPE</li><li>多个XX_TYPE_XX</li></ul></li></ul><h2>变量命名</h2><ul><li>形容词/名词+名词 名词短语</li><li>成员变量<ul><li>python 采用<code>下划线命名法</code></li><li>java 采用<code>骆驼命名法</code></li></ul></li><li>后缀名词为主要含义<ul><li>如：xx_id user_id</li><li>如：xx_name user_name 名称后缀</li><li>如：xx_count login_count 数量后缀</li><li>如: xx_amt loan_amt 金额后缀</li><li>如：xx_type login_type 类型后缀</li><li>如：xx_date 日期后缀</li><li>如：xx_time 时间后缀</li></ul></li><li>如果变量为对象<ul><li>要么直接将对象名用下划线风格改写为变量名</li><li>如果需要定义同个对象的多个变量，则加前缀以示区别</li><li>如：user  这里只有后缀已经能够表达清晰</li><li>如：sys_user 这里必须加前缀才能把意思表达清晰</li></ul></li><li>如果变量为集合类型，则后缀为具体的集合类型名称<ul><li>如：xx_list</li><li>如：xx_array</li><li>如：xx_map</li><li>如：xx_set</li><li>如：xx_dict</li><li>如：xx_json</li></ul></li></ul><h2>函数命名</h2><ul><li>动词+名词<ul><li>python 采用<code>下划线命名法</code></li><li>java 采用<code>骆驼命名法</code></li></ul></li><li>前缀动词表达动作清晰<ul><li>如：add_xxx 增加</li><li>如：cal_xxx 计算</li><li>如：get_xxx 获取</li><li>如：query_xxx search_xxx 查询</li><li>如：check_xxx if_xxx 判断</li></ul></li></ul><h2>参考</h2><ul><li>https://github.com/unbug/codelf/wiki</li><li>https://google.github.io/styleguide/pyguide.html</li><li>https://www.zhihu.com/question/21440067</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      命名一致性很重要
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中华民族朝代-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/china-dynasty-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/china-dynasty-kg//</id>
+    <published>2019-10-06T13:09:44.000Z</published>
+    <updated>2020-02-05T14:47:18.924Z</updated>
+    
+    <content type="html"><![CDATA[<p>中华民族朝代夏约前2029年-约前1559年商周西周起止时间东周战国春秋西楚汉西汉新朝玄汉东汉三国曹魏蜀汉孙吴晋西晋东晋南北朝北朝五胡十六国南朝隋唐宋元明无汉之和亲，无唐之结盟，无宋之纳贡清民国中国</p>]]></content>
+    
+    <summary type="html">
+    
+      中华民族朝代的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>缓存-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/cache-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/cache-kg//</id>
+    <published>2019-10-06T13:08:35.000Z</published>
+    <updated>2020-02-05T14:47:18.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>缓存谈资本地缓存分布式缓存分级缓存问题缓存击穿什么是击穿大量的请求同时查询一个 key 时，此时这个key正好失效了，就会导致大量的请求都打到数据库上面去会带来什么问题会造成某一时刻数据库请求量过大，压力剧增如何解决在第一个查询数据的请求上使用一个 互斥锁来锁住它缓存并发缓存雪崩什么是缓存雪崩当某一时刻发生大规模的缓存失效的情况，比如你的缓存服务宕机了，会有大量的请求进来直接打到DB上面解决办法事前使用集群缓存，保证缓存服务的高可用事中ehcache本地缓存 + Hystrix限流&amp;降级,避免MySQL被打死加锁队列只允许抢锁成功的请求去库里面读取数据然后将其存入缓存中，再释放锁，让后续的读请求从缓存中取数据分布式锁弊端过多的读请求线程堵塞，将机器内存占满，依然没有能够从根本上解决问题。事后开启Redis持久化机制，尽快恢复缓存集群缓存失效缓存穿透什么是缓存穿透查询不存在数据的现象穿透带来的问题致你的数据库由于压力过大而宕掉解决办法缓存空值它的过期时间会很短，最长不超过五分钟 BloomFilter布隆过滤器将所有可能存在的数据哈希到一个足够大的 bitmap 中特点只要返回数据不存在，则肯定不存在返回数据存在，但只能是大概率存在同时不能清除其中的数据Bloom Filter 有一定的误报率，这个误报率和 Hash 算法的次数 H，以及数组长度 L 都是有关的热点数据集中失效解决办法设置不同的失效时间互斥锁缓存一致性问题先更新数据库，再更新缓存先删除缓存，再更新数据库先更新数据库，再删除缓存更新缓存的四种Design PatternCache aside失效应用程序先从 cache 取数据，没有得到，则从数据库中取数据，成功后，放到缓存中命中应用程序从 cache 中取数据，取到后返回更新先把数据存到数据库中，成功后，再让缓存失效Read through当缓存失效的时用缓存服务自己来加载，从而对应用方是透明的查询操作中更新缓存Write through当有数据更新的时候如果没有命中缓存，直接更新数据库，然后返回如果命中了缓存则更新缓存由 Cache 自己更新数据库（这是一个同步操作）Write behind caching在更新数据的时候，只更新缓存，不更新数据库redis工作模型集群模式TwemproxyCodis单机（Standalone）哨兵机制功能监控（Monitoring）哨兵会不断地检查主节点和从节点是否运作正常自动故障转移（Automatic failover）当主节点不能正常工作时，哨兵会开始自动故障转移操作，它会将失效主节点的其中一个从节点升级为新的主节点，并让其他从节点改为复制新的主节点。配置提供者（Configurationprovider客户端在初始化时，通过连接哨兵来获得当前 Redis 服务的主节点地址通知（Notification）哨兵可以将故障转移的结果发送给客户端架构哨兵节点哨兵系统由一个或多个哨兵节点组成，哨兵节点是特殊的 Redis 节点，不存储数据数据节点主节点和从节点都是数据节点部署主从节点哨兵节点单线程的多路 IO 复用模型过期淘汰机制/数据淘汰策略volatile-lru从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰volatile-ttl从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰volatile-random从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰allkeys-lru当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的keyallkeys-random从数据集（server.db[i].dict）中任意选择数据淘汰。no-enviction禁止驱逐数据，也就是说当内存不足以容纳新写入数据时，新写入操作会报错持久化RDB快照AOFappend-only fileRedis 事务Redis 通过 MULTI、EXEC、WATCH 等命令来实现事务(transaction)功能。分布式集群的常见形式分布式锁setnx+luaset key value px milliseconds nx要点set命令要用set key value px milliseconds nx；value要具有唯一性；释放锁时要验证value值，不能误解锁；Redlock数据结构链表list命令lpush、rpush、lpop、rpop、lrange双向链表可以直接获得头、尾节点。set命令sadd、spop、smembers、sunionzset/Sorted Set命令zadd、zrange、zrem、zcard字典(Hash)命令 hget、hset、hgetall渐进式rehashString命令set、get、decr、incr、mget跳跃表skipListskiplist和各种平衡树（如AVL、红黑树等）的元素是有序排列的skiplist和平衡树的时间复杂度都为O(log n)，大体相当整数集合(intset)压缩列表(ziplist)顺序型数据结构一般用于小数据存储快速列表(quicklist)一个由ziplist组成的双向链表redis3.2压缩算法，采用的LZF——一种无损压缩算法HyperLogLog2.8.9基数统计的算法如何保证redis和DB中的数据一致性开发规范key名设计可读性和可管理性以业务名(或数据库名)为前缀(防止key冲突)，用冒号分隔，比如业务名:表名:id简洁性保证语义的前提下，控制key的长度，当key较多时，内存占用也不容忽视不要包含特殊字符value设计拒绝bigkey(防止网卡流量、慢查询)string类型控制在10KB以内，hash、list、set、zset元素个数不要超过5000。选择适合的数据类型。实体类型(要合理控制和使用数据结构内存编码优化配置,例如ziplist，但也要注意节省内存和性能之间的平衡)控制key的生命周期，redis不是垃圾桶。建议使用expire设置过期时间(条件允许可以打散过期时间，防止集中过期)，不过期的数据重点关注idletime。命令使用禁用命令禁止线上使用keys、flushall、flushdb等客户端使用避免多个应用使用一个Redis实例不相干的业务拆分，公共数据做服务化。使用带有连接池的数据库高并发下建议客户端添加熔断功能(例如netflix hystrix)设置合理的密码根据自身业务类型，选好maxmemory-policy(最大内存淘汰策略)，设置好过期时间默认策略是volatile-lru，即超过最大内存后，在过期键中使用lru算法进行key的剔除，保证不过期数据不被删除，但是可能会出现OOM问题使用Pipeline加速查询速度相关工具数据同步redis间数据同步可以使用：redis-portbig key搜索Pipeline将一组 Redis 命令进行组装通过一次 RTT 传输给 Redis这组 Redis 命令按照顺序执行并将结果返回给客户端通信协议Redis Serialization ProtocolRESP实现简单快速解析可读性强支持二进制安全支持的数据类型Simple Strings+非二进制安全字符串Errors-Integers:Bulk Strings$多行字符串二进制安全最大长度是512MB以$+数字开头，以\r\n结束Arrays*通过首个字节区分每一部分结束时，Redis统一使用“\r\n”表示结束客户端和服务器端通信如果Redis客户端订阅了Pub/Sub频道协议就会变成一种推送协议发布订阅SUBSCRIBE channel [channel ...]PUBLISH channel messageMemcached数据结构String多线程，非阻塞 IO 复用的网络模型对比leveldbhttps://github.com/google/leveldbKV数据库引擎</p>]]></content>
+    
+    <summary type="html">
+    
+      缓存的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>万能图床增加imgur支持</title>
+    <link href="http://blog.appcity.vip/essay/%E4%B8%87%E8%83%BD%E5%9B%BE%E5%BA%8A%E5%A2%9E%E5%8A%A0imgur%E6%94%AF%E6%8C%81/"/>
+    <id>http://blog.appcity.vip/essay/万能图床增加imgur支持/</id>
+    <published>2019-04-16T14:31:17.000Z</published>
+    <updated>2020-02-05T14:47:18.924Z</updated>
+    
+    <content type="html"><![CDATA[<h1>What?</h1><p>imgur 是个什么鬼<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555509172943.png" alt=""></p><h3>两点信息 :</h3><ol><li>&lt;u&gt;专门的图床网站，跟阿里云腾讯云的对象存储比 职能更单一&lt;/u&gt;</li><li>&lt;u&gt;国外的，而且 <strong>被墙了</strong>&lt;/u&gt;</li></ol><h2>Where?</h2><p>https://imgur.com/</p><p>https://apidocs.imgur.com/</p><h2>How?</h2><p>如果你没有翻墙软件或代理服务器，可以不用往后看了</p><h3>使用说明</h3><ol><li><a href="https://imgur.com/register/" target="_blank" rel="noopener">注册账号</a></li><li><a href="https://api.imgur.com/oauth2/addclient" target="_blank" rel="noopener">新建application</a>以获取接口调用参数 <code>client_id</code> 和<code>client_secret</code></li><li>安装postman imgur 接口 获取token推荐方式<code>brew cask install postman</code></li><li>启动postman<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555510416584.png" alt=""></li><li>打开postman后随便点击个api<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555510517464.png" alt=""></li><li>填上所需参数<ul><li><code>https://www.getpostman.com/oauth2/callback</code></li><li><code>https://api.imgur.com/oauth2/authorize</code></li><li><code>https://api.imgur.com/oauth2/token</code></li><li><code>APPLICATION_STATE</code><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555510630424.png" alt=""></li></ul></li><li>点击 request token<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555511203678.png" alt=""><blockquote><p>这里需要注意，postman 配置了proxy 也不会弹出这个页面，需要配置全局代理才起作用</p></blockquote></li><li>点击 allow<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555511271190.png" alt=""></li><li>得到上述参数后开始配置alfred workflow  wntc<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555511349664.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555511591429.png" alt="">imgur_use  为true 才能使用 不配或 false 不会上传到imgur</li><li>使用<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/4/17/1555512400684.gif" alt=""></li><li>快捷键使用默认快捷键 为 cmd+shift+p ，该方法会将图片上传到所有配置正确的图床，如果配置了，<code>favor_yun</code> 为 <code>imgur</code> ，则剪贴板默认就是 imgur 的markdown url，如果没配<code>favor_yun</code>，虽然上传了，但是返回的地址第一个上传的云</li></ol><h2>参考</h2><ul><li><a href="https://github.com/Imgur/imgurpytho" target="_blank" rel="noopener">官方python库</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      万能图床增加对国外的图床imgur支持，使用说明
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="alfred" scheme="http://blog.appcity.vip/tags/alfred/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>应用架构-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//</id>
+    <published>2019-03-28T10:54:40.000Z</published>
+    <updated>2020-02-05T14:47:18.923Z</updated>
+    
+    <content type="html"><![CDATA[<p>应用架构高并发架构网站高并发异步化并行化负载均衡二层负载均衡三层负载均衡四层负载均衡七层负载均衡常用工具硬件F5A10Radware软件LVSLVS 主要用来做四层负载均衡DR 模式TUN 模式NAT 模式NginxNginx 主要用来做七层负载均衡并发性能官方支持每秒 5 万并发，实际国内一般到每秒 2 万并发有优化到每秒 10 万并发的，具体性能看应用场景HAProxyHAProxy 主要用来做七层负载均衡负载均衡算法静态负载均衡算法轮询Round Robin随机方式random比率Ratio优先权Priority哈希方式hash一致性哈希consistentHash动态负载均衡算法最少连接数Least Connection最快响应速度Fastest观察方法Observed预测法Predictive动态性能分配Dynamic Ratio-APM动态服务器补充Dynamic Server Act服务质量QoS服务类型ToS规则模式吞吐量QPS每秒内处理请求次数TPS每秒内处理事务次数RT响应时间架构图分支主题读写分离分库分表缓存搜索引擎消息队列重复请求场景用户快速多次点击按钮2）Nginx失败重试机制3）服务框架失败重试机制分布式系统中网络的三态性：成功，失败，未知，未知时一般三方系统会定期重试4）MQ消息重复消费5）第三方支付支付成功后，因为异常原因导致的多次异步回调；防重幂等性一个操作，不论执行多少次，产生的效果和返回的结果都是一样的并发控制+返回相同结果技术方案利用唯一交易号(流水号)实现token令牌要申请，一次有效性，可以限流redis要用删除操作来判断token，删除成功代表token校验通过Select+[Insert/Update]因为两条Sql非原子操作，适合并发量不高的新增或修改场景防重表.唯一索引，防止新增脏数据分布式锁适合分布式高并发场景或不适用其它方式的场景，比如发验证短信60秒控制，因为控制信息是记录在缓存中的，无法使用乐观锁等方式，因此只能使用分布式锁乐观锁悲观锁状态机幂等支付缓冲区幂等的不足增加了额外控制幂等的业务逻辑，复杂化了业务功能把并行执行的功能改为串行执行，降低了执行效率适用增加、更新天然幂等查询操作删除发送消息发起一笔付款请求创建业务订单缓存和数据库之间数据一致性问题机制Cache Aside模式从数据库缓存查询，如果缓存没有命中则从数据库中进行查找缓存命中当查询的时候发现缓存存在，那么直接从缓存中提取。缓存失效：当缓存没有数据的时候，则从database里面读取源数据，再加入到cache里面去。缓存更新：当有新的写操作去修改database里面的数据时，需要在写操作完成之后，让cache里面对应的数据失效。缺陷一个是读操作，但是没有命中缓存，然后就到数据库中取数据，此时来了一个写操作，写完数据库后，让缓存失效，然后，之前的那个读操作再把老的数据放进去，所以，会造成脏数据Read Through模式应用程序始终从缓存中请求数据 如果缓存没有数据，则它负责使用底层提供程序插件从数据库中检索数据检索数据后，缓存会自行更新并将数据返回给调用应用程序好处我们总是使用key从缓存中检索数据, 调用的应用程序不知道数据库， 由存储方来负责自己的缓存处理，这使代码更具可读性， 代码更清晰缺陷开发人员需要给编写相关的程序插件，增加了开发的难度性Write Through模式当数据发生更新的时候，先去Cache里面进行更新，如果命中了，则先更新缓存再由Cache方来更新database如果没有命中的话，就直接更新Cache里面的数据Write Behind Caching模式先将数据写入到缓存里面，然后再异步的写入到database中进行数据同步好处减少我们对于数据的database里面的直接访问降低压力，同时对于database的多次修改可以进行合并操作，极大的提升了系统的承载能力缺陷当cache机器出现宕机的时候，数据会有丢失的可能。预热未预热现象DB重启后，瞬间死亡服务重启后，访问异常Warm Up冷启动/解决方式接口放量走马观花把所有的接口都提前访问一遍，让系统对资源进行提前准备状态保留系统在死亡时做一个快照，然后在启动时，原封不动的还原回来普通tcp高并发消息中间件的高并发分布式系统谈资什么是分布式架构建立在网络之上的软件系统在一个分布式系统中，一组独立的计算机展现给用户的是一个统一的整体，就好像是一个系统似的演进初始阶段架构特征：应用程序，数据库，文件等所有资源都放在一台服务器上应用服务和数据服务以及文件服务分离特征：应用程序、数据库、文件分别部署在独立的资源上。：好景不长，发现随着系统访问量的再度增加，webserver机器的压力在高峰期会上升到比较高，这个时候开始考虑增加一台webserver使用缓存改善性能系统访问特点遵循二八定律，即80%的业务访问集中在20%的数据上特征：数据库中访问较集中的一小部分数据存储在缓存服务器中，减少数据库的访问次数，降低数据库的访问压力。使用“应用服务器”集群特征：多台服务器通过负载均衡同时向外部提供服务，解决单台服务器处理能力和存储空间上限的问题。使用集群是系统解决高并发、海量数据问题的常用手段过向集群中追加资源，提升系统的并发处理能力，使得服务器的负载压力不再成为整个系统的瓶颈数据库读写分离特征：多台服务器通过负载均衡同时向外部提供服务，解决单台服务器处理能力和存储空间上限的问题。反向代理和CDN加速特征：采用CDN和反向代理加快系统的访问速度。描述：为了应付复杂的网络环境和不同地区用户的访问，通过CDN和反向代理加快用户访问的速度，同时减轻后端服务器的负载压力。CDN与反向代理的基本原理都是缓存。“分布式文件”系统 和 “分布式数据库”特征：数据库采用分布式数据库，文件系统采用分布式文件系统使用NoSQL和搜索引擎特征：系统引入NoSQL数据库及搜索引擎。业务拆分特征：公共的应用模块被提取出来，部署在分布式服务器上供应用服务器调用。10、分布式服务特征：公共的应用模块被提取出来，部署在分布式服务器上供应用服务器调用。分布式服务应用会面临哪些问题1、当服务越来越多时，服务URL配置管理变得非常困难，F5硬件负载均衡器的单点压力也越来越大。2、当进一步发展，服务间依赖关系变得错踪复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。3、接着，服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？4、服务多了，沟通成本也开始上升，调某个服务失败该找谁？服务的参数都有什么约定？5、一个服务有多个业务消费者，如何确保服务质量？6、随着服务的不停升级，总有些意想不到的事发生，比如cache写错了导致内存溢出，故障不可避免，每次核心服务一挂，影响一大片，人心慌慌，如何控制故障的影响面？服务是否可以功能降级？或者资源劣化？系统拆分分布式服务框架分布式锁redis设计分布式锁优点实现简单性能对比 ZK 和 MySQL 较好对于一些要求比较严格的场景可以使用 RedLock可以利用或者借鉴 Redission缺点需要维护 Redis 集群如果要实现 RedLock 需要维护更多的集群Redisson 开源框架加锁机制锁互斥机制watch dog 自动延期机制可重入加锁机制释放锁机制Redlockzk设计分布式锁优点zK 可以不需要关心锁超时时间支持读写锁ZK 获取锁会按照加锁的顺序高可用缺点ZK 需要额外维护性能和 MySQL 相差不大，依然比较差Curator开源框架自研分布式锁谷歌的 ChubbyMySQL缺点对于高并发的场景并不是很适合实现起来较为繁琐优点理解起来简单不需要维护额外的第三方中间件特点互斥性可重入性锁超时高效，高可用支持阻塞和非阻塞支持公平锁和非公平锁(可选)安全问题长时间的 GC pause这个 STW 时间比较长，导致分布式锁进行了释放时钟发生跳跃对于 Redis 服务器如果其时间发生了跳跃，肯定会影响我们锁的过期时间长时间的网络 I/O分布式事务TCCTry尝试执行，完成所有业务检查（一致性），预留必需业务资源（准隔离性Confirm确认真正执行业务，不作任何业务检查，只使用 Try 阶段预留的业务资源，Confirm 操作满足幂等性。要求具备幂等设计，Confirm 失败后需要进行重试Cancel取消执行，释放 Try 阶段预留的业务资源，Cancel 操作满足幂等性。Cancel 阶段的异常和 Confirm 阶段异常处理方案基本上一致框架ByteTCCLCN阿里Fescar 2PCXA分布式会话Spring Session分布式id特点趋势递增全局唯一性信息安全特定场景下，能生成无规则（或者看不出规则）的序列号单调递增常见策略uuid优点性能好、高可扩展性：本地生成，无网络消耗，不需要考虑性能瓶颈缺点：无法保证趋势递增UUID 过长，如果需要在数据库存储，作为主键建立索引效率低。Snowflake原理生成结果为 64 位 Long 型数值12 位毫秒内的序列10 位数据机器位41 位时间戳（毫秒级）首位符号位：因为 ID 一般为正数，该值为 0优点趋势递增，且按照时间有序。性能高、稳定性高、不依赖数据库等第三方系统。可以按照自身业务特性灵活分配 bit 位。缺点依赖于机器时钟，时钟回拨会造成暂不可用或重复发号。snowflake 是 Twitter 开源的一个 ID 生成算法适用场景：要求高性能，可以不连续，数据类型为 long 型。FlickerFlicker 方案主要思路是设计单独的库表，利用数据库的自增 ID 来生成全局 ID优点充分利用了数据库自增 ID 机制，生成的 ID 有序递增。缺点依赖于数据库，可用性低水平扩展困难：定义好了起始值、步长和机器台数之后，如果要添加机器就比较麻烦了。适用场景：数据量不多，并发量不大。Redis因为 Redis 中的所有命令都是单线程的，可以利用 Incrby命令来模拟 ID 的递增。优点：不依赖数据库，且性能优于依赖数据库的 Flicker 方案。缺点扩展性低，Redis 集群需要设置好初始值与步长。Reids 宕机可能会生成重复的Id。适用场景：Redis 集群高可用，并发量高。Leaf美团的 Leaf 分布式 ID 生成系统在 Flicker 策略 与 Snowflake 算法的基础上做了两套优化的方案Leaf-segment 数据库方案Leaf-snowflake 方案分布式发号器分布式数据库内聚性是指每一个数据库分布节点高度自治，有本地的数据库管理系统透明性是指每一个数据库分布节点对用户的应用来说都是透明的，看不出是本地还是远程。在分布式数据系统中，用户感觉不数据是分布的，即用户不须知道关系是否分割，有无副本，数据存在于那个站点以及事物在哪个站点上执行mycatmariadbpostgreSql分布式文件系统Hadoop 的 HDFS google的 GFS淘宝的 TFS分布式缓存系统hbasemongdb分布式计算分布式一致性拜占庭将军问题共识算法高可用架构库哨兵(sentinel)阿里NetflixHystrix手段服务冗余无状态化超时机制负载均衡幂等设计异步化设计不关心返回结果的服务不太重要的服务服务限流降级熔断限流单个应用的限流 Guava 包RateLimiter分布式限流aop+redis spring-cloud-starter-alibaba-sentinelcurrent limiting只允许系统能够承受的访问量进来，超出的会被丢弃限流策略基于请求限流限制总量限制某个指标的累积上限直播间的用户总数上限为100万，超过后用户无法进入抢购商品数量为100，限制抢购用户上限为1万个，超过或直接拒绝限制时间量限制一段时间内某个指标的上限一分钟内只允许1000个用户访问每秒请求峰值为10万都需要找到合适的阀值需要通过性能压测来确定阀值或者逐步优化基于资源限流内部资源有连接数文件句柄线程数请求队列CPU利用率实现方式计数器维护一个计数器，来一个请求计数加一，达到阈值时，直接拒绝请求漏斗模式漏斗很多是用一个队列实现的，当流量过多时，队列会出现积压，队列满了，则开始拒绝请求Leaky Bucket令牌桶令牌通和漏斗模式很像，主要的区别是增加了一个中间人这个中间人按照一定的速率放入一些token，然后，处理请求时，需要先拿到token才能处理，如果桶里没有token可以获取，则不进行处理Token Bucket速率限制（Rate Limiting网络流量整形（Traffic Shaping池化技术天生自带限流基因限流的一些注意点限流越早设计约好，架构成型后，不容易加入限流模块不要成为系统的瓶颈，性能要求高最好有个开关，可以直接介入限流发生时，能及时发出通知事件限流发生时，给用户提供友好的提示 。应用场景秒杀抢购熔断防止应用程序不断地尝试可能超时和失败的服务弃卒保帅降级系统将某些不重要的业务或接口的功能降低降级的思想是丢车保帅为了解决资源不足和访问量增加的矛盾在有限的资源情况下，为了能抗住大量的请求，就需要对系统做出一些牺牲也有理解为强一致将为最终一致，或实时返回降为异步范围降级策略异常比例响应时间异常数降级方式系统后门降级系统预留后门用于降级，比如提供一个降级URL，访问URL时就执行降级指令缺点：如果服务器数量多，需要一台一台去操作，效率低独立系统降级将降级操作独立到一个单独的系统中，可以实现复杂的权限管理、批量操作等功能降级的注意点梳理和分析哪些是核心流程必须保证的，哪些是可以牺牲的排队让用户等待一段时间，而不是像限流方式直接拒绝用户等待比直接拒绝要好，比如支付请求排队模块排队模块排队模块削峰填谷区别触发原因熔断是故障引起降级是从整体负荷考虑案例无缝切换线上服务微服务架构Spring Cloud 微服务架构Feign动态代理建立连接、构造请求、发起请求、获取响应、解析响应Eureka注册中心专门负责服务的注册与发现Ribbon负载均衡Round Robin 轮询算法Hystrix隔离、熔断以及降级的一个框架resilience4j spring-cloud-starter-alibaba-sentinel熔断器三种状态关闭状态请求是可以被放行的 打开状态当熔断器统计的失败次数触发开关时，转为打开状态所有请求都是不被放行的，直接返回失败半开状态打开状态经过一个设定的时间窗口周期后，熔断器才会转换到半开状态当熔断器处于半开状态时，当前只能有一个请求被放行这个被放行的请求获得远端服务的响应后，假如是成功的，熔断器转换为关闭状态，否则转换到打开状态。Config分布式配置sleuth服务跟踪bus消息总线steam数据流task任务Spring Cloud AlibabaSentinel分布式系统的流量防卫兵entinel-dashboard整合Sentine步骤l第一步：在Spring Cloud应用的 pom.xml中引入Spring Cloud Alibaba的Sentinel模块：第二步：在Spring Cloud应用中配置sentinel dashboard的访问地址第三步：创建应用主类，并提供一个rest接口@SentinelResource配置限流规则异常处理微服务网关Zuul负责网络路由的 blocking APIsdoesn't support any long lived connections, like websocketsspring cloud gatewaynon-blocking APIstightly integrated with Spring目标是微服务架构下的一站式解决方案分布式链路跟踪系统业界实现方案开源Twitter-Zipkin主要收集“trace 数据Apache-HTracePinPoint仅能用于 java 服务器SkyWalkingUber-jaeger主要收集“trace 数据CAT闭源谷歌Dapper阿里-鹰眼Tracing新浪Watchman唯品会的 Mercury美团的MTrace腾讯天机阁解决的问题故障定位难容量评估难链路梳理难性能分析难好处跨团队的技术解耦快速迭代高并发RPC框架把复杂性屏蔽，就是RPC框架的职责client端序列化、反序列化、连接池管理、负载均衡、故障转移、队列管理，超时管理、异步管理等等server端服务端组件、服务端收发包队列、io线程、工作线程、序列化反序列化等Dubbo负载均衡限流降级异步调用下线服务定位始终是一款 RPC 框架配置中心Disconf不再维护Spring Cloud ConfigApolloNacosetcd微服务治理服务雪崩服务熔断服务降级发布和运维DevOps 和容器层坑全链路的压测系统Kubernetes服务拆分服务拆分的前提有一个持续集成的平台使得服务在拆分的过程中，保持功能的一致性API 和 UI 要动静分离API 由 API 网关统一的管理，这样后端无论如何拆分，可以保证对于前端来讲，是统一的入口数据库，需要进行良好的设计要做应用的无状态化服务拆分的时机提交代码频繁出现大量冲突小功能要积累到大版本才能上线，上线开总监级别大会横向扩展流程复杂，主要业务和次要业务耦合熔断降级全靠 if-else服务拆分的方法服务拆分的规范服务拆分最多三层，两次调用基础服务层用于屏蔽数据库，缓存层，提供原子的对象查询接口。有了这一层，当数据层做一定改变的时候，例如分库分表，数据库扩容，缓存替换等。主要做数据库的操作和一些简单的业务逻辑，不允许调用其他任何服务组合服务层这一层调用基础服务层，完成较为复杂的业务逻辑，实现分布式事务也多在这一层。可以调用基础服务层，完成复杂的业务逻辑，可以调用组合服务层，不允许循环调用，不允许调用 Controller 层服务。Controller 层接口层，调用组合服务层对外仅仅单向调用，严禁循环调用将串行调用改为并行调用，或者异步化接口应该实现幂等接口数据定义严禁内嵌，透传规范化工程名服务雪崩应对机制熔断机制雪崩效应Service MeshIstioLinkerdEnvoyConduit Linkerd 2.0MesherServiceCombDubbo Mesh鉴权单点登录（SSO）产生大量非常琐碎的网络流量和重复的工作分布式 Session 方案缺点共享存储需要一定保护机制客户端 Token 方案客户端 Token 与 API 网关结合所有请求都通过网关监控系统日志类调用链类（Tracing）度量类（Metrics）CAP 理论C 一致性Consisteny两阶段提交协议（2PC）三阶段提交协议（3PC）Paxos协议ZAB 协议在 paxos 的基础上Raft协议概念term任期，比如新的选举任期，即整个集群初始化时，或者新的Leader选举就会开始一个新的选举任期大多数假设一个集群由N个节点组成，那么大多数就是至少N/2+1状态每个节点有三种状态FollowerCandidateLeader日志复制Log Replication两个超时选举超时心跳超时Gossip基本思想一个节点想要分享一些信息给网络中的其他的一些节点于是，它周期性的随机选择一些节点，并把信息传递给这些节点。这些收到信息的节点接下来会做同样的事情，即把这些信息传递给其他一些随机选择的节点应用Redis ClusterConsulApache Cassandra失败容错Gossip也具备失败容错的能力，即使网络故障等一些问题，Gossip协议依然能很好的运行。因为一个节点会多次分享某个需要传播的信息，即使不能连通某个节点，其他被感染的节点也会尝试向这个节点传播信息健壮性Gossip协议下，没有任何扮演特殊角色的节点（比如leader等）。任何一个节点无论什么时候下线或者加入，并不会破坏整个系统的服务质量可扩展性不完美的地方拜占庭问题（Byzantine如果有一个恶意传播消息的节点，Gossip协议的分布式系统就会出问题每次的读操作，都能获得最新的数据A 可用性Availability每个请求都能在合理的时间内获得符合预期的响应P 分区容错性Partition tolerance当节点之间的网络出现问题之后，系统依然能正常提供服务网络是不可能做到100%可靠的 P（分区容错性）就是一个必选项任何分布式系统只能同时满足这三项中的两项CA理论上是不可能有CA组合CPAP架构图什么是架构架构是结构和愿景。什么是架构图架构图的作用解决沟通障碍达成共识减少歧义架构图分类场景视图逻辑视图物理视图处理流程视图开发视图案例电商秒杀服务无状态用户session安全认证HTTP 基本认证HTTP Basic Authentication（HTTP 基本认证）HTTP 1.0 提出的一种认证机制流程客户端发送 HTTP Request 给服务器因为 Request 中没有包含 Authorization header，服务器会返回一个 401 Unauthozied 给客户端，并且在 Response 的 Header &quot;WWW-Authenticate&quot; 中添加信息客户端把用户名和密码用 BASE64 加密后，放在 Authorization Header 中发送给服务器， 认证成功服务器将 Authorization Header 中的用户名密码取出，进行验证， 如果验证通过，将根据请求，发送资源给客户端基于 Session 的认证基于 Token 的认证好处服务端无状态性能较好支持移动设备支持跨程序调用Token 注销当用户注销时，Token 的有效时间还没有到，还是有效的多采用短期令牌，比如令牌有效期是 20 分钟，这样可以一定程度上降低注销后 Token 可用性的风险JWTJSON Web TokenRFC 7519JWT 一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息认证流程客户端调用登录接口（或者获取 token 接口），传入用户名密码。服务端请求身份认证中心，确认用户名密码正确。服务端创建 JWT，返回给客户端。客户端拿到 JWT，进行存储（可以存储在缓存中，也可以存储在数据库中，如果是浏览器，可以存储在 Cookie 中）在后续请求中，在 HTTP 请求头中加上 JWT。服务端校验 JWT，校验通过后，返回相关资源和数据。JWT 结构第一段为头部（Header关于该 JWT 的最基本的信息其类型以及签名所用的算法等第二段为载荷（Payload)标准中注册的声明iss：JWT 签发者sub：JWT 所面向的用户aud：接收 JWT 的一方exp：JWT 的过期时间，这个过期时间必须要大于签发时间nbf：定义在什么时间之前，该 JWT 都是不可用的iat：JWT 的签发时间jti：JWT 的唯一身份标识，主要用来作为一次性 token, 从而回避重放攻击。公共的声明一般添加用户的相关信息或其他业务需要的必要信息不建议添加敏感信息，因为该部分在客户端可解密私有的声明不建议存放敏感信息第三段为签名（Signature）创建签名需要使用 Base64 编码后的 header 和 payload 以及一个秘钥通过 header 中声明的加密方式进行加盐 secret 组合加密HMACSHA256(base64UrlEncode(header) + &quot;.&quot; + base64UrlEncode(payload), secret)每一段内容都是一个 JSON 对象将每一段 JSON 对象采用 BASE64 编码将编码后的内容用. 链接一起就构成了 JWT 字符串优点跨语言，JSON 的格式保证了跨语言的支撑基于 Token，无状态占用字节小，便于传输OAuth 2.0特点简单：不管是 OAuth 服务提供者还是应用开发者，都很容易于理解与使用；安全：没有涉及到用户密钥等信息，更安全更灵活；开放：任何服务提供商都可以实现 OAuth，任何软件开发商都可以使用 OAuth；不向后兼容 OAuth 1.02012 年 10 月RFC 6749四大角色客户端客户端是代表资源所有者对资源服务器发出访问受保护资源请求的应用程序资源拥有者资源拥有者是对资源具有授权能力的人资源服务器资源所在的服务器授权服务器为客户端应用程序提供不同的 Token，可以和资源服务器在统一服务器上，也可以独立出去四种授权方式授权码模式（authorization code）流程用户访问客户端，后者将前者导向认证服务器。用户选择是否给予客户端授权。假设用户给予授权，认证服务器将用户导向客户端事先指定的&quot;重定向 URI&quot;（redirection URI），同时附上一个授权码。客户端收到授权码，附上早先的&quot;重定向 URI&quot;，向认证服务器申请令牌。这一步是在客户端的后台的服务器上完成的，对用户不可见。认证服务器核对了授权码和重定向 URI，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。简化模式（implicit）跳过了&quot;授权码&quot;这个步骤流程客户端将用户导向认证服务器。用户决定是否给于客户端授权。假设用户给予授权，认证服务器将用户导向客户端指定的&quot;重定向 URI&quot;，并在 URI 的 Hash 部分包含了访问令牌。浏览器向资源服务器发出请求，其中不包括上一步收到的 Hash 值。资源服务器返回一个网页，其中包含的代码可以获取 Hash 值中的令牌。浏览器执行上一步获得的脚本，提取出令牌。浏览器将令牌发给客户端。密码模式（Resource Owner Password Credentials）用户向客户端提供自己的用户名和密码通常用在用户对客户端高度信任的情况下客户端模式（Client Credentials）SSO单点登录Single Sign On指在多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录登录注销通信方式sso-client1、拦截子系统未登录用户请求，跳转至sso认证中心；2、接收并存储sso认证中心发送的令牌；3、与sso-server通信，校验令牌的有效性；4、建立局部会话；5、拦截用户注销请求，向sso认证中心发送注销请求；6、接收sso认证中心发出的注销请求，销毁局部会话。sso-server认证中心1、验证用户的登录信息；2、创建全局会话；3、创建授权令牌；4、与sso-client通信发送令牌；5、校验sso-client令牌有效性；6、系统注册；7、接收sso-client注销请求，注销所有会话。中台分类业务中台提供重用服务，例如用户中心、订单中心之类的开箱即用可重用能力，为战场提供了空军支援能力，随叫随到，威力强大数据中台提供数据分析能力，帮助从数据中学习改进，调整方向，为战场提供了海军支援能力；算法中台提供算法能力，帮助提供更加个性化的服务，增强用户体验，为战场提供了陆军支援能力，随机应变，所向披靡；技术中台提供自建系统部分的技术支撑能力，帮助解决基础设施，分布式数据库等底层技术问题，为前台特种兵提供了精良的武器装备；研发中台提供自建系统部分的管理和技术实践支撑能力，帮助快速搭建项目、管理进度、测试、持续集成、持续交付，是前台特种兵的训练基地；组织中台为项目提供投资管理、风险管理、资源调度等，是战场的指挥部，战争的大脑，指挥前线，调度后方。</p>]]></content>
+    
+    <summary type="html">
+    
+      系统架构知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>推荐系统-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/tuijian-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/tuijian-kg//</id>
+    <published>2019-03-28T10:52:38.000Z</published>
+    <updated>2020-02-05T14:47:18.924Z</updated>
+    
+    <content type="html"><![CDATA[<p>推荐系统源数据用途豆瓣音乐推荐购物推荐好友推荐app推荐CF协同过滤- 基于用户的推荐- 基于物品的推荐架构图传统亚马逊推荐架构淘宝推荐架构工具上采样对少的数据进行复制多份。缺点： 训练出来的模型可能导致过拟合下采样对多的数据进行随机抽取，抽取后的数据量和负例保持一致。训练出来的模型可能导致欠拟合最大似然估计模型使用1. 获取 通过训练得出的各个app之间的关联特征权重2. 有各个用户的历史下载记录3. 有各个应用的属性信息以及个属性的权重值4. 可以取同个待选app与最近5个下载app 关联特征权重之和 得出来的矩阵 ，加上各个商品信息的权重矩阵，即为推荐列表矩阵问题冷启动一般步骤1. 需求分析架构推荐方案2. 数据清洗得到训练数据</p>]]></content>
+    
+    <summary type="html">
+    
+      推荐系统相关的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hbase-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/hbase-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/hbase-kg//</id>
+    <published>2019-03-28T10:51:17.000Z</published>
+    <updated>2020-02-05T14:47:18.922Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hbase谈资特点- 高可靠性  - 高性能  - 面向列  - 可伸缩  - 实时读写  - 分布式底层用字节数组存储与关系型数据库对比关系型数据库的优点  - 容易理解  - 使用方便  - 易于维护关系型数据库的瓶颈  - 高并发读写需求  - 海量数据的读写性能低  - 扩展性和可用性差rowkey设计案例通话记录的存储与查询rowkey:手机号+(Long.Maxvalue-时间戳)微博案例角色权限部门子部门原则长度原则 定长 越小越好 2的幂次方散列性 取反 hash 高位随机串唯一性 保证key的唯一根据实际业务来protobuf提供了自动生成java类的功能java类，提供了对象的序列化和反序列化存储模型row key  - 不能重复  - 字典顺序排序  - 只能存储64k的字节列族不大于3个列名以列族作为前缀可动态加入celll单元格可动态加入字节数组时间戳  - 默认是1  - 时间倒序排序，最新最前  - 64位整型  - 默认精确到毫秒，可以主动设置Hlog (wal log)HLogkey  数据归属信息- table- region- sequence number- timestampvalue- 就是hbase的 keyvale对象API操作查询new Get(key)new Scan[startrow,endrow)table.get(List(Get))filterPrefixFilter前缀过滤器KeyOnlyFilter只返回行，不返回column值InclusiveStopFilter扫描到这一行停止FirstKeyOnlyfilter扫描到每一行的第一列返回ColumnPrefixFilter筛选出前缀匹配的列ValueFilterSkipFilterColumnCountFilter每行最大返回多少列SingleColumnFilter插入new Put(rowkey)table.put(List(Put))批量插入删除new Delete架构namespaceclientmaster - 负责负载均衡  - 发现失效region server 重新分配region为region server 分配region  管理客户端对表单增加，删除，修改（DDL)Region server维护regionregion对应一张表store对应一个列族memstore溢写会生成stoefile多个列簇任何一个溢写会触发本server上的所有memstore溢写，浪费IOzookeeper  - 保证集群只有一个master  - 存储 region的寻址入口  - 监控regionserver的上线下线信息，并通知master存储了hbase的源数据信息Hlog优化热点问题rowkey设计有问题对rowkey打撒预分区Column Family某个column family在flush的时候，它邻近的column family也会因关联效应被触发flush，最终导致系统产生更多的I/OIn Memory创建表的时候，可以通过HColumnDescriptor.setInMemory(true)将表放到RegionServer的缓存中，保证在读取的时候被cache命中MaxVersiontime to Live设置数据生命周期，过期自动删除compact &amp; splitminor compactmajor compact二级索引es+hbase也可以做分页写表操作多HTable并发写参数设置Auto Flush</p>]]></content>
+    
+    <summary type="html">
+    
+      hbase的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//</id>
+    <published>2019-03-28T10:49:42.000Z</published>
+    <updated>2020-02-05T14:47:18.923Z</updated>
+    
+    <content type="html"><![CDATA[<p>Java知识数据类型byte1byteshort2byteint4bytelong8bytechar2byteboolean1bytefloat4bytedouble8btye集合类线程安全(Thread-safe)VectorStackHashTable无论是key还是value都不允许有null值的存在Properties持久的属性集StringBufferConcurrentHashMap用的锁分段技术，首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问1.7 分段锁segment1.8 CAS 和synchronizedCopyOnWriteArrayList在修改时先复制一个快照来修改，改完再让内部指针指向新数组因为对快照的修改对读操作来说不可见，所以只有写锁没有读锁，加上复制的昂贵成本，典型的适合读多写少的场景如果更新频率较高，或数组较大时，还是Collections.synchronizedList(list)，对所有操作用同一把锁来保证线程安全更好监听器ConcurrentSkipListMap并发优化的SortedMap以SkipList结构实现size（）同样不能随便调，会遍历来统计ConcurrentSkipListSet内部是ConcurrentSkipListMap的并发优化的SortedSetCopyOnWriteArraySet内部是CopyOnWriteArrayList的并发优化的SetQueueBlockingQueueTransferQueueLinkedTransferQueue确保一次传递完成游戏服务器转发消息SynchronousQueue容量为0ArrayBlockingQueueLinkedBlockingQueue基于链表实现PriorityBlockingQueue也是基于数组存储的二叉堆DelayQueue执行定时任务具有过期时间的缓存多考生考试Deque双向队列ConcurrentLinkedDeque基于链表，实现了依赖于CAS的无锁算法。void push(E e):将给定元素”压入”栈中E pop():将栈首元素删除并返回操作boolean offLast(E e)/offFirst(E e) 从队尾/首插入元素E pollFirst()/pollLast() 移除对首/尾元素E peekFirst()/peekLast() 查看队首/队尾元素ConcurrentLinkedQueue非阻塞式的操作poll():从队首删除并返回该元素peek():返回队首元素，但是不删除boolean offer(E e):将元素追加到队列末尾,若添加成功则返回true遵循原则：FIFO(first input,first output)先进先出原则非线程安全的集合ArrayList以数组实现节约空间，但数组有容量限制超出限制时会增加50%容量，用System.arraycopy()复制到新的数组默认第一次插入元素时创建大小为10的数组LinkedList以双向链表实现复杂度O(n/2)既是List，也是QueueArrayDeque以循环数组实现的双向QueueHashMap基于key hash查找Entry对象存放到数组的位置在扩大容量时须要重新计算hashjdk1.8之前并发操作hashmap时为什么会有死循环的问题hash碰撞对于hash冲突采用链表的方式去解决O(1)+O(n)1.8之后超过默认阈值8就用 用红黑树替代链表O(1)+O(logn)hash的实现1.8的实现中，是通过hashCode()的高16位异或低16位实现的：(h = k.hashCode()) ^ (h &gt;&gt;&gt; 16)负载因子(默认0.75)不保证数据有序LinkedHashMapLinkedHashMap是Hash表和链表的实现依靠着双向链表保证了迭代顺序是插入的顺序。TreeMap典型的基于红黑树的Map实现保持key的大小顺序读写复杂度log(n)红黑树则没有好的无锁算法HashSet基于HashMap实现，无容量限制不保证数据的有序；LinkedHashSet基于HashMap和双向链表的实现TreeSet基于TreeMap实现的利用TreeMap的特性，实现了set的有序性内部是TreeMap的SortedSetStringBuliderEnumMap键为枚举类型的特殊的Map实现所有的Key也必须是一种枚举类型EnumMap是使用数组来实现的SortedMap支持基于CAS的无锁算法PriorityQueue应用：求 Top K 大/小 的元素用平衡二叉最小堆实现的优先级队列，不再是FIFO不再是FIFO，而是按元素实现的Comparable接口或传入Comparator的比较结果来出队其iterator（）的返回不会排序数值越小，优先级越高，越先出队初始大小为11，空间不够时自动50%扩容逻辑结构是一棵完全二叉树存储结构其实是一个数组小顶堆WeakHashMap弱引用map就是Key键是一个弱引用的键，如果Key键被回收，则在get该map中值后，会自动remove掉value如果Key键始终被强引用，则是无法被回收的线程线程的几个状态分支主题newrunablerunningblockdestory创建线程继承Thread实现Runable实现Callable线程安全CAS一条CPU并发原语sun.misc.Unsafe利用处理器的CMPXCHG存在ABA问题自旋时间可能过长AQSCASCompare and Swap（比较并交换也叫非阻塞同步（Non-blocking Synchronization.需要读写的内存值 V2.进行比较的值 A3.拟写入的新值 B锁LockReentrantLock默认是非公平锁通过AQS的来实现线程调度可重入锁悲观锁是个类，就比较灵活设置等待时间，避免死锁灵活实现多路通知synchronized一种非公平锁可重入锁自己重新获得已经获得的锁独享锁悲观锁锁定的是对象静态方法锁定的是Class对象遇到异常自动释放锁是个关键字ReadWriteLock允许读读ReentrantReadWriteLockAQS各种锁的定义独享锁 / 共享锁独享锁：该锁每一次只能被一个线程所持有共享锁：该锁可被多个线程共有，典型的就是ReentrantReadWriteLock里的读锁，它的读锁是可以被共享的，但是它的写锁确每次只能被独占通过AQS来实现公平锁 / 非公平锁公平锁是指多个线程按照申请锁的顺序来获取锁非公平锁是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。有可能，会造成优先级反转或者饥饿现象可重入锁 / 不可重入锁可重入锁指的是可重复可递归调用的锁与可重入锁相反，不可递归调用，递归调用就发生死锁互斥锁 / 读写锁加锁后，任何其他试图再次加锁的线程会被阻塞，直到当前进程解锁读写锁既是互斥锁，又是共享锁，read模式是共享，write是互斥(排它锁)的读写锁有三种状态：读加锁状态、写加锁状态和不加锁状态乐观锁 / 悲观锁悲观锁共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程乐观锁每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现乐观锁适用于多读的应用类型，这样可以提高吞吐量java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。分段锁分段锁其实是一种锁的设计，并不是具体的一种锁对于1.7 ConcurrentHashMap而言，其并发的实现就是通过分段锁的形式来实现高效的并发操作偏向锁 / 轻量级锁 / 重量级锁锁的状态无锁状态偏向锁状态轻量级锁状态重量级锁状态四种状态都不是Java语言中的锁自旋锁spinlock是指当一个线程在获取锁的时候，如果锁已经被其它线程获取，那么该线程将循环等待，然后不断的判断锁是否能够被成功获取，直到获取到锁才会退出循环自旋锁存在的问题如果某个线程持有锁的时间过长，就会导致其它等待获取锁的线程进入循环等待，消耗CPU。使用不当会造成CPU使用率极高上面Java实现的自旋锁不是公平的，即无法满足等待时间最长的线程优先获取锁。不公平的锁就会存在“线程饥饿”问题自旋锁的优点自旋锁不会使线程状态发生切换，一直处于用户态，即线程一直都是active的；不会使线程进入阻塞状态，减少了不必要的上下文切换，执行速度快非自旋锁在获取不到锁的时候会进入阻塞状态，从而进入内核态，当获取到锁的时候需要从内核态恢复，需要线程上下文切换。 （线程被阻塞后便进入内核（Linux）调度状态，这个会导致系统在用户态与内核态之间来回切换，严重影响锁的性能）线程池ExecutorexecuteExecutorService Java 1.5 引入ThreadPoolExecutor可以自定义线程池参数corePoolSize 为线程池的基本大小。maximumPoolSize 为线程池最大线程大小。keepAliveTime 和 unit 则是线程空闲后的存活时间。workQueue 用于存放任务的阻塞队列。handler 当队列和最大线程池都满了之后的饱和策略。Executors Factory and utility methodsExecutors. newSingleThreadExecutor();线程池就一个线程保证任务执行前后顺序Executors. newCachedThreadPool()弹性Executors. newFixedThreadPool(5)固定个数Executors.newScheduledThreadPool定时执行线程池ForkJoinPool分而治之思想Java 1.7 引入最适合的是计算密集型的任务Executors.newWorkStealingPool根据cpu核数决定线程数内部ForkJoinPool1.8引入Callableconcurrent有返回值Runnablejava.lang无返回值ThreadLocal优点充分利用cpu资源避免了在处理短时间任务时创建与销毁线程的代价目的线程是稀缺资源，不能频繁的创建解耦作用；线程的创建于执行完全分开，方便维护应当将其放入一个池子中，可以给其他任务进行复用执行流程提交一个任务，线程池里存活的核心线程数小于线程数corePoolSize时，线程池会创建一个核心线程去处理提交的任务。如果线程池核心线程数已满，即线程数已经等于corePoolSize，一个新提交的任务，会被放进任务队列workQueue排队等待执行。当线程池里面存活的线程数已经等于corePoolSize了,并且任务队列workQueue也满，判断线程数是否达到maximumPoolSize，即最大线程数是否已满，如果没到达，创建一个非核心线程执行提交的任务。如果当前的线程数达到了maximumPoolSize，还有新的任务过来的话，直接采用拒绝策略处理。拒绝策略AbortPolicy(抛出一个异常，默认的)DiscardPolicy(直接丢弃任务)DiscardOldestPolicy（丢弃队列里最老的任务，将当前这个任务继续提交给线程池）CallerRunsPolicy（交给线程池调用所在的线程进行处理)内存可见性 Java内存模型（JMM，Java Memory Model）每个线程都有自己独立的工作内存里面保存该线程使用到的变量的副本两条规定所有的变量都存储在主内存中线程对共享变量的所有操作都必须在自己的工作内中进行，不能直接从相互内存中读写不同线程之间无法直接访问其他线程工作内存中的变量 线程间变量值得传递需要通过主内存来完成共享变量可见性的实现原理  把工作内存1中更新过的共享变量刷新到主内存中将主内存中最新的共享变量的值更新到工作内存2中共享变量在线程间不可见的原因线程的交叉执行2&gt;重排序结合线程交叉执行3&gt;共享变量更新后的值没有在工作内存与主内存间及时更新Java语言层面支持的可见性实现方式final也可以保证内存可见性volatile保证可见性synchronized可以实现互斥锁（原子性），即同步。但很多人都忽略其内存可见性这一特性线程解锁前，必须把共享变量的最新值刷新到主内存中 线程加锁时，将清空工作内存中共享变量的值，从而使用共享变量时需要从内存中重新读取最新的值（注意：加锁与解锁需要是同一把锁）既保证可见性又保证原子性一个线程对共享变量值的修改，能够及时的被其他线程看到线程通信wait/notify/sleepwait释放锁notify/sleep不释放锁CyclicBarrierCountDownLatch管道通信PipedWriterAtomic包AtomicInteger用户态Semaphore基于java同步器AQS用来控制同时访问特定资源的线程数量，通过协调各个线程，以保证合理的使用资源访问特定资源前，必须使用acquire方法获得许可，如果许可数量为0，该线程则一直阻塞，直到有可用许可访问资源后，使用release释放许可同步阻塞同步非阻塞异步阻塞异步非阻塞ThreadLocal用途保存线程上下文信息，在任意需要的地方可以获取Spring的事务管理，用ThreadLocal存储Connection线程安全的，避免某些情况需要考虑线程安全必须同步带来的性能损失ThreadLocal无法解决共享对象的更新问题JVMJVM 内存结构堆Heap堆中存放对象（对象实例）堆溢出(Out Of Memory error)OOM 的 8 种原因、及解决办法Java 堆空间造成原因无法在 Java 堆中分配对象吞吐量增加应用程序无意中保存了对象引用，对象无法被 GC 回收应用程序过度使用 finalizer。finalizer 对象不能被 GC 立刻回收。finalizer 由结束队列服务的守护线程调用，有时 finalizer 线程的处理能力无法跟上结束队列的增长解决方案使用 -Xmx 增加堆大小修复应用程序中的内存泄漏GC 开销超过限制造成原因java 进程98%的时间在进行垃圾回收，恢复了不到2%的堆空间，最后连续5个（编译时常量）垃圾回收一直如此解决方案使用 -Xmx 增加堆大小使用 -XX:-UseGCOverheadLimit 取消 GC 开销限制修复应用程序中的内存泄漏请求的数组大小超过虚拟机限制造成原因应用程序试图分配一个超过堆大小的数组解决方案使用 -Xmx 增加堆大小修复应用程序中分配巨大数组的 bugPerm gen 空间造成原因类的名字、字段、方法与类相关的对象数组和类型数组,JIT 编译器优化当 Perm gen 空间用尽时，将抛出异常解决方案使用 -XX: MaxPermSize 增加 Permgen 大小不重启应用部署应用程序可能会导致此问题。重启 JVM 解决Metaspace造成原因从 Java 8 开始 Perm gen 改成了 Metaspace，在本机内存中分配 class 元数据（称为 metaspace）。如果 metaspace 耗尽，则抛出异常解决方案通过命令行设置 -XX: MaxMetaSpaceSize 增加 metaspace 大小取消 -XX: maxmetsspacedize减小 Java 堆大小,为 MetaSpace 提供更多的可用空间为服务器分配更多的内存可能是应用程序 bug，修复 bug无法新建本机线程造成原因内存不足，无法创建新线程。由于线程在本机内存中创建，报告这个错误表明本机内存空间不足解决方案为机器分配更多的内存减少 Java 堆空间修复应用程序中的线程泄漏。增加操作系统级别的限制用户进程数增大 (-u) 1800使用 -Xss 减小线程堆栈大小杀死进程或子进程造成原因内核任务：内存不足结束器，在可用内存极低的情况下会杀死进程解决方案将进程迁移到不同的机器上给机器增加更多内存发生 stack_trace_with_native_method造成原因本机方法（native method）分配失败打印的堆栈跟踪信息，最顶层的帧是本机方法解决方案使用操作系统本地工具进行诊断堆划分年轻代Eden空间From Survivor空间To Survivor空间8:1:1的比例老年代=堆空间大小-年轻代大空间大小特点存取速度较慢堆的优势是可以动态地分配内存大小线程共享整个 Java 虚拟机只有一个堆，所有的线程都访问同一个堆在虚拟机启动时创建垃圾回收的主要场所栈Stack栈划分java虚拟机栈局部变量区操作数栈JVM栈（JVM Stacks）线程私有的生命周期与线程相同栈帧局部变量表操作数栈动态链接方法出口信息本地方法栈用于方法的执行Sun HotSpot虚拟机）直接就把本地方法栈和虚拟机栈合二为一栈中存放数据（变量 方法及对象的引用）特点数据可以共享存放基本类型存取速度比堆要快栈溢出(Stack Overflow error)如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常当扩展时无法申请到足够的内存时会抛出OutOfMemoryError异常出现 StackOverFlowError 时，内存空间可能还有很多。压栈出栈过程方法区(JDK1.7)常量，静态变量-XX:PermSize -XX:MaxPermSize别名Non-Heap(非堆)各个线程共享的内存区域“永久代”（Permanent Generation内存回收效率低整个虚拟机中只有一个方法区要回收目标是：对常量池的回收；对类型的卸载运行时常量池元数据区(JDK1.8)Metaspace-XX:MaxMetaspaceSize使用本地内存不在虚拟机中程序计数器Program Counter Register一块较小的内存空间线程私有，每条线程都有自己的程序计数器生命周期：随着线程的创建而创建，随着线程的结束而销毁是唯一一个不会出现OutOfMemoryError的内存区域作用在多线程情况下，程序计数器记录的是当前线程执行的位置，从而当线程切换回来时，就知道上次线程执行到哪了直接内存Direct Memory（堆外内存操作直接内存直接内存的大小不受 Java 虚拟机控制，但既然是内存，当内存不足时就会抛出 OutOfMemoryError 异常内存分配与回收策略对象优先在 Eden 分配Eden 区from Survivor、to Survivor 区老年代分配当分配一个大对象时(大的数组，很长的字符串)策略静态栈式堆式指针碰撞空闲列表内存管理内存分配内存回收内存管理优化小技巧1）尽量使用直接量，eg：String javaStr = &quot;小学徒的成长历程&quot;;　　2）使用StringBuilder和StringBuffer进行字符串连接等操作;　　3）尽早释放无用对象;　　4）尽量少使用静态变量;　　5）缓存常用的对象:可以使用开源的开源缓存实现，eg：OSCache，Ehcache;　　6）尽量不使用finalize()方法;　　7）在必要的时候可以考虑使用软引用SoftReference。数组及其内存管理数组变量存在栈区数组对象存在堆内存多维数组的本质是一维数组堆内存on-heap堆外内存off-heap堆外缓存EhcacheChronical Map：OHCIgnite堆外内存必须要由我们自己释放虚拟机对象探秘垃圾收集策略与算法判定对象是否存活引用计数法很难解决对象之间的循环引用问题可达性分析法从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象GC Roots虚拟机栈（栈帧中的本地变量表）中引用的对象；方法区中静态属性引用的对象；方法区中常量引用的对象；本地方法栈方法引用的对象；强引用（Strong Reference）软引用（Soft Reference）弱引用（Weak Reference）虚引用（Phantom Reference）回收方法区内存判定废弃常量判定无用的类该类的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例；加载该类的 ClassLoader 已经被回收；该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。标记-清除算法标记标记出所有需要回收的对象清除在标记完成后统一回收掉所有被标记的对象它是最基础的收集算法，是因为后续的收集算法都是基于这种思路并对其缺点进行改进而得到的缺点效率问题空间问题产生大量不连续的内存碎片复制算法内存分配时也就不用考虑内存碎片等复杂情况代价是将内存缩小为原来的一半，持续复制长生存期的对象则导致效率降低标记-整理算法Mark-Compact分代收集算法新生代老年代GC分代的基本假设：绝大部分对象的生命周期都非常短暂，存活时间短Generational Collection垃圾收集器CMSConcurrent Mark Sweep优点：并发收集、低停顿缺点对 CPU 资源敏感（会和服务器抢资源）。无法处理浮动垃圾。浮动垃圾是指 Java 业务代码与垃圾收集器并发执行过程中又产生的垃圾，这种垃圾只有等到下一次 GC 的时候再进行清理。它使用的回收算法 “标记-清除” 算法会导致大量的内存空间碎片产生。1.9 标记为废弃基于“标记-清除”算法实现过程并发清除重新标记并发标记初始标记-XX:+UseConcMarkSweepGC 使用CMS收集器G1面向服务器应用端的垃圾收集器针对多核 CPU 以及大容量内存的机器运作步骤初始标记(Init Marking，STW)并发标记(Concurrent Marking)最终标记(Remark，STW筛选回收(Clearnup，STW)19.之后是默认的可预测停顿这是G1的另一大优势，降低停顿时间是G1和CMS的共同关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型空间整合G1收集器采用标记整理算法，不会产生内存空间碎片。分配大对象时不会因为无法找到连续空间而提前触发下一次GCSerial 收集器1.3 单线程Stop The World新生代采用复制算法老年代采用标记-整理算法-XX:+UseSerialGC 串行收集器Serial Old 收集器ParNew 收集器Serial 收集器的多线程版新生代并行，老年代串行新生代复制算法、老年代标记-压缩-XX:+UseParNewGC ParNew收集器-XX:ParallelGCThreads 限制线程数量Parallel Scavenge 收集器 跟 ParNew 收集器一样关注吞吐量-XX:+UseParallelGC 使用Parallel收集器+ 老年代串行Parallel Old 收集器是Parallel Scavenge收集器的老年代版本使用多线程和“标记－整理”算法-XX:+UseParallelOldGC 使用Parallel收集器+ 老年代并行JVM 性能调优使用 64 位 JDK 管理大内存可能面临的问题内存回收导致的长时间停顿；现阶段，64位 JDK 的性能普遍比 32 位 JDK 低；需要保证程序足够稳定，因为这种应用要是产生堆溢出几乎就无法产生堆转储快照（因为要产生超过 10GB 的 Dump 文件），哪怕产生了快照也几乎无法进行分析；相同程序在 64 位 JDK 消耗的内存一般比 32 位 JDK 大，这是由于指针膨胀，以及数据类型对齐补白等因素导致的。使用 32 位 JVM 建立逻辑集群可能遇到的问题尽量避免节点竞争全局资源，如磁盘竞争，各个节点如果同时访问某个磁盘文件的话，很可能导致 IO 异常；很难高效利用资源池，如连接池，一般都是在节点建立自己独立的连接池，这样有可能导致一些节点池满了而另外一些节点仍有较多空余；各个节点受到 32 位的内存限制；大量使用本地缓存的应用，在逻辑集群中会造成较大的内存浪费，因为每个逻辑节点都有一份缓存，这时候可以考虑把本地缓存改成集中式缓存。调优工具jdk自带的工具jdk自带的工具VisualVMMATJava heap分析工具Eclipse Memory Analyzer jmap命令生产堆文件GChisto不再维护，不能识别最新jdk的日志文gcviewerGC Easyweb工具,http://gceasy.ioJava GC 分析命令动态查看命令jpsJVM Process Status Tool示指定系统内所有的HotSpot虚拟机进程jstatJVM statistics Monitoring监视虚拟机运行时状态信息的命令显示出虚拟机进程中的类装载、内存、垃圾收集、JIT编译等运行数据jmap用于生成heap dump文件jhatJVM Heap Analysis Tool与jmap搭配使用，用来分析jmap生成的dumpjstack用于生成java虚拟机当前时刻的线程快照jinfo(JVM Configuration info)实时查看和调整虚拟机运行参数频繁GC的原因人为原因在代码中调用System#GC或者Runtime#GC方法。框架原因在java程序调用相关框架时，框架内部调用了GC方法内存原因当heap大小设置比较小时，会引起频繁的GC，所以在类似于Spark这样对内存性能要求比较高的应用程序运行时，应可能给heap分配较大的内存，这样可以减少频繁的GC现象的发生其他原因当构建的对象实例化十分频繁并且释放该对象也较为频繁时，同样会产生频繁GC现象分析步骤通过 top命令查看CPU情况，如果CPU比较高，则通过 top-Hp&lt;pid&gt;命令查看当前进程的各个线程运行情况，找出CPU过高的线程之后，将其线程id转换为十六进制的表现形式，然后在jstack日志中查看该线程主要在进行的工作。这里又分为两种情况如果是正常的用户线程，则通过该线程的堆栈信息查看其具体是在哪处用户代码处运行比较消耗CPU；如果该线程是 VMThread，则通过 jstat-gcutil&lt;pid&gt;&lt;period&gt;&lt;times&gt;命令监控当前系统的GC状况，然后通过 jmapdump:format=b,file=&lt;filepath&gt;&lt;pid&gt;导出系统当前的内存数据。导出之后将内存情况放到eclipse的mat工具中进行分析即可得出内存中主要是什么对象比较消耗内存，进而可以处理相关代码；如果通过 top 命令看到CPU并不高，并且系统内存占用率也比较低。此时就可以考虑是否是由于另外三种情况导致的问题。具体的可以根据具体情况分析：如果是接口调用比较耗时，并且是不定时出现，则可以通过压测的方式加大阻塞点出现的频率，从而通过 jstack查看堆栈信息，找到阻塞点；如果是某个功能突然出现停滞的状况，这种情况也无法复现，此时可以通过多次导出 jstack日志的方式对比哪些用户线程是一直都处于等待状态，这些线程就是可能存在问题的线程；如果通过 jstack可以查看到死锁状态，则可以检查产生死锁的两个线程的具体阻塞点，从而处理相应的问题。类加载类文件结构魔数头 4 个字节魔数相当于文件后缀名，只不过后缀名容易被修改，不安全，因此在 Class 文件中标识文件类型比较合适版本信息 4 个字节是版本信息5-6 字节表示次版本号，7-8 字节表示主版本号常量池字面值常量、被 final 修饰的值符号引用类和接口的全限定名、字段的名字和描述符、方法的名字和描述符访问标志两个字节代用于识别一些类或者接口层次的访问信息这个 Class 是类还是接口；是否定义为 public 类型；是否被 abstract/final 修饰类索引、父类索引、接口索引集合Class 文件中由这三项数据来确定类的继承关系字段表集合存储本类涉及到的成员变量，包括实例变量和类变量，但不包括方法中的局部变量方法表集合与属性表类似属性表集合生命周期加载通过类的全限定名获取该类的二进制字节加载.class文件的方式从本地系统中直接加载通过网络下载.class文件从zip，jar等归档文件中加载.class文件从专有数据库中提取.class文件将Java源文件动态编译为.class文件将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构在Java堆中生成一个代表这个类的 java.lang.Class对象，作为对方法区中这些数据的访问入口验证确保被加载的类的正确性文件格式验证元数据验证字节码验证符号引用验证准备为类的 静态变量分配内存，并将其初始化为默认值数据类型默认的零值（如0、0L、null、false等如果类字段的字段属性表中存在 ConstantValue属性，即同时被final和static修饰，那么在准备阶段变量value就会被初始化为ConstValue属性所指定的值解析把类中的符号引用转换为直接引用主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符7类符号引用进行类的静态变量赋予正确的初始值初始化执行类构造器 &lt;clinit&gt;() 方法的过程方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static {} 块）中的语句合并产生的类初始化时机创建类的实例，也就是new的方式访问某个类或接口的静态变量，或者对该静态变量赋值调用类的静态方法反射（如 Class.forName(“com.shengsiyuan.Test”)）初始化某个类的子类，则其父类也会被初始化Java虚拟机启动时被标明为启动类的类（ JavaTest），直接使用 java.exe命令来运行某个主类初始化步骤1、假如这个类还没有被加载和连接，则程序先加载并连接该类2、假如该类的直接父类还没有被初始化，则先初始化其直接父类3、假如类中有初始化语句，则系统依次执行这些初始化语句使用卸载结束生命周期执行了 System.exit()方法程序正常执行结束程序在执行过程中遇到了异常或错误而异常终止由于操作系统出现错误而导致Java虚拟机进程终止类加载器启动类加载器（Bootstrap ClassLoader）&lt;JAVA_HOME&gt;\lib 目录扩展类加载器（Extension ClassLoader&lt;JAVA_HOME&gt;\lib\ext应用程序类加载器（Application ClassLoader）classpath自定义 ClassLoader机制全盘负责当一个类加载器负责加载某个Class时，该Class所依赖的和引用的其他Class也将由该类加载器负责载入，除非显示使用另外一个类加载器来载入父类委托先让父类加载器试图加载该类，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类双亲委派模型系统类防止内存中出现多份同样的字节码保证Java程序安全稳定运行缓存机制缓存机制将会保证所有加载过的Class都会被缓存，当程序中需要使用某个Class时，类加载器先从缓存区寻找该Class，只有缓存区不存在，系统才会读取该类对应的二进制数据，并将其转换成Class对象，存入缓存区。这就是为什么修改了Class后，必须重启JVM，程序的修改才会生效方式命令行启动应用时候由JVM初始化加载2、通过Class.forName()方法动态加载3、通过ClassLoader.loadClass()方法动态加载常用参数-Xms -Xmx 堆XX:NewSize 新生代-Xss=256k 线程栈大小。-XX:+PrintHeapAtGC 当发生 GC 时打印内存布局。XX:+HeapDumpOnOutOfMemoryError 发送内存溢出时 dump 内存-XX:PermSize设置永久代最小空间大小。1.8 无gc虚拟机分类sun HotSpot对象的内存布局对象头（Header）哈希码GC 分代年龄锁状态标志线程持有的锁偏向线程 ID偏向时间戳实例数据（Instance Data）成员变量的值父类成员变量和本类成员变量对齐填充（Padding）用于确保对象的总长度为 8 字节的整数倍对象的创建过程类加载检查为新生对象分配内存指针碰撞空闲列表初始化为对象中的成员变量赋上初始值设置对象头信息调用对象的构造函数方法进行初始化对象的访问方式句柄访问方式直接指针访问方式IBM J9对象引用强引用（Strong Reference）当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误软引用（Soft Reference）内存空间足够，垃圾回收器就不会回收它如果内存空间不足了，就会回收这些对象的内存如何应用软引用避免OOM弱引用（Weak Reference）只具有弱引用的对象拥有更短暂的生命周期虚引用（Phantom Reference）虚引用主要用来跟踪对象被垃圾回收器回收的活动变量成员变量类体内定义的变量静态变量局部变量形参方法内局部变量代码块内局部变量共享变量如果一个变量在多个线程的工作内存中都存在副本，那么这个变量就是这几个线程的共享变量对象头对象的hashcode对象的分代年龄是否偏向锁的标识为锁的标志位新建对象的方式new反射Object.clone 方法反序列化Unsafe.allocateInstance 方法内存对齐JDK各版本新特性jdk1.5自动装箱与拆箱枚举静态导入可变参数内省泛型For-Each循环注解协变返回类型jdk1.6AWT新增加了两个类:Desktop和SystemTray使用JAXB2来实现对象与XML之间的映射StAX，一种利用拉模式解析(pull-parsing)XML文档的API使用Compiler API，动态编译Java源文件轻量级Http Server API插入式注解处理API提供了Console类用以开发控制台程序对脚本语言的支持如: ruby,groovy, javascriptCommon Annotations嵌入式数据库 DerbyJDK1.7对Java集合（Collections）的增强支持，可直接采用[]、{}的形式存入对象在Switch中可用String数值可加下划线用作分隔符支持二进制数字简化了可变参数方法的调用调用泛型类的构造方法时Boolean类型反转char类型的equals方法安全的加减乘除Map集合支持并发请求JDK1.8接口的默认方法 Lambda 表达式替代匿名内部类对集合进行迭代实现map与reduce与函数式接口Predicate配合函数式接口使用 :: 关键字来传递方法或者构造函数引用多重注解Optional 类streamreducesumintegers.stream().reduce(Integer::sum)concatstrs.stream().reduce(&quot;&quot;, String::concat);minintegerStream.reduce(Integer.MAX_VALUE, Integer::min);integerStream1.mapToInt(i -&gt; i).min();maxintegerStream.reduce(Integer.MIN_VALUE, Integer::max);integerStream1.mapToInt(i -&gt; i).max();jdk1.9Java 平台级模块系统LinkingJShell : 交互式 Java REPL 改进的 Javadoc集合工厂方法改进的 Stream API 私有接口方法HTTP/2多版本兼容 JARG1是Java 9中的默认GC轻量级的 JSON API响应式流（Reactive Streams) APIjdk1.10局部变量类型推断GC改进和内存管理线程本地握手（JEP 312）备用内存设备上的堆分配（JEP 316）在 OpenJDK 中提供一组默认的根证书颁发机构证书jdk1.11HTTP 客户端（标准）ChaCha20 和 Poly1305 密码算法低开销堆分析传输层安全性（TLS）1.3ZGC：可扩展的低延迟垃圾收集器IO相关概念同步A调用B，B的处理是同步的，在处理完之前他不会通知A，只有处理完之后才会明确的通知A同步指的是被调用方做完事情之后再返回异步A调用B，B的处理是异步的，B在接到请求后先告诉A我已经接到请求了，然后异步去处理，处理完之后通过回调等方式再通知A异步指的是被调用方先返回，然后再做事情，做完之后再想办法通知调用方阻塞A调用B，A一直等着B的返回，别的事情什么也不干阻塞指的是调用方一直等待别的事情什么都不做非阻塞A调用B，A不用一直等着B的返回，先去忙别的事情了非阻塞指的是调用方先去忙别的事情阻塞、非阻塞说的是调用者同步、异步说的是被调用者IO模型AIO异步非阻塞Asynchronous IO适用于连接数目多且连接比较长（重操作）的架构相册服务器编程比较复杂JDK7开始支持BIO同步阻塞Blocking IO并发处理能力低，通信耗时，依赖网速模式简单，使用方便以流的方式处理数据数据的读取写入必须阻塞在一个线程内等待其完成适用于连接数目比较小且固定的架构NIO同步非阻塞Non-Block IO以块的方式处理数据适用于连接数目多且连接比较短（轻操作）的架构聊天服务器编程比较复杂组件ChannelsBufferscapacity容量、position位置、limit限制Selectors多路复用器IO多路复用IO MultiplexingSelectorLinux中的epollsocket输入InputStreamFileInputStream访问文件PipedInputStream访问管道ByteArrayInputStream访问数组FilterInputStreamBufferedInputStream缓冲流PushbackInputStream推回输入流DataInputStream特殊流ObjectInputStream对象流ReaderFileReaderCharArrayReaderPipedReaderStringReaderBufferedReaderInputStreamReaderFilterReaderPushbackReader输出OutputStreamFileOutputStreamByteArrayOutputStreamPipedOutputStreamFilterOutputStreamBufferedOutputStreamPrintStreamDataOutputStreamObjectOutputStreamWriterFileWriterCharArrayWriterPipedWriterStringWriterBufferedWriterFilterWriterPrintWriter框架Netty内存管理设计内存划分成一个个16MB的Chunk每个Chunk又由2048个8KB的Page组成对每一次内存申请，都将二进制对齐多个Chunk又可以组成一个ChunkListFastThreadLocalThreadLocal在用法上面基本差不多mina序列化谷歌ProtobufKryojsonFastJsonxmlhessionthrifttextbytes动态代理jdk动态代理cglib动态代理框架spring设计模式简单工厂模式又叫做静态工厂方法（StaticFactory Method）模式不属于23种GOF设计模式spring中的BeanFactory就是简单工厂模式的体现工厂方法模式单例模式Spring下默认的bean均为singleton可以通过singleton=“true|false” 或者 scope=&quot;?&quot;来指定保证一个类仅有一个实例，并提供一个访问它的全局访问点spring中的单例模式完成了后半句话，即提供了全局的访问点BeanFactory但没有从构造器级别去控制单例，这是因为spring管理的是是任意的java对象适配器模式包装器模式一种是类名中含有Wrapper另一种是类名中含有Decorator基本上都是动态地给一个对象添加一些额外的职责代理模式pring的Proxy模式在aop中有体现比如JdkDynamicAopProxy和Cglib2AopProxySpring实现这一AOP功能的原理就使用代理模式观察者模式spring中Observer模式常用的地方是listener的实现。如ApplicationListener策略模式定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换模板方法模式JdbcTemplate执行回调函数 Spring Boot自动配置、起步依赖、Actuator、命令行界面(CLI)启动流程通过 SpringFactoriesLoader 查找并加载所有的 SpringApplicationRunListeners创建并配置当前应用将要使用的 Environment③Spring Boot 应用在启动时会输出这样的东西④根据是否是 Web 项目，来创建不同的 ApplicationContext 容器⑤创建一系列 FailureAnalyzer⑥初始化 ApplicationContext。⑦调用 ApplicationContext 的 refresh() 方法，完成 IOC 容器可用的最后一道工序⑧查找当前 context 中是否注册有 CommandLineRunner 和 ApplicationRunner，如果有则遍历执行它们⑨执行所有 SpringApplicationRunListener 的 finished() 方法核心功能独立运行Spring项目内嵌servlet容器提供starter简化Maven配置自动装配Spring准生产的应用监控无代码生产和xml配置　优缺点优点快速构建项目对主流开发框架的无配置集成项目可独立运行，无须外部依赖Servlet容器极大的提高了开发、部署效率与云计算的天然集成缺点如果你不认同spring框架，也许这就是缺点CLI控制台命令工具常用的注解@RestController@Controller用于定义控制器类负责将用户发来的URL请求转发到对应的服务接口（service层@ResponseBody表示该方法的返回结果直接写入HTTP response body中标注控制层组件@RequestMapping提供路由信息负责URL到Controller中的具体函数的映射@SpringBootApplication@ComponentScan组件扫描，可自动发现和装配一些Bean。@EnableAutoConfiguration自动配置。@Configuration等同于spring的XML配置文件；使用Java代码可以检查类型安全@ImportResource用来加载xml配置文件。@Autowired自动导入byType方式当加上（required=false）时，就算找不到bean也不报错@Component可配合CommandLineRunner使用，在程序启动后执行一些基础任务。泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。@PathVariabl获取参数。@JsonBackReference解决嵌套外链问题。@RepositoryRestResourcepublic配合spring-boot-starter-data-rest使用。@Import用来导入其他配置类。@Service一般用于修饰service层的组件@Repository修饰的DAO或者repositories类@Bean用@Bean标注方法等价于XML中配置的bean。放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理@Value注入Spring boot application.properties配置的属性的值@Inject等价于默认的@Autowired，只是没有required属性；@Qualifier当有多个同一类型的Bean时，可以用@Qualifier(“name”)来指定@Resource(name=”name”,type=”type”)没有括号内内容的话，默认byName与@Autowired干类似的事Actuator在应用程序里提供众多 Web 接口通过它们了解应用程序运行时的内部状况配置接口度量接口其它接口IOC用于模块解耦正向控制传统通过new的方式反向控制通过容器注入对象DI依赖注入，只关心资源使用，不关心资源来源AOP基本原理动态代理创建一个代理对象来代理原对象的行为代理对象拥有原对象行为执行的控制权，在这种模式下，我们基于代理对象在原对象行为执行的前后插入代码来实现 AOP相对于静态AOP更加灵活切入的关注点需要实现接口。对系统有一点性能影响静态织入修改原对象，在原对象行为的执行前后注入代码来实现 AOP行为注入在编译期，切面直接以字节码的形式编译到目标字节码文件中对系统无性能影响注解的方式实现分布式锁面向切面编程性能监控在方法调用前后记录调用时间，方法执行太长或超时报警缓存代理缓存某方法的返回值，下次执行该方法时，直接从缓存里获取软件破解使用AOP修改软件的验证类的判断逻辑记录日志在方法执行前后记录系统日志工作流系统工作流系统需要将业务代码和流程引擎代码混合在一起执行，那么我们可以使用AOP将其分离，并动态挂接业务权限验证方法执行前验证是否有权限执行当前方法，没有则抛出没有权限执行异常，由业务代码捕捉相关注解@Aspect切面@After通知方法会在目标方法返回或抛出异常后调用@AfterRetruening通常方法会在目标方法返回后调用@AfterThrowing通知方法会在目标方法抛出异常后调用@Around通知方法将目标方法封装起来@Before通知方法会在目标方法执行之前执行@Pointcut切点连接点（Joinpoint）配置cglib&lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;JDK代理&lt;aop:aspectj-autoproxy/&gt;实现AOP的方式经典的基于代理的AOP@AspectJ注解驱动的切面纯POJO切面注入式AspectJ切面mvc过程（8）通过View返回给请求者（浏览器）（7）DispaterServlet把返回的Model传给View。（6）ViewResolver会根据逻辑View查找实际的View。（5）处理器处理完业务后，会返回一个ModelAndView对象，Model是返回的数据对象，View是个逻辑上的View。（4）HandlerAdapter会根据Handler来调用真正的处理器开处理请求，并处理相应的业务逻辑。（3）解析到对应的Handler后，开始由HandlerAdapter适配器处理。（2）DispatcherServlet根据请求信息调用HandlerMapping，解析请求对应的Handler。（1）客户端（浏览器）发送请求，直接请求到DispatcherServlet。统一异常处理目标消灭95%以上的 try catch 代码块，以优雅的 Assert(断言) 方式来校验业务的异常情况关注业务逻辑，而不用花费大量精力写冗余的 try catch 代码块原理在独立的某个地方，比如单独一个类，定义一套对各种异常的处理机制，然后在类的签名加上注解@ControllerAdvice，统一对 不同阶段的、不同异常 进行处理不同阶段的异常进入Controller前的异常handleServletExceptionhandleBindException参数校验异常handleValidException参数校验异常让404也抛出异常spring.mvc.throw-exception-if-no-handler-found=trueService 层异常handleBusinessException处理自定义的业务异常handleBaseExceptionhandleException处理所有未知的异常，比如操作数据库失败的异常实战自定义异常BaseExceptioncodemessageBusinessException用 Assert(断言) 替换 throw exceptionBusinessExceptionAssert将 Enum 和 Assert 结合ResponseEnumcodemessage定义统一异常处理器类@ControllerAdvice统一返回结果基类BaseResponsecodemessage通用返回结果类CommonResponsedata继承 BaseResponse简写Rnew R&lt;&gt;(data)数据带有分页信息QueryDataResponse继承自 CommonResponse把 data 字段的类型限制为 QueryDdataQueryDdata分页信息相应的字段totalCountpageNopageSizerecords简写QRnew QR&lt;&gt;(queryData)ErrorResponse国际化常用注解@ControllerAdvice@ExceptionHandler@InitBinder@ModelAttribute@AllArgsConstructor@Getter@Slf4j@Component@Controller@PostConstruct声明一个Bean对象初始化完成后执行的方法@Value@Profile加载指定配置文件时才起作用@ConditionalOnExpression特定条件下生效Spring SessionInterceptor拦截器HandlerInterceptorHandlerInterceptorAdapterpreHandlepostHandleafterCompletionWebRequestInterceptorWebRequestInterceptorWebFluxREST DocsSpring DataJPAJava PersistenceAPI查询语言是面向对象而非面向数据库的Spring Data JPA始终需要JPA提供程序，如Hibernate或Eclipse LinkredisRESTSolrelastic searchNeo4JApache Hadoopspring的生命周期首先容器启动后，对bean进行初始化按照bean的定义，注入属性检测该对象是否实现了xxxAware接口，并将相关的xxxAware实例注入给bean，如BeanNameAware等以上步骤，bean对象已正确构造，通过实现BeanPostProcessor接口，可以再进行一些自定义方法处理。如:postProcessBeforeInitialzation。BeanPostProcessor的前置处理完成后，可以实现postConstruct，afterPropertiesSet,init-method等方法， 增加我们自定义的逻辑，通过实现BeanPostProcessor接口，进行postProcessAfterInitialzation后置处理接着Bean准备好被使用啦。容器关闭后，如果Bean实现了DisposableBean接口，则会回调该接口的destroy()方法通过给destroy-method指定函数，就可以在bean销毁前执行指定的逻mybatis将 JSON 型字段映射到 Java 类TypeHandler设计模式Builder模式SqlSessionFactory的创建适合查询多的场景，新增修改依然建议用orm，mybatis plus 支持ormDisruptor线程间通信的高效低延时的内存消息组件ShiroDelegatingFilterProxy的功能是通知Spring将所有的Filter交给ShiroFilter管理与SpringMVC集成配置前端过滤器DubboDrools规则引擎MapStruct类似深拷贝使用纯java方法调用的源和目标对象之间的映射通过生成代码完成繁琐和容易出错的代码逻辑jsonfastjsonjacksonJackson将null值转化为&quot;&quot;SPIJDBCJNDIJAXP正则表达式记录日志使用slf4j门面模式的日志框架有利于维护和各个类的日志处理方式统一实现方式统一使用: Logback框架什么时候应该打日志当你遇到问题的时候，只能通过debug功能来确定问题，你应该考虑打日志，良好的系统，是可以通过日志进行问题定为的。当你碰到if…else 或者 switch这样的分支时，要在分支的首行打印日志，用来确定进入了哪个分支经常以功能为核心进行开发，你应该在提交代码前，可以确定通过日志可以看到整个流程基本格式必须使用参数化信息的方式:logger.debug(&quot;Processing trade with id:[{}] and symbol : [{}] &quot;, id, symbol);要进行字符串拼接,那样会产生很多String对象，占用空间，影响性能对于debug日志，必须判断是否为debug级别后，才进行使用:使用[]进行参数变量隔离这样的格式写法，可读性更好，对于排查问题更有帮助。不同级别的使用ERROR影响到程序正常运行打开配置文件失败所有第三方对接的异常(包括第三方返回错误码)所有影响功能使用的异常，包括:SQLException和除了业务异常之外的所有异常(RuntimeException和Exception)WARN不应该出现但是不影响程序有容错机制的时候出现的错误情况找不到配置文件，但是系统能自动创建配置文件即将接近临界值的时候缓存池占用达到警告线业务异常的记录当接口抛出业务异常时，应该记录此异常INFO系统运行信息Service方法中对于系统/业务状态的变更主要逻辑中的分步骤外部接口部分客户端请求参数(REST/WS)调用第三方时的调用参数和调用结果对于复杂的业务逻辑，需要进行日志打点，以及埋点记录比如电商系统中的下订单逻辑，以及OrderAction操作(业务状态变更)。对于整个系统的提供出的接口(REST/WS)，使用info记录入参调用其他第三方服务时，所有的出参和入参是必须要记录的,job需要记录开始和结束DEBUG可以填写所有的想知道的相关信息生产环境需要关闭DEBUG信息如果在生产情况下需要开启DEBUG,需要使用开关进行管理，不能一直开启。TRACE特别详细的系统运行完成信息业务代码中，不要使用.(除非有特殊用意，否则请使用DEBUG级别替代)反射异常类层次结构图ThrowableError（错误）程序无法处理的错误LinkageErrorNoClassDefFoundErrorVirtualMachineErrorException（异常）IOExceptionRuntimeExceptionNullPointerExceptionArithmeticExceptionArrayIndexOutOfBoundExceptionIndexOutOfBoundsExceptionunchecked exception（非检查异常）SQLExceptionwebfilter过滤器基于回调函数实现，必须依靠容器支持因为需要容器装配好整条FilterChain并逐个调用容器tomcatjetty读写分离领域模型VOView Object通常是请求处理层传输的对象通过 Spring 框架的转换后，往往是一个 JSON 对象BOBusiness Object业务逻辑层封装业务逻辑的对象聚合了多个数据源的复合对象DOData Object与数据库表结构一一对应通过 DAO 层向上传输数据源对象DTOData Transfer Object远程调用对象 RPC 服务提供的领域模型POAPIrpcHessian基于HTTP协议采用二进制编解码protobuf-rpc-proProtocol Buffers 协议的基于 Netty 底层的 NIO 技术Avro支持HTTP，TCP两种协议特点任何语言远程过程调用, 很简单的概念, 像调用本地服务(方法)一样调用服务器的服务(方法).RPC 框架需提供一种透明调用机制让使用者不必显式的区分本地调用和远程调用目标让构建分布式计算（应用）更容易在提供强大的远程调用能力时不损失本地调用的语义简洁性架构客户端(Client)：服务调用方 客户端存根(Client Stub存放服务端地址信息，将客户端的请求参数打包成网络消息，再通过网络发送给服务方服务端存根(Server Stub)接受客户端发送过来的消息并解包，再调用本地服务服务端(Server)：真正的服务提供者分类同步阻塞调用WebService底层使用http协议RMItcpjava专属java的原生序列化客户方等待调用执行完成并返回结果异步非阻塞调用JMS(Java Message Service) 客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果协议编解码协议消息设计消息头magic      : 协议魔数，为解码设计header size: 协议头长度，为扩展设计version    : 协议版本，为兼容设计st         : 消息体序列化类型hb         : 心跳消息标记，为长连接传输层心跳设计ow         : 单向消息标记，rp         : 响应消息标记，不置位默认是请求消息status code: 响应消息状态码reserved   : 为字节对齐保留message id : 消息 idbody size  : 消息体长度消息体采用序列化编码，常见有以下格式xml   : 如 webservie soapjson  : 如 JSON-RPCbinary: 如 thrift; hession; kryo 等框架GRPCThriftDubboHTTP RESTful APIRepresentational State Transfer表述性状态传递GET、PUT、DELETE、POST原则网络上的所有事物都被抽象为资源每个资源都有一个唯一的资源标识符同一个资源具有多种表现形式(xml,json等)对资源的各种操作不会改变资源标识符所有的操作都是无状态的HTTP+URI+XML /JSON 的技术来实现GraphQLSOAPWeb Service注解@SafeVarargsLambda</p>]]></content>
+    
+    <summary type="html">
+    
+      java相关的知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/mechine-learning-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/mechine-learning-kg//</id>
+    <published>2019-03-18T14:39:40.000Z</published>
+    <updated>2020-02-05T14:47:18.921Z</updated>
+    
+    <content type="html"><![CDATA[<p>机器学习历史1. Python R 第一代工具  单机2. Mahaout MR 第二代工具 分布式3. Spark MLlib 第三代工具 分布式 迭代4. H2O5. Flink体现- 计算：云计算- 推理：专家系统- 灵敏：事件驱动- 知识：数据仓库- 检索：搜索引擎- 智慧：机器学习用途- 分类- 预测- 聚类- 推荐算法有监督学习分类逻辑回归支持多分类线性不可分割情况方案：映射至高纬流程svm支持向量机只支持二分类线性回归Liner Regression一元线性回归多元线性回归预测贝叶斯分类算法朴素贝叶斯拉普拉斯估计拉普拉斯估计本质上是给频率表中的每个计数加上一个较小的数，这样就保证了 每一类中每个特征发生概率非零文本向量化用途垃圾邮件分类只能做二分类推荐关联规则支持度置信度apriori原则无监督 学习聚类给事物打标签kmeans聚类算法无监督给事物打标签刚开始选的点会影响到聚类结果距离测度- 欧氏距离测度(EuclideanDistanceMeasure)- 平方欧氏距离测度(SquaredEuclideanDistanceMeasure)- 曼哈顿距离测度(ManhattanDistanceMeasure- 余弦距离测度(CosineDistanceMeasure)- 谷本距离测度(TanimotoDistanceMeasure)同时表现夹角和距离的距离测度- 加权距离测度(WeightedDistanceMeasure聚类数肘部法算法流程1. 适当选择c个类的初始中心2. 在第K次迭代中，对任意一个样本，求其到c各中心的距离，将该样本归到 距离最短的中心所在的类3. 利用均值等方法更新该类的中心值4. 对于多有的c个聚类中心，如果利用2,3的迭代法更新后，值保持不变，则 迭代结束，否则继续迭代算法缺陷- 聚类中心的个数K 需要事先给定，但在实际中这个 K 值的选定是非常 难以估计的，很多时候，事先并不知道给定的数据集应该分成多少个 类别才最合适- Kmeans需要人为地确定初始聚类中心，不同的初始聚类中心可能导致 完全不同的聚类结果。(可以使用Kmeans++算法来解决)Kmeans++算法 工具梯度下降法SGD随机梯度下降误差函数/损失函数存在最小值只能做二分类L-BFGS拟牛顿法L-BFGS为SGD的优化方法，它的训练速度比SGD快还可能做多分类鲁棒性调优正则化L1正则化适合降低维度惩罚系数 一般都不能大于1有的趋近于1，有的趋近于0，稀疏编码L2正则化也称为岭回归，有很强的概率意义整体值变小整体的W同时变小，岭回归数值优化归一化最大值最小值法- 缺点- 抗干扰能力弱- 受离群值得影响比较大- 间容易没有数据方差归一化- 优点- 抗干扰能力强，和所有数据都有关, 求标准差需要所有值的介入，重要有离群值的话，会被抑 制下来会使得各个W基本数量级一致缺点- 最终未必会落到0到1之间- 同增同减问题均值归一化每个数量减去平均值做机器学习的大公司 - 百度 - 谷歌 AlphaGo - 脸书开发步骤1. 收集数据2. 准备输入数据3. 分析输入数据4. 训练算法5. 测试算法6. 使用算法术语标签标签是我们要预测的事物，即简单线性回归中的 y 变量。标签可以是小麦未来的价格、图片中显示的动物品种、音频剪辑的含义或任何事物特征特征是输入变量，即简单线性回归中的 x 变量。简单的机器学习项目可能会使用单个特征，而比较复杂的机器学习项目可能会使用数百万个特征，按如下方式指定样本样本是指数据的特定实例：x有标签样本有标签样本同时包含特征和标签无标签样本无标签样本包含特征，但不包含标签模型模型定义了特征与标签之间的关系训练创建或学习模型推断将训练后的模型应用于无标签样本回归回归模型可预测连续值分类模型分类模型可预测离散值</p>]]></content>
+    
+    <summary type="html">
+    
+      知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/algorithms-design-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/algorithms-design-kg//</id>
+    <published>2019-03-18T14:37:48.000Z</published>
+    <updated>2020-02-05T14:47:18.921Z</updated>
+    
+    <content type="html"><![CDATA[<p>算法与数据结构TopK问题全局排序局部排序堆分治法减治法随机选择排序选择排序简单选择排序 Selection Sort稳定性不稳定时间复杂度O(n2)工作原理首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾堆排序Heap Sort分支主题交换排序快速排序Quick Sort）思想通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序冒泡排序 Bubble Sort归并排序Merge Sort）稳定性稳定时间复杂度O(nlogn）工作原理采用分治法（Divide and Conquer将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序计数排序Counting Sort稳定性稳定时间复杂度O(n+k)工作原理采用分治法（Divide and Conquer将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序基数排序桶排序复杂度为O(n)插入排序简单插入排序 Insertion Sort时间复杂度O(n2)稳定性稳定工作原理通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入希尔排序缩小增量排序稳定性不稳定时间复杂度O(n1.3)工作原理数1问题位移法求与法n&amp;(n-1)斐波那契数列f(n)递归法正推法通项公式法f(n)=(1/√5)<em>{[(1+√5)/2]^n -[(1-√5)/2]^n}查表法时间复杂度第一大类，简单规则规则一：“有限次操作”的时间复杂度往往是O(1)规则二：“for循环”的时间复杂度往往是O(n)规则三：“树的高度”的时间复杂度往往是O(lg(n))二分查找的时间复杂度是O(lg(n))快速排序的时间复杂度n</em>(lg(n))第二大类：组合规则通过简单规则的时间复杂度，来求解组合规则的时间复杂度第三大类，递归求解数据结构树二叉树堆链表广义表线性表哈希表图二叉树数据一致性算法paxoshhash</p>]]></content>
+    
+    <summary type="html">
+    
+      知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>spark-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap//knowledgegraph/spark-kg//"/>
+    <id>http://blog.appcity.vip/mindmap//knowledgegraph/spark-kg//</id>
+    <published>2019-03-18T14:27:11.000Z</published>
+    <updated>2020-02-05T14:47:18.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>spark谈资伯克利开源的scala编写的APIScalaPythonJava运行模式本地模式local本地测试用Standalone任务提交方式client提交方式用于调试1. client模式提交任务后，会在客户端启动Driver进程。2. Driver会向Master申请启动Application启动的资源。3. 资源申请成功，Driver端将task发送到worker端执行。4. worker将task执行结果返回到Driver端。cluster提交方式   1. cluster模式提交应用程序后，会向Master请求启动Driver.2. Master接受请求，随机在集群一台节点启动Driver进程。3. Driver启动后为当前的应用程序申请资源。4. Driver端发送task到worker节点上执行。5. worker将执行情况和执行结果返回给Driver端yarn任务提交方式client1. 客户端提交一个Application，在客户端启动一个Driver进程。2. 应用程序启动后会向RS(ResourceManager)发送请求，启动 AM(ApplicationMaster)的资源。3. RS收到请求，随机选择一台NM(NodeManager)启动AM。这 里的 NM 相当于 Standalone 中的 Worker 节点。4. AM启动后，会向RS请求一批container资源，用于启动Executor.5. RS会找到一批NM返回给AM,用于启动Executor。6. AM会向NM发送命令启动Executor。7. Executor启动后，会反向注册给Driver，Driver发送task到 Executor,执行情况和结果返回给 Driver 端。clusterMesosspark coreDAG有向无环图RDD弹性分布式数据集5个特点1. RDD是由一系列的partition组成的。2. 函数是作用在每一个partition(split)上的。3. RDD之间有一系列的依赖关系。4. 分区器是作用在K,V格式的RDD上。5. RDD提供一系列最佳的计算位置。血统Lineage代码流程创建SparkConf对象 可以设置 Application name。 可以设置运行模式及资源需求。   创建SparkContext对象   基于Spark的上下文创建一个RDD，对RDD进行处理。 transformation转换 RDD &gt; RDD 缓存RDD，避免多次读取   应用程序中要有Action类算子来触发Transformation类算子执行。 action执行 RDD &gt; 结果   关闭Spark上下文对象SparkContext。算子输入算子输出算子转换算子Transformationsmapfilterflapmapsample判断是否数据倾斜reducereducebykeysortByKey/sortBygroupbykeyjoinleftOuterjoinrightOuterJoinfullOuterJoinunionintersection取两个集合的交集subtract差集mapPartition执行次数与分区数相同mapPartittionWithIndexdistinctmap+reducebykey+mapcogrouprepartition增加或较少partitioncoalesce减少分区groupByKeyzip纵向合并两个rdd，没个数据一一对应zipWithIndex单个rdd动作算子ActioncountcollectfirstforeachtakeforeachPartitioncountByKeycountByValuereduce控制算子cache提高性能persistcheckpoint解决容错执行原理当RDD的job执行完毕后，会从finalRDD从后往前回溯 当回溯到某一个RDD调用了checkpoint方法，会对当前的 RDD 做一个标记Spark框架会自动启动一个新的job，重新计算这个RDD的数 据，将数据持久化到 HDFS 上wide宽依赖会有shufflenarrow窄依赖stagestage 是由一组并行的 task 组成 pipeline越多并行读越高管道计算模式广播变量简介优点不用广播变量累加器全局计算ShuffleHashShuffle普通机制每一个maptask将不同结果写到不同的buffer中，每个buffer 的大小为 32K。buffer 起到数据缓存的作用。每个buffer文件最后对应一个磁盘小文件。reduce task 来拉取对应的磁盘小文件。产生的磁盘小文件的个数：M * R合并机制磁盘文件数： C* RSortShuffle普通机制磁盘文件数：2Mbypass机制磁盘文件数：2M文件寻址调优BlockManager内存管理静态内存管理统一内存管理资源管理任务调度spark粗粒度MR细粒度优点 ：集群资源能够充分利用缺点：task自己申请资源导致启动变慢术语masterstandalone管理资源的主节点cluster manager在集群上获取外部资源的服务worker nodestandalone  运行于从节点，管理从节点资源application基于spark的程序，包含了driver和executorworkerexecutor默认分配内存1GdirverDriver 负责应用程序资源的申请任务的分发。连接workerexecutorworker节点为application启动的一个进程负责执行任务，每个application都有独立的executortask被送到executor上的工作单元jobtask 的并行计算，相当于actionstagejob被拆分后的单元pipline优化取top(N)  用手写排序，可以提高效率webUiMaster HA</p>]]></content>
+    
+    <summary type="html">
+    
+      知识图谱
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据库-知识图谱</title>
+    <link href="http://blog.appcity.vip/mindmap/knowledgegraph/database-kg//"/>
+    <id>http://blog.appcity.vip/mindmap/knowledgegraph/database-kg//</id>
+    <published>2019-03-18T09:24:38.000Z</published>
+    <updated>2020-02-05T14:47:18.921Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据库连接池第一代c3p0proxooldbcpBoneCP第二代HikariCPHikariCPMySQL性能优化引擎InnoDb支持事务默认引擎MyISAM不支持事务Memory内存Ndb集群arachive事务ACIDA原子性C完整性I隔离性D-持久性分布式事务TCCTryConfirmCancel2pc锁表锁行锁死锁脏读幻读不可重复读索引类型btree平衡树hash约束主键约束外键约束检查约束唯一约束</p>]]></content>
+    
+    <summary type="html">
+    
+      数据库相关的知识图谱整理
+    
+    </summary>
+    
+      <category term="脑图" scheme="http://blog.appcity.vip/categories/mindmap/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>storm进阶之drpc</title>
+    <link href="http://blog.appcity.vip/bigdata/storm%E8%BF%9B%E9%98%B6%E4%B9%8Bdrpc/"/>
+    <id>http://blog.appcity.vip/bigdata/storm进阶之drpc/</id>
+    <published>2019-01-04T07:31:52.000Z</published>
+    <updated>2020-02-05T14:47:18.920Z</updated>
+    
+    <content type="html"><![CDATA[<h1>What?</h1><p>DRPC (Distributed RPC) – 分布式远程过程调用DRPC 是通过一个 DRPC 服务端(DRPC server)来实现分布式 RPC 功能的。&lt;!-- more --&gt;DRPC Server 负责接收 RPC 请求，并将该请求发送到 Storm中运行的 Topology，等待接收 Topology 发送的处理结果，并将该结果返回给发送请求的客户端。 – (其实，从客户端的角度来说，DPRC 与普通的 RPC 调用并没有什么区别。)客户端通过向 DRPC 服务器发送待执行函数的名称以及该函数的参数来获取处理结果。实现该函数的拓扑使用一个 DRPCSpout 从 DRPC 服务器中接收一个函数调用流。DRPC 服务器会为每个函数调用都标记了一个唯一的 id。随后拓扑会执 行函数来计算结果，并在拓扑的最后使用一个名为 ReturnResults 的 bolt 连接到 DRPC 服务器，根据函数调用的 id 来将函数 调用的结果返回。<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546605180596.png" alt=""></p><h4>DRPC设计目的</h4><ul><li>为了充分利用Storm的计算能力实现高密度的并行实时计算</li><li>(Storm接收若干个数据流输入，数据在Topology当中运行完成，然后通过DRPC将结果进 行输出。)</li></ul><h2>案例</h2><ul><li>Twitter 中某个URL的受众人数统计<img src="http://wntc-1251220317.cossh.myqcloud.com/2019/1/4/1546606021690.png" alt=""></li></ul><h2>Why?</h2><p>为了充分利用Storm的计算能力实现高密度的并行实时计算</p><h2>How?</h2><h3>运行模式</h3><ul><li><p>修改配置文件conf/storm.yaml<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">drpc.servers:</span></span><br><span class="line"><span class="string">"node1“</span></span><br></pre></td></tr></table></figure></p></li><li><p>启动DRPC Serverbin/storm drpc &gt; logs/drpc.out 2&gt;&amp;1 &amp;</p></li><li><p>通过StormSubmitter.submitTopology提交拓扑</p></li></ul><h2>参考</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;What?&lt;/h1&gt;
+&lt;p&gt;DRPC (Distributed RPC) – 分布式远程过程调用
+DRPC 是通过一个 DRPC 服务端(DRPC server)来实现分布式 RPC 功能的。
+&amp;lt;!-- more --&amp;gt;
+DRPC Server 负责接收 RP
+      
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://blog.appcity.vip/categories/bigdata/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="大数据" scheme="http://blog.appcity.vip/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="drpc" scheme="http://blog.appcity.vip/tags/drpc/"/>
+    
+      <category term="strom" scheme="http://blog.appcity.vip/tags/strom/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何保证消息队列的高可用和幂等性以及数据丢失，顺序一致性[转]</title>
+    <link href="http://blog.appcity.vip/essay/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E5%B9%82%E7%AD%89%E6%80%A7%E4%BB%A5%E5%8F%8A%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%EF%BC%8C%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7/"/>
+    <id>http://blog.appcity.vip/essay/如何保证消息队列的高可用和幂等性以及数据丢失，顺序一致性/</id>
+    <published>2018-12-25T03:27:55.000Z</published>
+    <updated>2020-02-05T14:47:18.926Z</updated>
+    
+    <content type="html"><![CDATA[<h2>如何保证消息队列的高可用和幂等性以及数据丢失，顺序一致性</h2><p>&lt;!-- more --&gt;</p><h3>RabbitMQ的高可用性</h3><p>RabbitMQ是比较有代表性的，因为是基于主从做高可用性的，我们就以他为例子讲解第一种MQ的高可用性怎么实现。</p><h4>rabbitmq有三种模式：</h4><ul><li>单机模式</li><li>普通集群模式</li><li>镜像集群模式</li></ul><h5>单机模式</h5><p>就是demo级别的，一般就是你本地启动了玩玩儿的，没人生产用单机模式<img src="https://upload-images.jianshu.io/upload_images/7918686-ed8d6540d206fc95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/933" alt=""></p><h5>普通集群模式</h5><p>意思就是在多台机器上启动多个rabbitmq实例，每个机器启动一个。但是你创建的queue，只会放在一个rabbtimq实例上，但是每个实例都同步queue的元数据。完了你消费的时候，实际上如果连接到了另外一个实例，那么那个实例会从queue所在实例上拉取数据过来。这种方式确实很麻烦，也不怎么好，没做到所谓的分布式，就是个普通集群。因为这导致你要么消费者每次随机连接一个实例然后拉取数据，要么固定连接那个queue所在实例消费数据，前者有数据拉取的开销，后者导致单实例性能瓶颈。而且如果那个放queue的实例宕机了，会导致接下来其他实例就无法从那个实例拉取，如果你开启了消息持久化，让rabbitmq落地存储消息的话，消息不一定会丢，得等这个实例恢复了，然后才可以继续从这个queue拉取数据。所以这个事儿就比较尴尬了，这就没有什么所谓的高可用性可言了，这方案主要是提高吞吐量的，就是说让集群中多个节点来服务某个queue的读写操作。<img src="https://upload-images.jianshu.io/upload_images/7918686-e7eee18849a5ed26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/941" alt=""></p><h5>镜像集群模式</h5><p>这种模式，才是所谓的rabbitmq的高可用模式，跟普通集群模式不一样的是，你创建的queue，无论元数据还是queue里的消息都会存在于多个实例上，然后每次你写消息到queue的时候，都会自动把消息到多个实例的queue里进行消息同步。这样的话，好处在于，你任何一个机器宕机了，没事儿，别的机器都可以用。坏处在于，第一，这个性能开销也太大了吧，消息同步所有机器，导致网络带宽压力和消耗很重！第二，这么玩儿，就没有扩展性可言了，如果某个queue负载很重，你加机器，新增的机器也包含了这个queue的所有数据，并没有办法线性扩展你的queue那么怎么开启这个镜像集群模式呢？我这里简单说一下，避免面试人家问你你不知道，其实很简单rabbitmq有很好的管理控制台，就是在后台新增一个策略，这个策略是镜像集群模式的策略，指定的时候可以要求数据同步到所有节点的，也可以要求就同步到指定数量的节点，然后你再次创建queue的时候，应用这个策略，就会自动将数据同步到其他的节点上去了。</p><h3>kafka的高可用性</h3><p>kafka一个最基本的架构认识：多个broker组成，每个broker是一个节点；你创建一个topic，这个topic可以划分为多个partition，每个partition可以存在于不同的broker上，每个partition就放一部分数据。这就是天然的分布式消息队列，就是说一个topic的数据，是分散放在多个机器上的，每个机器就放一部分数据。实际上rabbitmq之类的，并不是分布式消息队列，他就是传统的消息队列，只不过提供了一些集群、HA的机制而已，因为无论怎么玩儿，rabbitmq一个queue的数据都是放在一个节点里的，镜像集群下，也是每个节点都放这个queue的完整数据。kafka 0.8以前，是没有HA机制的，就是任何一个broker宕机了，那个broker上的partition就废了，没法写也没法读，没有什么高可用性可言。kafka 0.8以后，提供了HA机制，就是replica副本机制。每个partition的数据都会同步到吉他机器上，形成自己的多个replica副本。然后所有replica会选举一个leader出来，那么生产和消费都跟这个leader打交道，然后其他replica就是follower。写的时候，leader会负责把数据同步到所有follower上去，读的时候就直接读leader上数据即可。只能读写leader？很简单，要是你可以随意读写每个follower，那么就要care数据一致性的问题，系统复杂度太高，很容易出问题。kafka会均匀的将一个partition的所有replica分布在不同的机器上，这样才可以提高容错性。这么搞，就有所谓的高可用性了，因为如果某个broker宕机了，没事儿，那个broker上面的partition在其他机器上都有副本的，如果这上面有某个partition的leader，那么此时会重新选举一个新的leader出来，大家继续读写那个新的leader即可。这就有所谓的高可用性了。写数据的时候，生产者就写leader，然后leader将数据落地写本地磁盘，接着其他follower自己主动从leader来pull数据。一旦所有follower同步好数据了，就会发送ack给leader，leader收到所有follower的ack之后，就会返回写成功的消息给生产者。（当然，这只是其中一种模式，还可以适当调整这个行为）消费的时候，只会从leader去读，但是只有一个消息已经被所有follower都同步成功返回ack的时候，这个消息才会被消费者读到。<img src="https://upload-images.jianshu.io/upload_images/7918686-8af0b89666a45b56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p><h3>怎么保证消息队列消费的幂等性？</h3><p>先大概说一说可能会有哪些重复消费的问题。首先就是比如rabbitmq、rocketmq、kafka，都有可能会出现消费重复消费的问题，正常。因为这问题通常不是mq自己保证的，是给你保证的。然后我们挑一个kafka来举个例子，说说怎么重复消费吧。kafka实际上有个offset的概念，就是每个消息写进去，都有一个offset，代表他的序号，然后consumer消费了数据之后，每隔一段时间，会把自己消费过的消息的offset提交一下，代表我已经消费过了，下次我要是重启啥的，你就让我继续从上次消费到的offset来继续消费吧。但是凡事总有意外，比如我们之前生产经常遇到的，就是你有时候重启系统，看你怎么重启了，如果碰到点着急的，直接kill进程了，再重启。这会导致consumer有些消息处理了，但是没来得及提交offset，尴尬了。重启之后，少数消息会再次消费一次。其实重复消费不可怕，可怕的是你没考虑到重复消费之后，怎么保证幂等性。给你举个例子吧。假设你有个系统，消费一条往数据库里插入一条，要是你一个消息重复两次，你不就插入了两条，这数据不就错了？但是你要是消费到第二次的时候，自己判断一下已经消费过了，直接扔了，不就保留了一条数据？一条数据重复出现两次，数据库里就只有一条数据，这就保证了系统的幂等性幂等性，我通俗点说，就一个数据，或者一个请求，给你重复来多次，你得确保对应的数据是不会改变的，不能出错。<img src="https://upload-images.jianshu.io/upload_images/7918686-bdf7f6c9710f1604.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p><h3>其实还是得结合业务来思考，我这里给几个思路：</h3><ol><li>比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update一下好吧</li><li>比如你是写redis，那没问题了，反正每次都是set，天然幂等性</li><li>比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的id，类似订单id之类的东西，然后你这里消费到了之后，先根据这个id去比如redis里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个id写redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。</li></ol><p>还有比如基于数据库的唯一键来保证重复数据不会重复插入多条，我们之前线上系统就有这个问题，就是拿到数据的时候，每次重启可能会有重复，因为kafka消费者还没来得及提交offset，重复数据拿到了以后我们插入的时候，因为有唯一键约束了，所以重复数据只会插入报错，不会导致数据库中出现脏数据</p><p>如何保证MQ的消费是幂等性的，需要结合具体的业务来看<img src="https://upload-images.jianshu.io/upload_images/7918686-79903e2a8e65c6c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/985" alt=""></p><h3>数据丢失怎么办（如何保证消息的可靠性传输）</h3><h4>一、rabbitmq</h4><h5>生产者弄丢了数据</h5><p>生产者将数据发送到rabbitmq的时候，可能数据就在半路给搞丢了，因为网络啥的问题，都有可能。此时可以选择用rabbitmq提供的事务功能，就是生产者发送数据之前开启rabbitmq事务（channel.txSelect），然后发送消息，如果消息没有成功被rabbitmq接收到，那么生产者会收到异常报错，此时就可以回滚事务（channel.txRollback），然后重试发送消息；如果收到了消息，那么可以提交事务（channel.txCommit）。但是问题是，rabbitmq事务机制一搞，基本上吞吐量会下来，因为太耗性能。所以一般来说，如果你要确保说写rabbitmq的消息别丢，可以开启confirm模式，在生产者那里设置开启confirm模式之后，你每次写的消息都会分配一个唯一的id，然后如果写入了rabbitmq中，rabbitmq会给你回传一个ack消息，告诉你说这个消息ok了。如果rabbitmq没能处理这个消息，会回调你一个nack接口，告诉你这个消息接收失败，你可以重试。而且你可以结合这个机制自己在内存里维护每个消息id的状态，如果超过一定时间还没接收到这个消息的回调，那么你可以重发。事务机制和cnofirm机制最大的不同在于，事务机制是同步的，你提交一个事务之后会阻塞在那儿，但是confirm机制是异步的，你发送个消息之后就可以发送下一个消息，然后那个消息rabbitmq接收了之后会异步回调你一个接口通知你这个消息接收到了。所以一般在生产者这块避免数据丢失，都是用confirm机制的。#####rabbitmq弄丢了数据就是rabbitmq自己弄丢了数据，这个你必须开启rabbitmq的持久化，就是消息写入之后会持久化到磁盘，哪怕是rabbitmq自己挂了，恢复之后会自动读取之前存储的数据，一般数据不会丢。除非极其罕见的是，rabbitmq还没持久化，自己就挂了，可能导致少量数据会丢失的，但是这个概率较小。设置持久化有两个步骤，第一个是创建queue的时候将其设置为持久化的，这样就可以保证rabbitmq持久化queue的元数据，但是不会持久化queue里的数据；第二个是发送消息的时候将消息的deliveryMode设置为2，就是将消息设置为持久化的，此时rabbitmq就会将消息持久化到磁盘上去。必须要同时设置这两个持久化才行，rabbitmq哪怕是挂了，再次重启，也会从磁盘上重启恢复queue，恢复这个queue里的数据。而且持久化可以跟生产者那边的confirm机制配合起来，只有消息被持久化到磁盘之后，才会通知生产者ack了，所以哪怕是在持久化到磁盘之前，rabbitmq挂了，数据丢了，生产者收不到ack，你也是可以自己重发的。哪怕是你给rabbitmq开启了持久化机制，也有一种可能，就是这个消息写到了rabbitmq中，但是还没来得及持久化到磁盘上，结果不巧，此时rabbitmq挂了，就会导致内存里的一点点数据会丢失。</p><h5>消费端弄丢了数据</h5><p>rabbitmq如果丢失了数据，主要是因为你消费的时候，刚消费到，还没处理，结果进程挂了，比如重启了，那么就尴尬了，rabbitmq认为你都消费了，这数据就丢了。这个时候得用rabbitmq提供的ack机制，简单来说，就是你关闭rabbitmq自动ack，可以通过一个api来调用就行，然后每次你自己代码里确保处理完的时候，再程序里ack一把。这样的话，如果你还没处理完，不就没有ack？那rabbitmq就认为你还没处理完，这个时候rabbitmq会把这个消费分配给别的consumer去处理，消息是不会丢的。</p><p><img src="https://upload-images.jianshu.io/upload_images/7918686-a1b50867553f3146.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p><h4>二、kafka</h4><h5>消费端弄丢了数据</h5><p>唯一可能导致消费者弄丢数据的情况，就是说，你那个消费到了这个消息，然后消费者那边自动提交了offset，让kafka以为你已经消费好了这个消息，其实你刚准备处理这个消息，你还没处理，你自己就挂了，此时这条消息就丢咯。这不是一样么，大家都知道kafka会自动提交offset，那么只要关闭自动提交offset，在处理完之后自己手动提交offset，就可以保证数据不会丢。但是此时确实还是会重复消费，比如你刚处理完，还没提交offset，结果自己挂了，此时肯定会重复消费一次，自己保证幂等性就好了。生产环境碰到的一个问题，就是说我们的kafka消费者消费到了数据之后是写到一个内存的queue里先缓冲一下，结果有的时候，你刚把消息写入内存queue，然后消费者会自动提交offset。然后此时我们重启了系统，就会导致内存queue里还没来得及处理的数据就丢失了<img src="https://upload-images.jianshu.io/upload_images/7918686-d0dc5f0a3d93f47a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/811" alt=""></p><h5>kafka弄丢了数据</h5><p>这块比较常见的一个场景，就是kafka某个broker宕机，然后重新选举partiton的leader时。大家想想，要是此时其他的follower刚好还有些数据没有同步，结果此时leader挂了，然后选举某个follower成leader之后，他不就少了一些数据？这就丢了一些数据啊。生产环境也遇到过，我们也是，之前kafka的leader机器宕机了，将follower切换为leader之后，就会发现说这个数据就丢了所以此时一般是要求起码设置如下4个参数：给这个topic设置replication.factor参数：这个值必须大于1，要求每个partition必须有至少2个副本在kafka服务端设置min.insync.replicas参数：这个值必须大于1，这个是要求一个leader至少感知到有至少一个follower还跟自己保持联系，没掉队，这样才能确保leader挂了还有一个follower吧在producer端设置acks=all：这个是要求每条数据，必须是写入所有replica之后，才能认为是写成功了在producer端设置retries=MAX（很大很大很大的一个值，无限次重试的意思）：这个是要求一旦写入失败，就无限重试，卡在这里了我们生产环境就是按照上述要求配置的，这样配置之后，至少在kafka broker端就可以保证在leader所在broker发生故障，进行leader切换时，数据不会丢失3）生产者会不会弄丢数据如果按照上述的思路设置了ack=all，一定不会丢，要求是，你的leader接收到消息，所有的follower都同步到了消息之后，才认为本次写成功了。如果没满足这个条件，生产者会自动不断的重试，重试无限次。</p><h4>数据的顺序性</h4><h5>rabbitmq保证数据的顺序性</h5><p>如果存在多个消费者，那么就让每个消费者对应一个queue，然后把要发送 的数据全都放到一个queue，这样就能保证所有的数据只到达一个消费者从而保证每个数据到达数据库都是顺序的。</p><h6>rabbitmq：拆分多个queue，每个queue一个consumer，就是多一些queue而已，确实是麻烦点；或者就一个queue但是对应一个consumer，然后这个consumer内部用内存队列做排队，然后分发给底层不同的worker来处理</h6><p><img src="https://upload-images.jianshu.io/upload_images/7918686-408bc23a157e8a28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/874" alt=""><img src="https://upload-images.jianshu.io/upload_images/7918686-dc7fe6c6a55aa19c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/874" alt=""></p><h3>kafka保证数据的顺序性</h3><p>kafka 写入partion时指定一个key，列如订单id，那么消费者从partion中取出数据的时候肯定是有序的，当开启多个线程的时候可能导致数据不一致，这时候就需要内存队列，将相同的hash过的数据放在一个内存队列里，这样就能保证一条线程对应一个内存队列的数据写入数据库的时候顺序性的，从而可以开启多条线程对应多个内存队列（2）kafka：一个topic，一个partition，一个consumer，内部单线程消费，写N个内存queue，然后N个线程分别消费一个内存queue即可</p><p><img src="https://upload-images.jianshu.io/upload_images/7918686-9e0048554a4e549c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""><img src="https://upload-images.jianshu.io/upload_images/7918686-755410a74bf7cd57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt=""></p><h4>MQ积压几百万条数据怎么办？</h4><p><img src="https://upload-images.jianshu.io/upload_images/7918686-1ec0b3428f5e49a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/967" alt="">这个是我们真实遇到过的一个场景，确实是线上故障了，这个时候要不然就是修复consumer的问题，让他恢复消费速度，然后傻傻的等待几个小时消费完毕。这个肯定不能在面试的时候说吧。一个消费者一秒是1000条，一秒3个消费者是3000条，一分钟是18万条，1000多万条所以如果你积压了几百万到上千万的数据，即使消费者恢复了，也需要大概1小时的时间才能恢复过来一般这个时候，只能操作临时紧急扩容了，具体操作步骤和思路如下：</p><ol><li>先修复consumer的问题，确保其恢复消费速度，然后将现有cnosumer都停掉</li><li>新建一个topic，partition是原来的10倍，临时建立好原先10倍或者20倍的queue数量</li><li>然后写一个临时的分发数据的consumer程序，这个程序部署上去消费积压的数据，消费之后不做耗时的处理，直接均匀轮询写入临时建立好的10倍数量的queue</li><li>接着临时征用10倍的机器来部署consumer，每一批consumer消费一个临时queue的数据</li><li>这种做法相当于是临时将queue资源和consumer资源扩大10倍，以正常的10倍速度来消费数据</li><li>等快速消费完积压数据之后，得恢复原先部署架构，重新用原先的consumer机器来消费消息</li></ol><h5>这里我们假设再来第二个坑</h5><p>假设你用的是rabbitmq，rabbitmq是可以设置过期时间的，就是TTL，如果消息在queue中积压超过一定的时间就会被rabbitmq给清理掉，这个数据就没了。那这就是第二个坑了。这就不是说数据会大量积压在mq里，而是大量的数据会直接搞丢。这个情况下，就不是说要增加consumer消费积压的消息，因为实际上没啥积压，而是丢了大量的消息。我们可以采取一个方案，就是批量重导，这个我们之前线上也有类似的场景干过。就是大量积压的时候，我们当时就直接丢弃数据了，然后等过了高峰期以后，比如大家一起喝咖啡熬夜到晚上12点以后，用户都睡觉了。这个时候我们就开始写程序，将丢失的那批数据，写个临时程序，一点一点的查出来，然后重新灌入mq里面去，把白天丢的数据给他补回来。也只能是这样了。假设1万个订单积压在mq里面，没有处理，其中1000个订单都丢了，你只能手动写程序把那1000个订单给查出来，手动发到mq里去再补一次</p><h5>然后我们再来假设第三个坑</h5><p>如果走的方式是消息积压在mq里，那么如果你很长时间都没处理掉，此时导致mq都快写满了，咋办？这个还有别的办法吗？没有，谁让你第一个方案执行的太慢了，你临时写程序，接入数据来消费，消费一个丢弃一个，都不要了，快速消费掉所有的消息。然后走第二个方案，到了晚上再补数据吧。</p><blockquote><p>作者：_云起链接：https://www.jianshu.com/p/7a6deaba34d2來源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2&gt;如何保证消息队列的高可用和幂等性以及数据丢失，顺序一致性&lt;/h2&gt;
+&lt;p&gt;&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
+&lt;h3&gt;RabbitMQ的高可用性&lt;/h3&gt;
+&lt;p&gt;RabbitMQ是比较有代表性的，因为是基于主从做高可用性的，我们就以他为例子讲解第一种MQ的高可
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="消息队列" scheme="http://blog.appcity.vip/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+      <category term="mq" scheme="http://blog.appcity.vip/tags/mq/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IT圈里难读的单词发音</title>
+    <link href="http://blog.appcity.vip/essay/IT%E5%9C%88%E9%87%8C%E9%9A%BE%E8%AF%BB%E7%9A%84%E5%8D%95%E8%AF%8D%E5%8F%91%E9%9F%B3/"/>
+    <id>http://blog.appcity.vip/essay/IT圈里难读的单词发音/</id>
+    <published>2018-11-30T13:29:55.000Z</published>
+    <updated>2020-02-05T14:47:18.925Z</updated>
+    
+    <content type="html"><![CDATA[<h1>What?</h1><p>记录遇到的难读的易读错的单词发音&lt;!-- more --&gt;</p><table><thead><tr><th>单词</th><th>音标</th><th>发音</th></tr></thead><tbody><tr><td>Youtube</td><td>(You-tube [tju:b])</td><td>念 优tiu啵 不念 优吐毙</td></tr><tr><td>Skype</td><td>[ˈskaɪp]</td><td>念 死盖破 不念 死盖屁</td></tr><tr><td>Adobe</td><td>[əˈdəʊbi]</td><td>念 阿兜笔 不念 阿斗伯</td></tr><tr><td>Chrome</td><td>[krəʊm]</td><td>念 克肉姆</td></tr><tr><td>C#</td><td>(C Sharp)</td><td>念 C煞破</td></tr><tr><td>GNU</td><td>[(g)nuː]</td><td>念 哥怒</td></tr><tr><td>GUI</td><td>[ˈɡui]</td><td>念 故意</td></tr><tr><td>JAVA</td><td>[ˈdʒɑːvə]</td><td>念 扎蛙 不念 夹蛙</td></tr><tr><td>AJAX</td><td>[ˈeɪdʒæks]</td><td>念 诶(ei)贾克斯 不念 阿贾克斯</td></tr><tr><td>Ubuntu</td><td>[uˈbuntuː]</td><td>念 巫不恩兔 不念 友邦兔</td></tr><tr><td>Debian</td><td>[ˈdɛbiən]</td><td>念 得(dei)变</td></tr><tr><td>Linux</td><td>[ˈlɪnəks] [ˈlɪnʊks]</td><td>两种发音 丽娜克斯 和 李扭克斯 都可以</td></tr><tr><td>LaTeX</td><td>[ˈleɪtɛk] [ˈleɪtɛx] [ˈlɑːtɛx] [ˈlɑːtɛk]</td><td>雷泰克，拉泰克 都可以</td></tr><tr><td>GNOME</td><td>[ɡˈnoʊm] [noʊm]</td><td>两种发音 格弄姆 弄姆 都可以</td></tr><tr><td>App</td><td>[ˈæp]</td><td>念阿破（与爱破也比较像，参见音标），不能把三个字母拆开念成A P P。</td></tr><tr><td>null</td><td>[nʌl]</td><td>念 闹</td></tr><tr><td>jpg</td><td>[ˈdʒeɪpɛɡ]</td><td>念 zhei派个 不念 勾屁记</td></tr><tr><td>WiFi</td><td>[ˈwaɪfaɪ]</td><td>念 歪fai</td></tr><tr><td>mobile</td><td>[moˈbil] [ˈmoˌbil] [ˈməubail]</td><td>膜拜哦 和 牟bou 都可以</td></tr><tr><td>integer</td><td>[ˈɪntɪdʒə]</td><td>念 音剃摺儿 不念 阴太阁儿</td></tr><tr><td>cache</td><td>[kæʃ]</td><td>念 喀什 不念 卡尺</td></tr><tr><td>@</td><td></td><td>念 at</td></tr><tr><td>Tumblr (Tumbler)</td><td></td><td>念 贪不勒 或 汤不热</td></tr><tr><td>nginx (Engine X)</td><td></td><td>念 恩静 爱克斯（@Lawrence Li有不同意见）</td></tr><tr><td>Apache</td><td>[əˈpætʃiː]</td><td>念 阿趴气</td></tr><tr><td>Lucene</td><td>[ˈluːsin]</td><td>念 鲁信</td></tr><tr><td>MySQL</td><td>[maɪ ˌɛskjuːˈɛl] [maɪ ˈsiːkwəl]</td><td>念 买S奎儿 或 买吸扣 都可以</td></tr><tr><td>Exposé</td><td>[ɛksˈpəʊzeɪ]</td><td>念 埃克斯剖Z （重音在Z上）</td></tr><tr><td>RFID</td><td></td><td>【本条争议颇大】：有人念af rid, ri fid，但是RFID官方念法依然是四个字母分开读R F I D</td></tr><tr><td>JSON (jason)</td><td></td><td>念 zhei森</td></tr><tr><td>Processing</td><td>[ˈprəʊsesɪŋ]</td><td>重音在Pro上</td></tr><tr><td>avatar</td><td>[ˌævə'tɑr]</td><td>念 艾瓦塌儿</td></tr><tr><td>solr</td><td>['səulə]</td><td>发音同 solar ['səulə]----馊了；</td></tr><tr><td>selenium</td><td>美[sɪˈliniəm]</td><td></td></tr><tr><td>Nacos</td><td>[nɑ:kəʊs]</td><td></td></tr><tr><td>yarn</td><td>英  [jɑːn]  美 [jɑn:n]</td><td>呀嗯</td></tr><tr><td>yum</td><td>[jʌm]</td><td>亚目</td></tr><tr><td>phantom</td><td>[ˈfæntəm; fanˈtəm]</td><td>法藤</td></tr></tbody></table><h2>Where?</h2><p>推荐个网站https://zh.forvo.com/login/专门发音的</p><h2>Why?</h2><p>太多单词不知道怎么读或读错了，特此记录下</p><h2>参考</h2><ul><li>https://www.zhihu.com/question/19739907</li><li>https://github.com/shimohq/chinese-programmer-wrong-pronunciation?from=singlemessage&amp;isappinstalled=0</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;What?&lt;/h1&gt;
+&lt;p&gt;记录遇到的难读的易读错的单词发音
+&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;单词&lt;/th&gt;
+&lt;th&gt;音标&lt;/th&gt;
+&lt;th&gt;发音&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="单词" scheme="http://blog.appcity.vip/tags/%E5%8D%95%E8%AF%8D/"/>
+    
+      <category term="it" scheme="http://blog.appcity.vip/tags/it/"/>
+    
+      <category term="单词发音" scheme="http://blog.appcity.vip/tags/%E5%8D%95%E8%AF%8D%E5%8F%91%E9%9F%B3/"/>
+    
+      <category term="易读错词" scheme="http://blog.appcity.vip/tags/%E6%98%93%E8%AF%BB%E9%94%99%E8%AF%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop体系所有组件默认端口列表</title>
+    <link href="http://blog.appcity.vip/essay/Hadoop%E4%BD%93%E7%B3%BB%E6%89%80%E6%9C%89%E7%BB%84%E4%BB%B6%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8/"/>
+    <id>http://blog.appcity.vip/essay/Hadoop体系所有组件默认端口列表/</id>
+    <published>2018-11-17T11:54:17.000Z</published>
+    <updated>2020-02-05T14:47:18.920Z</updated>
+    
+    <content type="html"><![CDATA[<h2>Why?</h2><hr><p>Hadoop集群组件太多，默认端口无法记住，有时候需要查看，就在这里罗列下这里包含我们使用到的组件：HDFS, YARN, Hbase, Hive, ZooKeeper。&lt;!-- more --&gt;</p><h1>What?</h1><hr><table><thead><tr><th>端口</th><th>作用</th></tr></thead><tbody><tr><td>9000</td><td>fs.defaultFS，如：hdfs://172.25.40.171:9000</td></tr><tr><td>9001</td><td>dfs.namenode.rpc-address，DataNode会连接这个端口</td></tr><tr><td>50070</td><td>dfs.namenode.http-address</td></tr><tr><td>50470</td><td>dfs.namenode.https-address</td></tr><tr><td>50100</td><td>dfs.namenode.backup.address</td></tr><tr><td>50105</td><td>dfs.namenode.backup.http-address</td></tr><tr><td>50090</td><td>dfs.namenode.secondary.http-address，如：172.25.39.166:50090</td></tr><tr><td>50091</td><td>dfs.namenode.secondary.https-address，如：172.25.39.166:50091</td></tr><tr><td>50020</td><td>dfs.datanode.ipc.address</td></tr><tr><td>50075</td><td>dfs.datanode.http.address</td></tr><tr><td>50475</td><td>dfs.datanode.https.address</td></tr><tr><td>50010</td><td>dfs.datanode.address，DataNode的数据传输端口</td></tr><tr><td>8480</td><td>dfs.journalnode.rpc-address</td></tr><tr><td>8481</td><td>dfs.journalnode.https-address</td></tr><tr><td>8032</td><td>yarn.resourcemanager.address</td></tr><tr><td>8088</td><td>yarn.resourcemanager.webapp.address，YARN的http端口</td></tr><tr><td>8090</td><td>yarn.resourcemanager.webapp.https.address</td></tr><tr><td>8030</td><td>yarn.resourcemanager.scheduler.address</td></tr><tr><td>8031</td><td>yarn.resourcemanager.resource-tracker.address</td></tr><tr><td>8033</td><td>yarn.resourcemanager.admin.address</td></tr><tr><td>8042</td><td>yarn.nodemanager.webapp.address</td></tr><tr><td>8040</td><td>yarn.nodemanager.localizer.address</td></tr><tr><td>8188</td><td>yarn.timeline-service.webapp.address</td></tr><tr><td>10020</td><td>mapreduce.jobhistory.address</td></tr><tr><td>19888</td><td>mapreduce.jobhistory.webapp.address</td></tr><tr><td>2888</td><td>ZooKeeper，如果是Leader，用来监听Follower的连接</td></tr><tr><td>3888</td><td>ZooKeeper，用于Leader选举</td></tr><tr><td>2181</td><td>ZooKeeper，用来监听客户端的连接</td></tr><tr><td>60010</td><td>hbase.master.info.port，HMaster的http端口</td></tr><tr><td>60000</td><td>hbase.master.port，HMaster的RPC端口</td></tr><tr><td>60030</td><td>hbase.regionserver.info.port，HRegionServer的http端口</td></tr><tr><td>60020</td><td>hbase.regionserver.port，HRegionServer的RPC端口</td></tr><tr><td>8080</td><td>hbase.rest.port，HBase REST server的端口</td></tr><tr><td>10000</td><td>hive.server2.thrift.port</td></tr><tr><td>9083</td><td>hive.metastore.uris</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2&gt;Why?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Hadoop集群组件太多，默认端口无法记住，有时候需要查看，就在这里罗列下
+这里包含我们使用到的组件：HDFS, YARN, Hbase, Hive, ZooKeeper。
+&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
+&lt;h1&gt;Wha
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac+idea+gradle搭建Hadoop开发环境</title>
+    <link href="http://blog.appcity.vip/essay/mac%E4%B8%8Bidea%E6%90%AD%E5%BB%BAHadoop%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://blog.appcity.vip/essay/mac下idea搭建Hadoop开发环境/</id>
+    <published>2018-11-06T10:53:27.000Z</published>
+    <updated>2020-02-05T14:47:18.920Z</updated>
+    
+    <content type="html"><![CDATA[<h2>What?</h2><hr><p>使用mac os 系统，不用eclipse，不用maven，而是使用idea 和 gradle 来搭建开发环境&lt;!-- more --&gt;</p><h2>How?</h2><hr><ol><li><p>mac 上安装gradle<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p></li><li><p>mac 上安装 idea<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install intellij-idea</span><br></pre></td></tr></table></figure></p></li><li><p>利用idea 创建gradle项目<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542328703249.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542336237263.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542337821433.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542336349426.png" alt=""><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542336446890.png" alt=""></p></li><li><p>修改gradle配置文件 引入依赖<code>![](http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542338465013.png)</code><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542359516792.png" alt=""></p></li><li><p>将hadoop上的配置文件拷贝到项目resource目录,主要用于打jar包放到服务器上执行任务<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542357074315.png" alt=""></p></li><li><p>新建HDFSOperations 类 练习hdfs的基本操作注意 <code>System.setProperty(&quot;HADOOP_USER_NAME&quot;, &quot;root&quot;);</code> 加上这个环境变量可避免权限问题<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HDFSOperations</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> Configuration config ;</span><br><span class="line">  <span class="keyword">static</span> FileSystem fileSystem;</span><br><span class="line">  <span class="keyword">static</span> String resourcePath ;</span><br><span class="line">  <span class="keyword">static</span> String pathhdfsStr ;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">      <span class="comment">// 不加此行 本地运行则可能会报权限问题</span></span><br><span class="line">      System.setProperty(<span class="string">"HADOOP_USER_NAME"</span>, <span class="string">"root"</span>);</span><br><span class="line">      <span class="comment">//1. 初始化Configuration</span></span><br><span class="line">      config = <span class="keyword">new</span> Configuration();</span><br><span class="line">      <span class="comment">// 提交jar包到服务器时 需把这里fs.defaultFS注释掉 本地运行则放开</span></span><br><span class="line">      config.set(<span class="string">"fs.defaultFS"</span>,<span class="string">"hdfs://sj-node1:8020"</span>);</span><br><span class="line">      fileSystem = FileSystem.get(config);</span><br><span class="line">      pathhdfsStr= <span class="string">"/testoperation"</span>;</span><br><span class="line">      resourcePath=System.getProperty(<span class="string">"user.dir"</span>)+<span class="string">"/src/main/resources"</span>;</span><br><span class="line">      mkdir(pathhdfsStr);</span><br><span class="line">      uploadfiles();</span><br><span class="line">  <span class="comment">//        listFiles();</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">mkdir</span><span class="params">(String pathstr)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">      Path path = <span class="keyword">new</span> Path(pathstr);</span><br><span class="line">      <span class="keyword">return</span> fileSystem.mkdirs(path);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">uploadfiles</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">      File file = <span class="keyword">new</span> File(resourcePath+<span class="string">"/qq.txt"</span>);</span><br><span class="line">      Path path = <span class="keyword">new</span> Path(pathhdfsStr+<span class="string">"/qq.txt"</span>);</span><br><span class="line">      FSDataOutputStream fsDataOutputStream= fileSystem.create(path);</span><br><span class="line">      IOUtils.copyBytes(<span class="keyword">new</span> FileInputStream(file),fsDataOutputStream,config);</span><br><span class="line">      System.out.println(<span class="string">"上传结束"</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">listFiles</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">      Path path = <span class="keyword">new</span> Path(<span class="string">"/"</span>);</span><br><span class="line">      RemoteIterator&lt;LocatedFileStatus&gt; iterator = fileSystem.listFiles(path, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">          LocatedFileStatus status = iterator.next();</span><br><span class="line">          System.out.println(status.getPath().getName());</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>执行没有报错即说明基本的操作环境就完成了<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/16/1542360935244.png" alt=""></p></li></ol><h2>集群配置</h2><table><thead><tr><th></th><th>Server1</th><th>server2</th><th>server3</th><th>server4</th></tr></thead><tbody><tr><td>Nginx</td><td>√</td><td></td><td></td><td></td></tr><tr><td>Tomcat</td><td>√</td><td>√</td><td>√</td><td></td></tr><tr><td>HDFS</td><td>NN</td><td>NN&amp;DN</td><td>DN</td><td>DN</td></tr><tr><td>Zookeeper</td><td></td><td>√</td><td>√</td><td></td></tr><tr><td>ZKFC</td><td>√</td><td>√</td><td></td><td></td></tr><tr><td>quorum</td><td></td><td>√</td><td>√</td><td>√</td></tr><tr><td>Yarn</td><td></td><td>√</td><td>√</td><td>√</td></tr><tr><td>Junoral node</td><td></td><td>√</td><td>√</td><td>√</td></tr><tr><td>Mysql</td><td>√</td><td></td><td></td><td></td></tr><tr><td>Hive</td><td>本地模式</td><td>server</td><td>client</td><td></td></tr><tr><td>Hbase</td><td>√</td><td>√</td><td>backup master</td><td></td></tr></tbody></table><h2>docker hadoop 集群</h2><ol><li><p><code>docker pull kiwenlau/hadoop:1.0</code></p></li><li><p><code>git clone https://github.com/kiwenlau/hadoop-cluster-docker</code></p></li><li><p>网络<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542721070945.png" alt=""></p></li><li><p>运行容器<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd hadoop-cluster-docker</span><br><span class="line">./start-container.sh</span><br></pre></td></tr></table></figure></p><p>启动了3个容器，1个master, 2个slave运行后就进入了hadoop-master容器的/root目录</p></li><li><p>启动hadoop集群<code>./start-hadoop.sh</code></p></li><li><p>网页访问</p></li></ol><ul><li>http://localhost:50070</li><li>http://localhost:8088/cluster</li></ul><h2>参考</h2><hr><ul><li>https://hk.saowen.com/a/07f5cebeee97ceddbe41fb4d27b0f2def7b2be636e37b187a060c618071eb77e</li><li>https://github.com/trex-group/Big-Data/issues/19</li><li>https://www.jianshu.com/p/b75f8bc9346d</li><li>https://blog.csdn.net/u013063153/article/details/62040128</li><li><a href="https://www.polarxiong.com/archives/Hadoop-Intellij%E7%BB%93%E5%90%88Maven%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E5%92%8C%E8%B0%83%E8%AF%95MapReduce%E7%A8%8B%E5%BA%8F-%E6%97%A0%E9%9C%80%E6%90%AD%E8%BD%BDHadoop%E5%92%8CHDFS%E7%8E%AF%E5%A2%83.html" target="_blank" rel="noopener">Intellij结合Maven本地运行和调试MapReduce程序</a></li><li><a href="https://blog.csdn.net/zhblanlan/article/details/82081991" target="_blank" rel="noopener">以本地方式运行mapreduce程序的参数配置</a></li><li><a href="https://blog.csdn.net/wo198711203217/article/details/80528860" target="_blank" rel="noopener">hadoop HA场景下 java客户端远程访问hdfs配置</a></li><li><a href="https://www.jianshu.com/p/b75f8bc9346d" target="_blank" rel="noopener">从 0 开始使用 Docker 快速搭建 Hadoop 集群环境</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2&gt;What?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;使用mac os 系统，不用eclipse，不用maven，而是使用idea 和 gradle 来搭建开发环境
+&amp;lt;!-- more --&amp;gt;&lt;/p&gt;
+&lt;h2&gt;How?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;mac 
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>负载均衡</title>
+    <link href="http://blog.appcity.vip/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    <id>http://blog.appcity.vip/架构师笔记/负载均衡/</id>
+    <published>2018-11-05T01:27:01.000Z</published>
+    <updated>2020-02-05T14:47:18.919Z</updated>
+    
+    <content type="html"><![CDATA[<h2>What?</h2><p>单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求</p><p>nginx 集群 lvs  keepalived f5</p><p>nginx 官方测试并发支承5万并发阿里开源的tengine 和nginx能够完美兼容</p><h3>nignx负载均衡机制</h3><ul><li>轮训（默认）<blockquote><p>按照配置的服务列表一个个分配</p></blockquote><ul><li>缺点<ul><li>同一个用户，不同请求会分配到不同服务器</li></ul></li></ul></li><li>加权负载均衡<blockquote><p>对性能不一致的机器 给予不同的权重，是性能好的服务器能够处理更多</p></blockquote></li><li>最少连接数<blockquote><p>分配给连接数更少的服务器</p></blockquote></li><li>ip-hash<blockquote><p>保证会话持久- 缺点- 如果针对用户是企业用户，一般都是一条宽带外网ip都是一样的，这样的用户都会被分配到同一个server上，达不到负载均衡的效果</p></blockquote></li></ul><h2>Where?</h2><p>应用服务器前可以加nignx负载，如果nginx需要负载则需要在nginx前加lvs服务参考 <a href="2016-09-04-lvs">lvs</a></p><h2>Why?</h2><h2>How?</h2><h3>轮训nginx配置</h3><p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p><h3>权重配置</h3><p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      server sj-node2 weight=3;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p><h3>最小连接数配置</h3><p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      least_conn;</span><br><span class="line">      server sj-node2;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p><h3>ip-hash配置</h3><p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    upstream sjcluster&#123;</span><br><span class="line">      ip_hash;</span><br><span class="line">      server sj-node2 ;</span><br><span class="line">      server sj-node3;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  node2;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://sjcluster</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p><h2>参考</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2&gt;What?&lt;/h2&gt;
+&lt;p&gt;单台服务器有性能等瓶颈，请求被合理分配到多台server上，以使能够处理更多请求&lt;/p&gt;
+&lt;p&gt;nginx 集群 lvs  keepalived f5&lt;/p&gt;
+&lt;p&gt;nginx 官方测试并发支承5万并发
+阿里开源的tengine 和nginx
+      
+    
+    </summary>
+    
+      <category term="架构师笔记" scheme="http://blog.appcity.vip/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>workflow实现csv2json</title>
+    <link href="http://blog.appcity.vip/essay/workflow%E5%AE%9E%E7%8E%B0csv2json/"/>
+    <id>http://blog.appcity.vip/essay/workflow实现csv2json/</id>
+    <published>2018-10-18T02:07:56.000Z</published>
+    <updated>2020-02-05T14:47:18.919Z</updated>
+    
+    <content type="html"><![CDATA[<h2>What?</h2><hr><p>将csv文件内容按照要求转换成json格式<a href="https://github.com/juforg/csv2json.alfredworkflow/releases/download/v1.0/Csv2json.alfredworkflow" target="_blank" rel="noopener">下载地址</a></p><h2>Where?</h2><hr><p>写博客的时候用到图表，需要json格式的原始数据</p><h2>Why?</h2><hr><p>本博客中的 <em>知识图谱</em> 和 <em>书单</em> 是长期维护的，采用的是百度开源的图表框架echarts，配合hexo的插件hexo-tag-echarts3，需要的是json格式的原始数据，随着年份的增加，内容也会越来越多，因其都有一定的结构，不是简单的列表，所以采用xmind脑图软件记录，修改脑图软件后导出格式如csv，xls等，这里选择csv格式转json，比较方便点</p><h2>How?</h2><hr><blockquote><p>主要使用python脚本，方便调试，源码地址：<a href="https://github.com/juforg/csv2json.alfredworkflow" target="_blank" rel="noopener">https://github.com/juforg/csv2json.alfredworkflow</a></p></blockquote><ol><li>使用codecs库读取csv文件，避免乱码</li><li>解析csv数据</li><li>组装json数据</li><li>输出到剪贴板</li></ol><h3>applescript 获取当前文件夹路径</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">on alfred_script(q)</span><br><span class="line">  tell application &quot;Finder&quot;</span><br><span class="line">    set query to get POSIX path of (folder of the front window as alias)</span><br><span class="line">return query</span><br><span class="line">  end tell</span><br><span class="line">end alfred_script</span><br></pre></td></tr></table></figure></p><h3>applescript 获取选中的文件全路径</h3><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">on alfred_script(q)</span><br><span class="line">  tell application &quot;Finder&quot;</span><br><span class="line">    set query to get POSIX path of (item 1 of (get selection as alias list)as alias)</span><br><span class="line">return query</span><br><span class="line">  end tell</span><br><span class="line">end alfred_script</span><br></pre></td></tr></table></figure></p><h2>参考</h2><hr><ul><li>https://blog.csdn.net/jenyzhang/article/details/51898150?utm_source=blogxgwz2</li><li>https://forum.keyboardmaestro.com/t/getting-the-path-of-currently-selected-file-in-finder/1507/2</li><li>https://stackoverflow.com/questions/12129989/getting-finders-current-directory-in-applescript-stored-as-application</li><li>https://gist.github.com/jonschlinkert/7683131911c0cfd18d5cf8e818adffbc</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2&gt;What?&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;将csv文件内容按照要求转换成json格式
+&lt;a href=&quot;https://github.com/juforg/csv2json.alfredworkflow/releases/download/v1.0/Csv2json.alfr
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/categories/essay/"/>
+    
+    
+      <category term="随笔" scheme="http://blog.appcity.vip/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>

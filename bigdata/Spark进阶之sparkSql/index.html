@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="What ?  sparksql  内存列存储 字节码生成技术CG   hive on spark  底层spark执行 hive做 存储和sql解析优化   spark on hive  spark做 sql 优化和执行 hive做存储    &amp;lt;!-- more --&amp;gt; sparksql  数据源  json jdbc hive hbase  谓词下推  Why ? Where? H">
+<meta name="keywords" content="大数据,Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark进阶之Sparksql">
+<meta property="og:url" content="http://blog.appcity.vip/bigdata/Spark进阶之sparkSql/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="What ?  sparksql  内存列存储 字节码生成技术CG   hive on spark  底层spark执行 hive做 存储和sql解析优化   spark on hive  spark做 sql 优化和执行 hive做存储    &amp;lt;!-- more --&amp;gt; sparksql  数据源  json jdbc hive hbase  谓词下推  Why ? Where? H">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/12/19/1545221413329.png">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark进阶之Sparksql">
+<meta name="twitter:description" content="What ?  sparksql  内存列存储 字节码生成技术CG   hive on spark  底层spark执行 hive做 存储和sql解析优化   spark on hive  spark做 sql 优化和执行 hive做存储    &amp;lt;!-- more --&amp;gt; sparksql  数据源  json jdbc hive hbase  谓词下推  Why ? Where? H">
+<meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/12/19/1545221413329.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/bigdata/Spark进阶之sparkSql/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Spark进阶之Sparksql | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/bigdata/Spark进阶之sparkSql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juforg">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Spark进阶之Sparksql
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-17 09:55:11" itemprop="dateCreated datePublished" datetime="2016-12-17T09:55:11+08:00">2016-12-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-05 22:47:18" itemprop="dateModified" datetime="2020-02-05T22:47:18+08:00">2020-02-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/bigdata/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/bigdata/Spark进阶之sparkSql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/bigdata/Spark进阶之sparkSql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>What ?</h2>
+<ul>
+<li>sparksql
+<ul>
+<li>内存列存储</li>
+<li>字节码生成技术CG</li>
+</ul>
+</li>
+<li>hive on spark
+<ul>
+<li>底层spark执行</li>
+<li>hive做 存储和sql解析优化</li>
+</ul>
+</li>
+<li>spark on hive
+<ul>
+<li>spark做 sql 优化和执行</li>
+<li>hive做存储</li>
+</ul>
+</li>
+</ul>
+<p>&lt;!-- more --&gt;</p>
+<h3>sparksql  数据源</h3>
+<ul>
+<li>json</li>
+<li>jdbc</li>
+<li>hive</li>
+<li>hbase</li>
+</ul>
+<h3>谓词下推</h3>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/12/19/1545221413329.png" alt=""></p>
+<h2>Why ?</h2>
+<h2>Where?</h2>
+<h2>How?</h2>
+<h3>DataFrame</h3>
+<ul>
+<li>
+<p>通过json文件创建 DataFrame
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>() conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"jsonfile"</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line"><span class="keyword">val</span> df = sqlContext.read.json(<span class="string">"sparksql/json"</span>)</span><br><span class="line"><span class="comment">//val df1 = sqlContext.read.format("json").load("sparksql/json")</span></span><br><span class="line">df.show()</span><br><span class="line">df.printSchema()</span><br><span class="line"><span class="comment">//select * from table</span></span><br><span class="line">df.select(df.col(<span class="string">"name"</span>)).show()</span><br><span class="line"><span class="comment">//select name from table where age&gt;19 df.select(df.col("name"),df.col("age")).where(df.col("age").gt(19)).show() //select count(*) from table group by age df.groupBy(df.col("age")).count().show();</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 注册临时表 */</span></span><br><span class="line">df.registerTempTable(<span class="string">"jtable"</span>)</span><br><span class="line"><span class="keyword">val</span> result = sqlContext.sql(<span class="string">"select * from jtable"</span>) result.show()</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>通过json格式RDD创建 DataFrame</p>
+</li>
+<li>
+<p>通过反射创建 DataFrame
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SparkConf</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>(); conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"RDD"</span>);</span><br><span class="line"><span class="type">JavaSparkContext</span> sc = <span class="keyword">new</span> <span class="type">JavaSparkContext</span>(conf);</span><br><span class="line"><span class="type">SQLContext</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc);</span><br><span class="line"><span class="type">JavaRDD</span>&lt;<span class="type">String</span>&gt; lineRDD = sc.textFile(<span class="string">"sparksql/person.txt"</span>); <span class="type">JavaRDD</span>&lt;<span class="type">Person</span>&gt; personRDD = lineRDD.map(<span class="keyword">new</span> <span class="type">Function</span>&lt;<span class="type">String</span>, <span class="type">Person</span>&gt;() &#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> static <span class="keyword">final</span> long serialVersionUID = <span class="number">1</span>L;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">public <span class="type">Person</span> call(<span class="type">String</span> s) <span class="keyword">throws</span> <span class="type">Exception</span> &#123; <span class="type">Person</span> p = <span class="keyword">new</span> <span class="type">Person</span>(); p.setId(s.split(<span class="string">","</span>)[<span class="number">0</span>]); p.setName(s.split(<span class="string">","</span>)[<span class="number">1</span>]); p.setAge(<span class="type">Integer</span>.valueOf(s.split(<span class="string">","</span>)[<span class="number">2</span>]));</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>动态创建DataFrame</p>
+<ul>
+<li>
+<p>java
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">SparkConf conf = new SparkConf(); conf.setMaster(&quot;local&quot;).setAppName(&quot;rddStruct&quot;); JavaSparkContext sc = new JavaSparkContext(conf);</span><br><span class="line">SQLContext sqlContext = new SQLContext(sc);</span><br><span class="line">JavaRDD&lt;String&gt; lineRDD = sc.textFile(&quot;./sparksql/person.txt&quot;); /**</span><br><span class="line">* 转换成Row类型的RDD</span><br><span class="line">*/</span><br><span class="line">JavaRDD&lt;Row&gt; rowRDD = lineRDD.map(new Function&lt;String, Row&gt;() &#123;</span><br><span class="line">/** *</span><br><span class="line">*/</span><br><span class="line">private static final long serialVersionUID = 1L;</span><br><span class="line">@Override</span><br><span class="line">public Row call(String s) throws Exception &#123; return RowFactory.create(</span><br><span class="line">);</span><br><span class="line">&#125; &#125;);</span><br><span class="line">String.valueOf(s.split(&quot;,&quot;)[0]), String.valueOf(s.split(&quot;,&quot;)[1]), Integer.valueOf(s.split(&quot;,&quot;)[2])</span><br><span class="line">/**</span><br><span class="line">* 动态构建DataFrame中的元数据，一般来说这里的字段可以来源自字符串，也可以来源</span><br><span class="line">于外部数据库</span><br><span class="line">*/</span><br><span class="line">List&lt;StructField&gt; asList =Arrays.asList( DataTypes.createStructField(&quot;id&quot;, DataTypes.StringType, true), DataTypes.createStructField(&quot;name&quot;, DataTypes.StringType, true), DataTypes.createStructField(&quot;age&quot;, DataTypes.IntegerType, true)</span><br><span class="line">);</span><br><span class="line">StructType schema = DataTypes.createStructType(asList);</span><br><span class="line">DataFrame df = sqlContext.createDataFrame(rowRDD, schema);</span><br><span class="line">df.show();</span><br><span class="line">sc.stop();</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>scala
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>() conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"rddStruct"</span>) <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line"><span class="keyword">val</span> lineRDD = sc.textFile(<span class="string">"./sparksql/person.txt"</span>) <span class="keyword">val</span> rowRDD = lineRDD.map &#123; x =&gt; &#123;</span><br><span class="line"><span class="keyword">val</span> split = x.split(<span class="string">","</span>)</span><br><span class="line"><span class="type">RowFactory</span>.create(split(<span class="number">0</span>),split(<span class="number">1</span>),<span class="type">Integer</span>.valueOf(split(<span class="number">2</span>))) &#125;&#125;</span><br><span class="line"><span class="keyword">val</span> schema = <span class="type">StructType</span>(<span class="type">List</span>( <span class="type">StructField</span>(<span class="string">"id"</span>,<span class="type">StringType</span>,<span class="literal">true</span>), <span class="type">StructField</span>(<span class="string">"name"</span>,<span class="type">StringType</span>,<span class="literal">true</span>), <span class="type">StructField</span>(<span class="string">"age"</span>,<span class="type">IntegerType</span>,<span class="literal">true</span>)</span><br><span class="line">))</span><br><span class="line"><span class="keyword">val</span> df = sqlContext.createDataFrame(rowRDD, schema) df.show()</span><br><span class="line">df.printSchema()</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+</li>
+<li>
+<p>读取JDBC中的数据创建DataFrame(MySql为例)</p>
+<ul>
+<li>scala
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>() conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"mysql"</span>) <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line"><span class="keyword">val</span> reader = sqlContext.read.format(<span class="string">"jdbc"</span>)</span><br><span class="line">reader.option(<span class="string">"url"</span>, <span class="string">"jdbc:mysql://192.168.179.4:3306/spark"</span>) reader.option(<span class="string">"driver"</span>,<span class="string">"com.mysql.jdbc.Driver"</span>)</span><br><span class="line">reader.option(<span class="string">"user"</span>,<span class="string">"root"</span>)</span><br><span class="line">reader.option(<span class="string">"password"</span>,<span class="string">"123456"</span>)</span><br><span class="line">reader.option(<span class="string">"dbtable"</span>, <span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">val</span> score = reader.load()</span><br><span class="line">score.show()</span><br><span class="line">score.registerTempTable(<span class="string">"score"</span>)</span><br><span class="line"><span class="keyword">val</span> result = sqlContext.sql(<span class="string">"select person.id,person.name,score.score from person,score where person.name = score.name"</span>)</span><br><span class="line">result.show()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>读取parquet文件创建DataFrame</p>
+<ul>
+<li>scala
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>() conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"parquet"</span>) </span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line"><span class="keyword">val</span> jsonRDD = sc.textFile(<span class="string">"sparksql/json"</span>)</span><br><span class="line"><span class="keyword">val</span> df = sqlContext.read.json(jsonRDD)</span><br><span class="line">df.show()</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将DF保存为parquet文件 */</span></span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).format(<span class="string">"parquet"</span>).save(<span class="string">"./sparksql/pa</span></span><br><span class="line"><span class="string">rquet"</span>)</span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">"./sparksql/parquet"</span>)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 读取parquet文件</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> result = sqlContext.read.parquet(<span class="string">"./sparksql/parquet"</span>)</span><br><span class="line">result = sqlContext.read.format(<span class="string">"parquet"</span>).load(<span class="string">"./sparksql/parquet"</span>)</span><br><span class="line">result.show()</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>读取Hive中的数据加载成DataFrame</p>
+<ul>
+<li>scala
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setAppName(<span class="string">"HiveSource"</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HiveContext是SQLContext的子类。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">val</span> hiveContext = <span class="keyword">new</span> <span class="type">HiveContext</span>(sc)</span><br><span class="line">hiveContext.sql(<span class="string">"use spark"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"drop table if exists student_infos"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"create table if not exists student_infos (name string,age int) row format  delimited fields terminated by '\t'"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"load data local inpath '/root/test/student_infos' into table student_infos"</span>)</span><br><span class="line"></span><br><span class="line">hiveContext.sql(<span class="string">"drop table if exists student_scores"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"create table if not exists student_scores (name string,score int) row format delimited fields terminated by '\t'"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"load data local inpath '/root/test/student_scores' into table student_scores"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> df = hiveContext.sql(<span class="string">"select si.name,si.age,ss.score from student_infos si,student_scores ss where si.name = ss.name"</span>)</span><br><span class="line">hiveContext.sql(<span class="string">"drop table if exists good_student_infos"</span>)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将结果写入到hive表中</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).saveAsTable(<span class="string">"good_student_infos"</span>)</span><br><span class="line"></span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>
+<p>落地DataFrame，已有api</p>
+<ul>
+<li>
+<p>jdbc
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将数据写入到Mysql表中</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">val</span> properties = <span class="keyword">new</span> <span class="type">Properties</span>()</span><br><span class="line">properties.setProperty(<span class="string">"user"</span>, <span class="string">"root"</span>)</span><br><span class="line">properties.setProperty(<span class="string">"password"</span>, <span class="string">"1234"</span>)</span><br><span class="line">result.write.mode(<span class="type">SaveMode</span>.<span class="type">Append</span>).jdbc(<span class="string">"jdbc:mysql://192.168.100.111:3306/spark"</span>, <span class="string">"result"</span>, properties)</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>parquet
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将DF保存为parquet文件</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).format(<span class="string">"parquet"</span>).save(<span class="string">"data/parquet"</span>)</span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).parquet(<span class="string">"data/parquet"</span>)</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>hive
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将结果写入到hive表中</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">df.write.mode(<span class="type">SaveMode</span>.<span class="type">Overwrite</span>).saveAsTable(<span class="string">"good_student_infos"</span>)</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2>测试java中以下几种情况下不被序列化的问题：</h2>
+<ol>
+<li>
+<p>反序列化时serializable 版本号不一致时会导致不能反序列化。</p>
+</li>
+<li>
+<p>子类中实现了serializable接口，父类中没有实现，父类中的变量不能被序列化,序列化后父类中的变量会得到null。
+注意：父类实现serializable接口,子类没有实现serializable接口时，子类可以正常序列化</p>
+</li>
+<li>
+<p>被关键字transient修饰的变量不能被序列化。</p>
+</li>
+<li>
+<p>静态变量不能被序列化，属于类，不属于方法和对象，所以不能被序列化。</p>
+</li>
+</ol>
+<h3>spark on hive</h3>
+<ul>
+<li>
+<p>在 Spark 客户端安装包下 spark-1.6.0/conf 中创建文件 hive-site.xml:</p>
+</li>
+<li>
+<p>配置 hive 的 metastore 路径
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://node1:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>启动Hive的metastore服务
+<code>hive --service metastore</code></p>
+</li>
+<li>
+<p>启动zookeeper集群，启动HDFS集群。</p>
+</li>
+</ul>
+<h3>自定义函数</h3>
+<ul>
+<li>
+<p>UDF
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"udf"</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc);</span><br><span class="line"><span class="keyword">val</span> rdd = sc.makeRDD(<span class="type">Array</span>(<span class="string">"zhansan"</span>, <span class="string">"lisi"</span>, <span class="string">"wangwu"</span>))</span><br><span class="line"><span class="keyword">val</span> rowRDD = rdd.map &#123; x =&gt; &#123;</span><br><span class="line">  <span class="type">RowFactory</span>.create(x)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">val</span> schema = <span class="type">DataTypes</span>.createStructType(<span class="type">Array</span>(<span class="type">StructField</span>(<span class="string">"name"</span>, <span class="type">StringType</span>, <span class="literal">true</span>)))</span><br><span class="line"><span class="keyword">val</span> df = sqlContext.createDataFrame(rowRDD, schema)</span><br><span class="line">df.registerTempTable(<span class="string">"user"</span>)</span><br><span class="line"><span class="comment">//    sqlContext.udf.register("StrLen",(s : String)=&gt;&#123;s.length()&#125;)</span></span><br><span class="line"><span class="comment">//    sqlContext.sql("select name ,StrLen(name) as length from user").show</span></span><br><span class="line">sqlContext.udf.register(<span class="string">"StrLen"</span>, (s: <span class="type">String</span>, i: <span class="type">Int</span>) =&gt; &#123;</span><br><span class="line">  s.length() + i</span><br><span class="line">&#125;)</span><br><span class="line">sqlContext.sql(<span class="string">"select name ,StrLen(name,10) as length from user"</span>).show</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>UDAF
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyUDAF</span> <span class="keyword">extends</span> <span class="title">UserDefinedAggregateFunction</span> </span>&#123;</span><br><span class="line"><span class="comment">// 聚合操作时，所处理的数据的类型</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bufferSchema</span></span>: <span class="type">StructType</span> = &#123;</span><br><span class="line">    <span class="type">DataTypes</span>.createStructType(<span class="type">Array</span>(<span class="type">DataTypes</span>.createStructField(<span class="string">"aaa"</span>, <span class="type">IntegerType</span>, <span class="literal">true</span>)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最终函数返回值的类型</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataType</span></span>: <span class="type">DataType</span> = &#123;</span><br><span class="line">    <span class="type">DataTypes</span>.<span class="type">IntegerType</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deterministic</span></span>: <span class="type">Boolean</span> = &#123;</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后返回一个最终的聚合值     要和dataType的类型一一对应</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate</span></span>(buffer: <span class="type">Row</span>): <span class="type">Any</span> = &#123;</span><br><span class="line">    buffer.getAs[<span class="type">Int</span>](<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为每个分组的数据执行初始化值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize</span></span>(buffer: <span class="type">MutableAggregationBuffer</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    buffer(<span class="number">0</span>) = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输入数据的类型</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inputSchema</span></span>: <span class="type">StructType</span> = &#123;</span><br><span class="line">    <span class="type">DataTypes</span>.createStructType(<span class="type">Array</span>(<span class="type">DataTypes</span>.createStructField(<span class="string">"input"</span>, <span class="type">StringType</span>, <span class="literal">true</span>)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后merger的时候，在各个节点上的聚合值，要进行merge，也就是合并</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span></span>(buffer1: <span class="type">MutableAggregationBuffer</span>, buffer2: <span class="type">Row</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    buffer1(<span class="number">0</span>) = buffer1.getAs[<span class="type">Int</span>](<span class="number">0</span>) + buffer2.getAs[<span class="type">Int</span>](<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每个组，有新的值进来的时候，进行分组对应的聚合值的计算</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span></span>(buffer: <span class="type">MutableAggregationBuffer</span>, input: <span class="type">Row</span>): <span class="type">Unit</span> = &#123;</span><br><span class="line">    buffer(<span class="number">0</span>) = buffer.getAs[<span class="type">Int</span>](<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">UDAF</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">    conf.setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"udaf"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line">    <span class="keyword">val</span> sqlContext = <span class="keyword">new</span> <span class="type">SQLContext</span>(sc)</span><br><span class="line">    <span class="keyword">val</span> rdd = sc.makeRDD(<span class="type">Array</span>(<span class="string">"zhangsan"</span>, <span class="string">"lisi"</span>, <span class="string">"wangwu"</span>, <span class="string">"zhangsan"</span>, <span class="string">"lisi"</span>))</span><br><span class="line">    <span class="keyword">val</span> rowRDD = rdd.map &#123; x =&gt; &#123;</span><br><span class="line">    <span class="type">RowFactory</span>.create(x)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> schema = <span class="type">DataTypes</span>.createStructType(<span class="type">Array</span>(<span class="type">DataTypes</span>.createStructField(<span class="string">"name"</span>, <span class="type">StringType</span>, <span class="literal">true</span>)))</span><br><span class="line">    <span class="keyword">val</span> df = sqlContext.createDataFrame(rowRDD, schema)</span><br><span class="line">    df.show()</span><br><span class="line">    df.registerTempTable(<span class="string">"user"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 注册一个udaf函数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    sqlContext.udf.register(<span class="string">"StringCount"</span>, <span class="keyword">new</span> <span class="type">MyUDAF</span>())</span><br><span class="line">    sqlContext.sql(<span class="string">"select name ,StringCount(name) from user group by name"</span>).show()</span><br><span class="line">    sc.stop()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>开窗函数
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">conf.setAppName(<span class="string">"windowfun"</span>)</span><br><span class="line"><span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"><span class="keyword">val</span> hiveContext = <span class="keyword">new</span> <span class="type">HiveContext</span>(sc)</span><br><span class="line">hiveContext.sql(<span class="string">"use spark"</span>);</span><br><span class="line">hiveContext.sql(<span class="string">"drop table if exists sales"</span>);</span><br><span class="line">hiveContext.sql(<span class="string">"create table if not exists sales (riqi string,leibie string,jine</span></span><br><span class="line"><span class="string">Int) "</span></span><br><span class="line">+ <span class="string">"row format delimited fields terminated by '\t'"</span>);</span><br><span class="line">hiveContext.sql(<span class="string">"load data local inpath '/root/test/sales' into table sales"</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 开窗函数格式:</span></span><br><span class="line"><span class="comment">* 【 rou_number() over (partitin by XXX order by XXX) 】 */</span></span><br><span class="line"><span class="keyword">val</span> result = hiveContext.sql(<span class="string">"select riqi,leibie,jine "</span> + <span class="string">"from ("</span></span><br><span class="line">    + <span class="string">"select riqi,leibie,jine,"</span></span><br><span class="line">    + <span class="string">"row_number() over (partition by leibie order by jine desc) rank "</span></span><br><span class="line">    + <span class="string">"from sales) t "</span></span><br><span class="line">+ <span class="string">"where t.rank&lt;=3"</span>);</span><br><span class="line">result.show();</span><br><span class="line">sc.stop()</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h3>优化</h3>
+<ul>
+<li>合适的数据列</li>
+<li>最有的数据存储格式</li>
+<li>内存的使用</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="http://wntc-1251220317.cossh.myqcloud.com/2019/3/8/1552054329801.png" alt="Juforg wechat" style="width: 200px; max-width: 100%;">
+  <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux/redis安装/" rel="next" title="redis实践">
+                <i class="fa fa-chevron-left"></i> redis实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bigdata/Spark进阶之shuffle调优/" rel="prev" title="Spark进阶之shuffle调优">
+                Spark进阶之shuffle调优 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">What ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">sparksql  数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">谓词下推</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Why ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Where?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">How?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">DataFrame</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">测试java中以下几种情况下不被序列化的问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">5.1.</span> <span class="nav-text">spark on hive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">5.2.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">5.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

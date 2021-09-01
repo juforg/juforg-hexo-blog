@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="java相关的知识图谱">
+<meta name="keywords" content="juforg 夕拾阁 songjie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-知识图谱">
+<meta property="og:url" content="http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="java相关的知识图谱">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java-知识图谱">
+<meta name="twitter:description" content="java相关的知识图谱">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/mindmap//knowledgegraph/java-kg//">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java-知识图谱 | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 1);">
+    展开至 1级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 2);">
+    展开至 2级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 3);">
+    展开至 3级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 4);">
+    展开至 4级 节点
+  </a>
+  <blockquote class="raw-class mindmap mindmap-lg ">
+    <p>Java知识
+	数据类型
+		byte
+			1byte
+		short
+			2byte
+		int
+			4byte
+		long
+			8byte
+		char
+			2byte
+		boolean
+			1byte
+		float
+			4byte
+		double
+			8btye
+	集合类
+		线程安全(Thread-safe)
+			Vector
+				Stack
+			HashTable
+				无论是key还是value都不允许有null值的存在
+				Properties
+					持久的属性集
+			StringBuffer
+			ConcurrentHashMap
+				用的锁分段技术，首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问
+				1.7 分段锁segment
+				1.8 CAS 和synchronized
+			CopyOnWriteArrayList
+				在修改时先复制一个快照来修改，改完再让内部指针指向新数组
+				因为对快照的修改对读操作来说不可见，所以只有写锁没有读锁，加上复制的昂贵成本，典型的适合读多写少的场景
+				如果更新频率较高，或数组较大时，还是Collections.synchronizedList(list)，对所有操作用同一把锁来保证线程安全更好
+				监听器
+			ConcurrentSkipListMap
+				并发优化的SortedMap
+				以SkipList结构实现
+				size（）同样不能随便调，会遍历来统计
+			ConcurrentSkipListSet
+				内部是ConcurrentSkipListMap的并发优化的SortedSet
+			CopyOnWriteArraySet
+				内部是CopyOnWriteArrayList的并发优化的Set
+			Queue
+				BlockingQueue
+					TransferQueue
+						LinkedTransferQueue
+						确保一次传递完成
+						游戏服务器转发消息
+					SynchronousQueue
+						容量为0
+					ArrayBlockingQueue
+					LinkedBlockingQueue
+						基于链表实现
+					PriorityBlockingQueue
+						也是基于数组存储的二叉堆
+					DelayQueue
+						执行定时任务
+						具有过期时间的缓存
+						多考生考试
+				Deque双向队列
+					ConcurrentLinkedDeque
+						基于链表，实现了依赖于CAS的无锁算法。
+					void push(E e):将给定元素”压入”栈中
+					E pop():将栈首元素删除并返回
+					操作
+						boolean offLast(E e)/offFirst(E e) 从队尾/首插入元素
+						E pollFirst()/pollLast() 移除对首/尾元素
+						E peekFirst()/peekLast() 查看队首/队尾元素
+				ConcurrentLinkedQueue
+					非阻塞式的
+				操作
+					poll():从队首删除并返回该元素
+					peek():返回队首元素，但是不删除
+					boolean offer(E e):将元素追加到队列末尾,若添加成功则返回true
+				遵循原则：FIFO(first input,first output)先进先出原则
+		非线程安全的集合
+			ArrayList
+				以数组实现
+					节约空间，但数组有容量限制
+						超出限制时会增加50%容量，用System.arraycopy()复制到新的数组
+				默认第一次插入元素时创建大小为10的数组
+			LinkedList
+				以双向链表实现
+				复杂度O(n/2)
+				既是List，也是Queue
+			ArrayDeque
+				以循环数组实现的双向Queue
+			HashMap
+				基于key hash查找Entry对象存放到数组的位置
+				在扩大容量时须要重新计算hash
+				jdk1.8之前并发操作hashmap时为什么会有死循环的问题
+				hash碰撞
+					对于hash冲突采用链表的方式去解决
+						O(1)+O(n)
+					1.8之后超过默认阈值8就用 用红黑树替代链表
+						O(1)+O(logn)
+				hash的实现
+					1.8的实现中，是通过hashCode()的高16位异或低16位实现的：(h = k.hashCode()) ^ (h &gt;&gt;&gt; 16)
+				负载因子(默认0.75)
+				不保证数据有序
+				LinkedHashMap
+					LinkedHashMap是Hash表和链表的实现
+					依靠着双向链表保证了迭代顺序是插入的顺序。
+			TreeMap
+				典型的基于红黑树的Map实现
+				保持key的大小顺序
+				读写复杂度log(n)
+				红黑树则没有好的无锁算法
+			HashSet
+				基于HashMap实现，无容量限制
+				不保证数据的有序；
+				LinkedHashSet
+					基于HashMap和双向链表的实现
+			TreeSet
+				基于TreeMap实现的
+				利用TreeMap的特性，实现了set的有序性
+				内部是TreeMap的SortedSet
+			StringBulider
+			EnumMap
+				键为枚举类型的特殊的Map实现
+				所有的Key也必须是一种枚举类型
+				EnumMap是使用数组来实现的
+			SortedMap
+				支持基于CAS的无锁算法
+			PriorityQueue
+				应用：求 Top K 大/小 的元素
+				用平衡二叉最小堆实现的优先级队列，不再是FIFO
+				不再是FIFO，而是按元素实现的Comparable接口或传入Comparator的比较结果来出队
+				其iterator（）的返回不会排序
+				数值越小，优先级越高，越先出队
+				初始大小为11，空间不够时自动50%扩容
+				逻辑结构是一棵完全二叉树
+				存储结构其实是一个数组
+				小顶堆
+			WeakHashMap
+				弱引用map
+					就是Key键是一个弱引用的键，如果Key键被回收，则在get该map中值后，会自动remove掉value
+					如果Key键始终被强引用，则是无法被回收的
+	线程
+		线程的几个状态
+			分支主题
+			new
+			runable
+			running
+			block
+			destory
+		创建线程
+			继承Thread
+			实现Runable
+			实现Callable
+		线程安全
+			CAS
+				一条CPU并发原语
+				sun.misc.Unsafe
+				利用处理器的CMPXCHG
+				存在ABA问题
+				自旋时间可能过长
+			AQS
+			CAS
+				Compare and Swap（比较并交换
+				也叫非阻塞同步（Non-blocking Synchronization
+				.需要读写的内存值 V
+				2.进行比较的值 A
+				3.拟写入的新值 B
+		锁
+			Lock
+			ReentrantLock
+				默认是非公平锁
+				通过AQS的来实现线程调度
+				可重入锁
+				悲观锁
+				是个类，就比较灵活
+				设置等待时间，避免死锁
+				灵活实现多路通知
+			synchronized
+				一种非公平锁
+				可重入锁
+					自己重新获得已经获得的锁
+				独享锁
+				悲观锁
+				锁定的是对象
+				静态方法锁定的是Class对象
+				遇到异常自动释放锁
+				是个关键字
+			ReadWriteLock
+				允许读读
+				ReentrantReadWriteLock
+			AQS
+			各种锁的定义
+				独享锁 / 共享锁
+					独享锁：该锁每一次只能被一个线程所持有
+					共享锁：该锁可被多个线程共有，典型的就是ReentrantReadWriteLock里的读锁，它的读锁是可以被共享的，但是它的写锁确每次只能被独占
+					通过AQS来实现
+				公平锁 / 非公平锁
+					公平锁是指多个线程按照申请锁的顺序来获取锁
+					非公平锁是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。有可能，会造成优先级反转或者饥饿现象
+				可重入锁 / 不可重入锁
+					可重入锁指的是可重复可递归调用的锁
+					与可重入锁相反，不可递归调用，递归调用就发生死锁
+				互斥锁 / 读写锁
+					加锁后，任何其他试图再次加锁的线程会被阻塞，直到当前进程解锁
+					读写锁既是互斥锁，又是共享锁，read模式是共享，write是互斥(排它锁)的
+					读写锁有三种状态：读加锁状态、写加锁状态和不加锁状态
+				乐观锁 / 悲观锁
+					悲观锁共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程
+					乐观锁
+						每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现
+						乐观锁适用于多读的应用类型，这样可以提高吞吐量
+						java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。
+				分段锁
+					分段锁其实是一种锁的设计，并不是具体的一种锁
+					对于1.7 ConcurrentHashMap而言，其并发的实现就是通过分段锁的形式来实现高效的并发操作
+				偏向锁 / 轻量级锁 / 重量级锁
+					锁的状态
+						无锁状态
+						偏向锁状态
+						轻量级锁状态
+						重量级锁状态
+						四种状态都不是Java语言中的锁
+				自旋锁
+					spinlock
+					是指当一个线程在获取锁的时候，如果锁已经被其它线程获取，那么该线程将循环等待，然后不断的判断锁是否能够被成功获取，直到获取到锁才会退出循环
+					自旋锁存在的问题
+						如果某个线程持有锁的时间过长，就会导致其它等待获取锁的线程进入循环等待，消耗CPU。使用不当会造成CPU使用率极高
+						上面Java实现的自旋锁不是公平的，即无法满足等待时间最长的线程优先获取锁。不公平的锁就会存在“线程饥饿”问题
+					自旋锁的优点
+						自旋锁不会使线程状态发生切换，一直处于用户态，即线程一直都是active的；不会使线程进入阻塞状态，减少了不必要的上下文切换，执行速度快
+						非自旋锁在获取不到锁的时候会进入阻塞状态，从而进入内核态，当获取到锁的时候需要从内核态恢复，需要线程上下文切换。 （线程被阻塞后便进入内核（Linux）调度状态，这个会导致系统在用户态与内核态之间来回切换，严重影响锁的性能）
+		线程池
+			Executor
+				execute
+				ExecutorService
+					 Java 1.5 引入
+				ThreadPoolExecutor
+					可以自定义线程池
+					参数
+						corePoolSize 为线程池的基本大小。
+						maximumPoolSize 为线程池最大线程大小。
+						keepAliveTime 和 unit 则是线程空闲后的存活时间。
+						workQueue 用于存放任务的阻塞队列。
+						handler 当队列和最大线程池都满了之后的饱和策略。
+			Executors
+				 Factory and utility methods
+				Executors. newSingleThreadExecutor();
+					线程池就一个线程
+					保证任务执行前后顺序
+				Executors. newCachedThreadPool()
+					弹性
+				Executors. newFixedThreadPool(5)
+					固定个数
+				Executors.newScheduledThreadPool
+					定时执行线程池
+				ForkJoinPool
+					分而治之思想
+					Java 1.7 引入
+					最适合的是计算密集型的任务
+				Executors.newWorkStealingPool
+					根据cpu核数决定线程数
+					内部ForkJoinPool
+					1.8引入
+			Callable
+				concurrent
+				有返回值
+			Runnable
+				java.lang
+				无返回值
+			ThreadLocal
+			优点
+				充分利用cpu资源
+				避免了在处理短时间任务时创建与销毁线程的代价
+			目的
+				线程是稀缺资源，不能频繁的创建
+				解耦作用；线程的创建于执行完全分开，方便维护
+				应当将其放入一个池子中，可以给其他任务进行复用
+			执行流程
+				提交一个任务，线程池里存活的核心线程数小于线程数corePoolSize时，线程池会创建一个核心线程去处理提交的任务。
+				如果线程池核心线程数已满，即线程数已经等于corePoolSize，一个新提交的任务，会被放进任务队列workQueue排队等待执行。
+				当线程池里面存活的线程数已经等于corePoolSize了,并且任务队列workQueue也满，判断线程数是否达到maximumPoolSize，即最大线程数是否已满，如果没到达，创建一个非核心线程执行提交的任务。
+				如果当前的线程数达到了maximumPoolSize，还有新的任务过来的话，直接采用拒绝策略处理。
+			拒绝策略
+				AbortPolicy(抛出一个异常，默认的)
+				DiscardPolicy(直接丢弃任务)
+				DiscardOldestPolicy（丢弃队列里最老的任务，将当前这个任务继续提交给线程池）
+				CallerRunsPolicy（交给线程池调用所在的线程进行处理)
+		内存可见性
+			 Java内存模型（JMM，Java Memory Model）
+				每个线程都有自己独立的工作内存
+					里面保存该线程使用到的变量的副本
+				两条规定
+					所有的变量都存储在主内存中
+					线程对共享变量的所有操作都必须在自己的工作内中进行，不能直接从相互内存中读写
+						不同线程之间无法直接访问其他线程工作内存中的变量
+						 线程间变量值得传递需要通过主内存来完成
+				共享变量可见性的实现原理
+					  把工作内存1中更新过的共享变量刷新到主内存中
+					将主内存中最新的共享变量的值更新到工作内存2中
+				共享变量在线程间不可见的原因
+					线程的交叉执行
+					2&gt;重排序结合线程交叉执行
+					3&gt;共享变量更新后的值没有在工作内存与主内存间及时更新
+			Java语言层面支持的可见性实现方式
+				final也可以保证内存可见性
+				volatile
+					保证可见性
+				synchronized
+					可以实现互斥锁（原子性），即同步。但很多人都忽略其内存可见性这一特性
+					线程解锁前，必须把共享变量的最新值刷新到主内存中
+					 线程加锁时，将清空工作内存中共享变量的值，从而使用共享变量时需要从内存中重新读取最新的值（注意：加锁与解锁需要是同一把锁）
+					既保证可见性又保证原子性
+			一个线程对共享变量值的修改，能够及时的被其他线程看到
+		线程通信
+			wait/notify/sleep
+				wait释放锁
+				notify/sleep不释放锁
+			CyclicBarrier
+			CountDownLatch
+			管道通信
+				PipedWriter
+		Atomic包
+			AtomicInteger
+		用户态
+		Semaphore
+			基于java同步器AQS
+			用来控制同时访问特定资源的线程数量，通过协调各个线程，以保证合理的使用资源
+			访问特定资源前，必须使用acquire方法获得许可，如果许可数量为0，该线程则一直阻塞，直到有可用许可
+			访问资源后，使用release释放许可
+		同步阻塞
+		同步非阻塞
+		异步阻塞
+		异步非阻塞
+		ThreadLocal
+			用途
+				保存线程上下文信息，在任意需要的地方可以获取
+					Spring的事务管理，用ThreadLocal存储Connection
+				线程安全的，避免某些情况需要考虑线程安全必须同步带来的性能损失
+			ThreadLocal无法解决共享对象的更新问题
+	JVM
+		JVM 内存结构
+			堆Heap
+				堆中存放对象（对象实例）
+				堆溢出(Out Of Memory error)
+				OOM 的 8 种原因、及解决办法
+					Java 堆空间
+						造成原因
+							无法在 Java 堆中分配对象
+							吞吐量增加
+							应用程序无意中保存了对象引用，对象无法被 GC 回收
+							应用程序过度使用 finalizer。finalizer 对象不能被 GC 立刻回收。finalizer 由结束队列服务的守护线程调用，有时 finalizer 线程的处理能力无法跟上结束队列的增长
+						解决方案
+							使用 -Xmx 增加堆大小
+							修复应用程序中的内存泄漏
+					GC 开销超过限制
+						造成原因
+							java 进程98%的时间在进行垃圾回收，恢复了不到2%的堆空间，最后连续5个（编译时常量）垃圾回收一直如此
+						解决方案
+							使用 -Xmx 增加堆大小
+							使用 -XX:-UseGCOverheadLimit 取消 GC 开销限制
+							修复应用程序中的内存泄漏
+					请求的数组大小超过虚拟机限制
+						造成原因
+							应用程序试图分配一个超过堆大小的数组
+						解决方案
+							使用 -Xmx 增加堆大小
+							修复应用程序中分配巨大数组的 bug
+					Perm gen 空间
+						造成原因
+							类的名字、字段、方法与类相关的对象数组和类型数组,JIT 编译器优化
+							当 Perm gen 空间用尽时，将抛出异常
+						解决方案
+							使用 -XX: MaxPermSize 增加 Permgen 大小
+							不重启应用部署应用程序可能会导致此问题。重启 JVM 解决
+					Metaspace
+						造成原因
+							从 Java 8 开始 Perm gen 改成了 Metaspace，在本机内存中分配 class 元数据（称为 metaspace）。如果 metaspace 耗尽，则抛出异常
+						解决方案
+							通过命令行设置 -XX: MaxMetaSpaceSize 增加 metaspace 大小
+							取消 -XX: maxmetsspacedize
+							减小 Java 堆大小,为 MetaSpace 提供更多的可用空间
+							为服务器分配更多的内存
+							可能是应用程序 bug，修复 bug
+					无法新建本机线程
+						造成原因
+							内存不足，无法创建新线程。由于线程在本机内存中创建，报告这个错误表明本机内存空间不足
+						解决方案
+							为机器分配更多的内存
+							减少 Java 堆空间
+							修复应用程序中的线程泄漏。
+							增加操作系统级别的限制
+							用户进程数增大 (-u) 1800
+							使用 -Xss 减小线程堆栈大小
+					杀死进程或子进程
+						造成原因
+							内核任务：内存不足结束器，在可用内存极低的情况下会杀死进程
+						解决方案
+							将进程迁移到不同的机器上
+							给机器增加更多内存
+					发生 stack_trace_with_native_method
+						造成原因
+							本机方法（native method）分配失败
+							打印的堆栈跟踪信息，最顶层的帧是本机方法
+						解决方案
+							使用操作系统本地工具进行诊断
+				堆划分
+					年轻代
+						Eden空间
+						From Survivor空间
+						To Survivor空间
+						8:1:1的比例
+					老年代
+						=堆空间大小-年轻代大空间大小
+				特点
+					存取速度较慢
+					堆的优势是可以动态地分配内存大小
+					线程共享
+						整个 Java 虚拟机只有一个堆，所有的线程都访问同一个堆
+					在虚拟机启动时创建
+					垃圾回收的主要场所
+			栈Stack
+				栈划分
+					java虚拟机栈
+						局部变量区
+						操作数栈
+						JVM栈（JVM Stacks）
+						线程私有的
+						生命周期与线程相同
+						栈帧
+							局部变量表
+							操作数栈
+							动态链接
+							方法出口信息
+					本地方法栈
+						用于方法的执行
+						Sun HotSpot虚拟机）直接就把本地方法栈和虚拟机栈合二为一
+				栈中存放数据（变量 方法及对象的引用）
+				特点
+					数据可以共享
+					存放基本类型
+					存取速度比堆要快
+				栈溢出(Stack Overflow error)
+					如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常
+					当扩展时无法申请到足够的内存时会抛出OutOfMemoryError异常
+					出现 StackOverFlowError 时，内存空间可能还有很多。
+				压栈出栈过程
+			方法区(JDK1.7)
+				常量，静态变量
+				-XX:PermSize -XX:MaxPermSize
+				别名Non-Heap(非堆)
+				各个线程共享的内存区域
+				“永久代”（Permanent Generation
+				内存回收效率低
+				整个虚拟机中只有一个方法区
+				要回收目标是：对常量池的回收；对类型的卸载
+				运行时常量池
+			元数据区(JDK1.8)
+				Metaspace
+				-XX:MaxMetaspaceSize
+				使用本地内存
+				不在虚拟机中
+			程序计数器
+				Program Counter Register
+				一块较小的内存空间
+				线程私有，每条线程都有自己的程序计数器
+				生命周期：随着线程的创建而创建，随着线程的结束而销毁
+				是唯一一个不会出现OutOfMemoryError的内存区域
+				作用
+					在多线程情况下，程序计数器记录的是当前线程执行的位置，从而当线程切换回来时，就知道上次线程执行到哪了
+			直接内存
+				Direct Memory（堆外内存
+					操作直接内存
+				直接内存的大小不受 Java 虚拟机控制，但既然是内存，当内存不足时就会抛出 OutOfMemoryError 异常
+		内存分配与回收策略
+			对象优先在 Eden 分配
+				Eden 区
+				from Survivor、to Survivor 区
+			老年代分配
+				当分配一个大对象时(大的数组，很长的字符串)
+			策略
+				静态
+				栈式
+				堆式
+			指针碰撞
+			空闲列表
+			内存管理
+				内存分配
+				内存回收
+				内存管理优化小技巧
+					1）尽量使用直接量，eg：String javaStr = &quot;小学徒的成长历程&quot;;
+					　　2）使用StringBuilder和StringBuffer进行字符串连接等操作;
+					　　3）尽早释放无用对象;
+					　　4）尽量少使用静态变量;
+					　　5）缓存常用的对象:可以使用开源的开源缓存实现，eg：OSCache，Ehcache;
+					　　6）尽量不使用finalize()方法;
+					　　7）在必要的时候可以考虑使用软引用SoftReference。
+				数组及其内存管理
+					数组变量存在栈区
+					数组对象存在堆内存
+					多维数组的本质是一维数组
+				堆内存on-heap
+				堆外内存off-heap
+					堆外缓存
+						Ehcache
+						Chronical Map：
+						OHC
+						Ignite
+					堆外内存必须要由我们自己释放
+		虚拟机对象探秘
+		垃圾收集策略与算法
+			判定对象是否存活
+				引用计数法
+					很难解决对象之间的循环引用问题
+				可达性分析法
+					从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象
+					GC Roots
+						虚拟机栈（栈帧中的本地变量表）中引用的对象；
+						方法区中静态属性引用的对象；
+						方法区中常量引用的对象；
+						本地方法栈方法引用的对象；
+					强引用（Strong Reference）
+					软引用（Soft Reference）
+					弱引用（Weak Reference）
+					虚引用（Phantom Reference）
+			回收方法区内存
+				判定废弃常量
+				判定无用的类
+					该类的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例；
+					加载该类的 ClassLoader 已经被回收；
+					该类对应的 java.lang.Class 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。
+			标记-清除算法
+				标记
+					标记出所有需要回收的对象
+				清除
+					在标记完成后统一回收掉所有被标记的对象
+				它是最基础的收集算法，是因为后续的收集算法都是基于这种思路并对其缺点进行改进而得到的
+				缺点
+					效率问题
+					空间问题
+						产生大量不连续的内存碎片
+			复制算法
+				内存分配时也就不用考虑内存碎片等复杂情况
+				代价是将内存缩小为原来的一半，持续复制长生存期的对象则导致效率降低
+			标记-整理算法
+				Mark-Compact
+			分代收集算法
+				新生代
+				老年代
+				GC分代的基本假设：绝大部分对象的生命周期都非常短暂，存活时间短
+				Generational Collection
+		垃圾收集器
+			CMS
+				Concurrent Mark Sweep
+				优点：并发收集、低停顿
+				缺点
+					对 CPU 资源敏感（会和服务器抢资源）。
+					无法处理浮动垃圾。浮动垃圾是指 Java 业务代码与垃圾收集器并发执行过程中又产生的垃圾，这种垃圾只有等到下一次 GC 的时候再进行清理。
+					它使用的回收算法 “标记-清除” 算法会导致大量的内存空间碎片产生。
+				1.9 标记为废弃
+				基于“标记-清除”算法实现
+				过程
+					并发清除
+					重新标记
+					并发标记
+					初始标记
+				-XX:+UseConcMarkSweepGC 使用CMS收集器
+			G1
+				面向服务器应用端的垃圾收集器
+				针对多核 CPU 以及大容量内存的机器
+				运作步骤
+					初始标记(Init Marking，STW)
+					并发标记(Concurrent Marking)
+					最终标记(Remark，STW
+					筛选回收(Clearnup，STW)
+				19.之后是默认的
+				可预测停顿
+					这是G1的另一大优势，降低停顿时间是G1和CMS的共同关注点，但G1除了追求低停顿外，还能建立可预测的停顿时间模型
+				空间整合
+					G1收集器采用标记整理算法，不会产生内存空间碎片。分配大对象时不会因为无法找到连续空间而提前触发下一次GC
+			Serial 收集器
+				1.3 单线程
+				Stop The World
+				新生代采用复制算法
+				老年代采用标记-整理算法
+				-XX:+UseSerialGC 串行收集器
+			Serial Old 收集器
+			ParNew 收集器
+				Serial 收集器的多线程版
+				新生代并行，老年代串行
+				新生代复制算法、老年代标记-压缩
+				-XX:+UseParNewGC ParNew收集器
+				-XX:ParallelGCThreads 限制线程数量
+			Parallel Scavenge 收集器
+				 跟 ParNew 收集器一样
+				关注吞吐量
+				-XX:+UseParallelGC 使用Parallel收集器+ 老年代串行
+			Parallel Old 收集器
+				是Parallel Scavenge收集器的老年代版本
+				使用多线程和“标记－整理”算法
+				-XX:+UseParallelOldGC 使用Parallel收集器+ 老年代并行
+		JVM 性能调优
+			使用 64 位 JDK 管理大内存
+				可能面临的问题
+					内存回收导致的长时间停顿；
+					现阶段，64位 JDK 的性能普遍比 32 位 JDK 低；
+					需要保证程序足够稳定，因为这种应用要是产生堆溢出几乎就无法产生堆转储快照（因为要产生超过 10GB 的 Dump 文件），哪怕产生了快照也几乎无法进行分析；
+					相同程序在 64 位 JDK 消耗的内存一般比 32 位 JDK 大，这是由于指针膨胀，以及数据类型对齐补白等因素导致的。
+			使用 32 位 JVM 建立逻辑集群
+				可能遇到的问题
+					尽量避免节点竞争全局资源，如磁盘竞争，各个节点如果同时访问某个磁盘文件的话，很可能导致 IO 异常；
+					很难高效利用资源池，如连接池，一般都是在节点建立自己独立的连接池，这样有可能导致一些节点池满了而另外一些节点仍有较多空余；
+					各个节点受到 32 位的内存限制；
+					大量使用本地缓存的应用，在逻辑集群中会造成较大的内存浪费，因为每个逻辑节点都有一份缓存，这时候可以考虑把本地缓存改成集中式缓存。
+			调优工具
+				jdk自带的工具
+					jdk自带的工具
+					VisualVM
+				MAT
+					Java heap分析工具
+					Eclipse Memory Analyzer
+				 jmap命令生产堆文件
+				GChisto
+					不再维护，不能识别最新jdk的日志文
+				gcviewer
+				GC Easy
+					web工具,
+						http://gceasy.io
+			Java GC 分析
+				命令动态查看
+			命令
+				jps
+					JVM Process Status Tool
+					示指定系统内所有的HotSpot虚拟机进程
+				jstat
+					JVM statistics Monitoring
+					监视虚拟机运行时状态信息的命令
+					显示出虚拟机进程中的类装载、内存、垃圾收集、JIT编译等运行数据
+				jmap
+					用于生成heap dump文件
+				jhat
+					JVM Heap Analysis Tool
+					与jmap搭配使用，用来分析jmap生成的dump
+				jstack
+					用于生成java虚拟机当前时刻的线程快照
+				jinfo
+					(JVM Configuration info)
+					实时查看和调整虚拟机运行参数
+			频繁GC的原因
+				人为原因
+					在代码中调用System#GC或者Runtime#GC方法。
+				框架原因
+					在java程序调用相关框架时，框架内部调用了GC方法
+				内存原因
+					当heap大小设置比较小时，会引起频繁的GC，所以在类似于Spark这样对内存性能要求比较高的应用程序运行时，应可能给heap分配较大的内存，这样可以减少频繁的GC现象的发生
+				其他原因
+					当构建的对象实例化十分频繁并且释放该对象也较为频繁时，同样会产生频繁GC现象
+			分析步骤
+				通过 top命令查看CPU情况，如果CPU比较高，则通过 top-Hp&lt;pid&gt;命令查看当前进程的各个线程运行情况，找出CPU过高的线程之后，将其线程id转换为十六进制的表现形式，然后在jstack日志中查看该线程主要在进行的工作。这里又分为两种情况
+				如果是正常的用户线程，则通过该线程的堆栈信息查看其具体是在哪处用户代码处运行比较消耗CPU；
+				如果该线程是 VMThread，则通过 jstat-gcutil&lt;pid&gt;&lt;period&gt;&lt;times&gt;命令监控当前系统的GC状况，然后通过 jmapdump:format=b,file=&lt;filepath&gt;&lt;pid&gt;导出系统当前的内存数据。导出之后将内存情况放到eclipse的mat工具中进行分析即可得出内存中主要是什么对象比较消耗内存，进而可以处理相关代码；
+				如果通过 top 命令看到CPU并不高，并且系统内存占用率也比较低。此时就可以考虑是否是由于另外三种情况导致的问题。具体的可以根据具体情况分析：
+				如果是接口调用比较耗时，并且是不定时出现，则可以通过压测的方式加大阻塞点出现的频率，从而通过 jstack查看堆栈信息，找到阻塞点；
+				如果是某个功能突然出现停滞的状况，这种情况也无法复现，此时可以通过多次导出 jstack日志的方式对比哪些用户线程是一直都处于等待状态，这些线程就是可能存在问题的线程；
+				如果通过 jstack可以查看到死锁状态，则可以检查产生死锁的两个线程的具体阻塞点，从而处理相应的问题。
+		类加载
+			类文件结构
+				魔数
+					头 4 个字节
+					魔数相当于文件后缀名，只不过后缀名容易被修改，不安全，因此在 Class 文件中标识文件类型比较合适
+				版本信息
+					 4 个字节是版本信息
+						5-6 字节表示次版本号，
+						7-8 字节表示主版本号
+				常量池
+					字面值常量
+						、被 final 修饰的值
+					符号引用
+						类和接口的全限定名、字段的名字和描述符、方法的名字和描述符
+				访问标志
+					两个字节代
+					用于识别一些类或者接口层次的访问信息
+					这个 Class 是类还是接口；是否定义为 public 类型；是否被 abstract/final 修饰
+				类索引、父类索引、接口索引集合
+					Class 文件中由这三项数据来确定类的继承关系
+				字段表集合
+					存储本类涉及到的成员变量，包括实例变量和类变量，但不包括方法中的局部变量
+				方法表集合
+					与属性表类似
+				属性表集合
+			生命周期
+				加载
+					通过类的全限定名获取该类的二进制字节
+						加载.class文件的方式
+							从本地系统中直接加载
+							通过网络下载.class文件
+							从zip，jar等归档文件中加载.class文件
+							从专有数据库中提取.class文件
+							将Java源文件动态编译为.class文件
+					将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构
+					在Java堆中生成一个代表这个类的 java.lang.Class对象，作为对方法区中这些数据的访问入口
+				验证
+					确保被加载的类的正确性
+						文件格式验证
+						元数据验证
+						字节码验证
+						符号引用验证
+				准备
+					为类的 静态变量分配内存，并将其初始化为默认值
+						数据类型默认的零值（如0、0L、null、false等
+						如果类字段的字段属性表中存在 ConstantValue属性，即同时被final和static修饰，那么在准备阶段变量value就会被初始化为ConstValue属性所指定的值
+				解析
+					把类中的符号引用转换为直接引用
+					主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符7类符号引用进行
+					类的静态变量赋予正确的初始值
+				初始化
+					执行类构造器 &lt;clinit&gt;() 方法的过程
+						方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static {} 块）中的语句合并产生的
+					类初始化时机
+						创建类的实例，也就是new的方式
+						访问某个类或接口的静态变量，或者对该静态变量赋值
+						调用类的静态方法
+						反射（如 Class.forName(“com.shengsiyuan.Test”)）
+						初始化某个类的子类，则其父类也会被初始化
+						Java虚拟机启动时被标明为启动类的类（ JavaTest），直接使用 java.exe命令来运行某个主类
+					初始化步骤
+						1、假如这个类还没有被加载和连接，则程序先加载并连接该类
+						2、假如该类的直接父类还没有被初始化，则先初始化其直接父类
+						3、假如类中有初始化语句，则系统依次执行这些初始化语句
+				使用
+				卸载
+					结束生命周期
+						执行了 System.exit()方法
+						程序正常执行结束
+						程序在执行过程中遇到了异常或错误而异常终止
+						由于操作系统出现错误而导致Java虚拟机进程终止
+			类加载器
+				启动类加载器（Bootstrap ClassLoader）
+					&lt;JAVA_HOME&gt;\lib 目录
+				扩展类加载器（Extension ClassLoader
+					&lt;JAVA_HOME&gt;\lib\ext
+				应用程序类加载器（Application ClassLoader）
+					classpath
+				自定义 ClassLoader
+			机制
+				全盘负责
+					当一个类加载器负责加载某个Class时，该Class所依赖的和引用的其他Class也将由该类加载器负责载入，除非显示使用另外一个类加载器来载入
+				父类委托
+					先让父类加载器试图加载该类，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类
+					双亲委派模型
+						系统类防止内存中出现多份同样的字节码
+						保证Java程序安全稳定运行
+				缓存机制
+					缓存机制将会保证所有加载过的Class都会被缓存，当程序中需要使用某个Class时，类加载器先从缓存区寻找该Class，只有缓存区不存在，系统才会读取该类对应的二进制数据，并将其转换成Class对象，存入缓存区。这就是为什么修改了Class后，必须重启JVM，程序的修改才会生效
+			方式
+				命令行启动应用时候由JVM初始化加载
+				2、通过Class.forName()方法动态加载
+				3、通过ClassLoader.loadClass()方法动态加载
+		常用参数
+			-Xms -Xmx
+				 堆
+			XX:NewSize
+				 新生代
+			-Xss=256k 线程栈大小。
+			-XX:+PrintHeapAtGC 当发生 GC 时打印内存布局。
+			XX:+HeapDumpOnOutOfMemoryError 发送内存溢出时 dump 内存
+			-XX:PermSize设置永久代最小空间大小。1.8 无
+			gc
+		虚拟机分类
+			sun HotSpot
+				对象的内存布局
+					对象头（Header）
+						哈希码
+						GC 分代年龄
+						锁状态标志
+						线程持有的锁
+						偏向线程 ID
+						偏向时间戳
+					实例数据（Instance Data）
+						成员变量的值
+						父类成员变量和本类成员变量
+					对齐填充（Padding）
+						用于确保对象的总长度为 8 字节的整数倍
+				对象的创建过程
+					类加载检查
+					为新生对象分配内存
+						指针碰撞
+						空闲列表
+					初始化
+						为对象中的成员变量赋上初始值
+						设置对象头信息
+						调用对象的构造函数方法进行初始化
+				对象的访问方式
+					句柄访问方式
+					直接指针访问方式
+			IBM J9
+		对象
+			引用
+				强引用（Strong Reference）
+					当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误
+				软引用（Soft Reference）
+					内存空间足够，垃圾回收器就不会回收它
+					如果内存空间不足了，就会回收这些对象的内存
+					如何应用软引用避免OOM
+				弱引用（Weak Reference）
+					只具有弱引用的对象拥有更短暂的生命周期
+				虚引用（Phantom Reference）
+					虚引用主要用来跟踪对象被垃圾回收器回收的活动
+			变量
+				成员变量
+					类体内定义的变量
+					静态变量
+				局部变量
+					形参
+					方法内局部变量
+					代码块内局部变量
+				共享变量
+					如果一个变量在多个线程的工作内存中都存在副本，那么这个变量就是这几个线程的共享变量
+			对象头
+				对象的hashcode
+				对象的分代年龄
+				是否偏向锁的标识为
+				锁的标志位
+			新建对象的方式
+				new
+				反射
+				Object.clone 方法
+				反序列化
+				Unsafe.allocateInstance 方法
+		内存对齐
+	JDK各版本新特性
+		jdk1.5
+			自动装箱与拆箱
+			枚举
+			静态导入
+			可变参数
+			内省
+			泛型
+			For-Each循环
+			注解
+			协变返回类型
+		jdk1.6
+			AWT新增加了两个类:Desktop和SystemTray
+			使用JAXB2来实现对象与XML之间的映射
+			StAX，一种利用拉模式解析(pull-parsing)XML文档的API
+			使用Compiler API，动态编译Java源文件
+			轻量级Http Server API
+			插入式注解处理API
+			提供了Console类用以开发控制台程序
+			对脚本语言的支持如: ruby,groovy, javascript
+			Common Annotations
+			嵌入式数据库 Derby
+		JDK1.7
+			对Java集合（Collections）的增强支持，可直接采用[]、{}的形式存入对象
+			在Switch中可用String
+			数值可加下划线用作分隔符
+			支持二进制数字
+			简化了可变参数方法的调用
+			调用泛型类的构造方法时
+			Boolean类型反转
+			char类型的equals方法
+			安全的加减乘除
+			Map集合支持并发请求
+		JDK1.8
+			接口的默认方法
+			 Lambda 表达式
+				替代匿名内部类
+				对集合进行迭代
+				实现map与reduce
+				与函数式接口Predicate配合
+			函数式接口
+			使用 :: 关键字来传递方法或者构造函数引用
+			多重注解
+			Optional 类
+			stream
+				reduce
+					sum
+						integers.stream().reduce(Integer::sum)
+					concat
+						strs.stream().reduce(&quot;&quot;, String::concat);
+					min
+						integerStream.reduce(Integer.MAX_VALUE, Integer::min);
+						integerStream1.mapToInt(i -&gt; i).min();
+					max
+						integerStream.reduce(Integer.MIN_VALUE, Integer::max);
+						integerStream1.mapToInt(i -&gt; i).max();
+		jdk1.9
+			Java 平台级模块系统
+			Linking
+			JShell : 交互式 Java REPL
+			 改进的 Javadoc
+			集合工厂方法
+			改进的 Stream API
+			 私有接口方法
+			HTTP/2
+			多版本兼容 JAR
+			G1是Java 9中的默认GC
+			轻量级的 JSON API
+			响应式流（Reactive Streams) API
+		jdk1.10
+			局部变量类型推断
+			GC改进和内存管理
+			线程本地握手（JEP 312）
+			备用内存设备上的堆分配（JEP 316）
+			在 OpenJDK 中提供一组默认的根证书颁发机构证书
+		jdk1.11
+			HTTP 客户端（标准）
+			ChaCha20 和 Poly1305 密码算法
+			低开销堆分析
+			传输层安全性（TLS）1.3
+			ZGC：可扩展的低延迟垃圾收集器
+	IO
+		相关概念
+			同步
+				A调用B，B的处理是同步的，在处理完之前他不会通知A，只有处理完之后才会明确的通知A
+				同步指的是被调用方做完事情之后再返回
+			异步
+				A调用B，B的处理是异步的，B在接到请求后先告诉A我已经接到请求了，然后异步去处理，处理完之后通过回调等方式再通知A
+				异步指的是被调用方先返回，然后再做事情，做完之后再想办法通知调用方
+			阻塞
+				A调用B，A一直等着B的返回，别的事情什么也不干
+				阻塞指的是调用方一直等待别的事情什么都不做
+			非阻塞
+				A调用B，A不用一直等着B的返回，先去忙别的事情了
+				非阻塞指的是调用方先去忙别的事情
+			阻塞、非阻塞说的是调用者
+			同步、异步说的是被调用者
+		IO模型
+			AIO异步非阻塞
+				Asynchronous IO
+				适用于连接数目多且连接比较长（重操作）的架构
+					相册服务器
+				编程比较复杂
+				JDK7开始支持
+			BIO同步阻塞
+				Blocking IO
+				并发处理能力低，通信耗时，依赖网速
+				模式简单，使用方便
+				以流的方式处理数据
+				数据的读取写入必须阻塞在一个线程内等待其完成
+				适用于连接数目比较小且固定的架构
+			NIO同步非阻塞
+				Non-Block IO
+				以块的方式处理数据
+				适用于连接数目多且连接比较短（轻操作）的架构
+					聊天服务器
+				编程比较复杂
+				组件
+					Channels
+					Buffers
+						capacity容量、
+						position位置、
+						limit限制
+					Selectors
+						多路复用器
+			IO多路复用
+				IO Multiplexing
+				Selector
+				Linux中的epoll
+		socket
+		输入
+			InputStream
+				FileInputStream
+					访问文件
+				PipedInputStream
+					访问管道
+				ByteArrayInputStream
+					访问数组
+				FilterInputStream
+					BufferedInputStream
+						缓冲流
+					PushbackInputStream
+						推回输入流
+					DataInputStream
+						特殊流
+				ObjectInputStream
+					对象流
+			Reader
+				FileReader
+				CharArrayReader
+				PipedReader
+				StringReader
+				BufferedReader
+				InputStreamReader
+				FilterReader
+					PushbackReader
+		输出
+			OutputStream
+				FileOutputStream
+				ByteArrayOutputStream
+				PipedOutputStream
+				FilterOutputStream
+					BufferedOutputStream
+					PrintStream
+					DataOutputStream
+				ObjectOutputStream
+			Writer
+				FileWriter
+				CharArrayWriter
+				PipedWriter
+				StringWriter
+				BufferedWriter
+				FilterWriter
+				PrintWriter
+		框架
+			Netty
+				内存管理设计
+					内存划分成一个个16MB的Chunk
+					每个Chunk又由2048个8KB的Page组成
+					对每一次内存申请，都将二进制对齐
+					多个Chunk又可以组成一个ChunkList
+				FastThreadLocal
+					ThreadLocal在用法上面基本差不多
+			mina
+	序列化
+		谷歌Protobuf
+		Kryo
+		json
+			FastJson
+		xml
+		hession
+		thrift
+		text
+		bytes
+	动态代理
+		jdk动态代理
+		cglib动态代理
+	框架
+		spring
+			设计模式
+				简单工厂模式
+					又叫做静态工厂方法（StaticFactory Method）模式
+					不属于23种GOF设计模式
+					spring中的BeanFactory就是简单工厂模式的体现
+				工厂方法模式
+				单例模式
+					Spring下默认的bean均为singleton
+					可以通过singleton=“true|false” 或者 scope=&quot;?&quot;来指定
+					保证一个类仅有一个实例，并提供一个访问它的全局访问点
+					spring中的单例模式完成了后半句话，即提供了全局的访问点BeanFactory
+					但没有从构造器级别去控制单例，这是因为spring管理的是是任意的java对象
+				适配器模式
+				包装器模式
+					一种是类名中含有Wrapper
+					另一种是类名中含有Decorator
+					基本上都是动态地给一个对象添加一些额外的职责
+				代理模式
+					pring的Proxy模式在aop中有体现
+					比如JdkDynamicAopProxy和Cglib2AopProxy
+					Spring实现这一AOP功能的原理就使用代理模式
+				观察者模式
+					spring中Observer模式常用的地方是listener的实现。如ApplicationListener
+				策略模式
+					定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换
+				模板方法模式
+					JdbcTemplate执行回调函数
+			 Spring Boot
+				自动配置、起步依赖、Actuator、命令行界面(CLI)
+				启动流程
+					通过 SpringFactoriesLoader 查找并加载所有的 SpringApplicationRunListeners
+					创建并配置当前应用将要使用的 Environment
+					③Spring Boot 应用在启动时会输出这样的东西
+					④根据是否是 Web 项目，来创建不同的 ApplicationContext 容器
+					⑤创建一系列 FailureAnalyzer
+					⑥初始化 ApplicationContext。
+					⑦调用 ApplicationContext 的 refresh() 方法，完成 IOC 容器可用的最后一道工序
+					⑧查找当前 context 中是否注册有 CommandLineRunner 和 ApplicationRunner，如果有则遍历执行它们
+					⑨执行所有 SpringApplicationRunListener 的 finished() 方法
+				核心功能
+					独立运行Spring项目
+					内嵌servlet容器
+					提供starter简化Maven配置
+					自动装配Spring
+					准生产的应用监控
+					无代码生产和xml配置　
+				优缺点
+					优点
+						快速构建项目
+						对主流开发框架的无配置集成
+						项目可独立运行，无须外部依赖Servlet容器
+						极大的提高了开发、部署效率
+						与云计算的天然集成
+					缺点
+						如果你不认同spring框架，也许这就是缺点
+				CLI
+					控制台命令工具
+				常用的注解
+					@RestController
+						@Controller
+							用于定义控制器类
+								负责将用户发来的URL请求转发到对应的服务接口（service层
+						@ResponseBody
+							表示该方法的返回结果直接写入HTTP response body中
+						标注控制层组件
+					@RequestMapping
+						提供路由信息
+						负责URL到Controller中的具体函数的映射
+					@SpringBootApplication
+						@ComponentScan
+							组件扫描，可自动发现和装配一些Bean。
+						@EnableAutoConfiguration
+							自动配置。
+						@Configuration
+							等同于spring的XML配置文件；使用Java代码可以检查类型安全
+					@ImportResource
+						用来加载xml配置文件。
+					@Autowired
+						自动导入
+						byType方式
+						当加上（required=false）时，就算找不到bean也不报错
+					@Component
+						可配合CommandLineRunner使用，在程序启动后执行一些基础任务。
+						泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
+					@PathVariabl
+						获取参数。
+					@JsonBackReference
+						解决嵌套外链问题。
+					@RepositoryRestResourcepublic
+						配合spring-boot-starter-data-rest使用。
+					@Import
+						用来导入其他配置类。
+					@Service
+						一般用于修饰service层的组件
+					@Repository
+						修饰的DAO或者repositories类
+					@Bean
+						用@Bean标注方法等价于XML中配置的bean。
+						放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理
+					@Value
+						注入Spring boot application.properties配置的属性的值
+					@Inject
+						等价于默认的@Autowired，只是没有required属性；
+					@Qualifier
+						当有多个同一类型的Bean时，可以用@Qualifier(“name”)来指定
+					@Resource(name=”name”,type=”type”)
+						没有括号内内容的话，默认byName
+						与@Autowired干类似的事
+				Actuator
+					在应用程序里提供众多 Web 接口
+					通过它们了解应用程序运行时的内部状况
+					配置接口
+					度量接口
+					其它接口
+			IOC
+				用于模块解耦
+				正向控制
+					传统通过new的方式
+				反向控制
+					通过容器注入对象
+			DI
+				依赖注入，只关心资源使用，不关心资源来源
+			AOP
+				基本原理
+					动态代理
+						创建一个代理对象来代理原对象的行为
+						代理对象拥有原对象行为执行的控制权，在这种模式下，我们基于代理对象在原对象行为执行的前后插入代码来实现 AOP
+						相对于静态AOP更加灵活
+						切入的关注点需要实现接口。对系统有一点性能影响
+					静态织入
+						修改原对象，在原对象行为的执行前后注入代码来实现 AOP
+						行为注入
+						在编译期，切面直接以字节码的形式编译到目标字节码文件中
+						对系统无性能影响
+				注解的方式实现分布式锁
+				面向切面编程
+					性能监控
+						在方法调用前后记录调用时间，方法执行太长或超时报警
+					缓存代理
+						缓存某方法的返回值，下次执行该方法时，直接从缓存里获取
+					软件破解
+						使用AOP修改软件的验证类的判断逻辑
+					记录日志
+						在方法执行前后记录系统日志
+					工作流系统
+						工作流系统需要将业务代码和流程引擎代码混合在一起执行，那么我们可以使用AOP将其分离，并动态挂接业务
+					权限验证
+						方法执行前验证是否有权限执行当前方法，没有则抛出没有权限执行异常，由业务代码捕捉
+				相关注解
+					@Aspect
+						切面
+						@After
+							通知方法会在目标方法返回或抛出异常后调用
+						@AfterRetruening
+							通常方法会在目标方法返回后调用
+						@AfterThrowing
+							通知方法会在目标方法抛出异常后调用
+						@Around
+							通知方法将目标方法封装起来
+						@Before
+							通知方法会在目标方法执行之前执行
+						@Pointcut
+							切点
+						连接点（Joinpoint）
+				配置
+					cglib
+						&lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;
+					JDK代理
+						&lt;aop:aspectj-autoproxy/&gt;
+				实现AOP的方式
+					经典的基于代理的AOP
+					@AspectJ注解驱动的切面
+					纯POJO切面
+					注入式AspectJ切面
+			mvc
+				过程
+					（8）通过View返回给请求者（浏览器）
+					（7）DispaterServlet把返回的Model传给View。
+					（6）ViewResolver会根据逻辑View查找实际的View。
+					（5）处理器处理完业务后，会返回一个ModelAndView对象，Model是返回的数据对象，View是个逻辑上的View。
+					（4）HandlerAdapter会根据Handler来调用真正的处理器开处理请求，并处理相应的业务逻辑。
+					（3）解析到对应的Handler后，开始由HandlerAdapter适配器处理。
+					（2）DispatcherServlet根据请求信息调用HandlerMapping，解析请求对应的Handler。
+					（1）客户端（浏览器）发送请求，直接请求到DispatcherServlet。
+				统一异常处理
+					目标
+						消灭95%以上的 try catch 代码块，以优雅的 Assert(断言) 方式来校验业务的异常情况
+						关注业务逻辑，而不用花费大量精力写冗余的 try catch 代码块
+					原理
+						在独立的某个地方，比如单独一个类，定义一套对各种异常的处理机制，然后在类的签名加上注解@ControllerAdvice，统一对 不同阶段的、不同异常 进行处理
+					不同阶段的异常
+						进入Controller前的异常
+							handleServletException
+							handleBindException
+								参数校验异常
+							handleValidException
+								参数校验异常
+							让404也抛出异常
+								spring.mvc.throw-exception-if-no-handler-found=true
+						Service 层异常
+							handleBusinessException
+								处理自定义的业务异常
+							handleBaseException
+							handleException
+								处理所有未知的异常，比如操作数据库失败的异常
+					实战
+						自定义异常
+							BaseException
+								code
+								message
+							BusinessException
+						用 Assert(断言) 替换 throw exception
+							BusinessExceptionAssert
+						将 Enum 和 Assert 结合
+							ResponseEnum
+								code
+								message
+						定义统一异常处理器类
+							@ControllerAdvice
+				统一返回结果
+					基类
+						BaseResponse
+							code
+							message
+					通用返回结果类
+						CommonResponse
+							data
+							继承 BaseResponse
+							简写R
+								new R&lt;&gt;(data)
+					数据带有分页信息
+						QueryDataResponse
+							继承自 CommonResponse
+							把 data 字段的类型限制为 QueryDdata
+							QueryDdata
+								分页信息相应的字段
+								totalCount
+								pageNo
+								pageSize
+								records
+							简写QR
+								new QR&lt;&gt;(queryData)
+					ErrorResponse
+					国际化
+			常用注解
+				@ControllerAdvice
+				@ExceptionHandler
+				@InitBinder
+				@ModelAttribute
+				@AllArgsConstructor
+				@Getter
+				@Slf4j
+				@Component
+				@Controller
+				@PostConstruct
+					声明一个Bean对象初始化完成后执行的方法
+				@Value
+				@Profile
+					加载指定配置文件时才起作用
+				@ConditionalOnExpression
+					特定条件下生效
+			Spring Session
+			Interceptor拦截器
+				HandlerInterceptor
+					HandlerInterceptorAdapter
+					preHandle
+					postHandle
+					afterCompletion
+				WebRequestInterceptor
+					WebRequestInterceptor
+			WebFlux
+			REST Docs
+			Spring Data
+				JPA
+					Java PersistenceAPI
+					查询语言是面向对象而非面向数据库的
+					Spring Data JPA始终需要JPA提供程序，如Hibernate或Eclipse Link
+				redis
+				REST
+				Solr
+				elastic search
+				Neo4J
+				Apache Hadoop
+			spring的生命周期
+				首先容器启动后，对bean进行初始化
+				按照bean的定义，注入属性
+				检测该对象是否实现了xxxAware接口，并将相关的xxxAware实例注入给bean，如BeanNameAware等
+				以上步骤，bean对象已正确构造，通过实现BeanPostProcessor接口，可以再进行一些自定义方法处理。如:postProcessBeforeInitialzation。
+				BeanPostProcessor的前置处理完成后，可以实现postConstruct，afterPropertiesSet,init-method等方法， 增加我们自定义的逻辑，
+				通过实现BeanPostProcessor接口，进行postProcessAfterInitialzation后置处理
+				接着Bean准备好被使用啦。
+				容器关闭后，如果Bean实现了DisposableBean接口，则会回调该接口的destroy()方法
+				通过给destroy-method指定函数，就可以在bean销毁前执行指定的逻
+		mybatis
+			将 JSON 型字段映射到 Java 类
+				TypeHandler
+			设计模式
+				Builder模式
+					SqlSessionFactory的创建
+			适合查询多的场景，新增修改依然建议用orm，mybatis plus 支持orm
+		Disruptor
+			线程间通信的高效低延时的内存消息组件
+		Shiro
+			DelegatingFilterProxy的功能是通知Spring将所有的Filter交给ShiroFilter管理
+			与SpringMVC集成
+				配置前端过滤器
+		Dubbo
+		Drools
+			规则引擎
+		MapStruct
+			类似深拷贝
+			使用纯java方法调用的源和目标对象之间的映射
+			通过生成代码完成繁琐和容易出错的代码逻辑
+		json
+			fastjson
+			jackson
+				Jackson将null值转化为&quot;&quot;
+	SPI
+		JDBC
+		JNDI
+		JAXP
+	正则表达式
+	记录日志
+		使用slf4j
+			门面模式的日志框架
+			有利于维护和各个类的日志处理方式统一
+			实现方式统一使用: Logback框架
+		什么时候应该打日志
+			当你遇到问题的时候，只能通过debug功能来确定问题，你应该考虑打日志，良好的系统，是可以通过日志进行问题定为的。
+			当你碰到if…else 或者 switch这样的分支时，要在分支的首行打印日志，用来确定进入了哪个分支
+			经常以功能为核心进行开发，你应该在提交代码前，可以确定通过日志可以看到整个流程
+		基本格式
+			必须使用参数化信息的方式:
+				logger.debug(&quot;Processing trade with id:[{}] and symbol : [{}] &quot;, id, symbol);
+				要进行字符串拼接,那样会产生很多String对象，占用空间，影响性能
+			对于debug日志，必须判断是否为debug级别后，才进行使用:
+			使用[]进行参数变量隔离
+				这样的格式写法，可读性更好，对于排查问题更有帮助。
+		不同级别的使用
+			ERROR
+				影响到程序正常运行
+					打开配置文件失败
+					所有第三方对接的异常(包括第三方返回错误码)
+					所有影响功能使用的异常，包括:SQLException和除了业务异常之外的所有异常(RuntimeException和Exception)
+			WARN
+				不应该出现但是不影响程序
+					有容错机制的时候出现的错误情况
+					找不到配置文件，但是系统能自动创建配置文件
+					即将接近临界值的时候
+						缓存池占用达到警告线
+					业务异常的记录
+						当接口抛出业务异常时，应该记录此异常
+			INFO
+				系统运行信息
+					Service方法中对于系统/业务状态的变更
+					主要逻辑中的分步骤
+				外部接口部分
+					客户端请求参数(REST/WS)
+					调用第三方时的调用参数和调用结果
+				对于复杂的业务逻辑，需要进行日志打点，以及埋点记录
+					比如电商系统中的下订单逻辑，以及OrderAction操作(业务状态变更)。
+				对于整个系统的提供出的接口(REST/WS)，使用info记录入参
+				调用其他第三方服务时，所有的出参和入参是必须要记录的
+				,job需要记录开始和结束
+			DEBUG
+				可以填写所有的想知道的相关信息
+				生产环境需要关闭DEBUG信息
+				如果在生产情况下需要开启DEBUG,需要使用开关进行管理，不能一直开启。
+			TRACE
+				特别详细的系统运行完成信息
+					业务代码中，不要使用.(除非有特殊用意，否则请使用DEBUG级别替代)
+	反射
+	异常
+		类层次结构图
+			Throwable
+				Error（错误）
+					程序无法处理的错误
+					LinkageError
+						NoClassDefFoundError
+					VirtualMachineError
+				Exception（异常）
+					IOException
+					RuntimeException
+						NullPointerException
+						ArithmeticException
+						ArrayIndexOutOfBoundException
+						IndexOutOfBoundsException
+						unchecked exception（非检查异常）
+					SQLException
+	web
+		filter
+			过滤器
+			基于回调函数实现，必须依靠容器支持
+			因为需要容器装配好整条FilterChain并逐个调用
+		容器
+			tomcat
+			jetty
+	读写分离
+	领域模型
+		VO
+			View Object
+			通常是请求处理层传输的对象
+			通过 Spring 框架的转换后，往往是一个 JSON 对象
+		BO
+			Business Object
+			业务逻辑层封装业务逻辑的对象
+			聚合了多个数据源的复合对象
+		DO
+			Data Object
+			与数据库表结构一一对应
+			通过 DAO 层向上传输数据源对象
+		DTO
+			Data Transfer Object
+			远程调用对象
+			 RPC 服务提供的领域模型
+		PO
+	API
+		rpc
+			Hessian
+				基于HTTP协议
+				采用二进制编解码
+			protobuf-rpc-pro
+				Protocol Buffers 协议的
+				基于 Netty 底层的 NIO 技术
+			Avro
+				支持HTTP，TCP两种协议
+			特点
+				任何语言
+				远程过程调用, 很简单的概念, 像调用本地服务(方法)一样调用服务器的服务(方法).
+				RPC 框架需提供一种透明调用机制让使用者不必显式的区分本地调用和远程调用
+				目标
+					让构建分布式计算（应用）更容易
+					在提供强大的远程调用能力时不损失本地调用的语义简洁性
+			架构
+				客户端(Client)：服务调用方
+				 客户端存根(Client Stub
+					存放服务端地址信息，将客户端的请求参数打包成网络消息，再通过网络发送给服务方
+				服务端存根(Server Stub)
+					接受客户端发送过来的消息并解包，再调用本地服务
+				服务端(Server)：
+					真正的服务提供者
+			分类
+				同步阻塞调用
+					WebService
+						底层使用http协议
+					RMI
+						tcp
+						java专属
+						java的原生序列化
+					客户方等待调用执行完成并返回结果
+				异步非阻塞调用
+					JMS(Java Message Service)
+					 客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果
+			协议编解码
+			协议消息设计
+				消息头
+					magic      : 协议魔数，为解码设计
+					header size: 协议头长度，为扩展设计
+					version    : 协议版本，为兼容设计
+					st         : 消息体序列化类型
+					hb         : 心跳消息标记，为长连接传输层心跳设计
+					ow         : 单向消息标记，
+					rp         : 响应消息标记，不置位默认是请求消息
+					status code: 响应消息状态码
+					reserved   : 为字节对齐保留
+					message id : 消息 id
+					body size  : 消息体长度
+				消息体
+					采用序列化编码，常见有以下格式
+					xml   : 如 webservie soap
+					json  : 如 JSON-RPC
+					binary: 如 thrift; hession; kryo 等
+			框架
+				GRPC
+				Thrift
+				Dubbo
+		HTTP
+			 RESTful API
+				Representational State Transfer表述性状态传递
+				GET、PUT、DELETE、POST
+				原则
+					网络上的所有事物都被抽象为资源
+					每个资源都有一个唯一的资源标识符
+					同一个资源具有多种表现形式(xml,json等)
+					对资源的各种操作不会改变资源标识符
+					所有的操作都是无状态的
+				HTTP+URI+XML /JSON 的技术来实现
+			GraphQL
+		SOAP
+		Web Service
+	注解
+		@SafeVarargs
+	Lambda</p>
+
+  </blockquote>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="What   Hive起源于Facebook，它使得针对Hadoop进行SQL查询成为可能，从而非程序员也可以方便地使用。 hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapRedu">
+<meta name="keywords" content="大数据,hadoop,hive,数据仓库,hql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hive实践">
+<meta property="og:url" content="http://blog.appcity.vip/bigdata/Hive实践/index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="What   Hive起源于Facebook，它使得针对Hadoop进行SQL查询成为可能，从而非程序员也可以方便地使用。 hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapRedu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542276996928.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542248444798.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542244110186.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542245431980.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542675635646.png">
+<meta property="og:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/19/1542623648915.png">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hive实践">
+<meta name="twitter:description" content="What   Hive起源于Facebook，它使得针对Hadoop进行SQL查询成为可能，从而非程序员也可以方便地使用。 hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapRedu">
+<meta name="twitter:image" content="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542276996928.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/bigdata/Hive实践/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hive实践 | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.appcity.vip/bigdata/Hive实践/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juforg">
+      <meta itemprop="description" content="以大多数人的努力程度之低还轮不到拼天赋">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夕拾阁">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Hive实践
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-26 09:58:44" itemprop="dateCreated datePublished" datetime="2016-11-26T09:58:44+08:00">2016-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-05 22:47:18" itemprop="dateModified" datetime="2020-02-05T22:47:18+08:00">2020-02-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/bigdata/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/bigdata/Hive实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/bigdata/Hive实践/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>What</h2>
+<hr>
+<blockquote>
+<p>Hive起源于Facebook，它使得针对Hadoop进行SQL查询成为可能，从而非程序员也可以方便地使用。
+hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供完整的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapReduce应用，十分适合数据仓库的统计分析。它提供了一系列的工具，可以用来进行数据提取转化加载（ETL），这是一种可以存储、查询和分析存储在 Hadoop 中的大规模数据的机制。Hive 定义了简单的类 SQL 查询语言，称为 HQL，它允许熟悉 SQL 的用户查询数据。同时，这个语言也允许熟悉 MapReduce 开发者的开发自定义的 mapper 和 reducer 来处理内建的 mapper 和 reducer 无法完成的复杂的分析工作。
+&lt;!-- more --&gt;
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542276996928.png" alt=""></p>
+</blockquote>
+<ul>
+<li>hive元数据信息存在关系型数据库上
+<ul>
+<li>表 的名字， 权限，字段，创建者，数据目录</li>
+</ul>
+</li>
+<li>hive接口
+<ul>
+<li>cli</li>
+<li>client</li>
+<li>wui webui
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542248444798.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h3>3中运行模式</h3>
+<ul>
+<li>内嵌模式</li>
+<li>本地模式
+<blockquote>
+<p>mysql和hive在一台服务器上</p>
+</blockquote>
+</li>
+<li>远程模式
+<ul>
+<li>远程一体
+<blockquote>
+<p>mysql和hive不在一台服务器上,hive 的server和client在一台机器上</p>
+</blockquote>
+</li>
+<li>远程分开
+<blockquote>
+<p>mysql和hive不在一台服务器上,hive 的server和client也在不同的机器上</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3>执行mapreduce 时机</h3>
+<ul>
+<li><code>select * from t</code>  单表不执行</li>
+<li><code>select * from t where t&gt;1</code> 单表字段不执行</li>
+<li><code>select count(1) from t</code> 包含函数执行mapreduce任务</li>
+</ul>
+<h2>Why ?</h2>
+<hr>
+<h3>数据库与数据仓库</h3>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542244110186.png" alt=""></p>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/15/1542245431980.png" alt=""></p>
+<p>非Java编程者对HDFS的数据做mapreduce操作。
+使用SQL来快速实现简单的MapReduce 统计，不必开发专门 的MapReduce 应用，学习成本低，十分适合数据仓库的统计 分析。</p>
+<h2>Where</h2>
+<p>http://hive.apache.org</p>
+<h2>How 安装？</h2>
+<hr>
+<ol>
+<li>安装mysql 参考博客中的另一篇<a href="/2017-12-26-centos%E5%AE%89%E8%A3%85mysql">2017-12-26-centos安装mysql</a></li>
+</ol>
+<blockquote>
+<p>不支持mysql5.1</p>
+</blockquote>
+<ol start="2">
+<li>
+<p><code>tar zxvf apache-hive-1.2.1-bin.tar.gz</code></p>
+</li>
+<li>
+<p>集群上所有服务器都删
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /opt/soft/hadoop-2.5.1/share/hadoop/yarn/lib/jline-0.9.94.jar</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>从hive里拷贝jar到hadoop里
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /opt/soft/apache-hive-1.2.1-bin/lib/jline-2.12.jar /opt/soft/hadoop-2.5.1/share/hadoop/yarn/lib/</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>拷贝到集群上所有机器
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r  /opt/soft/apache-hive-1.2.1-bin/lib/jline-2.12.jar sj-node2:/opt/soft/hadoop-2.5.1/share/hadoop/yarn/lib/</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>上传mysql驱动包 <code>mysql-connector-java-5.1.32-bin.jar</code> 到目录<code>/opt/soft/apache-hive-1.2.1-bin/lib</code></p>
+</li>
+<li>
+<p>修改配置文件
+<code>vi /opt/soft/apache-hive-1.2.1-bin/conf/hive-site.xml</code>输入以下内容</p>
+<ul>
+<li>
+<p>本地模式
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.warehouse.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>/user/hive_local/warehouse<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.local<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://sj-node1/hive_remote?createDatabaseIfNotExist=t</span><br><span class="line">rue<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">value</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>远程一体模式
+将上述里的这个属性改下
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.local<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>- 远程分开模式
+  - client 端 在sj-node1上
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.local<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.uris<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>thrift://sj-node2:9083<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+  - server端 sj-node2 去掉`hive.metastore.local` 这个属性
+    - 服务端启动方式 
+      `hive --service metastore`
+</code></pre>
+<ol start="8">
+<li>环境变量
+<ul>
+<li>
+<p><code>vi ~/.bash_profile</code> 加入如下内容
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export HADOOP_HOME=/opt/soft/hadoop-2.5.1</span><br><span class="line">export HIVE_HOME=/opt/soft/apache-hive-1.2.1-bin</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p><code>source ~/.bash_profile</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3>提供jdbc服务供链接</h3>
+<p>hiverserver2</p>
+<p>启动服务：
+<code>$HIVE_HOME/bin/hiverserver2</code>
+<code>hive --service metastore</code></p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    Class.forName(<span class="string">"org.apache.hive.jdbc.HiveDriver"</span>);</span><br><span class="line">    Connection conn = DriverManager.getConnection(<span class="string">"jdbc:hive2://node5:10000/default"</span>)</span><br><span class="line">    Statement st = conn.createStatement();</span><br><span class="line">    ResultSet res = st.executeQuery(<span class="string">"select count(*) from t_test"</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3>HQL简介</h3>
+<h4>数据类型</h4>
+<ul>
+<li>primitive_type 原始数据类型
+<ul>
+<li>TINYINT</li>
+<li>SMALLINT</li>
+<li>INT</li>
+<li>BIGINT</li>
+<li>BOOLEAN</li>
+<li>FLOAT</li>
+<li>DOUBLE</li>
+<li>DOUBLE PRECISION</li>
+<li>STRING 搞定一切</li>
+<li>BINARY</li>
+<li>TIMESTAMP</li>
+<li>DECIMAL(precision, scale)</li>
+<li>DATE</li>
+<li>VARCHAR</li>
+<li>CHAR</li>
+</ul>
+</li>
+<li>array_type 数组数据类型
+<ul>
+<li>ARRAY &lt; data_type &gt;</li>
+</ul>
+</li>
+<li>map_type
+<ul>
+<li>MAP &lt; primitive_type, data_type &gt;</li>
+</ul>
+</li>
+<li>struct_type
+<ul>
+<li>STRUCT &lt; col_name : data_type [COMMENT col_comment], ...&gt;</li>
+</ul>
+</li>
+<li>union_type
+<ul>
+<li>UNIONTYPE &lt; data_type, data_type, ... &gt;</li>
+</ul>
+</li>
+</ul>
+<h4>DDL</h4>
+<ul>
+<li>
+<p><code>create database testdata;</code></p>
+</li>
+<li>
+<p><code>drop database testdata;</code></p>
+</li>
+<li>
+<p><code>use testdata;</code></p>
+</li>
+<li>
+<p>删除表
+<code>DROP TABLE [IF EXISTS] table_name [PURGE];</code></p>
+</li>
+<li>
+<p>重命名表
+<code>ALTER TABLE table_name RENAME TO new_table_name;</code></p>
+</li>
+<li>
+<p>创建表</p>
+<p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_p3(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> ,</span><br><span class="line">    <span class="keyword">name</span> <span class="keyword">string</span>,</span><br><span class="line">    age <span class="built_in">int</span>,</span><br><span class="line">    likes <span class="built_in">array</span>&lt;<span class="keyword">string</span>&gt; <span class="keyword">comment</span> <span class="string">'your like things'</span>,</span><br><span class="line">    address <span class="keyword">map</span>&lt;<span class="keyword">string</span>,<span class="keyword">string</span>&gt; <span class="keyword">comment</span> <span class="string">'your address'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">','</span> </span><br><span class="line">collection items <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'-'</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">keys</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">':'</span></span><br><span class="line"><span class="keyword">lines</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h4>DML</h4>
+<blockquote>
+<p>5种导入方式,字段数相同，类型需匹配</p>
+</blockquote>
+<ul>
+<li>LOAD
+<ul>
+<li>local
+<code>load data local inpath '/root/data.txt' overwrite into table t_person;</code></li>
+<li>hdfs
+<ul>
+<li><code>hdfs dfs -put data.txt /test</code></li>
+<li><code>load data inpath '/test/data.txt' overwrite into table t_person;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>INSERT INTO</li>
+<li>From person t1 Insert Owerwrite Table person1 select id,name,age
+inert owerwrite table per2 select id,name,age;</li>
+<li>更新数据
+<code>UPDATE tablename SET column = value [, column = value ...] [WHERE expression]</code></li>
+<li>删除数据
+<code>DELETE FROM tablename [WHERE expression]</code></li>
+</ul>
+<pre><code>#### 文本数据 data.txt -&gt; t_person
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1,zshang,18,game-girl-book,stu_addr:beijing-work_addr:shanghai</span><br><span class="line">2,lishi,16,shop-boy-book,stu_addr:hunan-work_addr:shanghai</span><br><span class="line">3,wang2mazi,20,fangniu-eat,stu_addr:shanghai-work_addr:tianjing</span><br></pre></td></tr></table></figure>
+
+data2.txt -&gt; t_p2
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1,zshang,18</span><br><span class="line">2,lishi,16</span><br><span class="line">3,wang2mazi,20</span><br></pre></td></tr></table></figure>
+
+#### 执行sql查询
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from t_person t1,t_p2</span><br><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> t_p3</span><br><span class="line"><span class="keyword">select</span> t1.id,t_p2.name,t_p2.age,t1.likes,t1.address <span class="keyword">where</span> t1.id = t_p2.id;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h5>保存结果</h5>
+<ol>
+<li>
+<p>保存数据到本地
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive&gt; insert overwrite local directory '/root/hive2local.txt' row format delimited fields terminated by ',' select * from testhive.t_person;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>teshive为数据名</p>
+</blockquote>
+</li>
+<li>
+<p>保存数据到 HDFS 上:
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">directory</span> <span class="string">'/test/testback'</span> <span class="keyword">select</span> * <span class="keyword">from</span> testhive.t_p3;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>在 shell 中将数据重定向到文件中
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hive -e "select * from testhive.t_person;" &gt; result.txt</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<h4>备份数据或还原数据</h4>
+<ol>
+<li>
+<p>备份数据:
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPORT TABLE testhive.t_person TO '/test/testexport';</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>删除再还原数据
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> testhive.t_person;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span> <span class="keyword">from</span> testhive;</span><br><span class="line">IMPORT table testhive.t_person FROM '/test/testexport' ; ;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<h4>外部表(重要)</h4>
+<blockquote>
+<p>外部关键字 EXTERNAL 允许您创建一个表,并提供一个位 置,以便 hive 不使用这个表的默认位置。这方便如果你已经生成的数 据。当删除一个外部表,表中的数据不是从文件系统中删除。外部表指向任何 HDFS 的存储位置,而不是存储在配置属性指定的文件夹 hive.metastore.warehouse.dir.中</p>
+</blockquote>
+<h3>HIVEserDe序列化</h3>
+<p>HiveSerDe-SerializerandDeserializer SerDe用于做序列化和反序列
+化。构建在数据存储和执行引擎之间，对两者实现解耦。
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> logtbl (</span><br><span class="line">    host <span class="keyword">STRING</span>,</span><br><span class="line">    <span class="keyword">identity</span> <span class="keyword">STRING</span>,</span><br><span class="line">    t_user <span class="keyword">STRING</span>,</span><br><span class="line">    <span class="keyword">time</span> <span class="keyword">STRING</span>,</span><br><span class="line">    request <span class="keyword">STRING</span>,</span><br><span class="line">    referer <span class="keyword">STRING</span>,</span><br><span class="line">    <span class="keyword">agent</span> <span class="keyword">STRING</span>)</span><br><span class="line"><span class="keyword">ROW</span> <span class="keyword">FORMAT</span> SERDE <span class="string">'org.apache.hadoop.hive.serde2.RegexSerDe'</span></span><br><span class="line"><span class="keyword">WITH</span> SERDEPROPERTIES (</span><br><span class="line"><span class="string">"input.regex"</span> = <span class="string">"([^ ]*) ([^ ]*) ([^ ]*) \\[(.*)\\] \"(.*)\" (-|[0-9]*) (-|[0-9]*)"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">STORED</span> <span class="keyword">AS</span> TEXTFILE;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>
+<p>原始数据 access_log.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:35 +0800] &quot;GET /bg-upper.png HTTP/1.1&quot; 304 -</span><br><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:35 +0800] &quot;GET /bg-nav.png HTTP/1.1&quot; 304 -</span><br><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:35 +0800] &quot;GET /asf-logo.png HTTP/1.1&quot; 304 -</span><br><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:35 +0800] &quot;GET /bg-button.png HTTP/1.1&quot; 304 -</span><br><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:35 +0800] &quot;GET /bg-middle.png HTTP/1.1&quot; 304 -</span><br><span class="line">192.168.57.4 - - [29/Feb/2016:18:14:36 +0800] &quot;GET / HTTP/1.1&quot; 200 11217</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>导入
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath <span class="string">'/root/access_log.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span>  testhive.logtbl;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/20/1542675635646.png" alt=""></p>
+</li>
+</ul>
+<h3>beeline和hiveserver2</h3>
+<ul>
+<li>server 端启动 <code>hiveserver2</code></li>
+<li>client端启动 <code>beeline</code>
+<img src="http://wntc-1251220317.cossh.myqcloud.com/2018/11/19/1542623648915.png" alt="">
+<ul>
+<li>输入<code>!connect jdbc:hive2://sj-node2:10000 root 123456</code>连接</li>
+</ul>
+</li>
+</ul>
+<h3>hive的jdbc</h3>
+<p>启动hiveserver2</p>
+<h3>hive的分区</h3>
+<blockquote>
+<p>必须要在表定义的时候创建partition</p>
+</blockquote>
+<ul>
+<li>
+<p>分区字段内容 最好不要特殊字符，否则在hdfs上操作时转义过的就不能查看了</p>
+</li>
+<li>
+<p>分区里的分区字段不能与表的字段同名</p>
+</li>
+<li>
+<p>分区删除的时候最好指定一级二级分区名，否则删除不相关分区的子分区</p>
+</li>
+<li>
+<p>分区重命名，多级分区的重命名，指明父子结构分区名，相当于移动到新的目录树下</p>
+</li>
+</ul>
+<p>分区分为静态分区和动态分区</p>
+<h3>hive的自定义函数</h3>
+<ul>
+<li>UDF User-Defined-Function
+<ul>
+<li>单输入单输出</li>
+</ul>
+</li>
+<li>UDAF(User- Defined Aggregation Funcation)
+<ul>
+<li>多输入单输出</li>
+</ul>
+</li>
+<li>UDTF(User-Defined Table-Generating Functions)
+<ul>
+<li>一进多输出</li>
+</ul>
+</li>
+</ul>
+<h3>分桶</h3>
+<blockquote>
+<p>分桶表是对列值取哈希值的方式，将不同的数据放到不同的文件中</p>
+</blockquote>
+<ul>
+<li>桶的个数相当于reduce的个数</li>
+<li>抽样</li>
+</ul>
+<h3>调优</h3>
+<ul>
+<li>去格式化无用的-</li>
+<li>hive内数据迁移 先建表结构，然后用文件直接传送 ，
+提高效率</li>
+<li>把hive sql 当做MapReduce程序去优化</li>
+<li>explain</li>
+<li>小文件一般128m内 可以设为本地模式跑，速度会快点</li>
+<li>严格模式 nostrict
+<ul>
+<li>限制查询
+<ul>
+<li>对分区表查询是，必须添加where条件对分区字段查询，否则不能查询</li>
+<li>order by 语句必须包含limit限制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hive排序
+<ul>
+<li>order by</li>
+<li>sort by</li>
+<li>distribute by</li>
+<li>cluster by</li>
+</ul>
+</li>
+<li>hive join
+<ul>
+<li>join 时将小表（驱动表）放在join左边</li>
+<li>在map端join
+<ol>
+<li>sql方式
+<code>select /* +mapjoin(smalltable) */ smalltable.key bigtable.value from smalltable join bigtable on smalltable.key=bigtable.key</code></li>
+<li>开启自动mapjoin
+<code>set hive.auto.convert.join=true</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2>参考</h2>
+<ul>
+<li>http://hive.apache.org</li>
+<li><a href="https://blog.csdn.net/skywalker_only/article/details/38335235" target="_blank" rel="noopener">Hive学习之HiveServer2服务端配置与启动</a></li>
+<li><a href="https://www.cnblogs.com/DreamDrive/p/7469476.html" target="_blank" rel="noopener">hive中解决中文乱码</a></li>
+<li><a href="https://www.cnblogs.com/shysky77/p/6971967.html" target="_blank" rel="noopener">用JAVA代码通过JDBC连接HIVESERVER</a></li>
+</ul>
+<h2>疑问</h2>
+<ol>
+<li>select * from tbl 大表会不会死机
+不可以这么操作</li>
+<li>原始数据包含分区字段的时候如何建表导入
+动态分区导入</li>
+<li>备注字段？
+<code>--</code> 可以在sql文件中注释</li>
+</ol>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="http://wntc-1251220317.cossh.myqcloud.com/2019/3/8/1552054329801.png" alt="Juforg wechat" style="width: 200px; max-width: 100%;">
+  <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+      </div>
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
+          
+            <a href="/tags/hive/" rel="tag"># hive</a>
+          
+            <a href="/tags/数据仓库/" rel="tag"># 数据仓库</a>
+          
+            <a href="/tags/hql/" rel="tag"># hql</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/buger/jqgrid翻页无效果/" rel="next" title="jqGrid翻页无效果debug经历">
+                <i class="fa fa-chevron-left"></i> jqGrid翻页无效果debug经历
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bigdata/flume/" rel="prev" title="Flume实践">
+                Flume实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">What</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">3中运行模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">执行mapreduce 时机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Why ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">数据库与数据仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Where</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">How 安装？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.1.</span> <span class="nav-text">提供jdbc服务供链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">HQL简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.2.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.2.2.</span> <span class="nav-text">DDL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.2.3.</span> <span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">保存结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.2.4.</span> <span class="nav-text">备份数据或还原数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.2.5.</span> <span class="nav-text">外部表(重要)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.3.</span> <span class="nav-text">HIVEserDe序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.4.</span> <span class="nav-text">beeline和hiveserver2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.5.</span> <span class="nav-text">hive的jdbc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.6.</span> <span class="nav-text">hive的分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.7.</span> <span class="nav-text">hive的自定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.8.</span> <span class="nav-text">分桶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">4.9.</span> <span class="nav-text">调优</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">疑问</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

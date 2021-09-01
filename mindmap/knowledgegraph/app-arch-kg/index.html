@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="jMHRiBfNOcZpLeHK0bJ1AaYU5A1z-0QXMbVc4yXgNfM">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/appcityico.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'ZZE0EYQZDX',
+      apiKey: 'f906b8260884e9894c6e3bc49c54ffe0',
+      indexName: 'hexoblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没找到关于: ${query} 的内容","hits_stats":"找到 ${hits} 个陪陪结果 ，用时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="系统架构知识图谱">
+<meta name="keywords" content="juforg 夕拾阁 songjie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用架构-知识图谱">
+<meta property="og:url" content="http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//index.html">
+<meta property="og:site_name" content="夕拾阁">
+<meta property="og:description" content="系统架构知识图谱">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-05T14:47:18.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="应用架构-知识图谱">
+<meta name="twitter:description" content="系统架构知识图谱">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="夕拾阁" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://blog.appcity.vip/mindmap//knowledgegraph/app-arch-kg//">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>应用架构-知识图谱 | 夕拾阁</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=[object Object]"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81118574-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?63b060abb589ae3a3649732e9aaa9c59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">夕拾阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">努力程度决定了你能达到的下限</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">24</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-doubanbooks">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/books" rel="section"><i class="menu-item-icon fa fa-fw fa-list-ul"></i> <br>书单</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-knowledgegraph">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/mindmap/" rel="section"><i class="menu-item-icon fa fa-fw fa-joomla"></i> <br>知识图谱</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 1);">
+    展开至 1级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 2);">
+    展开至 2级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 3);">
+    展开至 3级 节点
+  </a>
+  <a class="btn" href="javascript:window.km.execCommand('ExpandToLevel', 4);">
+    展开至 4级 节点
+  </a>
+  <blockquote class="raw-class mindmap mindmap-lg ">
+    <p>应用架构
+	高并发架构
+		网站高并发
+			异步化
+			并行化
+			负载均衡
+				二层负载均衡
+				三层负载均衡
+				四层负载均衡
+				七层负载均衡
+				常用工具
+					硬件
+						F5
+						A10
+						Radware
+					软件
+						LVS
+							LVS 主要用来做四层负载均衡
+							DR 模式
+							TUN 模式
+							NAT 模式
+						Nginx
+							Nginx 主要用来做七层负载均衡
+							并发性能
+								官方支持每秒 5 万并发，实际国内一般到每秒 2 万并发
+								有优化到每秒 10 万并发的，具体性能看应用场景
+						HAProxy
+							HAProxy 主要用来做七层负载均衡
+				负载均衡算法
+					静态负载均衡算法
+						轮询
+							Round Robin
+						随机方式
+							random
+						比率
+							Ratio
+						优先权
+							Priority
+						哈希方式
+							hash
+						一致性哈希
+							consistentHash
+					动态负载均衡算法
+						最少连接数
+							Least Connection
+						最快响应速度
+							Fastest
+						观察方法
+							Observed
+						预测法
+							Predictive
+						动态性能分配
+							Dynamic Ratio-APM
+						动态服务器补充
+							Dynamic Server Act
+						服务质量
+							QoS
+						服务类型
+							ToS
+						规则模式
+			吞吐量
+				QPS
+					每秒内处理请求次数
+				TPS
+					每秒内处理事务次数
+				RT
+					响应时间
+			架构图
+				分支主题
+			读写分离
+			分库分表
+			缓存
+			搜索引擎
+			消息队列
+			重复请求
+				场景
+					用户快速多次点击按钮
+					2）Nginx失败重试机制
+					3）服务框架失败重试机制
+						分布式系统中网络的三态性：成功，失败，未知，未知时一般三方系统会定期重试
+					4）MQ消息重复消费
+					5）第三方支付支付成功后，因为异常原因导致的多次异步回调；
+				防重
+					幂等性
+						一个操作，不论执行多少次，产生的效果和返回的结果都是一样的
+						并发控制+返回相同结果
+						技术方案
+							利用唯一交易号(流水号)实现
+							token令牌
+								要申请，一次有效性，可以限流
+									redis要用删除操作来判断token，删除成功代表token校验通过
+							Select+[Insert/Update]
+								因为两条Sql非原子操作，适合并发量不高的新增或修改场景
+							防重表
+								.唯一索引，防止新增脏数据
+							分布式锁
+								适合分布式高并发场景或不适用其它方式的场景，比如发验证短信60秒控制，因为控制信息是记录在缓存中的，无法使用乐观锁等方式，因此只能使用分布式锁
+							乐观锁
+							悲观锁
+							状态机幂等
+							支付缓冲区
+						幂等的不足
+							增加了额外控制幂等的业务逻辑，复杂化了业务功能
+							把并行执行的功能改为串行执行，降低了执行效率
+						适用
+							增加、更新
+							天然幂等
+								查询操作
+								删除
+							发送消息
+							发起一笔付款请求
+							创建业务订单
+			缓存和数据库之间数据一致性问题
+				机制
+					Cache Aside模式
+						从数据库缓存查询，如果缓存没有命中则从数据库中进行查找
+						缓存命中
+							当查询的时候发现缓存存在，那么直接从缓存中提取。
+						缓存失效：
+							当缓存没有数据的时候，则从database里面读取源数据，再加入到cache里面去。
+						缓存更新：
+							当有新的写操作去修改database里面的数据时，需要在写操作完成之后，让cache里面对应的数据失效。
+						缺陷
+							一个是读操作，但是没有命中缓存，然后就到数据库中取数据，此时来了一个写操作，写完数据库后，让缓存失效，然后，之前的那个读操作再把老的数据放进去，所以，会造成脏数据
+					Read Through模式
+						应用程序始终从缓存中请求数据
+						 如果缓存没有数据，则它负责使用底层提供程序插件从数据库中检索数据
+						检索数据后，缓存会自行更新并将数据返回给调用应用程序
+						好处
+							我们总是使用key从缓存中检索数据, 调用的应用程序不知道数据库， 由存储方来负责自己的缓存处理，这使代码更具可读性， 代码更清晰
+						缺陷
+							开发人员需要给编写相关的程序插件，增加了开发的难度性
+					Write Through模式
+						当数据发生更新的时候，先去Cache里面进行更新，如果命中了，则先更新缓存再由Cache方来更新database
+						如果没有命中的话，就直接更新Cache里面的数据
+					Write Behind Caching模式
+						先将数据写入到缓存里面，然后再异步的写入到database中进行数据同步
+						好处
+							减少我们对于数据的database里面的直接访问
+							降低压力，同时对于database的多次修改可以进行合并操作，极大的提升了系统的承载能力
+						缺陷
+							当cache机器出现宕机的时候，数据会有丢失的可能。
+			预热
+				未预热现象
+					DB重启后，瞬间死亡
+					服务重启后，访问异常
+				Warm Up
+				冷启动/
+				解决方式
+					接口放量
+					走马观花
+						把所有的接口都提前访问一遍，让系统对资源进行提前准备
+					状态保留
+						系统在死亡时做一个快照，然后在启动时，原封不动的还原回来
+		普通tcp高并发
+		消息中间件的高并发
+	分布式系统
+		谈资
+			什么是分布式架构
+				建立在网络之上的软件系统
+				在一个分布式系统中，一组独立的计算机展现给用户的是一个统一的整体，就好像是一个系统似的
+			演进
+				初始阶段架构
+					特征：应用程序，数据库，文件等所有资源都放在一台服务器上
+				应用服务和数据服务以及文件服务分离
+					特征：应用程序、数据库、文件分别部署在独立的资源上。
+					：好景不长，发现随着系统访问量的再度增加，webserver机器的压力在高峰期会上升到比较高，这个时候开始考虑增加一台webserver
+				使用缓存改善性能
+					系统访问特点遵循二八定律，即80%的业务访问集中在20%的数据上
+					特征：数据库中访问较集中的一小部分数据存储在缓存服务器中，减少数据库的访问次数，降低数据库的访问压力。
+				使用“应用服务器”集群
+					特征：多台服务器通过负载均衡同时向外部提供服务，解决单台服务器处理能力和存储空间上限的问题。
+					使用集群是系统解决高并发、海量数据问题的常用手段
+					过向集群中追加资源，提升系统的并发处理能力，使得服务器的负载压力不再成为整个系统的瓶颈
+				数据库读写分离
+					特征：多台服务器通过负载均衡同时向外部提供服务，解决单台服务器处理能力和存储空间上限的问题。
+				反向代理和CDN加速
+					特征：采用CDN和反向代理加快系统的访问速度。
+					描述：
+						为了应付复杂的网络环境和不同地区用户的访问，通过CDN和反向代理加快用户访问的速度，同时减轻后端服务器的负载压力。
+						CDN与反向代理的基本原理都是缓存。
+				“分布式文件”系统 和 “分布式数据库”
+					特征：数据库采用分布式数据库，文件系统采用分布式文件系统
+				使用NoSQL和搜索引擎
+					特征：系统引入NoSQL数据库及搜索引擎。
+				业务拆分
+					特征：公共的应用模块被提取出来，部署在分布式服务器上供应用服务器调用。
+				10、分布式服务
+					特征：公共的应用模块被提取出来，部署在分布式服务器上供应用服务器调用。
+					分布式服务应用会面临哪些问题
+						1、当服务越来越多时，服务URL配置管理变得非常困难，F5硬件负载均衡器的单点压力也越来越大。
+						2、当进一步发展，服务间依赖关系变得错踪复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。
+						3、接着，服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？
+						4、服务多了，沟通成本也开始上升，调某个服务失败该找谁？服务的参数都有什么约定？
+						5、一个服务有多个业务消费者，如何确保服务质量？
+						6、随着服务的不停升级，总有些意想不到的事发生，比如cache写错了导致内存溢出，故障不可避免，每次核心服务一挂，影响一大片，人心慌慌，如何控制故障的影响面？服务是否可以功能降级？或者资源劣化？
+		系统拆分
+		分布式服务框架
+		分布式锁
+			redis设计分布式锁
+				优点
+					实现简单
+					性能对比 ZK 和 MySQL 较好
+					对于一些要求比较严格的场景可以使用 RedLock
+					可以利用或者借鉴 Redission
+				缺点
+					需要维护 Redis 集群
+					如果要实现 RedLock 需要维护更多的集群
+				Redisson 开源框架
+					加锁机制
+					锁互斥机制
+					watch dog 自动延期机制
+					可重入加锁机制
+					释放锁机制
+				Redlock
+			zk设计分布式锁
+				优点
+					zK 可以不需要关心锁超时时间
+					支持读写锁
+					ZK 获取锁会按照加锁的顺序
+					高可用
+				缺点
+					ZK 需要额外维护
+					性能和 MySQL 相差不大，依然比较差
+				Curator开源框架
+			自研分布式锁
+				谷歌的 Chubby
+			MySQL
+				缺点
+					对于高并发的场景并不是很适合
+					实现起来较为繁琐
+				优点
+					理解起来简单
+					不需要维护额外的第三方中间件
+			特点
+				互斥性
+				可重入性
+				锁超时
+				高效，高可用
+				支持阻塞和非阻塞
+				支持公平锁和非公平锁(可选)
+			安全问题
+				长时间的 GC pause
+					这个 STW 时间比较长，导致分布式锁进行了释放
+				时钟发生跳跃
+					对于 Redis 服务器如果其时间发生了跳跃，肯定会影响我们锁的过期时间
+				长时间的网络 I/O
+		分布式事务
+			TCC
+				Try
+					尝试执行，完成所有业务检查（一致性），预留必需业务资源（准隔离性
+				Confirm
+					确认真正执行业务，不作任何业务检查，只使用 Try 阶段预留的业务资源，Confirm 操作满足幂等性。要求具备幂等设计，Confirm 失败后需要进行重试
+				Cancel
+					取消执行，释放 Try 阶段预留的业务资源，Cancel 操作满足幂等性。Cancel 阶段的异常和 Confirm 阶段异常处理方案基本上一致
+			框架
+				ByteTCC
+				LCN
+				阿里Fescar
+			 2PC
+				XA
+		分布式会话
+			Spring Session
+		分布式id
+			特点
+				趋势递增
+				全局唯一性
+				信息安全
+					特定场景下，能生成无规则（或者看不出规则）的序列号
+				单调递增
+			常见策略
+				uuid
+					优点
+						性能好、高可扩展性：本地生成，无网络消耗，不需要考虑性能瓶颈
+					缺点：
+						无法保证趋势递增
+						UUID 过长，如果需要在数据库存储，作为主键建立索引效率低。
+				Snowflake
+					原理
+						生成结果为 64 位 Long 型数值
+						12 位毫秒内的序列
+						10 位数据机器位
+						41 位时间戳（毫秒级）
+						首位符号位：因为 ID 一般为正数，该值为 0
+					优点
+						趋势递增，且按照时间有序。
+						性能高、稳定性高、不依赖数据库等第三方系统。
+						可以按照自身业务特性灵活分配 bit 位。
+					缺点
+						依赖于机器时钟，时钟回拨会造成暂不可用或重复发号。
+					snowflake 是 Twitter 开源的一个 ID 生成算法
+					适用场景：要求高性能，可以不连续，数据类型为 long 型。
+				Flicker
+					Flicker 方案主要思路是设计单独的库表，利用数据库的自增 ID 来生成全局 ID
+					优点
+						充分利用了数据库自增 ID 机制，生成的 ID 有序递增。
+					缺点
+						依赖于数据库，可用性低
+						水平扩展困难：定义好了起始值、步长和机器台数之后，如果要添加机器就比较麻烦了。
+					适用场景：数据量不多，并发量不大。
+				Redis
+					因为 Redis 中的所有命令都是单线程的，可以利用 Incrby命令来模拟 ID 的递增。
+					优点：
+						不依赖数据库，且性能优于依赖数据库的 Flicker 方案。
+					缺点
+						扩展性低，Redis 集群需要设置好初始值与步长。
+						Reids 宕机可能会生成重复的Id。
+					适用场景：Redis 集群高可用，并发量高。
+				Leaf
+					美团的 Leaf 分布式 ID 生成系统
+					在 Flicker 策略 与 Snowflake 算法的基础上做了两套优化的方案
+					Leaf-segment 数据库方案
+					Leaf-snowflake 方案
+			分布式发号器
+		分布式数据库
+			内聚性
+				是指每一个数据库分布节点高度自治，有本地的数据库管理系统
+			透明性
+				是指每一个数据库分布节点对用户的应用来说都是透明的，看不出是本地还是远程。
+			在分布式数据系统中，用户感觉不数据是分布的，即用户不须知道关系是否分割，有无副本，数据存在于那个站点以及事物在哪个站点上执行
+			mycat
+			mariadb
+			postgreSql
+		分布式文件系统
+			Hadoop 的 HDFS
+			 google的 GFS
+			淘宝的 TFS
+		分布式缓存系统
+			hbase
+			mongdb
+		分布式计算
+		分布式一致性
+			拜占庭将军问题
+			共识算法
+	高可用架构
+		库
+			哨兵(sentinel)
+				阿里
+			Netflix
+			Hystrix
+		手段
+			服务冗余
+				无状态化
+			超时机制
+			负载均衡
+				幂等设计
+			异步化设计
+				不关心返回结果的服务
+				不太重要的服务
+			服务限流降级熔断
+				限流
+					单个应用的限流 
+						Guava 包RateLimiter
+					分布式限流
+						aop+redis
+						 spring-cloud-starter-alibaba-sentinel
+					current limiting
+					只允许系统能够承受的访问量进来，超出的会被丢弃
+					限流策略
+						基于请求限流
+							限制总量
+								限制某个指标的累积上限
+								直播间的用户总数上限为100万，超过后用户无法进入
+								抢购商品数量为100，限制抢购用户上限为1万个，超过或直接拒绝
+							限制时间量
+								限制一段时间内某个指标的上限
+								一分钟内只允许1000个用户访问
+								每秒请求峰值为10万
+							都需要找到合适的阀值
+								需要通过性能压测来确定阀值或者逐步优化
+						基于资源限流
+							内部资源有
+								连接数
+								文件句柄
+								线程数
+								请求队列
+								CPU利用率
+					实现方式
+						计数器
+							维护一个计数器，来一个请求计数加一，达到阈值时，直接拒绝请求
+						漏斗模式
+							漏斗很多是用一个队列实现的，当流量过多时，队列会出现积压，队列满了，则开始拒绝请求
+							Leaky Bucket
+						令牌桶
+							令牌通和漏斗模式很像，主要的区别是增加了一个中间人
+							这个中间人按照一定的速率放入一些token，然后，处理请求时，需要先拿到token才能处理，如果桶里没有token可以获取，则不进行处理
+							Token Bucket
+							速率限制（Rate Limiting
+							网络流量整形（Traffic Shaping
+						池化技术
+							天生自带限流基因
+					限流的一些注意点
+						限流越早设计约好，架构成型后，不容易加入
+						限流模块不要成为系统的瓶颈，性能要求高
+						最好有个开关，可以直接介入
+						限流发生时，能及时发出通知事件
+						限流发生时，给用户提供友好的提示 。
+					应用场景
+						秒杀
+						抢购
+				熔断
+					防止应用程序不断地尝试可能超时和失败的服务
+						弃卒保帅
+				降级
+					系统将某些不重要的业务或接口的功能降低
+						降级的思想是丢车保帅
+						为了解决资源不足和访问量增加的矛盾
+							在有限的资源情况下，为了能抗住大量的请求，就需要对系统做出一些牺牲
+						也有理解为强一致将为最终一致，或实时返回降为异步范围
+					降级策略
+						异常比例
+						响应时间
+						异常数
+					降级方式
+						系统后门降级
+							系统预留后门用于降级，比如提供一个降级URL，访问URL时就执行降级指令
+							缺点：如果服务器数量多，需要一台一台去操作，效率低
+						独立系统降级
+							将降级操作独立到一个单独的系统中，可以实现复杂的权限管理、批量操作等功能
+					降级的注意点
+						梳理和分析
+							哪些是核心流程必须保证的，哪些是可以牺牲的
+				排队
+					让用户等待一段时间，而不是像限流方式直接拒绝用户
+						等待比直接拒绝要好，比如支付请求
+					排队模块
+					排队模块
+					排队模块
+				削峰填谷
+				区别
+					触发原因
+						熔断是故障引起
+						降级是从整体负荷考虑
+		案例
+			无缝切换线上服务
+	微服务架构
+		Spring Cloud 微服务架构
+			Feign
+				动态代理
+				建立连接、构造请求、发起请求、获取响应、解析响应
+			Eureka
+				注册中心
+				专门负责服务的注册与发现
+			Ribbon
+				负载均衡
+				Round Robin 轮询算法
+			Hystrix
+				隔离、熔断以及降级的一个框架
+				resilience4j
+				 spring-cloud-starter-alibaba-sentinel
+				熔断器
+					三种状态
+						关闭状态
+							请求是可以被放行的
+						 打开状态
+							当熔断器统计的失败次数触发开关时，转为打开状态
+							所有请求都是不被放行的，直接返回失败
+						半开状态
+							打开状态经过一个设定的时间窗口周期后，熔断器才会转换到半开状态
+							当熔断器处于半开状态时，当前只能有一个请求被放行
+							这个被放行的请求获得远端服务的响应后，假如是成功的，熔断器转换为关闭状态，否则转换到打开状态。
+			Config
+				分布式配置
+			sleuth
+				服务跟踪
+			bus
+				消息总线
+			steam
+				数据流
+			task
+				任务
+			Spring Cloud Alibaba
+				Sentinel
+					分布式系统的流量防卫兵
+					entinel-dashboard
+					整合Sentine步骤l
+						第一步：在Spring Cloud应用的 pom.xml中引入Spring Cloud Alibaba的Sentinel模块：
+						第二步：在Spring Cloud应用中配置sentinel dashboard的访问地址
+						第三步：创建应用主类，并提供一个rest接口
+						@SentinelResource
+					配置限流规则
+					异常处理
+			微服务网关
+				Zuul
+					负责网络路由的
+					 blocking APIs
+					doesn't support any long lived connections, like websockets
+				spring cloud gateway
+					non-blocking APIs
+					tightly integrated with Spring
+			目标是微服务架构下的一站式解决方案
+		分布式链路跟踪系统
+			业界实现方案
+				开源
+					Twitter-Zipkin
+						主要收集“trace 数据
+					Apache-HTrace
+					PinPoint
+						仅能用于 java 服务器
+					SkyWalking
+					Uber-jaeger
+						主要收集“trace 数据
+					CAT
+				闭源
+					谷歌Dapper
+					阿里-鹰眼Tracing
+					新浪Watchman
+					唯品会的 Mercury
+					美团的MTrace
+					腾讯天机阁
+			解决的问题
+				故障定位难
+				容量评估难
+				链路梳理难
+				性能分析难
+		好处
+			跨团队的技术解耦
+			快速迭代
+			高并发
+		RPC框架
+			把复杂性屏蔽，就是RPC框架的职责
+			client端
+				序列化、反序列化、连接池管理、负载均衡、故障转移、队列管理，超时管理、异步管理等等
+			server端
+				服务端组件、服务端收发包队列、io线程、工作线程、序列化反序列化等
+		Dubbo
+			负载均衡
+			限流降级
+			异步调用
+			下线服务
+			定位始终是一款 RPC 框架
+		配置中心
+			Disconf
+				不再维护
+			Spring Cloud Config
+			Apollo
+			Nacos
+			etcd
+		微服务治理
+			服务雪崩
+				服务熔断
+				服务降级
+		发布和运维
+			DevOps 和容器层
+		坑
+		全链路的压测系统
+		Kubernetes
+		服务拆分
+			服务拆分的前提
+				有一个持续集成的平台
+					使得服务在拆分的过程中，保持功能的一致性
+				API 和 UI 要动静分离
+					API 由 API 网关统一的管理，这样后端无论如何拆分，可以保证对于前端来讲，是统一的入口
+				数据库，需要进行良好的设计
+				要做应用的无状态化
+			服务拆分的时机
+				提交代码频繁出现大量冲突
+				小功能要积累到大版本才能上线，上线开总监级别大会
+				横向扩展流程复杂，主要业务和次要业务耦合
+				熔断降级全靠 if-else
+			服务拆分的方法
+			服务拆分的规范
+				服务拆分最多三层，两次调用
+					基础服务层
+						用于屏蔽数据库，缓存层，提供原子的对象查询接口。有了这一层，当数据层做一定改变的时候，例如分库分表，数据库扩容，缓存替换等。
+						主要做数据库的操作和一些简单的业务逻辑，不允许调用其他任何服务
+					组合服务层
+						这一层调用基础服务层，完成较为复杂的业务逻辑，实现分布式事务也多在这一层。
+						可以调用基础服务层，完成复杂的业务逻辑，可以调用组合服务层，不允许循环调用，不允许调用 Controller 层服务。
+					Controller 层
+						接口层，调用组合服务层对外
+				仅仅单向调用，严禁循环调用
+				将串行调用改为并行调用，或者异步化
+				接口应该实现幂等
+				接口数据定义严禁内嵌，透传
+				规范化工程名
+		服务雪崩
+			应对机制
+				熔断机制
+			雪崩效应
+		Service Mesh
+			Istio
+			Linkerd
+			Envoy
+			Conduit
+				 Linkerd 2.0
+			Mesher
+				ServiceComb
+			Dubbo Mesh
+		鉴权
+			单点登录（SSO）
+				产生大量非常琐碎的网络流量和重复的工作
+			分布式 Session 方案
+				缺点
+					共享存储需要一定保护机制
+			客户端 Token 方案
+			客户端 Token 与 API 网关结合
+				所有请求都通过网关
+		监控系统
+			日志类
+			调用链类（Tracing）
+			度量类（Metrics）
+	CAP 理论
+		C 一致性Consisteny
+			两阶段提交协议（2PC）
+			三阶段提交协议（3PC）
+			Paxos协议
+			ZAB 协议
+				在 paxos 的基础上
+			Raft协议
+				概念
+					term
+						任期，比如新的选举任期，即整个集群初始化时，或者新的Leader选举就会开始一个新的选举任期
+					大多数
+						假设一个集群由N个节点组成，那么大多数就是至少N/2+1
+					状态
+						每个节点有三种状态
+						Follower
+						Candidate
+						Leader
+					日志复制
+						Log Replication
+					两个超时
+						选举超时
+						心跳超时
+			Gossip
+				基本思想
+					一个节点想要分享一些信息给网络中的其他的一些节点
+					于是，它周期性的随机选择一些节点，并把信息传递给这些节点。这些收到信息的节点接下来会做同样的事情，即把这些信息传递给其他一些随机选择的节点
+				应用
+					Redis Cluster
+					Consul
+					Apache Cassandra
+				失败容错
+					Gossip也具备失败容错的能力，即使网络故障等一些问题，Gossip协议依然能很好的运行。因为一个节点会多次分享某个需要传播的信息，即使不能连通某个节点，其他被感染的节点也会尝试向这个节点传播信息
+				健壮性
+					Gossip协议下，没有任何扮演特殊角色的节点（比如leader等）。任何一个节点无论什么时候下线或者加入，并不会破坏整个系统的服务质量
+				可扩展性
+				不完美的地方
+					拜占庭问题（Byzantine
+						如果有一个恶意传播消息的节点，Gossip协议的分布式系统就会出问题
+			每次的读操作，都能获得最新的数据
+		A 可用性Availability
+			每个请求都能在合理的时间内获得符合预期的响应
+		P 分区容错性Partition tolerance
+			当节点之间的网络出现问题之后，系统依然能正常提供服务
+			网络是不可能做到100%可靠的
+			 P（分区容错性）就是一个必选项
+		任何分布式系统只能同时满足这三项中的两项
+			CA
+				理论上是不可能有CA组合
+			CP
+			AP
+	架构图
+		什么是架构
+			架构是结构和愿景。
+		什么是架构图
+		架构图的作用
+			解决沟通障碍
+			达成共识
+			减少歧义
+		架构图分类
+			场景视图
+			逻辑视图
+			物理视图
+			处理流程视图
+			开发视图
+	案例
+		电商秒杀
+		服务无状态
+			用户session
+	安全认证
+		HTTP 基本认证
+			HTTP Basic Authentication（HTTP 基本认证）
+			HTTP 1.0 提出的一种认证机制
+			流程
+				客户端发送 HTTP Request 给服务器
+				因为 Request 中没有包含 Authorization header，服务器会返回一个 401 Unauthozied 给客户端，并且在 Response 的 Header &quot;WWW-Authenticate&quot; 中添加信息
+				客户端把用户名和密码用 BASE64 加密后，放在 Authorization Header 中发送给服务器， 认证成功
+				服务器将 Authorization Header 中的用户名密码取出，进行验证， 如果验证通
+				过，将根据请求，发送资源给客户端
+		基于 Session 的认证
+		基于 Token 的认证
+			好处
+				服务端无状态
+				性能较好
+				支持移动设备
+				支持跨程序调用
+			Token 注销
+				当用户注销时，Token 的有效时间还没有到，还是有效的
+				多采用短期令牌，比如令牌有效期是 20 分钟，这样可以一定程度上降低注销后 Token 可用性的风险
+			JWT
+				JSON Web Token
+				RFC 7519
+				JWT 一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息
+				认证流程
+					客户端调用登录接口（或者获取 token 接口），传入用户名密码。
+					服务端请求身份认证中心，确认用户名密码正确。
+					服务端创建 JWT，返回给客户端。
+					客户端拿到 JWT，进行存储（可以存储在缓存中，也可以存储在数据库中，如果是浏览器，可以存储在 Cookie 中）在后续请求中，在 HTTP 请求头中加上 JWT。
+					服务端校验 JWT，校验通过后，返回相关资源和数据。
+				JWT 结构
+					第一段为头部（Header
+						关于该 JWT 的最基本的信息
+						其类型以及签名所用的算法等
+					第二段为载荷（Payload)
+						标准中注册的声明
+							iss：JWT 签发者
+							sub：JWT 所面向的用户
+							aud：接收 JWT 的一方
+							exp：JWT 的过期时间，这个过期时间必须要大于签发时间
+							nbf：定义在什么时间之前，该 JWT 都是不可用的
+							iat：JWT 的签发时间
+							jti：JWT 的唯一身份标识，主要用来作为一次性 token, 从而回避重放攻击。
+						公共的声明
+							一般添加用户的相关信息或其他业务需要的必要信息
+							不建议添加敏感信息，因为该部分在客户端可解密
+						私有的声明
+							不建议存放敏感信息
+					第三段为签名（Signature）
+						创建签名需要使用 Base64 编码后的 header 和 payload 以及一个秘钥
+						通过 header 中声明的加密方式进行加盐 secret 组合加密
+						HMACSHA256(base64UrlEncode(header) + &quot;.&quot; + base64UrlEncode(payload), secret)
+					每一段内容都是一个 JSON 对象
+					将每一段 JSON 对象采用 BASE64 编码
+					将编码后的内容用. 链接一起就构成了 JWT 字符串
+				优点
+					跨语言，JSON 的格式保证了跨语言的支撑
+					基于 Token，无状态
+					占用字节小，便于传输
+			OAuth 2.0
+				特点
+					简单
+						：不管是 OAuth 服务提供者还是应用开发者，都很容易于理解与使用；
+					安全
+						：没有涉及到用户密钥等信息，更安全更灵活；
+					开放：
+						任何服务提供商都可以实现 OAuth，任何软件开发商都可以使用 OAuth；
+					不向后兼容 OAuth 1.0
+				2012 年 10 月RFC 6749
+				四大角色
+					客户端
+						客户端是代表资源所有者对资源服务器发出访问受保护资源请求的应用程序
+					资源拥有者
+						资源拥有者是对资源具有授权能力的人
+					资源服务器
+						资源所在的服务器
+					授权服务器
+						为客户端应用程序提供不同的 Token，可以和资源服务器在统一服务器上，也可以独立出去
+				四种授权方式
+					授权码模式（authorization code）
+						流程
+							用户访问客户端，后者将前者导向认证服务器。
+							用户选择是否给予客户端授权。
+							假设用户给予授权，认证服务器将用户导向客户端事先指定的&quot;重定向 URI&quot;（redirection URI），同时附上一个授权码。
+							客户端收到授权码，附上早先的&quot;重定向 URI&quot;，向认证服务器申请令牌。这一步是在客户端的后台的服务器上完成的，对用户不可见。
+							认证服务器核对了授权码和重定向 URI，确认无误后，向客户端发送访问令牌（access token）和更新令牌（refresh token）。
+					简化模式（implicit）
+						跳过了&quot;授权码&quot;这个步骤
+						流程
+							客户端将用户导向认证服务器。
+							用户决定是否给于客户端授权。
+							假设用户给予授权，认证服务器将用户导向客户端指定的&quot;重定向 URI&quot;，并在 URI 的 Hash 部分包含了访问令牌。
+							浏览器向资源服务器发出请求，其中不包括上一步收到的 Hash 值。
+							资源服务器返回一个网页，其中包含的代码可以获取 Hash 值中的令牌。
+							浏览器执行上一步获得的脚本，提取出令牌。
+							浏览器将令牌发给客户端。
+					密码模式（Resource Owner Password Credentials）
+						用户向客户端提供自己的用户名和密码
+						通常用在用户对客户端高度信任的情况下
+					客户端模式（Client Credentials）
+		SSO单点登录
+			Single Sign On
+			指在多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录
+			登录
+			注销
+			通信方式
+			sso-client
+				1、拦截子系统未登录用户请求，跳转至sso认证中心；
+				2、接收并存储sso认证中心发送的令牌；
+				3、与sso-server通信，校验令牌的有效性；
+				4、建立局部会话；
+				5、拦截用户注销请求，向sso认证中心发送注销请求；
+				6、接收sso认证中心发出的注销请求，销毁局部会话。
+			sso-server
+				认证中心
+				1、验证用户的登录信息；
+				2、创建全局会话；
+				3、创建授权令牌；
+				4、与sso-client通信发送令牌；
+				5、校验sso-client令牌有效性；
+				6、系统注册；
+				7、接收sso-client注销请求，注销所有会话。
+	中台
+		分类
+			业务中台
+				提供重用服务，例如用户中心、订单中心之类的开箱即用可重用能力，为战场提供了空军支援能力，随叫随到，威力强大
+			数据中台
+				提供数据分析能力，帮助从数据中学习改进，调整方向，为战场提供了海军支援能力；
+			算法中台
+				提供算法能力，帮助提供更加个性化的服务，增强用户体验，为战场提供了陆军支援能力，随机应变，所向披靡；
+			技术中台
+				提供自建系统部分的技术支撑能力，帮助解决基础设施，分布式数据库等底层技术问题，为前台特种兵提供了精良的武器装备；
+			研发中台
+				提供自建系统部分的管理和技术实践支撑能力，帮助快速搭建项目、管理进度、测试、持续集成、持续交付，是前台特种兵的训练基地；
+			组织中台
+				为项目提供投资管理、风险管理、资源调度等，是战场的指挥部，战争的大脑，指挥前线，调度后方。</p>
+
+  </blockquote>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Juforg">
+            
+              <p class="site-author-name" itemprop="name">Juforg</p>
+              <p class="site-description motion-element" itemprop="description">以大多数人的努力程度之低还轮不到拼天赋</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/juforg" title="GitHub &rarr; https://github.com/juforg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:juforg@sina.com" title="E-Mail &rarr; mailto:juforg@sina.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">沪ICP备16050188号-1 </a>&copy; 2016 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-copyright"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Juforg</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1276674346&web_id=1276674346"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+  <script src="/js/src/kity.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/kityminder.core.min.js?v=7.0.1"></script>
+
+  <script src="/js/src/mindmap.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'LVc4wMV4nqOSxd3vboYEuxty-gzGzoHsz',
+    appKey: 'AB11iu8RjTGwnLmI6D7THqDC',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=7.0.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
